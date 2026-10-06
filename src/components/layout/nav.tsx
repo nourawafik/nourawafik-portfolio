@@ -15,7 +15,7 @@ const navLinks = [
 const itemClass =
   'text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150';
 const langClass =
-  'text-[0.8125rem] text-foreground-subtle hover:text-foreground transition-colors duration-150';
+  'text-[0.8125rem] text-foreground-muted hover:text-foreground transition-colors duration-150';
 
 export function Nav() {
   const [open, setOpen] = useState(false);

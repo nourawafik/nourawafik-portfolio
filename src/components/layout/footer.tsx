@@ -41,7 +41,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <p dir="ltr" className="pb-6 font-mono text-[0.8125rem] text-foreground-subtle">
+        <p dir="ltr" className="pb-6 font-mono text-[0.8125rem] text-foreground-muted">
           © {currentYear} Noura Wafik · Built with Next.js, deployed on Vercel
         </p>
       </Container>

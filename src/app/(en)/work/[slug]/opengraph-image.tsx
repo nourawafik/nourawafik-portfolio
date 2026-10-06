@@ -31,11 +31,11 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           justifyContent: 'space-between',
           width: '100%',
           height: '100%',
-          backgroundColor: '#FAFAF9',
+          backgroundColor: '#F4F2EE',
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.06em' }}>
+        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.06em' }}>
           Case Study · Noura Wafik
         </div>
 
@@ -45,19 +45,19 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               fontFamily: 'Space Grotesk, Alexandria',
               fontWeight: 500,
               fontSize: 64,
-              color: '#1F2937',
+              color: '#13140F',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
             }}
           >
             {title}
           </div>
-          <div style={{ fontFamily: 'Figtree', fontWeight: 400, fontSize: 28, color: '#6B7280', lineHeight: 1.5 }}>
+          <div style={{ fontFamily: 'Figtree', fontWeight: 400, fontSize: 28, color: '#636258', lineHeight: 1.5 }}>
             {tagline}
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.04em' }}>
+        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.04em' }}>
           nourawafik.com
         </div>
       </div>

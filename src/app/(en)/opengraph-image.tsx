@@ -16,11 +16,11 @@ export default async function Image() {
           justifyContent: 'space-between',
           width: '100%',
           height: '100%',
-          backgroundColor: '#FAFAF9',
+          backgroundColor: '#F4F2EE',
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.06em' }}>
+        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.06em' }}>
           nourawafik.com
         </div>
 
@@ -30,19 +30,19 @@ export default async function Image() {
               fontFamily: 'Space Grotesk',
               fontWeight: 500,
               fontSize: 80,
-              color: '#1F2937',
+              color: '#13140F',
               letterSpacing: '-0.02em',
               lineHeight: 1.1,
             }}
           >
             Noura Wafik
           </div>
-          <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 36, color: '#374151', lineHeight: 1.4 }}>
+          <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 36, color: '#636258', lineHeight: 1.4 }}>
             Product Designer
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.04em' }}>
+        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.04em' }}>
           Bilingual (Arabic/English) · Based in Cairo
         </div>
       </div>

@@ -5,8 +5,8 @@ type ButtonVariant = 'primary' | 'ghost';
 type ButtonSize = 'sm' | 'md';
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-foreground text-background hover:opacity-80',
-  ghost: 'bg-transparent text-foreground border border-border hover:bg-surface hover:border-border-strong',
+  primary: 'bg-accent text-on-accent hover:bg-accent-press active:bg-accent-press',
+  ghost: 'bg-transparent text-foreground border border-border-strong hover:bg-surface',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -15,7 +15,7 @@ const sizeClasses: Record<ButtonSize, string> = {
 };
 
 const baseClasses =
-  'inline-flex items-center justify-center font-medium transition-[opacity,background-color,border-color] duration-150 cursor-pointer disabled:cursor-not-allowed disabled:opacity-40';
+  'inline-flex items-center justify-center rounded-control font-medium transition-[opacity,background-color,border-color] duration-150 cursor-pointer disabled:cursor-not-allowed disabled:opacity-40';
 
 interface ButtonBaseProps {
   variant?: ButtonVariant;

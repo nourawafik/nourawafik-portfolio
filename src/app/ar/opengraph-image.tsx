@@ -17,11 +17,11 @@ export default async function Image() {
           alignItems: 'flex-end',
           width: '100%',
           height: '100%',
-          backgroundColor: '#FAFAF9',
+          backgroundColor: '#F4F2EE',
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#9CA3AF', textAlign: 'right' }}>
+        <div style={{ display: 'flex', fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#636258', textAlign: 'right' }}>
           nourawafik.com
         </div>
 
@@ -31,19 +31,19 @@ export default async function Image() {
               fontFamily: 'Alexandria',
               fontWeight: 500,
               fontSize: 80,
-              color: '#1F2937',
+              color: '#13140F',
               lineHeight: 1.3,
               textAlign: 'right',
             }}
           >
             نورا وفيق
           </div>
-          <div style={{ fontFamily: 'Almarai', fontWeight: 400, fontSize: 36, color: '#374151', lineHeight: 1.6, textAlign: 'right' }}>
+          <div style={{ fontFamily: 'Almarai', fontWeight: 400, fontSize: 36, color: '#636258', lineHeight: 1.6, textAlign: 'right' }}>
             مصممة منتجات رقمية
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#9CA3AF', textAlign: 'right' }}>
+        <div style={{ display: 'flex', fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#636258', textAlign: 'right' }}>
           مصممة منتجات · القاهرة
         </div>
       </div>

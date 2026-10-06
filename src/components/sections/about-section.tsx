@@ -10,7 +10,7 @@ export function AboutSection() {
         <div className="flex flex-col gap-8 md:flex-row md:gap-24">
           <h2
             id="about-heading"
-            className="text-[0.8125rem] font-mono text-foreground-subtle shrink-0 md:w-32 md:pt-1"
+            className="text-[0.8125rem] font-mono text-foreground-muted shrink-0 md:w-32 md:pt-1"
           >
             About
           </h2>

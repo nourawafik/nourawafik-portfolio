@@ -13,7 +13,7 @@ export function ArContactSection() {
         <div className="flex flex-col gap-8 md:flex-row md:gap-24">
           <h2
             id="contact-heading"
-            className="text-[0.8125rem] font-mono text-foreground-subtle shrink-0 md:w-32 md:pt-1"
+            className="text-[0.8125rem] font-mono text-foreground-muted shrink-0 md:w-32 md:pt-1"
           >
             تواصل
           </h2>
@@ -40,7 +40,7 @@ export function ArContactSection() {
                 onClick={() => track('linkedin_click')}
                 className="group flex items-center gap-2 text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150 w-fit"
               >
-                <span className="font-mono text-foreground-subtle">لينكدإن</span>
+                <span className="font-mono text-foreground-muted">لينكدإن</span>
                 <span className="group-hover:underline underline-offset-2">
                   linkedin.com/in/nourawafik
                 </span>
