@@ -1,3 +1,5 @@
+'use client';
+import { track } from '@vercel/analytics';
 import { Container } from './container';
 
 const currentYear = new Date().getFullYear();
@@ -16,6 +18,7 @@ export function Footer() {
         <div className="flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
           <a
             href="mailto:hello@nourawafik.com"
+            onClick={() => track('email_click')}
             className="text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
           >
             hello@nourawafik.com
@@ -28,6 +31,7 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('linkedin_click')}
                   className="text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
                 >
                   {label}

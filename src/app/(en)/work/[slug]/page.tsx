@@ -27,11 +27,15 @@ export async function generateMetadata({
     return {
       title: fm.title,
       description: fm.description,
+      alternates: {
+        canonical: `https://nourawafik.com/work/${slug}`,
+      },
       openGraph: {
         title: fm.title,
         description: fm.description,
         type: 'article',
         authors: ['Noura Wafik'],
+        url: `https://nourawafik.com/work/${slug}`,
       },
       twitter: {
         card: 'summary_large_image',
@@ -98,6 +102,7 @@ export default async function CaseStudyPage({
             role={frontmatter.role}
             timeline={frontmatter.timeline}
             platform={frontmatter.platform}
+            surfaces={frontmatter.surfaces}
             status={frontmatter.status}
           />
         </div>

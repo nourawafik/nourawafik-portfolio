@@ -16,9 +16,9 @@ export function Hero() {
           </div>
 
           <p className="text-[1rem] leading-[1.65] text-foreground max-w-[560px]">
-            I design data-heavy SaaS — dashboards, mobile apps, and AI tools — for healthtech and HR
-            tech teams. Bilingual (Arabic/English). Based in Cairo, currently working with a UAE-based
-            team on products serving the Gulf, Egypt, and the US.
+            Multi-role SaaS, bilingual systems, AI tooling. I build the design foundation and ship the
+            product — from token architecture to production-ready specs. Based in Cairo, open to remote
+            roles.
           </p>
 
           <div className="flex flex-wrap gap-3">

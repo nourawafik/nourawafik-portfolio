@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ─── Dark mode: use .dark class (next-themes) instead of OS media query ── */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ─── Semantic color tokens ──────────────────────────────────────────────── */
 :root {
   --background: #fafaf9;

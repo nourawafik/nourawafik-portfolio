@@ -18,6 +18,7 @@ export interface CaseStudyFrontmatter {
   role: string;
   timeline: string;
   platform: string;
+  surfaces?: string;
   status: string;
   order: number;
   slug: string;

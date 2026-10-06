@@ -1,3 +1,5 @@
+'use client';
+import { track } from '@vercel/analytics';
 import { Container } from '@/components/layout/container';
 
 const links = [
@@ -27,6 +29,7 @@ export function ContactSection() {
 
             <a
               href="mailto:hello@nourawafik.com"
+              onClick={() => track('email_click')}
               className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground underline underline-offset-4 decoration-border-strong hover:decoration-foreground transition-[text-decoration-color] duration-150 self-start"
             >
               hello@nourawafik.com
@@ -39,6 +42,7 @@ export function ContactSection() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => track('linkedin_click')}
                   className="group flex items-baseline gap-3 text-[1rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
                 >
                   <span className="font-mono text-[0.8125rem] text-foreground-subtle w-16 shrink-0">

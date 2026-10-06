@@ -2,22 +2,17 @@ interface MetadataGridProps {
   role: string;
   timeline: string;
   platform: string;
+  surfaces?: string;
   status: string;
 }
 
-const labels: Record<keyof MetadataGridProps, string> = {
-  role: 'Role',
-  timeline: 'Timeline',
-  platform: 'Platform',
-  status: 'Status',
-};
-
-export function MetadataGrid({ role, timeline, platform, status }: MetadataGridProps) {
+export function MetadataGrid({ role, timeline, platform, surfaces, status }: MetadataGridProps) {
   const items = [
-    { label: labels.role, value: role },
-    { label: labels.timeline, value: timeline },
-    { label: labels.platform, value: platform },
-    { label: labels.status, value: status },
+    { label: 'Role', value: role },
+    { label: 'Timeline', value: timeline },
+    { label: 'Platform', value: platform },
+    ...(surfaces ? [{ label: 'Surfaces', value: surfaces }] : []),
+    { label: 'Status', value: status },
   ];
 
   return (

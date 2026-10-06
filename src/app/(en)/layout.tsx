@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/components/providers';
 import { Nav } from '@/components/layout/nav';
 import { Footer } from '@/components/layout/footer';
@@ -65,7 +67,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
   },
   alternates: {
-    canonical: 'https://nourawafik.com',
     languages: {
       en: 'https://nourawafik.com',
       ar: 'https://nourawafik.com/ar',
@@ -94,6 +95,8 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
           </main>
           <Footer />
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

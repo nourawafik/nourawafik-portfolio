@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { ProjectImage } from '@/components/ui/project-image';
+import { ArContactSection } from '@/components/sections/ar-contact-section';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://nourawafik.com/ar',
+    languages: {
+      en: 'https://nourawafik.com',
+      ar: 'https://nourawafik.com/ar',
+    },
+  },
+};
 
 function ArHero() {
   return (
@@ -18,16 +30,16 @@ function ArHero() {
           </div>
 
           <p className="text-[1rem] leading-[1.65] text-foreground max-w-[560px]">
-            أصمم أنظمة تصميم وتطبيقات SaaS بالعربي والإنجليزي — للقطاعات الصحية والتقنية ومنصات
-            الذكاء الاصطناعي. شغلي الحالي مع شركة في الإمارات، على منتجات تخدم السعودية ومصر
-            والولايات المتحدة. مقري في القاهرة.
+            منتجات SaaS متعددة الأدوار، أنظمة ثنائية اللغة، وأدوات الذكاء الاصطناعي. أبني الأساس
+            التصميمي وأوصل المنتج للإنتاج — من بنية التوكنز إلى المواصفات الجاهزة للتطوير. مقيمة في
+            القاهرة، متاحة للعمل عن بُعد.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <Button href="/ar#work" variant="primary">
               تصفحوا أعمالي
             </Button>
-            <Button href="mailto:hello@nourawafik.com" variant="ghost" external>
+            <Button href="/ar#contact" variant="ghost">
               تواصلوا معي
             </Button>
           </div>
@@ -122,71 +134,23 @@ function ArAbout() {
 
           <div className="flex flex-col gap-6 max-w-[560px]">
             <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              أنا نورا، مصممة منتجات مقري القاهرة. عندي سنتين وأربع شهور في تصميم المنتجات الرقمية،
-              وأربع سنوات إضافية في التصميم البصري والـ branding. شغلي بيغطي كامل دورة التصميم — من
-              البحث وفهم المستخدمين، لبناء أنظمة التصميم، للتفاصيل الدقيقة في التفاعل والـ UI.
+              أنا نورة — مصممة منتجات مقيمة في القاهرة. لديّ أكثر من 6 سنوات من الخبرة في
+              التصميم، تخصصت خلالها تدريجياً في تصميم المنتجات الرقمية بعد خبرة في التصميم البصري
+              والجرافيك. أعمل على المنتج بالكامل: البحث، وهندسة المعلومات، وتصميم التفاعل، وأنظمة
+              التصميم.
             </p>
 
             <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              متخصصة في منتجات SaaS الـ data-heavy، تطبيقات الصحة النفسية والطبية، ومنتجات الذكاء
-              الاصطناعي. الخلفية البصرية والـ branding بتساعدني أوصّل قرارات التصميم بوضوح للفرق غير
-              المصممة.
+              أتحدث العربية والإنجليزية، وأصمم منتجات في مجالات الصحة الرقمية وأدوات الذكاء
+              الاصطناعي ومنصات العافية في منطقة الخليج ومصر والولايات المتحدة. تشمل أعمالي الأخيرة
+              قيادة تصميم منتجات متعددة المنصات وثنائية اللغة، وتوجيه مصممين مبتدئين، وبناء أنظمة
+              تصميم قابلة للقراءة بالذكاء الاصطناعي باستخدام design.md وStorybook لتسليم المواصفات
+              للمطورين.
             </p>
 
             <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              ثنائية اللغة (عربي وإنجليزي)، وعندي خبرة عميقة في تصميم الـ Arabic UX — من الـ RTL
-              والـ bidirectional text، لاختيار الأرقام (عربية مقابل لاتينية) حسب السياق، لتصميم
-              الأزواج البصرية بين الخطين العربي والإنجليزي.
+              متاحة للأدوار الكاملة عن بُعد، ومنفتحة على الانتقال إلى الإمارات.
             </p>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-function ArContact() {
-  return (
-    <section
-      id="contact"
-      aria-labelledby="contact-heading"
-      className="py-20 md:py-32 border-t border-border"
-    >
-      <Container>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-24">
-          <h2
-            id="contact-heading"
-            className="text-[0.8125rem] font-mono text-foreground-subtle shrink-0 md:w-32 md:pt-1"
-          >
-            تواصل
-          </h2>
-
-          <div className="flex flex-col gap-6 max-w-[560px]">
-            <h3 className="text-[1.5rem] font-medium leading-[1.2] tracking-[-0.015em] text-foreground">
-              للوظائف والمشاريع
-            </h3>
-            <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              متاحة حالياً للوظائف بدوام كامل.
-            </p>
-            <a
-              href="mailto:hello@nourawafik.com"
-              className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground hover:opacity-70 transition-opacity duration-150 w-fit"
-            >
-              hello@nourawafik.com
-            </a>
-            <div className="flex flex-col gap-2">
-              <a
-                href="https://linkedin.com/in/nourawafik"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150 w-fit"
-              >
-                <span className="font-mono text-foreground-subtle">لينكدإن</span>
-                <span className="group-hover:underline underline-offset-2">
-                  linkedin.com/in/nourawafik
-                </span>
-              </a>
-            </div>
           </div>
         </div>
       </Container>
@@ -200,7 +164,7 @@ export default function ArPage() {
       <ArHero />
       <ArWork />
       <ArAbout />
-      <ArContact />
+      <ArContactSection />
     </>
   );
 }

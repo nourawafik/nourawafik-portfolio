@@ -32,6 +32,7 @@ interface ButtonAsLink extends ButtonBaseProps {
   href: string;
   external?: boolean;
   download?: boolean;
+  onClick?: () => void;
 }
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
@@ -42,12 +43,13 @@ export function Button(props: ButtonProps) {
   const classes = cn(baseClasses, variantClasses[variant], sizeClasses[size], className);
 
   if ('href' in props && props.href) {
-    const { href, external, download } = props;
+    const { href, external, download, onClick } = props;
     if (external || download) {
       return (
         <a
           href={href}
           className={classes}
+          onClick={onClick}
           {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           {...(download ? { download: true } : {})}
         >
@@ -56,7 +58,7 @@ export function Button(props: ButtonProps) {
       );
     }
     return (
-      <NextLink href={href} className={classes}>
+      <NextLink href={href} className={classes} onClick={onClick}>
         {children}
       </NextLink>
     );
