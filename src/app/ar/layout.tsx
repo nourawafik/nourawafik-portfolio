@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans_Arabic, JetBrains_Mono } from 'next/font/google';
+import { Alexandria, Almarai, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/components/providers';
@@ -7,10 +7,17 @@ import { NavAr } from '@/components/layout/nav-ar';
 import { Footer } from '@/components/layout/footer';
 import '../globals.css';
 
-const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
-  variable: '--font-ibm-plex-arabic',
-  subsets: ['arabic'],
-  weight: ['400', '500', '600'],
+const alexandria = Alexandria({
+  variable: '--font-alexandria',
+  subsets: ['arabic', 'latin'],
+  display: 'swap',
+});
+
+// Almarai ships 300/400/700/800 only — no 500, so font-medium resolves to 400.
+const almarai = Almarai({
+  variable: '--font-almarai',
+  subsets: ['arabic', 'latin'],
+  weight: ['400', '700'],
   display: 'swap',
 });
 
@@ -53,9 +60,9 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
       lang="ar"
       dir="rtl"
       suppressHydrationWarning
-      className={`${ibmPlexSansArabic.variable} ${jetbrainsMono.variable}`}
+      className={`${alexandria.variable} ${almarai.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-screen flex flex-col bg-background text-foreground font-[var(--font-ibm-plex-arabic)]">
+      <body className="min-h-screen flex flex-col bg-background text-foreground">
         <Providers>
           <NavAr />
           <main id="main-content" className="flex-1">

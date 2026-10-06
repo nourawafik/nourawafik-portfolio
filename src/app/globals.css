@@ -37,8 +37,10 @@
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
 
-  /* Fonts — variables injected by next/font in layout.tsx */
-  --font-sans: var(--font-inter);
+  /* Fonts — family variables injected by next/font in each layout.tsx;
+     the per-language stacks are set on html[lang] below */
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
   --font-mono: var(--font-jetbrains);
 
   /* Type scale */
@@ -52,9 +54,29 @@
   --text-mono: 0.8125rem;
 }
 
+/* ─── Type families per language ─────────────────────────────────────────── */
+/* Latin: Space Grotesk headings, Figtree body. Arabic: Alexandria headings,
+   Almarai body. Each script falls back to its partner for embedded words. */
+html[lang='en'] {
+  --font-heading: var(--font-space-grotesk), var(--font-alexandria), system-ui, sans-serif;
+  --font-body: var(--font-figtree), var(--font-almarai), system-ui, sans-serif;
+}
+
+html[lang='ar'] {
+  --font-heading: var(--font-alexandria), system-ui, sans-serif;
+  --font-body: var(--font-almarai), system-ui, sans-serif;
+}
+
 /* ─── Base styles ────────────────────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+}
+
 html {
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

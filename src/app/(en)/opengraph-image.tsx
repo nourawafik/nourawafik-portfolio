@@ -1,11 +1,11 @@
 import { ImageResponse } from 'next/og';
-import { interFont } from '@/lib/og-fonts';
+import { figtreeFont, spaceGroteskFont } from '@/lib/og-fonts';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
-  const [inter400, inter500] = await Promise.all([interFont(400), interFont(500)]);
+  const [figtree, spaceGrotesk] = await Promise.all([figtreeFont(), spaceGroteskFont()]);
 
   return new ImageResponse(
     (
@@ -20,14 +20,14 @@ export default async function Image() {
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', fontFamily: 'Inter', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.06em' }}>
+        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.06em' }}>
           nourawafik.com
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <div
             style={{
-              fontFamily: 'Inter',
+              fontFamily: 'Space Grotesk',
               fontWeight: 500,
               fontSize: 80,
               color: '#1F2937',
@@ -37,12 +37,12 @@ export default async function Image() {
           >
             Noura Wafik
           </div>
-          <div style={{ display: 'flex', fontFamily: 'Inter', fontWeight: 400, fontSize: 36, color: '#374151', lineHeight: 1.4 }}>
+          <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 36, color: '#374151', lineHeight: 1.4 }}>
             Product Designer
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Inter', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.04em' }}>
+        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.04em' }}>
           Bilingual (Arabic/English) · Based in Cairo
         </div>
       </div>
@@ -50,8 +50,8 @@ export default async function Image() {
     {
       ...size,
       fonts: [
-        { name: 'Inter', data: inter400, weight: 400, style: 'normal' },
-        { name: 'Inter', data: inter500, weight: 500, style: 'normal' },
+        { name: 'Figtree', data: figtree, weight: 400, style: 'normal' },
+        { name: 'Space Grotesk', data: spaceGrotesk, weight: 500, style: 'normal' },
       ],
     }
   );

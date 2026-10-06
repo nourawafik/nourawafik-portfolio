@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Alexandria, Almarai, Figtree, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/components/providers';
@@ -7,10 +7,33 @@ import { Nav } from '@/components/layout/nav';
 import { Footer } from '@/components/layout/footer';
 import '../globals.css';
 
-const inter = Inter({
-  variable: '--font-inter',
+const figtree = Figtree({
+  variable: '--font-figtree',
   subsets: ['latin'],
   display: 'swap',
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+// Arabic fallbacks for Arabic words inside English pages (e.g. "دايرتنا · Da'eratna").
+// Not preloaded: the browser only fetches them when Arabic glyphs actually render.
+const alexandria = Alexandria({
+  variable: '--font-alexandria',
+  subsets: ['arabic'],
+  display: 'swap',
+  preload: false,
+});
+
+const almarai = Almarai({
+  variable: '--font-almarai',
+  subsets: ['arabic'],
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: false,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -79,7 +102,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${figtree.variable} ${spaceGrotesk.variable} ${alexandria.variable} ${almarai.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <script

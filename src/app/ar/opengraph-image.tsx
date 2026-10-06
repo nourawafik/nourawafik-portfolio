@@ -1,14 +1,11 @@
 import { ImageResponse } from 'next/og';
-import { ibmPlexArabicFont } from '@/lib/og-fonts';
+import { alexandriaFont, almaraiFont } from '@/lib/og-fonts';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
-  const [arabic400, arabic500] = await Promise.all([
-    ibmPlexArabicFont(400),
-    ibmPlexArabicFont(500),
-  ]);
+  const [almarai, alexandria] = await Promise.all([almaraiFont(), alexandriaFont()]);
 
   return new ImageResponse(
     (
@@ -24,14 +21,14 @@ export default async function Image() {
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', fontFamily: 'IBMPlexArabic', fontWeight: 400, fontSize: 13, color: '#9CA3AF', textAlign: 'right' }}>
+        <div style={{ display: 'flex', fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#9CA3AF', textAlign: 'right' }}>
           nourawafik.com
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-end' }}>
           <div
             style={{
-              fontFamily: 'IBMPlexArabic',
+              fontFamily: 'Alexandria',
               fontWeight: 500,
               fontSize: 80,
               color: '#1F2937',
@@ -41,12 +38,12 @@ export default async function Image() {
           >
             نورا وفيق
           </div>
-          <div style={{ fontFamily: 'IBMPlexArabic', fontWeight: 400, fontSize: 36, color: '#374151', lineHeight: 1.6, textAlign: 'right' }}>
+          <div style={{ fontFamily: 'Almarai', fontWeight: 400, fontSize: 36, color: '#374151', lineHeight: 1.6, textAlign: 'right' }}>
             مصممة منتجات رقمية
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'IBMPlexArabic', fontWeight: 400, fontSize: 13, color: '#9CA3AF', textAlign: 'right' }}>
+        <div style={{ display: 'flex', fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#9CA3AF', textAlign: 'right' }}>
           مصممة منتجات · القاهرة
         </div>
       </div>
@@ -54,8 +51,8 @@ export default async function Image() {
     {
       ...size,
       fonts: [
-        { name: 'IBMPlexArabic', data: arabic400, weight: 400, style: 'normal' },
-        { name: 'IBMPlexArabic', data: arabic500, weight: 500, style: 'normal' },
+        { name: 'Almarai', data: almarai, weight: 400, style: 'normal' },
+        { name: 'Alexandria', data: alexandria, weight: 500, style: 'normal' },
       ],
     }
   );
