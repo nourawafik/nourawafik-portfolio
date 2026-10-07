@@ -21,7 +21,7 @@ function ArHero() {
       <Container>
         <div className="flex flex-col gap-8 max-w-[760px]">
           <div className="flex flex-col gap-3">
-            <h1 className="text-[2.5rem] font-medium leading-[1.1] tracking-[-0.02em] text-foreground md:text-[3.5rem]">
+            <h1 className="text-[2.5rem] font-medium leading-[1.1] text-foreground md:text-[3.5rem]">
               نورا وفيق
             </h1>
             <p className="text-[1.125rem] leading-[1.65] text-foreground-muted">
@@ -76,7 +76,7 @@ function ArWork() {
       <Container>
         <h2
           id="work-heading"
-          className="text-[1.5rem] font-medium leading-[1.2] tracking-[-0.015em] text-foreground mb-4"
+          className="text-[1.5rem] font-medium leading-[1.2] text-foreground mb-4"
         >
           لمحة عن أعمالي الحالية
         </h2>
@@ -94,7 +94,7 @@ function ArWork() {
                     <p className="font-mono text-[0.8125rem] text-foreground-muted">
                       {String(i + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground">
+                    <h3 className="text-[1.25rem] font-medium leading-[1.3] text-foreground">
                       {project.title}
                     </h3>
                     <p className="text-[1rem] leading-[1.65] text-foreground-muted max-w-[480px]">
@@ -127,7 +127,7 @@ function ArAbout() {
         <div className="flex flex-col gap-8 md:flex-row md:gap-24">
           <h2
             id="about-ar-heading"
-            className="text-[0.8125rem] font-mono text-foreground-muted shrink-0 md:w-32 md:pt-1"
+            className="text-[0.8125rem] font-sans text-foreground-muted shrink-0 md:w-32 md:pt-1"
           >
             نبذة عني
           </h2>
