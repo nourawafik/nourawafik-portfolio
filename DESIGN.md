@@ -33,6 +33,21 @@ colors:
   error-dark: "#F08A8D"
   info-dark: "#9DB8E8"
 typography:
+  hero:
+    fontFamily: "Space Grotesk, system-ui, sans-serif"
+    fontSize: "64px"
+    lineHeight: 1.05
+    letterSpacing: "-0.03em"
+  hero-mobile:
+    fontFamily: "Space Grotesk, system-ui, sans-serif"
+    fontSize: "44px"
+    lineHeight: 1.05
+    letterSpacing: "-0.03em"
+  hero-ar:
+    fontFamily: "Alexandria, system-ui, sans-serif"
+    fontSize: "64px"
+    lineHeight: 1.3
+    letterSpacing: "0"
   display:
     fontFamily: "Space Grotesk, system-ui, sans-serif"
     fontSize: "48px"
@@ -197,7 +212,8 @@ Success (same value as the accent), warning, error and info. Each passes as text
 ### Hierarchy
 Sizes are shared across both scripts. Heading line-height runs from 105% (display) to 150% (h3), depending on level. Latin body text is 165% and all Arabic text is 185%.
 
-- **Display** (48px; Latin −3% tracking): the hero statement.
+- **Hero** (`--size-hero`: 64px from 768px up, 44px below; Latin −3% tracking, 105% line-height; Arabic 0 tracking, 130% line-height): the homepage hero H1 only. It is the one size above Display, so the hero statement is the largest thing on the page.
+- **Display** (48px; Latin −3% tracking): large statements outside the hero.
 - **Headline / h1** (34px; Latin −2.5%): page titles.
 - **Title / h2** (26px; Latin −2%): section headings.
 - **Subtitle / h3** (19px; Latin −1%): card titles and decision headings.
@@ -206,6 +222,8 @@ Sizes are shared across both scripts. Heading line-height runs from 105% (displa
 - **Micro** (12.5px): labels and metadata. Latin labels may use JetBrains Mono; Arabic labels always use Almarai.
 
 ### Named Rules
+**The One Hero Rule.** `--size-hero` appears once per page, on the hero H1. Never hardcode a size above Display; add a named token instead.
+
 **The Zero Tracking Rule.** Arabic letter-spacing is always 0. Negative tracking breaks the letter joins.
 
 **The No Mono Arabic Rule.** Never set Arabic in JetBrains Mono. It has no Arabic glyphs, and the bidi algorithm scrambles the word order. Arabic labels use Almarai.

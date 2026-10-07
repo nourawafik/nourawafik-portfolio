@@ -29,13 +29,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nourawafik.com'),
-  title: 'نورا وفيق — مصممة منتجات',
+  title: 'نورا وفيق — مصممة منتجات | أنظمة تصميم ثنائية اللغة',
   description:
     'مصممة منتجات تشتغل على منصات SaaS وتطبيقات صحية ومنتجات ذكاء اصطناعي — بالعربي والإنجليزي. متاحة للوظائف بدوام كامل.',
   authors: [{ name: 'Noura Wafik' }],
   creator: 'Noura Wafik',
   openGraph: {
-    title: 'نورا وفيق — مصممة منتجات',
+    title: 'نورا وفيق — مصممة منتجات | أنظمة تصميم ثنائية اللغة',
     description:
       'أصمم منتجات SaaS وتطبيقات صحية ومنتجات AI بالعربي والإنجليزي. مقري القاهرة، شغلي مع شركة إماراتية على منتجات للسعودية ومصر والولايات المتحدة.',
     type: 'website',

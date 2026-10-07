@@ -46,7 +46,7 @@ const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Noura Wafik',
-  jobTitle: 'Product Designer',
+  jobTitle: 'Senior Product Designer',
   url: 'https://nourawafik.com',
   email: 'hello@nourawafik.com',
   address: {
@@ -70,7 +70,7 @@ const personJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://nourawafik.com'),
   title: {
-    default: 'Noura Wafik — Product Designer',
+    default: 'Noura Wafik — Senior Product Designer | Bilingual Design Systems',
     template: '%s — Noura Wafik',
   },
   description:
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Noura Wafik' }],
   creator: 'Noura Wafik',
   openGraph: {
-    title: 'Noura Wafik — Product Designer',
+    title: 'Noura Wafik — Senior Product Designer | Bilingual Design Systems',
     description:
       'Designing data-heavy SaaS, healthtech, and AI tools. Bilingual (Arabic/English). Based in Cairo, working with a UAE-based team on products for the Gulf, Egypt, and the US.',
     type: 'website',

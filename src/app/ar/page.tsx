@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Container } from '@/components/layout/container';
-import { Button } from '@/components/ui/button';
 import { ProjectImage } from '@/components/ui/project-image';
 import { ArContactSection } from '@/components/sections/ar-contact-section';
+import { Hero } from '@/components/sections/hero';
 
 export const metadata: Metadata = {
   alternates: {
@@ -14,40 +14,6 @@ export const metadata: Metadata = {
     },
   },
 };
-
-function ArHero() {
-  return (
-    <section aria-label="مقدمة" className="py-20 md:py-32">
-      <Container>
-        <div className="flex flex-col gap-8 max-w-[760px]">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-[2.5rem] font-medium leading-[1.1] text-foreground md:text-[3.5rem]">
-              نورا وفيق
-            </h1>
-            <p className="text-[1.125rem] leading-[1.65] text-foreground-muted">
-              مصممة منتجات رقمية
-            </p>
-          </div>
-
-          <p className="text-[1rem] leading-[1.65] text-foreground max-w-[560px]">
-            منتجات SaaS متعددة الأدوار، أنظمة ثنائية اللغة، وأدوات الذكاء الاصطناعي. أبني الأساس
-            التصميمي وأوصل المنتج للإنتاج — من بنية التوكنز إلى المواصفات الجاهزة للتطوير. مقيمة في
-            القاهرة، متاحة للعمل عن بُعد.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <Button href="/ar#work" variant="primary">
-              تصفحوا أعمالي
-            </Button>
-            <Button href="/ar#contact" variant="ghost">
-              تواصلوا معي
-            </Button>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-}
 
 const arProjects = [
   {
@@ -134,7 +100,7 @@ function ArAbout() {
 
           <div className="flex flex-col gap-6 max-w-[560px]">
             <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              أنا نورة — مصممة منتجات مقيمة في القاهرة. لديّ أكثر من 6 سنوات من الخبرة في
+              أنا نورا — مصممة منتجات مقيمة في القاهرة. لديّ أكثر من 6 سنوات من الخبرة في
               التصميم، تخصصت خلالها تدريجياً في تصميم المنتجات الرقمية بعد خبرة في التصميم البصري
               والجرافيك. أعمل على المنتج بالكامل: البحث، وهندسة المعلومات، وتصميم التفاعل، وأنظمة
               التصميم.
@@ -161,7 +127,7 @@ function ArAbout() {
 export default function ArPage() {
   return (
     <>
-      <ArHero />
+      <Hero locale="ar" />
       <ArWork />
       <ArAbout />
       <ArContactSection />

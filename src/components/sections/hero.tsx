@@ -1,34 +1,76 @@
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { MirrorGraphic } from './mirror-graphic';
 
-export function Hero() {
+const COPY = {
+  en: {
+    label: 'Introduction',
+    h1: 'I design product systems that work in Arabic and English',
+    subhead: 'Senior product designer — from research to shipped, web and mobile',
+    body: 'Multi-role SaaS platforms, healthtech products and AI tools, for teams in Saudi Arabia, Egypt and the US. Based in Cairo.',
+    primary: { label: 'View work', href: '/#work' },
+    secondary: { label: 'Get in touch', href: '/#contact' },
+    graphic: 'The same interface layout shown left-to-right and right-to-left, mirrored across a central axis.',
+  },
+  ar: {
+    label: 'مقدمة',
+    h1: 'أصمم أنظمة منتجات تعمل بالعربية والإنجليزية',
+    subhead: 'مصممة منتجات أولى — من البحث إلى الإطلاق، على الويب والتطبيقات',
+    body: 'أعمل على منصات SaaS متعددة الأدوار ومنتجات الصحة الرقمية وأدوات الذكاء الاصطناعي، لفرق في السعودية ومصر والولايات المتحدة.',
+    primary: { label: 'عرض الأعمال', href: '/ar#work' },
+    secondary: { label: 'التواصل', href: '/ar#contact' },
+    graphic: 'التخطيط نفسه من اليسار إلى اليمين ومن اليمين إلى اليسار، معكوسًا حول محور في المنتصف.',
+  },
+} as const;
+
+export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
+  const t = COPY[locale];
+  const ar = locale === 'ar';
+
   return (
-    <section aria-label="Introduction" className="py-20 md:py-32">
+    <section
+      aria-label={t.label}
+      className="flex min-h-[calc(100svh-3.5rem)] items-center py-8 md:py-16"
+    >
       <Container>
-        <div className="flex flex-col gap-8 max-w-[760px]">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-[2.5rem] font-medium leading-[1.1] tracking-[-0.02em] text-foreground md:text-[3.5rem]">
-              Product Designer
+        <div className="grid items-center gap-8 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
+          <div className="flex flex-col">
+            <h1
+              className={cn(
+                'text-hero font-medium text-foreground text-balance',
+                ar ? 'leading-[1.3]' : 'leading-[1.05] tracking-[-0.03em]'
+              )}
+            >
+              {t.h1}
             </h1>
-            <p className="text-[1.125rem] leading-[1.65] text-foreground-muted">
-              SaaS, healthtech, AI tools
+            <p
+              className={cn(
+                'mt-6 text-[1.1875rem] text-foreground',
+                ar ? 'leading-[1.85]' : 'leading-[1.4]'
+              )}
+            >
+              {t.subhead}
             </p>
+            <p
+              className={cn(
+                'mt-3 max-w-[34rem] text-[1rem] text-foreground-muted',
+                ar ? 'leading-[1.85]' : 'leading-[1.65]'
+              )}
+            >
+              {t.body}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button href={t.primary.href} variant="primary">
+                {t.primary.label}
+              </Button>
+              <Button href={t.secondary.href} variant="ghost">
+                {t.secondary.label}
+              </Button>
+            </div>
           </div>
 
-          <p className="text-[1rem] leading-[1.65] text-foreground max-w-[560px]">
-            Multi-role SaaS, bilingual systems, AI tooling. I build the design foundation and ship the
-            product — from token architecture to production-ready specs. Based in Cairo, open to remote
-            roles.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <Button href="/#work" variant="primary">
-              See selected work
-            </Button>
-            <Button href="/#contact" variant="ghost">
-              Get in touch
-            </Button>
-          </div>
+          <MirrorGraphic label={t.graphic} className="w-full md:max-w-[30rem] md:justify-self-end" />
         </div>
       </Container>
     </section>

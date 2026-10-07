@@ -426,6 +426,18 @@
       }
     },
     "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Homepage hero H1 only; 64px desktop (--size-hero)."
+      },
+      "hero-mobile": {
+        "displayName": "Hero (mobile)",
+        "purpose": "Hero H1 below 768px; 44px (--size-hero)."
+      },
+      "hero-ar": {
+        "displayName": "Hero (Arabic)",
+        "purpose": "Arabic hero H1; Alexandria, 0 tracking, 130% line-height."
+      },
       "display": {
         "displayName": "Display",
         "purpose": "Hero statement."
@@ -578,6 +590,11 @@
         "name": "The Recompute Rule",
         "body": "Any colour change must recompute the full contrast table, light and dark, before it ships.",
         "section": "colors"
+      },
+      {
+        "name": "The One Hero Rule",
+        "body": "`--size-hero` appears once per page, on the hero H1. Never hardcode a size above Display; add a named token instead.",
+        "section": "typography"
       },
       {
         "name": "The Zero Tracking Rule",

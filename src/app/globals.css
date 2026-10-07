@@ -24,6 +24,15 @@
   --warning: #8a5a00;
   --error: #9b2226;
   --info: #2f4f7a;
+
+  /* Hero display size (DESIGN.md `hero`): 44px mobile, 64px from md up */
+  --size-hero: 2.75rem;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --size-hero: 4rem;
+  }
 }
 
 .dark {
@@ -75,6 +84,7 @@
   --font-mono: var(--font-jetbrains);
 
   /* Type scale */
+  --text-hero: var(--size-hero);
   --text-display: 3.5rem;
   --text-h1: 2.5rem;
   --text-h2: 1.75rem;
@@ -146,4 +156,27 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--line-strong);
   border-radius: 3px;
+}
+
+/* ─── Hero mirror moment — plays once per visit (see mirror-graphic.tsx) ──── */
+/* The RTL panel renders in its final state; under [data-mirror='play'] each bar
+   starts at its LTR position and settles into RTL after 1.2s. */
+@keyframes mirror-in {
+  from {
+    transform: translateX(calc(var(--mirror-from) * 1cqw));
+  }
+}
+
+[data-mirror='play'] .mirror-move {
+  animation-name: mirror-in;
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: calc(1200ms + var(--mirror-delay, 0ms));
+  animation-fill-mode: backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-mirror='play'] .mirror-move {
+    animation: none;
+  }
 }
