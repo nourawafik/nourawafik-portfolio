@@ -33,14 +33,13 @@ export function CaseStudyCard({ slug, title, tagline, role, timeline, platform, 
           {tagline}
         </p>
 
-        <div className="flex flex-wrap items-center gap-y-1 mt-1">
-          {[role, platform, timeline].map((tag, i) => (
-            <span key={tag} className="font-mono text-[0.8125rem] text-foreground-muted flex items-center">
-              {i > 0 && <span className="mx-2" aria-hidden>·</span>}
+        <ul className="flex flex-wrap items-center gap-x-6 gap-y-1 mt-1 list-none" role="list">
+          {[role, platform, timeline].map((tag) => (
+            <li key={tag} className="font-mono text-[0.8125rem] text-foreground-muted">
               {tag}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* Thumbnail */}
