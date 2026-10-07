@@ -99,11 +99,14 @@ html[lang='ar'] {
 }
 
 /* ─── Base styles ────────────────────────────────────────────────────────── */
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-heading);
+/* In the base layer so utilities (font-mono, font-sans) can still override it */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+  }
 }
 
 html {
