@@ -42,8 +42,9 @@ export default async function Image() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.04em' }}>
-          Bilingual (Arabic/English) · Based in Cairo
+        <div style={{ display: 'flex', gap: 24, fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.04em' }}>
+          <span>Bilingual (Arabic/English)</span>
+          <span>Based in Cairo</span>
         </div>
       </div>
     ),

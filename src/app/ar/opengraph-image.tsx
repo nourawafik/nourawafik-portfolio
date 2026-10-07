@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { alexandriaFont, almaraiFont } from '@/lib/og-fonts';
+import { Words } from '@/lib/og-words';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
@@ -26,25 +27,27 @@ export default async function Image() {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-end' }}>
-          <div
-            style={{
-              fontFamily: 'Alexandria',
-              fontWeight: 500,
-              fontSize: 80,
-              color: '#13140F',
-              lineHeight: 1.3,
-              textAlign: 'right',
-            }}
-          >
-            نورا وفيق
-          </div>
-          <div style={{ fontFamily: 'Almarai', fontWeight: 400, fontSize: 36, color: '#636258', lineHeight: 1.6, textAlign: 'right' }}>
-            مصممة منتجات رقمية
-          </div>
+          <Words
+            dir="rtl"
+            text="نورا وفيق"
+            style={{ fontFamily: 'Alexandria', fontWeight: 500, fontSize: 80, color: '#13140F', lineHeight: 1.3 }}
+          />
+          <Words
+            dir="rtl"
+            text="مصممة منتجات رقمية"
+            style={{ fontFamily: 'Almarai', fontWeight: 400, fontSize: 36, color: '#636258', lineHeight: 1.6 }}
+          />
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#636258', textAlign: 'right' }}>
-          مصممة منتجات · القاهرة
+        <div style={{ display: 'flex', flexDirection: 'row-reverse', gap: 24 }}>
+          {['مصممة منتجات', 'القاهرة'].map((item) => (
+            <Words
+              key={item}
+              dir="rtl"
+              text={item}
+              style={{ fontFamily: 'Almarai', fontWeight: 400, fontSize: 13, color: '#636258' }}
+            />
+          ))}
         </div>
       </div>
     ),

@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { alexandriaFont, figtreeFont, spaceGroteskFont } from '@/lib/og-fonts';
 import { getStudySlugs, getFrontmatter } from '@/lib/mdx';
+import { Words } from '@/lib/og-words';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
@@ -35,12 +36,15 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.06em' }}>
-          Case Study · Noura Wafik
+        <div style={{ display: 'flex', gap: 24, fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.06em' }}>
+          <span>Case Study</span>
+          <span>Noura Wafik</span>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <div
+          {/* Titles can mix scripts (دايرتنا · Da'eratna) — per-word layout keeps spacing even */}
+          <Words
+            text={title}
             style={{
               fontFamily: 'Space Grotesk, Alexandria',
               fontWeight: 500,
@@ -49,9 +53,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
             }}
-          >
-            {title}
-          </div>
+          />
           <div style={{ fontFamily: 'Figtree', fontWeight: 400, fontSize: 28, color: '#636258', lineHeight: 1.5 }}>
             {tagline}
           </div>
