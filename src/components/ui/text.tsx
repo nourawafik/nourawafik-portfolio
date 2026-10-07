@@ -25,7 +25,7 @@ export function Text({ as: Tag = 'p', size = 'base', muted, subtle, children, cl
       className={cn(
         sizeClasses[size],
         muted && 'text-foreground-muted',
-        subtle && 'text-foreground-subtle',
+        subtle && 'text-foreground-muted',
         !muted && !subtle && 'text-foreground',
         className
       )}

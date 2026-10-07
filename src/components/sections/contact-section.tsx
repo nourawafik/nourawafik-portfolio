@@ -17,7 +17,7 @@ export function ContactSection() {
         <div className="flex flex-col gap-8 md:flex-row md:gap-24">
           <h2
             id="contact-heading"
-            className="text-[0.8125rem] font-mono text-foreground-subtle shrink-0 md:w-32 md:pt-1"
+            className="text-[0.8125rem] font-mono text-foreground-muted shrink-0 md:w-32 md:pt-1"
           >
             Get in touch
           </h2>
@@ -45,7 +45,7 @@ export function ContactSection() {
                   onClick={() => track('linkedin_click')}
                   className="group flex items-baseline gap-3 text-[1rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
                 >
-                  <span className="font-mono text-[0.8125rem] text-foreground-subtle w-16 shrink-0">
+                  <span className="font-mono text-[0.8125rem] text-foreground-muted w-16 shrink-0">
                     {label}
                   </span>
                   <span className="underline underline-offset-4 decoration-border-strong group-hover:decoration-foreground transition-[text-decoration-color] duration-150">

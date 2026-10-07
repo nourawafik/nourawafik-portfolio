@@ -21,7 +21,7 @@ export function CaseStudyCard({ slug, title, tagline, role, timeline, platform, 
     >
       {/* Text */}
       <div className="flex flex-col gap-3 md:flex-1">
-        <span className="font-mono text-[0.8125rem] text-foreground-subtle">
+        <span className="font-mono text-[0.8125rem] text-foreground-muted">
           {String(index).padStart(2, '0')}
         </span>
 
@@ -33,18 +33,17 @@ export function CaseStudyCard({ slug, title, tagline, role, timeline, platform, 
           {tagline}
         </p>
 
-        <div className="flex flex-wrap items-center gap-y-1 mt-1">
-          {[role, platform, timeline].map((tag, i) => (
-            <span key={tag} className="font-mono text-[0.8125rem] text-foreground-subtle flex items-center">
-              {i > 0 && <span className="mx-2" aria-hidden>·</span>}
+        <ul className="flex flex-wrap items-center gap-x-6 gap-y-1 mt-1 list-none" role="list">
+          {[role, platform, timeline].map((tag) => (
+            <li key={tag} className="font-mono text-[0.8125rem] text-foreground-muted">
               {tag}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* Thumbnail */}
-      <div className="w-full shrink-0 overflow-hidden bg-surface border border-border md:w-72">
+      <div className="w-full shrink-0 overflow-hidden rounded-card bg-surface border border-border md:w-72">
         <ProjectImage slug={slug} variant="thumb" alt={thumbAlt} priority={index === 1} />
       </div>
     </NextLink>

@@ -3,14 +3,19 @@ import path from 'path';
 
 const FONTS_DIR = path.join(process.cwd(), 'public/fonts');
 
-export async function interFont(weight: 400 | 500 = 400): Promise<ArrayBuffer> {
-  const file = weight === 500 ? 'inter-500.ttf' : 'inter-400.ttf';
+async function loadFont(file: string): Promise<ArrayBuffer> {
   const buf = await readFile(path.join(FONTS_DIR, file));
   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
 }
 
-export async function ibmPlexArabicFont(weight: 400 | 500): Promise<ArrayBuffer> {
-  const file = weight === 500 ? 'ibm-plex-arabic-500.ttf' : 'ibm-plex-arabic-400.ttf';
-  const buf = await readFile(path.join(FONTS_DIR, file));
-  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
-}
+// Satori (next/og) needs TTF/OTF, not woff2 — these files exist only for OG images.
+// almarai-400.ttf is used by the pre-rendered images in scripts/og/.
+
+/** Latin headings and display. */
+export const spaceGroteskFont = () => loadFont('space-grotesk-500.ttf');
+
+/** Latin body. */
+export const figtreeFont = () => loadFont('figtree-400.ttf');
+
+/** Arabic headings and display. */
+export const alexandriaFont = () => loadFont('alexandria-500.ttf');

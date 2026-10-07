@@ -95,7 +95,7 @@ export default async function CaseStudyPage({
           <p className="text-[1.125rem] leading-[1.65] text-foreground-muted mb-2">
             {frontmatter.tagline}
           </p>
-          <p className="font-mono text-[0.8125rem] text-foreground-subtle mb-10">
+          <p className="font-mono text-[0.8125rem] text-foreground-muted mb-10">
             {stats.text}
           </p>
           <MetadataGrid
@@ -127,7 +127,7 @@ export default async function CaseStudyPage({
               className="group block py-12 hover:opacity-80 transition-opacity duration-150 md:py-16"
               aria-label={`Next project: ${nextProject.title}`}
             >
-              <p className="font-mono text-[0.8125rem] text-foreground-subtle mb-3">
+              <p className="font-mono text-[0.8125rem] text-foreground-muted mb-3">
                 Next project
               </p>
               <p className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground">

@@ -1,6 +1,9 @@
+import { readFile } from 'fs/promises';
+import path from 'path';
 import { ImageResponse } from 'next/og';
-import { interFont } from '@/lib/og-fonts';
+import { alexandriaFont, figtreeFont, spaceGroteskFont } from '@/lib/og-fonts';
 import { getStudySlugs, getFrontmatter } from '@/lib/mdx';
+import { Words } from '@/lib/og-words';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
@@ -10,9 +13,30 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+// Pre-rendered images for titles containing Arabic, which next/og can't lay out
+// (no bidi support, mis-measured joined words). Regenerate with scripts/og/render.sh.
+async function staticImage(slug: string): Promise<ArrayBuffer | null> {
+  try {
+    const buf = await readFile(path.join(process.cwd(), 'src/content/og', `${slug}.png`));
+    return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
+  } catch {
+    return null;
+  }
+}
+
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const [fm, inter400, inter500] = await Promise.all([getFrontmatter(slug), interFont(400), interFont(500)]);
+  const prerendered = await staticImage(slug);
+  if (prerendered) {
+    return new Response(prerendered, { headers: { 'Content-Type': contentType } });
+  }
+
+  const [fm, figtree, spaceGrotesk, alexandria] = await Promise.all([
+    getFrontmatter(slug),
+    figtreeFont(),
+    spaceGroteskFont(),
+    alexandriaFont(),
+  ]);
 
   const title = fm.title.length > 55 ? fm.title.slice(0, 52) + '…' : fm.title;
   const tagline = fm.tagline.length > 90 ? fm.tagline.slice(0, 87) + '…' : fm.tagline;
@@ -26,33 +50,34 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           justifyContent: 'space-between',
           width: '100%',
           height: '100%',
-          backgroundColor: '#FAFAF9',
+          backgroundColor: '#F4F2EE',
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', fontFamily: 'Inter', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.06em' }}>
-          Case Study · Noura Wafik
+        <div style={{ display: 'flex', gap: 24, fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.06em' }}>
+          <span>Case Study</span>
+          <span>Noura Wafik</span>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <div
+          {/* Titles can mix scripts (دايرتنا · Da'eratna) — per-word layout keeps spacing even */}
+          <Words
+            text={title}
             style={{
-              fontFamily: 'Inter',
+              fontFamily: 'Space Grotesk, Alexandria',
               fontWeight: 500,
               fontSize: 64,
-              color: '#1F2937',
+              color: '#13140F',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
             }}
-          >
-            {title}
-          </div>
-          <div style={{ fontFamily: 'Inter', fontWeight: 400, fontSize: 28, color: '#6B7280', lineHeight: 1.5 }}>
+          />
+          <div style={{ fontFamily: 'Figtree', fontWeight: 400, fontSize: 28, color: '#636258', lineHeight: 1.5 }}>
             {tagline}
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Inter', fontWeight: 400, fontSize: 13, color: '#9CA3AF', letterSpacing: '0.04em' }}>
+        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.04em' }}>
           nourawafik.com
         </div>
       </div>
@@ -60,8 +85,9 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     {
       ...size,
       fonts: [
-        { name: 'Inter', data: inter400, weight: 400, style: 'normal' },
-        { name: 'Inter', data: inter500, weight: 500, style: 'normal' },
+        { name: 'Figtree', data: figtree, weight: 400, style: 'normal' },
+        { name: 'Space Grotesk', data: spaceGrotesk, weight: 500, style: 'normal' },
+        { name: 'Alexandria', data: alexandria, weight: 500, style: 'normal' },
       ],
     }
   );

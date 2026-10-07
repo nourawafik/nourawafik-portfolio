@@ -1,0 +1,624 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T23:02:38+00:00",
+  "title": "Design System: Noura Wafik — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "tonalRamp": [
+          "#0C0B09",
+          "#262522",
+          "#43423F",
+          "#63615E",
+          "#84827E",
+          "#A7A5A1",
+          "#CBC9C5",
+          "#F0EEEA"
+        ]
+      },
+      "bg-dark": {
+        "role": "neutral",
+        "displayName": "Stone (dark)",
+        "tonalRamp": [
+          "#0B0C09",
+          "#242622",
+          "#41423F",
+          "#60625E",
+          "#81837F",
+          "#A4A6A1",
+          "#C8CAC5",
+          "#EEEFEB"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "tonalRamp": [
+          "#0C0B09",
+          "#262523",
+          "#434240",
+          "#62615F",
+          "#838280",
+          "#A6A5A2",
+          "#CAC9C6",
+          "#EFEEEB"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Paper (dark)",
+        "tonalRamp": [
+          "#0B0C08",
+          "#252621",
+          "#41433E",
+          "#61625D",
+          "#82837E",
+          "#A4A6A0",
+          "#C8CAC4",
+          "#EEEFE9"
+        ]
+      },
+      "sunk": {
+        "role": "neutral",
+        "displayName": "Quarry",
+        "tonalRamp": [
+          "#0D0B07",
+          "#272520",
+          "#44423C",
+          "#64615B",
+          "#85827C",
+          "#A8A59E",
+          "#CCC9C2",
+          "#F1EEE7"
+        ]
+      },
+      "sunk-dark": {
+        "role": "neutral",
+        "displayName": "Quarry (dark)",
+        "tonalRamp": [
+          "#0B0C09",
+          "#242622",
+          "#41433F",
+          "#60625E",
+          "#81837F",
+          "#A4A6A1",
+          "#C8CAC5",
+          "#EEEFEA"
+        ]
+      },
+      "fg": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "#0B0C07",
+          "#252620",
+          "#41433D",
+          "#61625C",
+          "#82837D",
+          "#A4A69F",
+          "#C8CAC3",
+          "#EEEFE8"
+        ]
+      },
+      "fg-dark": {
+        "role": "neutral",
+        "displayName": "Ink (dark)",
+        "tonalRamp": [
+          "#0B0C07",
+          "#252620",
+          "#42433C",
+          "#61625B",
+          "#82837C",
+          "#A5A69E",
+          "#C9CAC2",
+          "#EEEFE7"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "tonalRamp": [
+          "#0C0B05",
+          "#26251D",
+          "#434239",
+          "#636258",
+          "#848378",
+          "#A7A69B",
+          "#CBCABE",
+          "#F0EFE3"
+        ]
+      },
+      "muted-dark": {
+        "role": "neutral",
+        "displayName": "Graphite (dark)",
+        "tonalRamp": [
+          "#0C0C05",
+          "#26261D",
+          "#434339",
+          "#626258",
+          "#838378",
+          "#A6A69B",
+          "#CACABE",
+          "#EFEFE3"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "#0D0B06",
+          "#27251E",
+          "#44423B",
+          "#646159",
+          "#85827A",
+          "#A8A59C",
+          "#CCC9C0",
+          "#F1EEE5"
+        ]
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Hairline (dark)",
+        "tonalRamp": [
+          "#0B0C06",
+          "#25261F",
+          "#42433B",
+          "#61625A",
+          "#82837B",
+          "#A5A69D",
+          "#C9CAC1",
+          "#EEF0E6"
+        ]
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Edge",
+        "tonalRamp": [
+          "#100A02",
+          "#2A2418",
+          "#484134",
+          "#676152",
+          "#898273",
+          "#ACA495",
+          "#D0C8B8",
+          "#F6EEDD"
+        ]
+      },
+      "line-strong-dark": {
+        "role": "neutral",
+        "displayName": "Edge (dark)",
+        "tonalRamp": [
+          "#0A0C05",
+          "#24261C",
+          "#414339",
+          "#606357",
+          "#818478",
+          "#A4A79A",
+          "#C8CBBE",
+          "#EDF0E3"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Pine",
+        "tonalRamp": [
+          "#001400",
+          "#003015",
+          "#044F31",
+          "#2F7050",
+          "#529270",
+          "#75B692",
+          "#99DBB6",
+          "#BEFFDA"
+        ]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Celadon",
+        "tonalRamp": [
+          "#001400",
+          "#003113",
+          "#00502F",
+          "#29714E",
+          "#4D936E",
+          "#71B790",
+          "#95DCB4",
+          "#BAFFD8"
+        ]
+      },
+      "accent-press": {
+        "role": "primary",
+        "displayName": "Pine Press",
+        "tonalRamp": [
+          "#001302",
+          "#002F18",
+          "#184D34",
+          "#3A6E53",
+          "#5B9073",
+          "#7EB395",
+          "#A1D8B9",
+          "#C6FEDE"
+        ]
+      },
+      "accent-press-dark": {
+        "role": "primary",
+        "displayName": "Celadon Press",
+        "tonalRamp": [
+          "#001302",
+          "#002F18",
+          "#164E34",
+          "#396E52",
+          "#5B9073",
+          "#7DB395",
+          "#A0D8B8",
+          "#C5FEDD"
+        ]
+      },
+      "accent-soft": {
+        "role": "primary",
+        "displayName": "Pine Wash",
+        "tonalRamp": [
+          "#060D09",
+          "#1F2822",
+          "#3B453F",
+          "#5A645E",
+          "#7B857F",
+          "#9DA8A2",
+          "#C1CCC6",
+          "#E6F2EB"
+        ]
+      },
+      "accent-soft-dark": {
+        "role": "primary",
+        "displayName": "Deep Pine Wash",
+        "tonalRamp": [
+          "#000F07",
+          "#142A20",
+          "#31483D",
+          "#50685C",
+          "#70897C",
+          "#92AC9F",
+          "#B6D1C3",
+          "#DBF6E8"
+        ]
+      },
+      "on-accent": {
+        "role": "primary",
+        "displayName": "On-Accent",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#A5A5A5",
+          "#C9C9C9",
+          "#EEEEEE"
+        ]
+      },
+      "on-accent-dark": {
+        "role": "primary",
+        "displayName": "On-Accent (dark)",
+        "tonalRamp": [
+          "#010F08",
+          "#172A21",
+          "#34473D",
+          "#52675C",
+          "#73887D",
+          "#95AB9F",
+          "#B9D0C3",
+          "#DEF5E9"
+        ]
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Success",
+        "tonalRamp": [
+          "#001400",
+          "#003015",
+          "#044F31",
+          "#2F7050",
+          "#529270",
+          "#75B692",
+          "#99DBB6",
+          "#BEFFDA"
+        ]
+      },
+      "success-dark": {
+        "role": "semantic",
+        "displayName": "Success (dark)",
+        "tonalRamp": [
+          "#001400",
+          "#003113",
+          "#00502F",
+          "#29714E",
+          "#4D936E",
+          "#71B790",
+          "#95DCB4",
+          "#BAFFD8"
+        ]
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Warning",
+        "tonalRamp": [
+          "#230000",
+          "#421700",
+          "#633600",
+          "#855600",
+          "#A9772E",
+          "#CE9A53",
+          "#F4BE77",
+          "#FFE49C"
+        ]
+      },
+      "warning-dark": {
+        "role": "semantic",
+        "displayName": "Warning (dark)",
+        "tonalRamp": [
+          "#230000",
+          "#421700",
+          "#633700",
+          "#855700",
+          "#A87907",
+          "#CD9C3E",
+          "#F3C065",
+          "#FFE68A"
+        ]
+      },
+      "error": {
+        "role": "semantic",
+        "displayName": "Error",
+        "tonalRamp": [
+          "#360000",
+          "#5B0000",
+          "#810010",
+          "#A83031",
+          "#D05551",
+          "#F87973",
+          "#FF9D95",
+          "#FFC3BA"
+        ]
+      },
+      "error-dark": {
+        "role": "semantic",
+        "displayName": "Error (dark)",
+        "tonalRamp": [
+          "#2E0000",
+          "#52000A",
+          "#761B27",
+          "#9B3E45",
+          "#C16065",
+          "#E88386",
+          "#FFA7AA",
+          "#FFCCCE"
+        ]
+      },
+      "info": {
+        "role": "semantic",
+        "displayName": "Info",
+        "tonalRamp": [
+          "#00072C",
+          "#05244B",
+          "#23426C",
+          "#42638F",
+          "#6284B3",
+          "#84A7D8",
+          "#A7CCFE",
+          "#CBF2FF"
+        ]
+      },
+      "info-dark": {
+        "role": "semantic",
+        "displayName": "Info (dark)",
+        "tonalRamp": [
+          "#00072A",
+          "#0F2349",
+          "#2B416A",
+          "#49618C",
+          "#6983B0",
+          "#8BA6D5",
+          "#AFCAFB",
+          "#D3F0FF"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero statement."
+      },
+      "headline": {
+        "displayName": "H1",
+        "purpose": "Page titles."
+      },
+      "title": {
+        "displayName": "H2",
+        "purpose": "Section headings."
+      },
+      "subtitle": {
+        "displayName": "H3",
+        "purpose": "Card and decision titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running Latin text."
+      },
+      "small": {
+        "displayName": "Small",
+        "purpose": "Secondary text and captions."
+      },
+      "label-mono": {
+        "displayName": "Micro mono",
+        "purpose": "Numbers, code and Latin-only labels. Never Arabic."
+      },
+      "display-ar": {
+        "displayName": "Display (Arabic)",
+        "purpose": "Arabic hero statement."
+      },
+      "headline-ar": {
+        "displayName": "H1 (Arabic)",
+        "purpose": "Arabic page titles."
+      },
+      "title-ar": {
+        "displayName": "H2 (Arabic)",
+        "purpose": "Arabic section headings."
+      },
+      "subtitle-ar": {
+        "displayName": "H3 (Arabic)",
+        "purpose": "Arabic card titles."
+      },
+      "body-ar": {
+        "displayName": "Body (Arabic)",
+        "purpose": "Running Arabic text."
+      },
+      "label-ar": {
+        "displayName": "Micro (Arabic)",
+        "purpose": "Arabic labels and metadata."
+      }
+    },
+    "shadows": [],
+    "focusRing": {
+      "value": "2px bg-colour gap, then 3px accent outside stroke",
+      "color": "accent on every element, including the primary button"
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call to action; the accent, counted against the three-per-page limit.",
+      "html": "<button class=\"ds-btn-primary\">See selected work</button>",
+      "css": ".ds-btn-primary { background: #1B5E3F; color: #FFFFFF; border: none; border-radius: 10px; padding: 12px 24px; font-family: Figtree, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 150ms ease-out; } .ds-btn-primary:hover, .ds-btn-primary:active { background: #144A31; } .ds-btn-primary:focus-visible { outline: 3px solid #1B5E3F; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary action on surface with an interactive (line-strong) edge.",
+      "html": "<button class=\"ds-btn-secondary\">Get in touch</button>",
+      "css": ".ds-btn-secondary { background: #FFFEFB; color: #13140F; border: 1px solid #857E6F; border-radius: 10px; padding: 12px 24px; font-family: Figtree, system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 150ms ease-out; } .ds-btn-secondary:hover { background: #EAE7E0; } .ds-btn-secondary:focus-visible { outline: 3px solid #1B5E3F; outline-offset: 2px; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "The only pill shape; accent-soft fill.",
+      "html": "<span class=\"ds-chip\">Design system</span>",
+      "css": ".ds-chip { display: inline-block; background: #E3EFE8; color: #1B5E3F; border-radius: 999px; padding: 4px 12px; font-family: Figtree, system-ui, sans-serif; font-size: 12.5px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Surface field with a line-strong edge and accent focus ring.",
+      "html": "<input class=\"ds-input\" placeholder=\"you@company.com\" />",
+      "css": ".ds-input { background: #FFFEFB; color: #13140F; border: 1px solid #857E6F; border-radius: 10px; padding: 12px 16px; font-family: Figtree, system-ui, sans-serif; font-size: 16px; width: 280px; } .ds-input::placeholder { color: #636258; } .ds-input:focus-visible { outline: 3px solid #1B5E3F; outline-offset: 2px; }"
+    },
+    {
+      "name": "Case Study Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Surface card, no shadow; metadata as separate mono labels, never a middle-dot string.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card-idx\">01</span><h3 class=\"ds-card-title\">KemeClinic</h3><p class=\"ds-card-body\">Multi-role telepsychology SaaS for US clinics</p><dl class=\"ds-card-meta\"><div><dt>Role</dt><dd>Solo designer</dd></div><div><dt>Platform</dt><dd>Web + mobile</dd></div></dl></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; gap: 12px; background: #FFFEFB; border: 1px solid #E0DDD4; border-radius: 14px; padding: 24px; color: #13140F; text-decoration: none; max-width: 360px; transition: border-color 150ms ease-out; } .ds-card:hover { border-color: #857E6F; } .ds-card:focus-visible { outline: 3px solid #1B5E3F; outline-offset: 2px; } .ds-card-idx { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; color: #636258; } .ds-card-title { margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 19px; letter-spacing: -0.01em; } .ds-card-body { margin: 0; font-family: Figtree, system-ui, sans-serif; font-size: 16px; line-height: 1.65; color: #636258; } .ds-card-meta { display: flex; gap: 24px; margin: 0; } .ds-card-meta dt { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12.5px; color: #636258; } .ds-card-meta dd { margin: 0; font-family: Figtree, system-ui, sans-serif; font-size: 14px; }"
+    },
+    {
+      "name": "Sunk Panel",
+      "kind": "custom",
+      "refersTo": "panel-sunk",
+      "description": "The only depth device: content pressed into the page.",
+      "html": "<div class=\"ds-sunk\"><p>Single design system serving 8 contexts.</p></div>",
+      "css": ".ds-sunk { background: #EAE7E0; border-radius: 14px; padding: 24px; } .ds-sunk p { margin: 0; font-family: Figtree, system-ui, sans-serif; font-size: 16px; line-height: 1.65; color: #13140F; }"
+    },
+    {
+      "name": "Arabic Card (RTL)",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Mirrored card: Alexandria heading, Almarai body and labels, 0 tracking, 185% line-height.",
+      "html": "<a class=\"ds-card-ar\" dir=\"rtl\" lang=\"ar\" href=\"#\"><h3 class=\"ds-card-ar-title\">دايرتنا</h3><p class=\"ds-card-ar-body\">منصة ثنائية اللغة للصحة النفسية</p><span class=\"ds-card-ar-label\">مصممة رئيسية</span></a>",
+      "css": ".ds-card-ar { display: flex; flex-direction: column; gap: 12px; background: #FFFEFB; border: 1px solid #E0DDD4; border-radius: 14px; padding: 24px; color: #13140F; text-decoration: none; max-width: 360px; } .ds-card-ar:focus-visible { outline: 3px solid #1B5E3F; outline-offset: 2px; } .ds-card-ar-title { margin: 0; font-family: Alexandria, system-ui, sans-serif; font-size: 19px; letter-spacing: 0; line-height: 1.5; } .ds-card-ar-body { margin: 0; font-family: Almarai, system-ui, sans-serif; font-size: 16px; line-height: 1.85; color: #636258; letter-spacing: 0; } .ds-card-ar-label { font-family: Almarai, system-ui, sans-serif; font-size: 12.5px; color: #636258; letter-spacing: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Bilingual Systems Studio",
+    "overview": "A calm stone-and-pine foundation where Arabic and Latin typography carry equal weight. The site doesn't decorate itself: tokens, mirrored layouts and component states are the graphics, because the system is the work being shown. Depth comes from panels sunk into the page, never from shadows. One pine accent marks the few things that matter on a page and nothing else.\n\nThe density is that of a well-made product spec: generous reading measure, quiet chrome, and precise small-scale detail in metadata and numbers. Both scripts are designed natively. Arabic has its own typefaces, line-height and zero tracking, not Latin settings mirrored.",
+    "keyCharacteristics": [
+      "Warm stone neutrals with a single pine (light) / celadon (dark) accent.",
+      "Two type families per script: Space Grotesk + Figtree for Latin, Alexandria + Almarai for Arabic. JetBrains Mono only for numbers, code and Latin labels.",
+      "Depth from sunk panels and tonal steps, never shadows.",
+      "Soft-cornered controls and cards; pills only for chips.",
+      "Graphics come from the design system itself, never from illustration."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "There is one accent colour, and it appears at most three times per page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Inks Rule",
+        "body": "Text uses `fg` or `muted` and nothing else. There is no third \"subtle\" level.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Lines Rule",
+        "body": "`line` is decoration and `line-strong` is affordance. Anything a user can interact with gets `line-strong`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Quarantine Rule",
+        "body": "Semantic colours never appear in site chrome. They live only inside product screens and form messages.",
+        "section": "colors"
+      },
+      {
+        "name": "The Recompute Rule",
+        "body": "Any colour change must recompute the full contrast table, light and dark, before it ships.",
+        "section": "colors"
+      },
+      {
+        "name": "The Zero Tracking Rule",
+        "body": "Arabic letter-spacing is always 0. Negative tracking breaks the letter joins.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Mono Arabic Rule",
+        "body": "Never set Arabic in JetBrains Mono. It has no Arabic glyphs, and the bidi algorithm scrambles the word order. Arabic labels use Almarai.",
+        "section": "typography"
+      },
+      {
+        "name": "The Equal Scripts Rule",
+        "body": "Arabic gets its own families, line-height and tracking. It is never Latin styling mirrored.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sunk, Never Lifted Rule",
+        "body": "No drop shadows under cards or anything else. If something needs depth, sink it.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the accent to three appearances or fewer per page.",
+      "Do use `line-strong` on every interactive edge and `line` only for decorative dividers.",
+      "Do give depth by sinking content into a `sunk` panel.",
+      "Do set Arabic in Alexandria (headings) and Almarai (body, labels, metadata), at 185% line-height and 0 tracking.",
+      "Do recompute the full light/dark contrast table after any colour change.",
+      "Do keep English and Arabic pages structurally identical."
+    ],
+    "donts": [
+      "Don't look like a template portfolio: no hero gradients, glassmorphism, or mockups floating on blobs.",
+      "Don't over-animate: no scroll-jacking, parallax, or motion that slows a skimming reader.",
+      "Don't put soft grey drop shadows under cards.",
+      "Don't set Arabic text in a monospace font.",
+      "Don't apply negative letter-spacing to Arabic.",
+      "Don't chain metadata with middle dots (\"Lead designer · Web + mobile · 2026\"). Bilingual name pairs such as \"دايرتنا · Da'eratna\" are names, not metadata, and keep their dot.",
+      "Don't use decorative illustration. Graphics must come from the design system itself.",
+      "Don't use semantic colours in site chrome.",
+      "Don't add a third text colour, a second accent, or soft semantic backgrounds.",
+      "Don't use Inter or IBM Plex Sans Arabic. Both have been removed from the system."
+    ]
+  }
+}

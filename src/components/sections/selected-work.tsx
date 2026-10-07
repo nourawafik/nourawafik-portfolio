@@ -8,7 +8,7 @@ export function SelectedWork() {
       <Container>
         <h2
           id="work-heading"
-          className="text-[0.8125rem] font-mono text-foreground-subtle mb-8 md:mb-12"
+          className="text-[0.8125rem] font-mono text-foreground-muted mb-8 md:mb-12"
         >
           Selected Work
         </h2>
