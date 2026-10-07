@@ -8,7 +8,8 @@ interface WordsProps {
 
 // Satori (next/og) has no bidi support: it reverses word order in Arabic and
 // renders spaces far too wide. Laying each word out as its own flex item, in
-// reading order for the direction, avoids both. Letters still join within a word.
+// reading order for the direction, fixes the order. Satori still over-measures
+// joined Arabic words, so Arabic-titled images are pre-rendered (scripts/og/).
 export function Words({ text, dir = 'ltr', style }: WordsProps) {
   return (
     <div

@@ -1,0 +1,20 @@
+/* Shared frame for pre-rendered OG images — mirrors the next/og layout in
+   src/app/(en)/opengraph-image.tsx (1200×630, 80px padding, DESIGN.md light tokens). */
+@font-face { font-family: 'Space Grotesk'; src: url('../../public/fonts/space-grotesk-500.ttf'); font-weight: 500; }
+@font-face { font-family: 'Figtree'; src: url('../../public/fonts/figtree-400.ttf'); font-weight: 400; }
+@font-face { font-family: 'Alexandria'; src: url('../../public/fonts/alexandria-500.ttf'); font-weight: 500; }
+@font-face { font-family: 'Almarai'; src: url('../../public/fonts/almarai-400.ttf'); font-weight: 400; }
+
+* { margin: 0; box-sizing: border-box; }
+html, body { width: 1200px; height: 630px; overflow: hidden; }
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 80px;
+  background: #f4f2ee;
+  color: #13140f;
+  -webkit-font-smoothing: antialiased;
+}
+.meta { display: flex; gap: 24px; font-size: 13px; color: #636258; }
+.stack { display: flex; flex-direction: column; }

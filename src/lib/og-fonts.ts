@@ -9,6 +9,7 @@ async function loadFont(file: string): Promise<ArrayBuffer> {
 }
 
 // Satori (next/og) needs TTF/OTF, not woff2 — these files exist only for OG images.
+// almarai-400.ttf is used by the pre-rendered images in scripts/og/.
 
 /** Latin headings and display. */
 export const spaceGroteskFont = () => loadFont('space-grotesk-500.ttf');
@@ -18,6 +19,3 @@ export const figtreeFont = () => loadFont('figtree-400.ttf');
 
 /** Arabic headings and display. */
 export const alexandriaFont = () => loadFont('alexandria-500.ttf');
-
-/** Arabic body, labels and metadata. */
-export const almaraiFont = () => loadFont('almarai-400.ttf');

@@ -1,3 +1,5 @@
+import { readFile } from 'fs/promises';
+import path from 'path';
 import { ImageResponse } from 'next/og';
 import { alexandriaFont, figtreeFont, spaceGroteskFont } from '@/lib/og-fonts';
 import { getStudySlugs, getFrontmatter } from '@/lib/mdx';
@@ -11,8 +13,24 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+// Pre-rendered images for titles containing Arabic, which next/og can't lay out
+// (no bidi support, mis-measured joined words). Regenerate with scripts/og/render.sh.
+async function staticImage(slug: string): Promise<ArrayBuffer | null> {
+  try {
+    const buf = await readFile(path.join(process.cwd(), 'src/content/og', `${slug}.png`));
+    return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
+  } catch {
+    return null;
+  }
+}
+
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const prerendered = await staticImage(slug);
+  if (prerendered) {
+    return new Response(prerendered, { headers: { 'Content-Type': contentType } });
+  }
+
   const [fm, figtree, spaceGrotesk, alexandria] = await Promise.all([
     getFrontmatter(slug),
     figtreeFont(),
