@@ -32,6 +32,7 @@ export function NavAr() {
         <nav className="flex h-14 items-center justify-between" aria-label="التنقل الرئيسي">
           <NextLink
             href="/ar"
+            onClick={() => setOpen(false)}
             className="text-[0.875rem] font-medium text-foreground hover:opacity-70 transition-opacity duration-150"
             aria-label="نورا وفيق — الصفحة الرئيسية"
           >
@@ -70,9 +71,12 @@ export function NavAr() {
         </nav>
       </Container>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — overlays the page below the bar instead of pushing it down */}
       {open && (
-        <div id="nav-ar-mobile-menu" className="md:hidden border-t border-border bg-background">
+        <div
+          id="nav-ar-mobile-menu"
+          className="md:hidden absolute inset-x-0 top-full border-y border-border bg-background"
+        >
           <Container>
             <ul className="flex flex-col list-none py-4 gap-1" role="list">
               {navLinks.map(({ href, label }) => (
