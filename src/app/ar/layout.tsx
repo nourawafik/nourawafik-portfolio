@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Alexandria, Almarai, JetBrains_Mono } from 'next/font/google';
+import { Alexandria, Almarai, Figtree, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/components/providers';
@@ -19,6 +19,22 @@ const almarai = Almarai({
   subsets: ['arabic', 'latin'],
   weight: ['400', '700'],
   display: 'swap',
+});
+
+// Latin faces for the English card in the hero graphic. Not preloaded: only
+// fetched when Latin text renders in them.
+const figtree = Figtree({
+  variable: '--font-figtree',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  display: 'swap',
+  preload: false,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -60,7 +76,7 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
       lang="ar"
       dir="rtl"
       suppressHydrationWarning
-      className={`${alexandria.variable} ${almarai.variable} ${jetbrainsMono.variable}`}
+      className={`${alexandria.variable} ${almarai.variable} ${figtree.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <Providers>

@@ -176,167 +176,354 @@ body {
   border-radius: 3px;
 }
 
-/* ─── Hero mirror graphic (mirror-graphic.tsx) ──────────────────────────────── */
-/* Spec-sheet diagram: LTR | axis | RTL, built only from system tokens. */
-.mirror {
+/* ─── Hero graphic: profile card, LTR | RTL (mirror-graphic.tsx) ──────────── */
+/* Finished UI from system tokens only. Layout and the progress fill follow
+   dir; the star, play glyph and numerals keep their orientation. */
+.pcards-stage {
+  background: var(--sunk);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.pcards {
   display: flex;
   align-items: stretch;
-  gap: 22px;
-  padding-block: 4px;
+  gap: 16px;
 }
 
-.mirror-col {
+.pcards-axis {
+  width: 1px;
+  flex: none;
+  margin-top: 26px;
+  background: var(--line-strong);
+}
+
+.pcard-col {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
-.mirror-label {
+.pcard-tag {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.78125rem; /* micro */
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: start;
+}
+
+.pcard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'head head'
+    'rating badge'
+    'meta meta'
+    'desc desc'
+    'media media'
+    'actions actions';
+  align-items: center;
+  gap: 12px 8px;
+  padding: 16px;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+/* Per-script sizes (Script Scale Rule): name / small / micro */
+.pcard-en {
+  --t-name: 1rem;
+  --t-small: 0.875rem;
+  --t-micro: 0.78125rem;
+  font-family: var(--font-figtree), var(--font-body), system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.pcard-ar {
+  --t-name: 0.9375rem;
+  --t-small: 0.8125rem;
+  --t-micro: 0.75rem;
+  font-family: var(--font-almarai), var(--font-body), system-ui, sans-serif;
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+.pcard-head {
+  grid-area: head;
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-jetbrains), ui-monospace, monospace;
-  font-size: 0.78125rem; /* micro, 12.5px — Latin-only label */
-  letter-spacing: 0.08em;
+  gap: 10px;
+}
+
+.pcard-avatar {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: var(--t-micro);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.pcard-who {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pcard-name {
+  font-size: var(--t-name);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.pcard-en .pcard-name {
+  font-family: var(--font-space-grotesk), var(--font-heading), sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.pcard-ar .pcard-name {
+  font-family: var(--font-alexandria), var(--font-heading), sans-serif;
+}
+
+.pcard-role {
+  font-size: var(--t-micro);
+  line-height: 1.4;
   color: var(--muted);
 }
 
-.mirror-col-rtl .mirror-label {
-  flex-direction: row-reverse;
+.pcard-ar .pcard-role {
+  line-height: 1.6;
 }
 
-.mirror-arrow {
-  position: relative;
-  flex: 1;
-  height: 1px;
-  background: var(--line-strong);
+.pcard-badge {
+  grid-area: badge;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: var(--t-micro);
+  line-height: 1.6;
 }
 
-.mirror-arrow::after {
-  content: '';
-  position: absolute;
-  top: -3px;
+.pcard-dot {
   width: 6px;
-  height: 7px;
-  background: var(--line-strong);
+  height: 6px;
+  border-radius: 999px;
+  background: var(--success);
 }
 
-.mirror-col-ltr .mirror-arrow::after {
-  right: 0;
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
+.pcard-rating {
+  grid-area: rating;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--t-small);
 }
 
-.mirror-col-rtl .mirror-arrow::after {
-  left: 0;
-  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+.pcard-star {
+  display: inline-flex;
+  color: var(--warning);
 }
 
-.mirror-panel {
-  position: relative;
-  border-radius: 14px;
-  padding: 10% 9%;
-  background: var(--sunk);
+.pcard-star svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
 }
 
-/* Redline on each column's reading-start edge */
-.mirror-guide {
-  position: absolute;
-  top: -10px;
-  bottom: -10px;
-  border-inline-start: 1px dashed var(--line-strong);
+/* Numerals: JetBrains Mono, Western digits in both scripts */
+.pcard-num,
+.pcard-pct {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.78125rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--fg);
 }
 
-.mirror-col-ltr .mirror-guide {
-  left: 9%;
+.pcard-num {
+  font-size: 0.8125rem;
 }
 
-.mirror-col-rtl .mirror-guide {
-  right: 9%;
+.pcard-reviews {
+  font-size: var(--t-micro);
+  color: var(--muted);
 }
 
-.mirror-screen {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  container-type: inline-size;
+.pcard-meta {
+  grid-area: meta;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: var(--t-micro);
+  color: var(--muted);
 }
 
-.mirror-screen > span {
-  position: absolute;
+.pcard-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.mirror-ink {
-  background: var(--muted);
+.pcard-meta svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.mirror-strong {
-  background: var(--line-strong);
+.pcard-desc {
+  grid-area: desc;
+  margin: 0;
+  font-size: var(--t-small);
+  color: var(--muted);
 }
 
-.mirror-line {
-  background: var(--line);
+.pcard-media {
+  grid-area: media;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.mirror-btn {
-  background: var(--line-strong);
-  border-radius: 10px;
-}
-
-/* The one accent in the graphic: the RTL primary button */
-.mirror-col-rtl .mirror-btn {
-  background: var(--accent);
-}
-
-.mirror-screen [data-shape='play'] {
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-.mirror-axis {
-  position: relative;
-  width: 1px;
+.pcard-play {
   flex: none;
-  background: var(--line-strong);
-  margin-top: 22px;
-}
-
-.mirror-axis::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 7px;
-  height: 7px;
-  translate: -50% -50%;
-  rotate: 45deg;
-  background: var(--bg);
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
   border: 1px solid var(--line-strong);
 }
 
-@media (min-width: 48rem) {
-  .mirror-screen {
-    aspect-ratio: 5 / 6;
+/* Media play keeps pointing right in both directions */
+.pcard-play svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.pcard-media-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pcard-media-label {
+  font-size: var(--t-micro);
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.pcard-track {
+  position: relative;
+  height: 4px;
+  background: var(--line);
+}
+
+/* Grows from the reading start, so it fills right-to-left in RTL */
+.pcard-fill {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 64%;
+  background: var(--fg);
+}
+
+.pcard-actions {
+  grid-area: actions;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pcard-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: var(--t-small);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.pcard-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.pcard-secondary {
+  border: 1px solid var(--line-strong);
+}
+
+.pcard-secondary.is-hover {
+  background: var(--bg);
+  border-color: var(--fg);
+}
+
+/* Mobile: stack with a horizontal axis; compact cards keep identity and the
+   direction-locked media row so the hero fits one 390×844 viewport. */
+@media (max-width: 47.99rem) {
+  .pcards-stage {
+    padding: 12px;
   }
-}
 
-/* ─── Hero mirror moment — plays once per visit (see mirror-graphic.tsx) ──── */
-/* The RTL panel renders in its final state; under [data-mirror='play'] each bar
-   starts at its LTR position and settles into RTL after 1.2s. */
-@keyframes mirror-in {
-  from {
-    transform: translateX(calc(var(--mirror-from) * 1cqw));
+  .pcards {
+    flex-direction: column;
+    gap: 8px;
   }
-}
 
-[data-mirror='play'] .mirror-move {
-  animation-name: mirror-in;
-  animation-duration: 520ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  animation-delay: calc(1200ms + var(--mirror-delay, 0ms));
-  animation-fill-mode: backwards;
-}
+  .pcard-col {
+    gap: 6px;
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  [data-mirror='play'] .mirror-move {
-    animation: none;
+  .pcards-axis {
+    width: auto;
+    height: 1px;
+    margin: 0;
+  }
+
+  /* Compact: one identity row (avatar, name, role, status) + the media row */
+  .pcard {
+    grid-template-areas:
+      'head badge'
+      'media media';
+    gap: 8px;
+    padding: 8px 12px;
+  }
+
+  .pcard-badge {
+    align-self: center;
+  }
+
+  .pcard-play {
+    width: 24px;
+    height: 24px;
+  }
+
+  .pcard-rating,
+  .pcard-meta,
+  .pcard-desc,
+  .pcard-actions {
+    display: none;
   }
 }

@@ -31,11 +31,11 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
   return (
     <section
       aria-label={t.label}
-      className="flex min-h-[calc(100svh-3.5rem)] items-center py-8 md:py-16"
+      className="flex min-h-[calc(100svh-3.5rem)] items-center py-6 md:py-16"
     >
       <Container>
         {/* Graphic bottom-aligns with the buttons on desktop: support text and graphic share one band, the H1 rises above it. */}
-        <div className="grid gap-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:items-end md:gap-16">
+        <div className="grid gap-8 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:items-end md:gap-16">
           <div className="flex flex-col">
             <h1
               className={cn(

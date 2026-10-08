@@ -1,87 +1,139 @@
-import type { CSSProperties } from 'react';
+// Hero graphic: the same profile card as finished UI, in English (LTR) and
+// Arabic (RTL), side by side. Layout and the progress fill follow `dir`; the
+// star, the play glyph and the Western numerals keep their orientation.
+// RTL is designed, not mirrored.
 
-// One abstract screen, defined once in LTR coordinates (% of the screen box).
-// The RTL column derives every position from these: start-anchored bars move
-// to the end edge and the progress fill re-anchors to the right, while the play
-// glyph moves but keeps pointing right. RTL is designed, not mirrored.
-type Bar = {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  tone: 'ink' | 'strong' | 'line' | 'btn';
-  shape?: 'play';
-  order: number; // stagger step for the mirror moment
+const ICON = {
+  clock: (
+    <svg viewBox="0 0 16 16" aria-hidden>
+      <circle cx="8" cy="8" r="6.25" />
+      <path d="M8 4.75V8l2.25 1.5" />
+    </svg>
+  ),
+  video: (
+    <svg viewBox="0 0 16 16" aria-hidden>
+      <rect x="1.75" y="4" width="9" height="8" rx="1.5" />
+      <path d="M10.75 7l3.5-2v6l-3.5-2" />
+    </svg>
+  ),
+  pin: (
+    <svg viewBox="0 0 16 16" aria-hidden>
+      <path d="M8 14.25s4.5-4.1 4.5-7.5a4.5 4.5 0 1 0-9 0c0 3.4 4.5 7.5 4.5 7.5z" />
+      <circle cx="8" cy="6.75" r="1.6" />
+    </svg>
+  ),
+  star: (
+    <svg viewBox="0 0 16 16" aria-hidden>
+      <path d="M8 1.6l1.95 4 4.4.6-3.2 3.08.78 4.37L8 11.57l-3.93 2.08.78-4.37L1.65 6.2l4.4-.6z" />
+    </svg>
+  ),
+  play: (
+    <svg viewBox="0 0 16 16" aria-hidden>
+      <path d="M5 3.2v9.6L12.6 8z" />
+    </svg>
+  ),
 };
 
-const BARS: Bar[] = [
-  { x: 0, y: 0, w: 11, h: 8, tone: 'ink', order: 0 }, // logo mark
-  { x: 60, y: 2.5, w: 40, h: 3.5, tone: 'strong', order: 0 }, // nav
-  { x: 0, y: 19, w: 74, h: 8, tone: 'ink', order: 1 }, // title
-  { x: 0, y: 33, w: 92, h: 3.5, tone: 'strong', order: 2 }, // text lines
-  { x: 0, y: 40, w: 66, h: 3.5, tone: 'strong', order: 2 },
-  { x: 0, y: 47, w: 80, h: 3.5, tone: 'strong', order: 2 },
-  { x: 0, y: 62, w: 7, h: 7, tone: 'ink', shape: 'play', order: 3 }, // play glyph — never flips
-  { x: 12, y: 64.75, w: 88, h: 1.5, tone: 'line', order: 3 }, // progress track
-  { x: 12, y: 64.75, w: 50, h: 1.5, tone: 'ink', order: 3 }, // progress fill — fills from reading start
-  { x: 0, y: 84, w: 36, h: 14, tone: 'btn', order: 4 }, // primary button
-];
+const CARD = {
+  en: {
+    dir: 'ltr',
+    tag: 'LTR',
+    initials: 'LH',
+    name: 'Layla Hassan',
+    role: 'Clinical psychologist',
+    status: 'Available',
+    reviews: '(126)',
+    meta: ['50 min', 'Video call', 'Riyadh'],
+    desc: 'Helps professionals work through burnout and anxiety with short-term CBT.',
+    primary: 'Book session',
+    secondary: 'View profile',
+    media: 'Intro video',
+  },
+  ar: {
+    dir: 'rtl',
+    tag: 'RTL',
+    initials: 'ل ح',
+    name: 'ليلى حسن',
+    role: 'أخصائية نفسية إكلينيكية',
+    status: 'متاحة',
+    reviews: '(126)',
+    meta: ['50 دقيقة', 'مكالمة فيديو', 'الرياض'],
+    desc: 'تساعد المهنيين على تجاوز الإرهاق والقلق من خلال العلاج المعرفي السلوكي قصير المدى.',
+    primary: 'حجز جلسة',
+    secondary: 'عرض الملف',
+    media: 'فيديو تعريفي',
+  },
+} as const;
 
-// A spec-sheet column: direction label with arrow, dashed redline on the
-// reading-start edge, and the screen itself.
-function Column({ dir }: { dir: 'ltr' | 'rtl' }) {
-  const rtl = dir === 'rtl';
+function ProfileCard({ lang }: { lang: keyof typeof CARD }) {
+  const t = CARD[lang];
   return (
-    <div className={`mirror-col mirror-col-${dir}`}>
-      <div className="mirror-label" aria-hidden>
-        <span>{rtl ? 'RTL' : 'LTR'}</span>
-        <span className="mirror-arrow" />
-      </div>
-      <div className="mirror-panel">
-        <span className="mirror-guide" aria-hidden />
-        <div className="mirror-screen">
-          {BARS.map((bar, i) => {
-            const x = rtl ? 100 - bar.x - bar.w : bar.x;
-            const style: CSSProperties & Record<string, string> = {
-              left: `${x}%`,
-              top: `${bar.y}%`,
-              width: `${bar.w}%`,
-              height: `${bar.h}%`,
-            };
-            if (rtl) {
-              // Distance back to the LTR position, in container widths, for the mirror moment.
-              style['--mirror-from'] = String(bar.x - x);
-              style['--mirror-delay'] = `${bar.order * 20}ms`;
-            }
-            return (
-              <span
-                key={i}
-                className={`mirror-${bar.tone}${rtl ? ' mirror-move' : ''}`}
-                data-shape={bar.shape}
-                style={style}
-              />
-            );
-          })}
+    <div className="pcard-col" dir={t.dir}>
+      <span className="pcard-tag">{t.tag}</span>
+      <div className={`pcard pcard-${lang}`} lang={lang}>
+        <div className="pcard-head">
+          <span className="pcard-avatar">{t.initials}</span>
+          <div className="pcard-who">
+            <span className="pcard-name">{t.name}</span>
+            <span className="pcard-role">{t.role}</span>
+          </div>
+        </div>
+        <span className="pcard-badge">
+          <span className="pcard-dot" />
+          {t.status}
+        </span>
+        <div className="pcard-rating">
+          <span className="pcard-star">{ICON.star}</span>
+          <span className="pcard-num">4.8</span>
+          <span className="pcard-reviews">{t.reviews}</span>
+        </div>
+        <div className="pcard-meta">
+          <span>
+            {ICON.clock}
+            {t.meta[0]}
+          </span>
+          <span>
+            {ICON.video}
+            {t.meta[1]}
+          </span>
+          <span>
+            {ICON.pin}
+            {t.meta[2]}
+          </span>
+        </div>
+        <p className="pcard-desc">{t.desc}</p>
+        <div className="pcard-media">
+          <span className="pcard-play">{ICON.play}</span>
+          <div className="pcard-media-body">
+            <span className="pcard-media-label">{t.media}</span>
+            <span className="pcard-track">
+              <span className="pcard-fill" />
+            </span>
+          </div>
+          <span className="pcard-pct">64%</span>
+        </div>
+        <div className="pcard-actions">
+          <span className="pcard-btn pcard-primary">{t.primary}</span>
+          {/* The one interactive state on show: hover, on the English secondary button */}
+          <span className={`pcard-btn pcard-secondary${lang === 'en' ? ' is-hover' : ''}`}>
+            {t.secondary}
+          </span>
         </div>
       </div>
     </div>
   );
 }
 
-// Plays the mirror once per visit, before first paint, and never under reduced
-// motion. Without JS, on repeat visits or with reduced motion the final LTR | RTL
-// pair is simply what renders.
-const PLAY_ONCE = `(function(){try{var d=document.documentElement;if(sessionStorage.getItem('nw-mirror'))return;sessionStorage.setItem('nw-mirror','1');if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.setAttribute('data-mirror','play');setTimeout(function(){d.removeAttribute('data-mirror')},2400)}catch(e){}})()`;
-
 export function MirrorGraphic({ label, className }: { label: string; className?: string }) {
   return (
     <div className={className}>
-      <script dangerouslySetInnerHTML={{ __html: PLAY_ONCE }} />
-      {/* Fixed physical order on both pages: it's a diagram of LTR vs RTL, not text. */}
-      <div dir="ltr" role="img" aria-label={label} className="mirror">
-        <Column dir="ltr" />
-        <span aria-hidden className="mirror-axis" />
-        <Column dir="rtl" />
+      {/* Fixed physical order on both pages: English left, Arabic right. */}
+      <div dir="ltr" role="img" aria-label={label} className="pcards-stage">
+        <div className="pcards">
+          <ProfileCard lang="en" />
+          <span className="pcards-axis" aria-hidden />
+          <ProfileCard lang="ar" />
+        </div>
       </div>
     </div>
   );
