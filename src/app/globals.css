@@ -176,6 +176,148 @@ body {
   border-radius: 3px;
 }
 
+/* ─── Hero mirror graphic (mirror-graphic.tsx) ──────────────────────────────── */
+/* Spec-sheet diagram: LTR | axis | RTL, built only from system tokens. */
+.mirror {
+  display: flex;
+  align-items: stretch;
+  gap: 22px;
+  padding-block: 4px;
+}
+
+.mirror-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mirror-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 0.78125rem; /* micro, 12.5px — Latin-only label */
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.mirror-col-rtl .mirror-label {
+  flex-direction: row-reverse;
+}
+
+.mirror-arrow {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.mirror-arrow::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 6px;
+  height: 7px;
+  background: var(--line-strong);
+}
+
+.mirror-col-ltr .mirror-arrow::after {
+  right: 0;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.mirror-col-rtl .mirror-arrow::after {
+  left: 0;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+.mirror-panel {
+  position: relative;
+  border-radius: 14px;
+  padding: 10% 9%;
+  background: var(--sunk);
+}
+
+/* Redline on each column's reading-start edge */
+.mirror-guide {
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  border-inline-start: 1px dashed var(--line-strong);
+}
+
+.mirror-col-ltr .mirror-guide {
+  left: 9%;
+}
+
+.mirror-col-rtl .mirror-guide {
+  right: 9%;
+}
+
+.mirror-screen {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  container-type: inline-size;
+}
+
+.mirror-screen > span {
+  position: absolute;
+}
+
+.mirror-ink {
+  background: var(--muted);
+}
+
+.mirror-strong {
+  background: var(--line-strong);
+}
+
+.mirror-line {
+  background: var(--line);
+}
+
+.mirror-btn {
+  background: var(--line-strong);
+  border-radius: 10px;
+}
+
+/* The one accent in the graphic: the RTL primary button */
+.mirror-col-rtl .mirror-btn {
+  background: var(--accent);
+}
+
+.mirror-screen [data-shape='play'] {
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.mirror-axis {
+  position: relative;
+  width: 1px;
+  flex: none;
+  background: var(--line-strong);
+  margin-top: 22px;
+}
+
+.mirror-axis::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  translate: -50% -50%;
+  rotate: 45deg;
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+}
+
+@media (min-width: 48rem) {
+  .mirror-screen {
+    aspect-ratio: 5 / 6;
+  }
+}
+
 /* ─── Hero mirror moment — plays once per visit (see mirror-graphic.tsx) ──── */
 /* The RTL panel renders in its final state; under [data-mirror='play'] each bar
    starts at its LTR position and settles into RTL after 1.2s. */
