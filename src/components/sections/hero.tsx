@@ -46,7 +46,7 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
             </h1>
             <p
               className={cn(
-                'mt-6 text-[1.1875rem] text-foreground',
+                'mt-6 text-subtitle text-foreground',
                 ar ? 'leading-[1.85]' : 'leading-[1.4]'
               )}
             >
@@ -54,7 +54,7 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
             </p>
             <p
               className={cn(
-                'mt-3 max-w-[34rem] text-[1rem] text-foreground-muted',
+                'mt-3 max-w-[34rem] text-body text-foreground-muted',
                 ar ? 'leading-[1.85]' : 'leading-[1.65]'
               )}
             >

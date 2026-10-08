@@ -27,6 +27,9 @@
 
   /* Hero display size (DESIGN.md `hero`), Latin: 44px mobile, 64px from md up */
   --size-hero: 2.75rem;
+  /* Per-script scale steps (DESIGN.md Script Scale Rule), Latin values */
+  --size-subtitle: 1.1875rem; /* 19px */
+  --size-body: 1rem; /* 16px */
 }
 
 @media (min-width: 48rem) {
@@ -36,9 +39,11 @@
 }
 
 /* Script Scale Rule (DESIGN.md): Arabic sits 10–15% below Latin at every
-   level — it has no uppercase and a larger effective body. Hero: 38 / 56px. */
+   level above Body; from Body down an absolute floor applies (15px body). */
 html[lang='ar'] {
   --size-hero: 2.375rem;
+  --size-subtitle: 1.0625rem; /* 17px: −10.5% */
+  --size-body: 0.9375rem; /* 15px: Arabic body floor */
 }
 
 @media (min-width: 48rem) {
@@ -101,8 +106,9 @@ html[lang='ar'] {
   --text-h1: 2.5rem;
   --text-h2: 1.75rem;
   --text-h3: 1.25rem;
+  --text-subtitle: var(--size-subtitle);
   --text-body-lg: 1.125rem;
-  --text-body: 1rem;
+  --text-body: var(--size-body);
   --text-small: 0.875rem;
   --text-mono: 0.8125rem;
 }

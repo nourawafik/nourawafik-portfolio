@@ -101,17 +101,17 @@ typography:
     letterSpacing: "0"
   body-ar:
     fontFamily: "Almarai, system-ui, sans-serif"
-    fontSize: "14px"
+    fontSize: "15px"
     lineHeight: 1.85
     letterSpacing: "0"
   small-ar:
     fontFamily: "Almarai, system-ui, sans-serif"
-    fontSize: "12.5px"
+    fontSize: "13px"
     lineHeight: 1.85
     letterSpacing: "0"
   label-ar:
     fontFamily: "Almarai, system-ui, sans-serif"
-    fontSize: "11px"
+    fontSize: "12px"
     lineHeight: 1.85
     letterSpacing: "0"
 rounded:
@@ -228,13 +228,13 @@ Every level has a Latin and an Arabic size (see the Script Scale Rule). Heading 
 | **Display** | 48px | 42px | Large statements outside the hero. Latin −3% tracking. |
 | **Headline / h1** | 34px | 30px | Page titles. Latin −2.5%. |
 | **Title / h2** | 26px | 23px | Section headings. Latin −2%. |
-| **Subtitle / h3** | 19px | 17px | Card titles, decision headings, the hero subhead. Latin −1%. |
-| **Body** | 16px | 14px | Running text. |
-| **Small** | 14px | 12.5px | Secondary text and captions. |
-| **Micro** | 12.5px | 11px | Labels and metadata. Latin labels may use JetBrains Mono; Arabic labels always use Almarai. |
+| **Subtitle / h3** (`--size-subtitle`) | 19px | 17px | Card titles, decision headings, the hero subhead. Latin −1%. |
+| **Body** (`--size-body`) | 16px | 15px (floor) | Running text. |
+| **Small** | 14px | 13px | Secondary text and captions. |
+| **Micro** | 12.5px | 12px (floor) | Labels and metadata. Latin labels may use JetBrains Mono; Arabic labels always use Almarai. |
 
 ### Named Rules
-**The Script Scale Rule.** Arabic is set 10–15% smaller than Latin at every level of the scale, because Arabic has no uppercase and Alexandria and Almarai have a larger effective body, so the same pixel size reads bigger. Every size token carries a Latin and an Arabic value, resolved by the page language (`html[lang]`). Never share one value across scripts, and never shrink below the Arabic column above to make copy fit; cut the copy instead.
+**The Script Scale Rule.** Every size token carries a Latin and an Arabic value, resolved by the page language (`html[lang]`); never share one value across scripts. It has two parts. *Above Body* (hero, display, h1–h3), Arabic is set 10–15% smaller than Latin, because Arabic has no uppercase and Alexandria and Almarai have a larger effective body, so the same pixel size reads bigger. *From Body down*, proportion gives way to an absolute floor: Arabic body is never below 15px and Arabic micro never below 12px, because Arabic dots and diacritics carry meaning and blur first. Legibility wins over proportion. Never shrink below these values to make copy fit; cut the copy instead.
 
 **The One Hero Rule.** `--size-hero` appears once per page, on the hero H1. Never hardcode a size above Display; add a named token instead.
 
