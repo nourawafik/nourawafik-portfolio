@@ -436,7 +436,7 @@
       },
       "hero-ar": {
         "displayName": "Hero (Arabic)",
-        "purpose": "Arabic hero H1; Alexandria, 0 tracking, 130% line-height."
+        "purpose": "Arabic hero H1; 56px desktop (--size-hero on html[lang=ar]), Alexandria, 0 tracking, 130%."
       },
       "display": {
         "displayName": "Display",
@@ -489,6 +489,14 @@
       "label-ar": {
         "displayName": "Micro (Arabic)",
         "purpose": "Arabic labels and metadata."
+      },
+      "hero-ar-mobile": {
+        "displayName": "Hero (Arabic, mobile)",
+        "purpose": "Arabic hero H1 below 768px; 38px."
+      },
+      "small-ar": {
+        "displayName": "Small (Arabic)",
+        "purpose": "Arabic secondary text and captions; 12.5px."
       }
     },
     "shadows": [],
@@ -590,6 +598,11 @@
         "name": "The Recompute Rule",
         "body": "Any colour change must recompute the full contrast table, light and dark, before it ships.",
         "section": "colors"
+      },
+      {
+        "name": "The Script Scale Rule",
+        "body": "Arabic is set 10–15% smaller than Latin at every level of the scale, because Arabic has no uppercase and Alexandria and Almarai have a larger effective body, so the same pixel size reads bigger. Every size token carries a Latin and an Arabic value, resolved by the page language (`html[lang]`). Never share one value across scripts, and never shrink below the Arabic column above to make copy fit; cut the copy instead.",
+        "section": "typography"
       },
       {
         "name": "The One Hero Rule",

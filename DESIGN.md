@@ -45,7 +45,12 @@ typography:
     letterSpacing: "-0.03em"
   hero-ar:
     fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "64px"
+    fontSize: "56px"
+    lineHeight: 1.3
+    letterSpacing: "0"
+  hero-ar-mobile:
+    fontFamily: "Alexandria, system-ui, sans-serif"
+    fontSize: "38px"
     lineHeight: 1.3
     letterSpacing: "0"
   display:
@@ -80,28 +85,33 @@ typography:
     letterSpacing: "0"
   display-ar:
     fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "48px"
+    fontSize: "42px"
     letterSpacing: "0"
   headline-ar:
     fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "34px"
+    fontSize: "30px"
     letterSpacing: "0"
   title-ar:
     fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "26px"
+    fontSize: "23px"
     letterSpacing: "0"
   subtitle-ar:
     fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "19px"
+    fontSize: "17px"
     letterSpacing: "0"
   body-ar:
     fontFamily: "Almarai, system-ui, sans-serif"
-    fontSize: "16px"
+    fontSize: "14px"
+    lineHeight: 1.85
+    letterSpacing: "0"
+  small-ar:
+    fontFamily: "Almarai, system-ui, sans-serif"
+    fontSize: "12.5px"
     lineHeight: 1.85
     letterSpacing: "0"
   label-ar:
     fontFamily: "Almarai, system-ui, sans-serif"
-    fontSize: "12.5px"
+    fontSize: "11px"
     lineHeight: 1.85
     letterSpacing: "0"
 rounded:
@@ -210,18 +220,22 @@ Success (same value as the accent), warning, error and info. Each passes as text
 **Character:** Space Grotesk's engineered geometry over Figtree's friendly, readable text; Alexandria and Almarai give Arabic the same relationship, so the two scripts read as equals rather than a primary and its translation.
 
 ### Hierarchy
-Sizes are shared across both scripts. Heading line-height runs from 105% (display) to 150% (h3), depending on level. Latin body text is 165% and all Arabic text is 185%.
+Every level has a Latin and an Arabic size (see the Script Scale Rule). Heading line-height runs from 105% (display) to 150% (h3), depending on level. Latin body text is 165% and all Arabic text is 185%.
 
-- **Hero** (`--size-hero`: 64px from 768px up, 44px below; Latin −3% tracking, 105% line-height; Arabic 0 tracking, 130% line-height): the homepage hero H1 only. It is the one size above Display, so the hero statement is the largest thing on the page.
-- **Display** (48px; Latin −3% tracking): large statements outside the hero.
-- **Headline / h1** (34px; Latin −2.5%): page titles.
-- **Title / h2** (26px; Latin −2%): section headings.
-- **Subtitle / h3** (19px; Latin −1%): card titles and decision headings.
-- **Body** (16px, 0 tracking): running text.
-- **Small** (14px): secondary text and captions.
-- **Micro** (12.5px): labels and metadata. Latin labels may use JetBrains Mono; Arabic labels always use Almarai.
+| Level | Latin | Arabic | Use |
+|---|---|---|---|
+| **Hero** (`--size-hero`) | 64px · 44px below 768px | 56px · 38px below 768px | The homepage hero H1 only; the largest thing on the page. Latin −3% tracking, 105% line-height; Arabic 0 tracking, 130%. |
+| **Display** | 48px | 42px | Large statements outside the hero. Latin −3% tracking. |
+| **Headline / h1** | 34px | 30px | Page titles. Latin −2.5%. |
+| **Title / h2** | 26px | 23px | Section headings. Latin −2%. |
+| **Subtitle / h3** | 19px | 17px | Card titles, decision headings, the hero subhead. Latin −1%. |
+| **Body** | 16px | 14px | Running text. |
+| **Small** | 14px | 12.5px | Secondary text and captions. |
+| **Micro** | 12.5px | 11px | Labels and metadata. Latin labels may use JetBrains Mono; Arabic labels always use Almarai. |
 
 ### Named Rules
+**The Script Scale Rule.** Arabic is set 10–15% smaller than Latin at every level of the scale, because Arabic has no uppercase and Alexandria and Almarai have a larger effective body, so the same pixel size reads bigger. Every size token carries a Latin and an Arabic value, resolved by the page language (`html[lang]`). Never share one value across scripts, and never shrink below the Arabic column above to make copy fit; cut the copy instead.
+
 **The One Hero Rule.** `--size-hero` appears once per page, on the hero H1. Never hardcode a size above Display; add a named token instead.
 
 **The Zero Tracking Rule.** Arabic letter-spacing is always 0. Negative tracking breaks the letter joins.
