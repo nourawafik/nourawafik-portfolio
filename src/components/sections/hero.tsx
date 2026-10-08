@@ -34,11 +34,12 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
       className="flex min-h-[calc(100svh-3.5rem)] items-center py-8 md:py-16"
     >
       <Container>
-        <div className="grid items-center gap-8 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:gap-16">
+        {/* Graphic bottom-aligns with the buttons on desktop: support text and graphic share one band, the H1 rises above it. */}
+        <div className="grid gap-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:items-end md:gap-16">
           <div className="flex flex-col">
             <h1
               className={cn(
-                'text-hero font-medium text-foreground text-balance',
+                'text-hero font-semibold text-foreground text-balance',
                 ar ? 'leading-[1.3]' : 'leading-[1.05] tracking-[-0.03em]'
               )}
             >
@@ -46,7 +47,7 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
             </h1>
             <p
               className={cn(
-                'mt-6 text-subtitle text-foreground',
+                'mt-8 text-subtitle text-foreground md:mt-10',
                 ar ? 'leading-[1.85]' : 'leading-[1.4]'
               )}
             >
@@ -60,7 +61,7 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
             >
               {t.body}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-3">
               <Button href={t.primary.href} variant="primary">
                 {t.primary.label}
               </Button>
