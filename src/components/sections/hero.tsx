@@ -1,14 +1,13 @@
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { AudienceSwitch } from './audience-switch';
 import { MirrorGraphic } from './mirror-graphic';
 
 const COPY = {
   en: {
     label: 'Introduction',
     h1: 'I design product systems that work in Arabic and English',
-    subhead: 'Senior product designer — from research to shipped, web and mobile',
-    body: 'Multi-role SaaS platforms, healthtech products and AI tools, for teams in Saudi Arabia, Egypt and the US. Based in Cairo.',
     primary: { label: 'View work', href: '/#work' },
     secondary: { label: 'Get in touch', href: '/#contact' },
     graphic: 'The same interface layout shown left-to-right and right-to-left, mirrored across a central axis.',
@@ -16,8 +15,6 @@ const COPY = {
   ar: {
     label: 'مقدمة',
     h1: 'أصمم أنظمة منتجات تعمل بالعربية والإنجليزية',
-    subhead: 'مصممة منتجات أولى — من البحث إلى الإطلاق، على الويب والتطبيقات',
-    body: 'أعمل على منصات SaaS متعددة الأدوار ومنتجات الصحة الرقمية وأدوات الذكاء الاصطناعي، لفرق في السعودية ومصر والولايات المتحدة.',
     primary: { label: 'عرض الأعمال', href: '/ar#work' },
     secondary: { label: 'التواصل', href: '/ar#contact' },
     graphic: 'التخطيط نفسه من اليسار إلى اليمين ومن اليمين إلى اليسار، معكوسًا حول محور في المنتصف.',
@@ -37,30 +34,17 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
         {/* Graphic bottom-aligns with the buttons on desktop: support text and graphic share one band, the H1 rises above it. */}
         <div className="grid gap-8 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:items-end md:gap-16">
           <div className="flex flex-col">
-            <h1
-              className={cn(
-                'text-hero font-semibold text-foreground text-balance',
-                ar ? 'leading-[1.3]' : 'leading-[1.05] tracking-[-0.03em]'
-              )}
-            >
-              {t.h1}
-            </h1>
-            <p
-              className={cn(
-                'mt-8 text-subtitle text-foreground md:mt-10',
-                ar ? 'leading-[1.85]' : 'leading-[1.4]'
-              )}
-            >
-              {t.subhead}
-            </p>
-            <p
-              className={cn(
-                'mt-3 max-w-[34rem] text-body text-foreground-muted',
-                ar ? 'leading-[1.85]' : 'leading-[1.65]'
-              )}
-            >
-              {t.body}
-            </p>
+            {/* Tabs above, the selected audience's paragraph below; the H1 never changes. */}
+            <AudienceSwitch locale={locale}>
+              <h1
+                className={cn(
+                  'text-hero font-semibold text-foreground text-balance',
+                  ar ? 'leading-[1.3]' : 'leading-[1.05] tracking-[-0.03em]'
+                )}
+              >
+                {t.h1}
+              </h1>
+            </AudienceSwitch>
             <div className="mt-10 flex flex-wrap gap-3">
               <Button href={t.primary.href} variant="primary">
                 {t.primary.label}
