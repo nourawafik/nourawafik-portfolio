@@ -33,10 +33,25 @@ export function NavAr() {
           <NextLink
             href="/ar"
             onClick={() => setOpen(false)}
-            className="text-[0.875rem] font-medium text-foreground hover:opacity-70 transition-opacity duration-150"
+            className="flex items-center hover:opacity-70 transition-opacity duration-150"
             aria-label="نورا وفيق — الصفحة الرئيسية"
           >
-            نورا وفيق
+            {/* Light logo */}
+            <img
+              src="/logo/lockup-ar.svg"
+              alt="نورا وفيق"
+              width={130}
+              height={32}
+              className="dark:hidden"
+            />
+            {/* Dark logo */}
+            <img
+              src="/logo/lockup-ar-on-dark.svg"
+              alt="نورا وفيق"
+              width={130}
+              height={32}
+              className="hidden dark:block"
+            />
           </NextLink>
 
           {/* Desktop */}

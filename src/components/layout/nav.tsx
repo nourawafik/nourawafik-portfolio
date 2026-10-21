@@ -33,10 +33,25 @@ export function Nav() {
           <NextLink
             href="/"
             onClick={() => setOpen(false)}
-            className="text-[0.875rem] font-medium text-foreground hover:opacity-70 transition-opacity duration-150"
+            className="flex items-center hover:opacity-70 transition-opacity duration-150"
             aria-label="Noura Wafik — home"
           >
-            Noura Wafik
+            {/* Light logo */}
+            <img
+              src="/logo/lockup-en.svg"
+              alt="noura wafik"
+              width={130}
+              height={32}
+              className="dark:hidden"
+            />
+            {/* Dark logo */}
+            <img
+              src="/logo/lockup-en-on-dark.svg"
+              alt="noura wafik"
+              width={130}
+              height={32}
+              className="hidden dark:block"
+            />
           </NextLink>
 
           {/* Desktop */}

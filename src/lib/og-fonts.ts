@@ -8,14 +8,7 @@ async function loadFont(file: string): Promise<ArrayBuffer> {
   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength) as ArrayBuffer;
 }
 
-// Satori (next/og) needs TTF/OTF, not woff2 — these files exist only for OG images.
-// almarai-400.ttf is used by the pre-rendered images in scripts/og/.
-
-/** Latin headings and display. */
-export const spaceGroteskFont = () => loadFont('space-grotesk-500.ttf');
-
-/** Latin body. */
-export const figtreeFont = () => loadFont('figtree-400.ttf');
-
-/** Arabic headings and display. */
-export const alexandriaFont = () => loadFont('alexandria-500.ttf');
+// Satori (next/og) needs TTF/OTF. Latin subset covers English OG images;
+// Arabic case studies use pre-rendered PNGs (staticImage fallback).
+export const rubikFont = (weight: 400 | 700 = 400) =>
+  loadFont(`rubik-${weight}.ttf`);

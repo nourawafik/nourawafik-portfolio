@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
 import { ImageResponse } from 'next/og';
-import { alexandriaFont, figtreeFont, spaceGroteskFont } from '@/lib/og-fonts';
+import { rubikFont } from '@/lib/og-fonts';
 import { getStudySlugs, getFrontmatter } from '@/lib/mdx';
 import { Words } from '@/lib/og-words';
 
@@ -31,11 +31,10 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     return new Response(prerendered, { headers: { 'Content-Type': contentType } });
   }
 
-  const [fm, figtree, spaceGrotesk, alexandria] = await Promise.all([
+  const [fm, rubik400, rubik700] = await Promise.all([
     getFrontmatter(slug),
-    figtreeFont(),
-    spaceGroteskFont(),
-    alexandriaFont(),
+    rubikFont(400),
+    rubikFont(700),
   ]);
 
   const title = fm.title.length > 55 ? fm.title.slice(0, 52) + '…' : fm.title;
@@ -50,34 +49,61 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           justifyContent: 'space-between',
           width: '100%',
           height: '100%',
-          backgroundColor: '#F4F2EE',
+          backgroundColor: '#F6F4EE',
           padding: '80px',
         }}
       >
-        <div style={{ display: 'flex', gap: 24, fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.06em' }}>
+        <div
+          style={{
+            display: 'flex',
+            gap: 24,
+            fontFamily: 'Rubik',
+            fontWeight: 400,
+            fontSize: 13,
+            color: '#3E5558',
+            letterSpacing: '0.06em',
+          }}
+        >
           <span>Case Study</span>
           <span>Noura Wafik</span>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          {/* Titles can mix scripts (دايرتنا · Da'eratna) — per-word layout keeps spacing even */}
+          {/* Rubik covers both Latin and Arabic — no per-word font switching needed */}
           <Words
             text={title}
             style={{
-              fontFamily: 'Space Grotesk, Alexandria',
-              fontWeight: 500,
+              fontFamily: 'Rubik',
+              fontWeight: 700,
               fontSize: 64,
-              color: '#13140F',
+              color: '#0E2A2D',
               letterSpacing: '-0.02em',
               lineHeight: 1.15,
             }}
           />
-          <div style={{ fontFamily: 'Figtree', fontWeight: 400, fontSize: 28, color: '#636258', lineHeight: 1.5 }}>
+          <div
+            style={{
+              fontFamily: 'Rubik',
+              fontWeight: 400,
+              fontSize: 28,
+              color: '#3E5558',
+              lineHeight: 1.5,
+            }}
+          >
             {tagline}
           </div>
         </div>
 
-        <div style={{ display: 'flex', fontFamily: 'Figtree', fontWeight: 400, fontSize: 13, color: '#636258', letterSpacing: '0.04em' }}>
+        <div
+          style={{
+            display: 'flex',
+            fontFamily: 'Rubik',
+            fontWeight: 400,
+            fontSize: 13,
+            color: '#3E5558',
+            letterSpacing: '0.04em',
+          }}
+        >
           nourawafik.com
         </div>
       </div>
@@ -85,9 +111,8 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     {
       ...size,
       fonts: [
-        { name: 'Figtree', data: figtree, weight: 400, style: 'normal' },
-        { name: 'Space Grotesk', data: spaceGrotesk, weight: 500, style: 'normal' },
-        { name: 'Alexandria', data: alexandria, weight: 500, style: 'normal' },
+        { name: 'Rubik', data: rubik400, weight: 400, style: 'normal' },
+        { name: 'Rubik', data: rubik700, weight: 700, style: 'normal' },
       ],
     }
   );
