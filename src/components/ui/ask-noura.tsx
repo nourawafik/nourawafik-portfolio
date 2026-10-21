@@ -52,6 +52,7 @@ export function AskNoura({ locale = 'en' }: AskNouraProps) {
   ]);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
+  const msgCounter = useRef(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -64,7 +65,7 @@ export function AskNoura({ locale = 'en' }: AskNouraProps) {
 
   const sendMessage = (text: string) => {
     if (!text.trim()) return;
-    const id = `msg-${Date.now()}`;
+    const id = `msg-${++msgCounter.current}`;
     setMessages((prev) => [...prev, { id, role: 'user', text }]);
     setInput('');
     setTyping(true);
@@ -74,7 +75,7 @@ export function AskNoura({ locale = 'en' }: AskNouraProps) {
       setMessages((prev) => [
         ...prev,
         {
-          id: `reply-${Date.now()}`,
+          id: `reply-${++msgCounter.current}`,
           role: 'assistant',
           text: ar
             ? 'شكراً على سؤالك! الـ AI backend لسه بيتجهز. تواصل مع نورا على hello@nourawafik.com.'
