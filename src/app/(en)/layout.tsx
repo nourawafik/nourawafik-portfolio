@@ -6,6 +6,7 @@ import { Providers } from '@/components/providers';
 import { Nav } from '@/components/layout/nav';
 import { Footer } from '@/components/layout/footer';
 import { OfferBar } from '@/components/ui/offer-bar';
+import { AskNoura } from '@/components/ui/ask-noura';
 import { getActiveOffer } from '@/content/offers';
 import '../globals.css';
 
@@ -94,6 +95,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
             {children}
           </main>
           <Footer />
+          <AskNoura locale="en" />
         </Providers>
         <Analytics />
         <SpeedInsights />

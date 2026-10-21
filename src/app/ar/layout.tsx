@@ -6,6 +6,7 @@ import { Providers } from '@/components/providers';
 import { NavAr } from '@/components/layout/nav-ar';
 import { Footer } from '@/components/layout/footer';
 import { OfferBar } from '@/components/ui/offer-bar';
+import { AskNoura } from '@/components/ui/ask-noura';
 import { getActiveOffer } from '@/content/offers';
 import '../globals.css';
 
@@ -61,6 +62,7 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
             {children}
           </main>
           <Footer locale="ar" />
+          <AskNoura locale="ar" />
         </Providers>
         <Analytics />
         <SpeedInsights />
