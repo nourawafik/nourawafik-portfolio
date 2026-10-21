@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import NextLink from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Container } from './container';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -36,16 +37,14 @@ export function Nav() {
             className="flex items-center hover:opacity-70 transition-opacity duration-150"
             aria-label="Noura Wafik — home"
           >
-            {/* Light logo */}
-            <img
+            <Image
               src="/logo/lockup-en.svg"
               alt="noura wafik"
               width={130}
               height={32}
               className="dark:hidden"
             />
-            {/* Dark logo */}
-            <img
+            <Image
               src="/logo/lockup-en-on-dark.svg"
               alt="noura wafik"
               width={130}

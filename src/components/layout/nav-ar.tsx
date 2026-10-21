@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import NextLink from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { Container } from './container';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
@@ -36,16 +37,14 @@ export function NavAr() {
             className="flex items-center hover:opacity-70 transition-opacity duration-150"
             aria-label="نورا وفيق — الصفحة الرئيسية"
           >
-            {/* Light logo */}
-            <img
+            <Image
               src="/logo/lockup-ar.svg"
               alt="نورا وفيق"
               width={130}
               height={32}
               className="dark:hidden"
             />
-            {/* Dark logo */}
-            <img
+            <Image
               src="/logo/lockup-ar-on-dark.svg"
               alt="نورا وفيق"
               width={130}
