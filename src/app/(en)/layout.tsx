@@ -5,6 +5,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/components/providers';
 import { Nav } from '@/components/layout/nav';
 import { Footer } from '@/components/layout/footer';
+import { OfferBar } from '@/components/ui/offer-bar';
+import { getActiveOffer } from '@/content/offers';
 import '../globals.css';
 
 const rubik = Rubik({
@@ -70,6 +72,8 @@ export const metadata: Metadata = {
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
+  const activeOffer = getActiveOffer();
+
   return (
     <html
       lang="en"
@@ -84,6 +88,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <Providers>
+          {activeOffer && <OfferBar offer={activeOffer} locale="en" />}
           <Nav />
           <main id="main-content" className="flex-1">
             {children}

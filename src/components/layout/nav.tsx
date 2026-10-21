@@ -9,14 +9,15 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const navLinks = [
   { href: '/#work', label: 'Work' },
+  { href: '/#services', label: 'Services' },
   { href: '/#about', label: 'About' },
   { href: '/#contact', label: 'Contact' },
 ];
 
 const itemClass =
-  'text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150';
+  'text-[0.875rem] font-medium text-foreground-muted hover:text-foreground transition-colors duration-150';
 const langClass =
-  'text-[0.8125rem] text-foreground-muted hover:text-foreground transition-colors duration-150';
+  'text-[0.8125rem] font-medium text-foreground-muted hover:text-foreground transition-colors duration-150 rounded-pill border border-border px-2.5 py-1';
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -30,12 +31,12 @@ export function Nav() {
         Skip to main content
       </a>
       <Container>
-        <nav className="flex h-14 items-center justify-between" aria-label="Main navigation">
+        <nav className="flex h-14 items-center justify-between gap-4" aria-label="Main navigation">
           <NextLink
             href="/"
             onClick={() => setOpen(false)}
-            className="flex items-center hover:opacity-70 transition-opacity duration-150"
-            aria-label="Noura Wafik — home"
+            className="flex items-center hover:opacity-70 transition-opacity duration-150 shrink-0"
+            aria-label="Noura Wafik, home"
           >
             <Image
               src="/logo/lockup-en.svg"
@@ -54,8 +55,8 @@ export function Nav() {
           </NextLink>
 
           {/* Desktop */}
-          <div className="hidden md:flex items-center gap-6">
-            <ul className="flex items-center gap-6 list-none" role="list">
+          <div className="hidden md:flex items-center gap-4">
+            <ul className="flex items-center gap-5 list-none" role="list">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
                   <NextLink href={href} className={itemClass}>
@@ -63,29 +64,42 @@ export function Nav() {
                   </NextLink>
                 </li>
               ))}
-              <li>
-                <NextLink href="/ar" hrefLang="ar" aria-label="النسخة العربية" className={langClass}>
-                  عربي
-                </NextLink>
-              </li>
             </ul>
+            <NextLink href="/ar" hrefLang="ar" aria-label="النسخة العربية" className={langClass} lang="ar">
+              عربي
+            </NextLink>
             <ThemeToggle />
+            <a
+              href="mailto:hello@nourawafik.com?subject=Quote%20request"
+              className="inline-flex items-center justify-center rounded-pill px-4 py-2 text-[0.875rem] font-medium text-foreground transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
+              style={{ backgroundColor: 'var(--highlight)' }}
+            >
+              Get a quote
+            </a>
           </div>
 
-          {/* Mobile: hamburger */}
-          <button
-            className="md:hidden flex items-center justify-center w-8 h-8 text-foreground-muted hover:text-foreground transition-colors duration-150"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            aria-controls="nav-mobile-menu"
-          >
-            {open ? <X size={18} /> : <Menu size={18} />}
-          </button>
+          {/* Mobile */}
+          <div className="md:hidden flex items-center gap-3">
+            <a
+              href="mailto:hello@nourawafik.com?subject=Quote%20request"
+              className="inline-flex items-center justify-center rounded-pill px-3 py-1.5 text-[0.8125rem] font-medium text-foreground"
+              style={{ backgroundColor: 'var(--highlight)' }}
+            >
+              Get a quote
+            </a>
+            <button
+              className="flex items-center justify-center w-8 h-8 text-foreground-muted hover:text-foreground transition-colors duration-150"
+              onClick={() => setOpen((v) => !v)}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              aria-controls="nav-mobile-menu"
+            >
+              {open ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
         </nav>
       </Container>
 
-      {/* Mobile menu — overlays the page below the bar instead of pushing it down */}
       {open && (
         <div
           id="nav-mobile-menu"
@@ -108,8 +122,9 @@ export function Nav() {
                 <NextLink
                   href="/ar"
                   hrefLang="ar"
-                  className={`block py-2 ${langClass}`}
+                  className={`block py-2 ${itemClass}`}
                   onClick={() => setOpen(false)}
+                  lang="ar"
                 >
                   عربي
                 </NextLink>
