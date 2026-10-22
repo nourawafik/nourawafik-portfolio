@@ -55,7 +55,7 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
       aria-labelledby="about-heading"
       className="py-20 md:py-32 bg-surface dark:bg-sunk"
     >
-      <div className="mx-auto w-full px-6 md:px-12 max-w-[1200px]">
+      <div className="mx-auto w-full px-4 md:px-12 max-w-[1200px]">
         <div className="flex flex-col gap-12 md:flex-row md:gap-16 md:items-start">
           {/* Photo slot */}
           <div className="relative shrink-0 w-full max-w-[320px] mx-auto md:mx-0 md:w-[320px]">
@@ -102,9 +102,9 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
             </p>
 
             {/* Trait cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
+            <div className="flex gap-3 overflow-x-auto -mx-4 px-4 pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:mx-0 md:px-0 md:pb-0 mt-2">
               {t.traits.map((trait) => (
-                <div key={trait.title} className="card-shadow-trait flex flex-col gap-2 rounded-[20px] bg-background p-5">
+                <div key={trait.title} className="card-shadow-trait flex flex-col gap-2 rounded-[20px] bg-background p-5 max-md:shrink-0 max-md:[flex:0_0_68%] max-md:[scroll-snap-align:start]">
                   <h3 className="text-body font-medium text-foreground">{trait.title}</h3>
                   <p className={`text-small text-foreground-muted ${ar ? 'leading-[1.7]' : 'leading-[1.5]'}`}>
                     {trait.desc}

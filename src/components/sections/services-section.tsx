@@ -1,4 +1,5 @@
 import type { Offer } from '@/content/offers';
+import { CardRail } from '@/components/ui/card-rail';
 
 interface ServiceCard {
   id: string;
@@ -123,7 +124,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
       aria-labelledby="services-heading"
       className="py-16 md:py-24"
     >
-      <div className="mx-auto w-full px-6 md:px-12 max-w-[1200px]">
+      <div className="mx-auto w-full px-4 md:px-12 max-w-[1200px]">
         <div className="flex flex-col gap-2 mb-10 md:mb-14">
           <p className="text-[0.9375rem] font-medium text-on-accent-soft">{t.eyebrow}</p>
           <h2
@@ -134,7 +135,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <CardRail ariaLabel={t.eyebrow} mdClass="md:grid-cols-2 lg:grid-cols-3 md:gap-5" count={cards.length} showDots>
           {cards.map((card) => {
             const isOffer = activeOffer?.packageId === card.id;
             const title = ar ? card.titleAr : card.titleEn;
@@ -148,7 +149,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
               return (
                 <article
                   key={card.id}
-                  className="card-shadow featured-service relative group flex flex-col gap-4 rounded-card p-6 text-white bg-foreground dark:bg-sunk dark:ring-2 dark:ring-inset dark:ring-highlight"
+                  className="card-shadow featured-service relative group flex flex-col gap-4 rounded-card p-6 text-white bg-foreground dark:bg-sunk dark:ring-2 dark:ring-inset dark:ring-highlight max-md:shrink-0 max-md:[flex:0_0_84%] max-md:[scroll-snap-align:start]"
                 >
                   <CardArrowButton href={quoteHref} featured />
                   <div className="flex flex-col gap-1.5 pe-12">
@@ -178,7 +179,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
             return (
               <article
                 key={card.id}
-                className={`card-shadow relative group flex flex-col gap-4 rounded-card p-6 bg-surface border-2 transition-shadow ${
+                className={`card-shadow relative group flex flex-col gap-4 rounded-card p-6 bg-surface border-2 transition-shadow max-md:shrink-0 max-md:[flex:0_0_84%] max-md:[scroll-snap-align:start] ${
                   isOffer ? 'border-coral' : 'border-border'
                 }`}
               >
@@ -206,7 +207,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
               </article>
             );
           })}
-        </div>
+        </CardRail>
       </div>
     </section>
   );

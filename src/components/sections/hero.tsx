@@ -93,9 +93,8 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
 
           {/* Art card */}
           <div
-            className="relative w-full md:w-[480px] md:shrink-0 rounded-[40px] bg-accent overflow-hidden"
+            className="relative w-full md:w-[480px] md:shrink-0 max-md:h-[380px] md:h-[480px] max-md:rounded-[32px] md:rounded-[40px] bg-accent overflow-hidden"
             style={{
-              height: '480px',
               backgroundImage: 'url(/patterns/noon-arcs.svg)',
               backgroundSize: '80px 60px',
               backgroundRepeat: 'repeat',

@@ -18,12 +18,11 @@ export function ServicesMarquee({ locale = 'en' }: ServicesMarqueeProps) {
   return (
     <div
       aria-hidden="true"
-      className="overflow-hidden bg-[#0E2A2D] dark:bg-sunk dark:border-y dark:border-line"
-      style={{ height: '72px' }}
+      className="overflow-hidden h-[56px] md:h-[72px] bg-[#0E2A2D] dark:bg-sunk dark:border-y dark:border-line"
     >
       <div className="flex items-center h-full motion-safe:animate-marquee motion-reduce:flex-nowrap whitespace-nowrap w-max">
         {doubled.map((item, i) => (
-          <span key={i} className="inline-flex items-center text-white font-extrabold text-[1.75rem] shrink-0">
+          <span key={i} className="inline-flex items-center text-white font-extrabold text-[1.25rem] md:text-[1.75rem] shrink-0">
             {item}
             <Dot />
           </span>

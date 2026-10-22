@@ -29,9 +29,9 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
       aria-labelledby="contact-heading"
       className="py-20 md:py-32"
     >
-      <div className="mx-auto w-full px-6 md:px-12 max-w-[1200px]">
+      <div className="mx-auto w-full px-4 md:px-12 max-w-[1200px]">
         <div
-          className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12 rounded-[40px] px-8 py-12 md:px-14 md:py-16"
+          className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12 rounded-[28px] md:rounded-[40px] p-7 md:px-14 md:py-16"
           style={{ backgroundColor: 'var(--highlight)', color: '#0E2A2D' }}
         >
           {/* Text + actions */}

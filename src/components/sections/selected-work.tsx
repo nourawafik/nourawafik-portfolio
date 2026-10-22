@@ -1,6 +1,7 @@
 import NextLink from 'next/link';
 import { ProjectImage } from '@/components/ui/project-image';
 import { Container } from '@/components/layout/container';
+import { CardRail } from '@/components/ui/card-rail';
 import { caseStudies } from '@/content/case-studies';
 
 interface WorkCard {
@@ -114,8 +115,8 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
           </NextLink>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Cards rail — horizontal scroll on mobile, 3-col grid on desktop */}
+        <CardRail ariaLabel={t.eyebrow} mdClass="md:grid-cols-3 md:gap-6" count={workCards.length} showDots>
           {workCards.map((card, i) => {
             const href = ar ? `/ar/work/${card.slug}` : `/work/${card.slug}`;
             const title = ar ? card.titleAr : card.titleEn;
@@ -124,7 +125,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
             return (
               <article
                 key={card.slug}
-                className="card-shadow relative group flex flex-col rounded-card bg-surface border border-border overflow-hidden"
+                className="card-shadow relative group flex flex-col rounded-card bg-surface border border-border overflow-hidden max-md:shrink-0 max-md:[flex:0_0_84%] max-md:[scroll-snap-align:start]"
               >
                 {/* Cover image — zooms on card hover */}
                 <div className="overflow-hidden" style={{ height: '240px' }}>
@@ -185,7 +186,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
               </article>
             );
           })}
-        </div>
+        </CardRail>
       </Container>
     </section>
   );

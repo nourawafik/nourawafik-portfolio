@@ -11,7 +11,7 @@ export function Container({ children, className, as: Tag = 'div', narrow }: Cont
   return (
     <Tag
       className={cn(
-        'mx-auto w-full px-6 md:px-12',
+        'mx-auto w-full px-4 md:px-12',
         narrow ? 'max-w-[680px]' : 'max-w-[1200px]',
         className
       )}

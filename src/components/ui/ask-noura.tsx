@@ -93,7 +93,7 @@ export function AskNoura({ locale = 'en' }: AskNouraProps) {
       >
         {/* Pill (always visible) */}
         <span
-          className="rounded-pill px-3 py-1 bg-background border-2 border-foreground text-[0.875rem] font-bold text-foreground select-none"
+          className="hidden md:inline rounded-pill px-3 py-1 bg-background border-2 border-foreground text-[0.875rem] font-bold text-foreground select-none"
           aria-hidden
         >
           {t.pill}
