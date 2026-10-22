@@ -71,7 +71,7 @@ export function Footer({ locale = 'en' }: FooterProps) {
         </div>
 
         <p dir="ltr" className="pb-8 text-small" style={{ color: 'var(--muted-dark, #A9C2C4)' }}>
-          © {currentYear} Noura Wafik
+          © {currentYear} {ar ? 'نورا وفيق' : 'Noura Wafik'}
         </p>
       </div>
     </footer>

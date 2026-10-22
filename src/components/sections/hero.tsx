@@ -97,23 +97,21 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
             style={{
               height: '480px',
               backgroundImage: 'url(/patterns/noon-arcs.svg)',
-              backgroundSize: '200px',
+              backgroundSize: '80px 60px',
               backgroundRepeat: 'repeat',
-              backgroundBlendMode: 'multiply',
-              opacity: 1,
             }}
           >
             {/* Noon animated logo */}
             <div className="absolute inset-0 flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/mascot/logo-wakes-up-animated.svg"
-                alt={t.noonAlt}
-                role="img"
-                width={220}
-                height={220}
-                className="motion-reduce:animate-none"
-              />
+              <picture>
+                <source media="(prefers-reduced-motion: reduce)" srcSet="/mascot/hero-noon-static.svg" />
+                <img
+                  src="/mascot/hero-noon-animated.svg"
+                  alt={t.noonAlt}
+                  width={340}
+                  height={340}
+                />
+              </picture>
             </div>
 
             {/* Sticker: Hi! — top start corner */}

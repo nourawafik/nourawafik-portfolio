@@ -70,19 +70,11 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
               className="absolute bottom-0 end-0 translate-x-2 translate-y-2 w-24 h-24 rounded-full bg-accent flex items-center justify-center ring-[6px] ring-surface"
             >
               <Image
-                src="/logo/lockup-en.svg"
+                src="/logo/mark-on-dark.svg"
                 alt=""
                 width={48}
                 height={48}
-                className="invert brightness-0 w-10 h-10 object-contain dark:hidden"
-                aria-hidden
-              />
-              <Image
-                src="/logo/lockup-en-on-dark.svg"
-                alt=""
-                width={48}
-                height={48}
-                className="w-10 h-10 object-contain hidden dark:block"
+                className="w-10 h-10 object-contain"
                 aria-hidden
               />
             </div>

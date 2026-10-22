@@ -11,7 +11,9 @@ interface WorkCard {
   summaryAr: string;
   thumbAlt: string;
   role: string;
+  roleAr: string;
   platform: string;
+  platformAr: string;
   timeline: string;
 }
 
@@ -26,7 +28,9 @@ const workCards: WorkCard[] = [
       'منصة عربية للدعم النفسي في السعودية ومصر، بنظام تصميم من الصفر بلغتين وعلى منصتين وبوضعين.',
     thumbAlt: caseStudies[0].thumbAlt,
     role: caseStudies[0].role,
+    roleAr: 'مصممة رئيسية',
     platform: caseStudies[0].platform,
+    platformAr: 'ويب + موبايل',
     timeline: caseStudies[0].timeline,
   },
   {
@@ -38,7 +42,9 @@ const workCards: WorkCard[] = [
     summaryAr: 'منصة علاج نفسي عن بعد لعيادات أمريكية، بأربع بوابات لأربع أنواع مستخدمين.',
     thumbAlt: caseStudies[1].thumbAlt,
     role: caseStudies[1].role,
+    roleAr: 'مصممة منفردة',
     platform: caseStudies[1].platform,
+    platformAr: '200+ مستخدم نشط',
     timeline: caseStudies[1].timeline,
   },
   {
@@ -51,7 +57,9 @@ const workCards: WorkCard[] = [
       'منصة توظيف بمساعدين أذكياء، واحد للشركات وواحد للمتقدمين، وقرارات الذكاء الاصطناعي فيها واضحة ومفهومة.',
     thumbAlt: caseStudies[2].thumbAlt,
     role: caseStudies[2].role,
+    roleAr: 'مصممة منتجات',
     platform: caseStudies[2].platform,
+    platformAr: 'ويب + موبايل',
     timeline: caseStudies[2].timeline,
   },
 ];
@@ -83,7 +91,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
     <section
       id="work"
       aria-labelledby="work-heading"
-      className="py-20 md:py-32"
+      className="py-16 md:py-24"
     >
       <Container>
         {/* Header row */}
@@ -134,7 +142,11 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
 
                 {/* Tags */}
                 <ul className="flex flex-wrap gap-2 list-none" role="list">
-                  {[card.role, card.platform, card.timeline].map((tag) => (
+                  {[
+                    ar ? card.roleAr : card.role,
+                    ar ? card.platformAr : card.platform,
+                    card.timeline,
+                  ].map((tag) => (
                     <li
                       key={tag}
                       className="px-2.5 py-0.5 rounded-tag bg-accent-soft text-on-accent-soft text-small"
@@ -146,7 +158,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
 
                 {/* Title */}
                 <NextLink href={href} className="focus-visible:outline-none group/link">
-                  <h3 className="text-h3 font-medium text-foreground group-hover/link:text-accent transition-colors duration-150">
+                  <h3 className="text-h3 font-bold text-foreground group-hover/link:text-accent transition-colors duration-150">
                     {title}
                   </h3>
                 </NextLink>

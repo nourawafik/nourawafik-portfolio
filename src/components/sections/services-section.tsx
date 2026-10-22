@@ -104,7 +104,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="py-20 md:py-32"
+      className="py-16 md:py-24"
     >
       <div className="mx-auto w-full px-6 md:px-12 max-w-[1200px]">
         <div className="flex flex-col gap-2 mb-10 md:mb-14">
@@ -157,7 +157,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
                     {t.offerUntil(offerDate)}
                   </span>
                 )}
-                <h3 className="text-h3 font-medium text-foreground">{title}</h3>
+                <h3 className="text-h3 font-bold text-foreground">{title}</h3>
                 <p className={`text-body text-foreground-muted flex-1 ${ar ? 'leading-[1.8]' : 'leading-[1.65]'}`}>
                   {desc}
                 </p>
@@ -167,7 +167,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
                     <del className="text-small text-foreground-subtle">{activeOffer.originalPrice}</del>
                   </p>
                 ) : (
-                  <p className="text-h3 font-medium text-foreground mt-auto">{price}</p>
+                  <p className="text-h3 font-bold text-accent mt-auto">{price}</p>
                 )}
               </article>
             );
