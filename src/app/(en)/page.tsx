@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 import { Hero } from '@/components/sections/hero';
 import { ServicesMarquee } from '@/components/sections/services-marquee';
 import { SelectedWork } from '@/components/sections/selected-work';
