@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/components/providers';
 import { Nav } from '@/components/layout/nav';
 import { Footer } from '@/components/layout/footer';
@@ -97,8 +95,6 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
           <Footer />
           <AskNoura locale="en" />
         </Providers>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

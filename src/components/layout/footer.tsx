@@ -1,5 +1,3 @@
-'use client';
-import { track } from '@vercel/analytics';
 import NextLink from 'next/link';
 import Image from 'next/image';
 
@@ -8,22 +6,21 @@ const currentYear = new Date().getFullYear();
 interface SocialLink {
   label: string;
   href: string;
-  event: string;
   download?: boolean;
 }
 
 const socialLinks: Record<'en' | 'ar', SocialLink[]> = {
   en: [
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/nourawafik', event: 'linkedin_click' },
-    { label: 'Behance', href: '#', event: 'behance_click' },
-    { label: 'Instagram', href: '#', event: 'instagram_click' },
-    { label: 'CV', href: '/resume.pdf', event: 'cv_download', download: true },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/nourawafik' },
+    { label: 'Behance', href: '#' },
+    { label: 'Instagram', href: '#' },
+    { label: 'CV', href: '/resume.pdf', download: true },
   ],
   ar: [
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/nourawafik', event: 'linkedin_click' },
-    { label: 'Behance', href: '#', event: 'behance_click' },
-    { label: 'Instagram', href: '#', event: 'instagram_click' },
-    { label: 'السيرة الذاتية', href: '/resume.pdf', event: 'cv_download', download: true },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/nourawafik' },
+    { label: 'Behance', href: '#' },
+    { label: 'Instagram', href: '#' },
+    { label: 'السيرة الذاتية', href: '/resume.pdf', download: true },
   ],
 };
 
@@ -55,13 +52,12 @@ export function Footer({ locale = 'en' }: FooterProps) {
 
           {/* Social links */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-small" style={{ color: 'var(--muted-dark, #A9C2C4)' }}>
-            {links.map(({ label, href, event, download }) => (
+            {links.map(({ label, href, download }) => (
               <a
                 key={label}
                 href={href}
                 {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 {...(download ? { download: true } : {})}
-                onClick={() => track(event)}
                 className="underline underline-offset-4 hover:text-white transition-colors duration-150"
               >
                 {label}

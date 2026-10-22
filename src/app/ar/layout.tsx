@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 import { Rubik } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/components/providers';
 import { NavAr } from '@/components/layout/nav-ar';
 import { Footer } from '@/components/layout/footer';
@@ -64,8 +62,6 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
           <Footer locale="ar" />
           <AskNoura locale="ar" />
         </Providers>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );
