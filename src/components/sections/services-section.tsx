@@ -146,8 +146,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
               return (
                 <article
                   key={card.id}
-                  className="flex flex-col gap-4 rounded-card p-6 relative"
-                  style={{ backgroundColor: 'var(--fg)', color: 'white' }}
+                  className="flex flex-col gap-4 rounded-card p-6 relative text-white bg-foreground dark:bg-sunk dark:ring-2 dark:ring-inset dark:ring-highlight"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <h3 className="text-h3 font-bold text-white">{title}</h3>

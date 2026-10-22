@@ -10,9 +10,9 @@ const variantClasses: Record<ButtonVariant, string> = {
   highlight:
     'bg-highlight text-foreground hover:opacity-90 active:opacity-75',
   secondary:
-    'bg-background text-accent border-2 border-accent hover:bg-accent-soft hover:text-on-accent-soft',
+    'bg-background text-accent border-2 border-accent hover:bg-accent-soft hover:text-on-accent-soft dark:bg-transparent dark:text-accent-hover',
   ghost:
-    'bg-background text-accent border-2 border-accent hover:bg-accent-soft hover:text-on-accent-soft',
+    'bg-background text-accent border-2 border-accent hover:bg-accent-soft hover:text-on-accent-soft dark:bg-transparent dark:text-accent-hover',
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

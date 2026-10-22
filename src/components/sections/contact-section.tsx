@@ -32,7 +32,7 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
       <div className="mx-auto w-full px-6 md:px-12 max-w-[1200px]">
         <div
           className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12 rounded-[40px] px-8 py-12 md:px-14 md:py-16"
-          style={{ backgroundColor: 'var(--highlight)' }}
+          style={{ backgroundColor: 'var(--highlight)', color: '#0E2A2D' }}
         >
           {/* Text + actions */}
           <div className="flex flex-col gap-5 flex-1">

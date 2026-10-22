@@ -18,8 +18,8 @@ export function ServicesMarquee({ locale = 'en' }: ServicesMarqueeProps) {
   return (
     <div
       aria-hidden="true"
-      className="overflow-hidden"
-      style={{ height: '72px', backgroundColor: 'var(--fg)' }}
+      className="overflow-hidden bg-[#0E2A2D] dark:bg-sunk dark:border-y dark:border-line"
+      style={{ height: '72px' }}
     >
       <div className="flex items-center h-full motion-safe:animate-marquee motion-reduce:flex-nowrap whitespace-nowrap w-max">
         {doubled.map((item, i) => (

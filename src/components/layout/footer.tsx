@@ -33,7 +33,7 @@ export function Footer({ locale = 'en' }: FooterProps) {
   const links = socialLinks[locale];
 
   return (
-    <footer style={{ backgroundColor: '#0E2A2D' }} className="mt-auto">
+    <footer className="mt-auto bg-[#0E2A2D] dark:bg-sunk dark:border-t dark:border-line">
       <div className="mx-auto w-full px-6 md:px-12 max-w-[1200px]">
         <div className="flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:justify-between">
           {/* Logo — always on-dark variant */}

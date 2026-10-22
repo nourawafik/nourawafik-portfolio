@@ -53,7 +53,7 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="py-20 md:py-32 bg-surface"
+      className="py-20 md:py-32 bg-surface dark:bg-sunk"
     >
       <div className="mx-auto w-full px-6 md:px-12 max-w-[1200px]">
         <div className="flex flex-col gap-12 md:flex-row md:gap-16 md:items-start">
@@ -74,7 +74,7 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
             </div>
             {/* Logo mark circle overlapping bottom-end corner */}
             <div
-              className="absolute bottom-0 end-0 translate-x-2 translate-y-2 w-24 h-24 rounded-full bg-accent flex items-center justify-center ring-[6px] ring-surface"
+              className="absolute bottom-0 end-0 translate-x-2 translate-y-2 w-24 h-24 rounded-full bg-accent flex items-center justify-center ring-[6px] ring-surface dark:ring-sunk"
             >
               <Image
                 src="/logo/mark-on-dark.svg"
