@@ -60,10 +60,17 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
           {/* Photo slot */}
           <div className="relative shrink-0 w-full max-w-[320px] mx-auto md:mx-0 md:w-[320px]">
             <div
-              className="rounded-[40px] bg-accent-soft overflow-hidden flex items-center justify-center text-foreground-muted text-small"
+              className="rounded-[40px] overflow-hidden"
               style={{ aspectRatio: '1 / 1' }}
             >
-              [Photo of Noura]
+              <Image
+                src="/images/noura-about.webp"
+                alt={ar ? 'صورة نورا وفيق' : 'Photo of Noura Wafik'}
+                width={320}
+                height={320}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             {/* Logo mark circle overlapping bottom-end corner */}
             <div
