@@ -48,3 +48,7 @@ next-env.d.ts
 
 # personal photos — stay local only, repo is public
 design-handoff/photos/
+
+# cloudflare worker build output
+.open-next/
+.wrangler/
