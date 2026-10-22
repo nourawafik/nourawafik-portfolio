@@ -104,7 +104,7 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
             {/* Trait cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-2">
               {t.traits.map((trait) => (
-                <div key={trait.title} className="flex flex-col gap-2 rounded-[20px] bg-background p-5">
+                <div key={trait.title} className="card-shadow-trait flex flex-col gap-2 rounded-[20px] bg-background p-5">
                   <h3 className="text-body font-medium text-foreground">{trait.title}</h3>
                   <p className={`text-small text-foreground-muted ${ar ? 'leading-[1.7]' : 'leading-[1.5]'}`}>
                     {trait.desc}

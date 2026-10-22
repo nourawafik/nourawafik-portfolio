@@ -122,15 +122,13 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
             const summary = ar ? card.summaryAr : card.summaryEn;
 
             return (
-              <article key={card.slug} className="group flex flex-col gap-4">
-                {/* Image */}
-                <NextLink
-                  href={href}
-                  className="block overflow-hidden rounded-card bg-surface border border-border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus)]"
-                  tabIndex={-1}
-                  aria-hidden
-                >
-                  <div style={{ height: '240px' }} className="overflow-hidden">
+              <article
+                key={card.slug}
+                className="card-shadow relative group flex flex-col rounded-card bg-surface border border-border overflow-hidden"
+              >
+                {/* Cover image — zooms on card hover */}
+                <div className="overflow-hidden" style={{ height: '240px' }}>
+                  <div className="w-full h-full motion-safe:transition-transform motion-safe:duration-[600ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)] motion-safe:group-hover:scale-[1.05]">
                     <ProjectImage
                       slug={card.slug}
                       variant="thumb"
@@ -138,48 +136,52 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
                       priority={i === 0}
                     />
                   </div>
-                </NextLink>
+                </div>
 
-                {/* Tags */}
-                <ul className="flex flex-wrap gap-2 list-none" role="list">
-                  {[
-                    ar ? card.roleAr : card.role,
-                    ar ? card.platformAr : card.platform,
-                    card.timeline,
-                  ].map((tag) => (
-                    <li
-                      key={tag}
-                      className="px-2.5 py-0.5 rounded-tag bg-accent-soft text-on-accent-soft text-small"
+                {/* Content */}
+                <div className="flex flex-col gap-4 p-6 flex-1">
+                  {/* Tags */}
+                  <ul className="flex flex-wrap gap-2 list-none" role="list">
+                    {[
+                      ar ? card.roleAr : card.role,
+                      ar ? card.platformAr : card.platform,
+                      card.timeline,
+                    ].map((tag) => (
+                      <li
+                        key={tag}
+                        className="px-2.5 py-0.5 rounded-tag bg-accent-soft text-on-accent-soft text-small"
+                      >
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Title — stretched link covers entire card via ::after */}
+                  <NextLink
+                    href={href}
+                    className="focus-visible:outline-none after:absolute after:inset-0 after:z-[1] after:content-['']"
+                  >
+                    <h3 className="text-h3 font-bold text-foreground transition-colors duration-[350ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:text-accent">
+                      {title}
+                    </h3>
+                  </NextLink>
+
+                  {/* Summary */}
+                  <p className={`text-body text-foreground-muted flex-1 ${ar ? 'leading-[1.8]' : 'leading-[1.65]'}`}>
+                    {summary}
+                  </p>
+
+                  {/* Read link — decorative; the stretched link above is the real click target */}
+                  <div className="inline-flex items-center gap-1.5 text-small text-accent mt-auto" aria-hidden>
+                    {t.read}
+                    <span
+                      className="rtl:rotate-180 motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-[5px] rtl:motion-safe:group-hover:-translate-x-[5px]"
+                      aria-hidden
                     >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Title */}
-                <NextLink href={href} className="focus-visible:outline-none group/link">
-                  <h3 className="text-h3 font-bold text-foreground group-hover/link:text-accent transition-colors duration-150">
-                    {title}
-                  </h3>
-                </NextLink>
-
-                {/* Summary */}
-                <p className={`text-body text-foreground-muted ${ar ? 'leading-[1.8]' : 'leading-[1.65]'}`}>
-                  {summary}
-                </p>
-
-                {/* Read link */}
-                <NextLink
-                  href={href}
-                  className="inline-flex items-center gap-1.5 text-small text-accent hover:underline underline-offset-4 focus-visible:outline-none group/arrow mt-auto"
-                  tabIndex={-1}
-                  aria-hidden
-                >
-                  {t.read}
-                  <span className="rtl:rotate-180 transition-transform duration-150 group-hover/arrow:translate-x-0.5 rtl:group-hover/arrow:-translate-x-0.5" aria-hidden>
-                    →
-                  </span>
-                </NextLink>
+                      →
+                    </span>
+                  </div>
+                </div>
               </article>
             );
           })}
@@ -188,4 +190,3 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
     </section>
   );
 }
-

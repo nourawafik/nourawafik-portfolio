@@ -79,27 +79,29 @@ interface ServicesSectionProps {
   activeOffer?: Offer | null;
 }
 
-function QuoteLink({
+/** Arrow button in top-end corner — decorative, same href as quote link */
+function CardArrowButton({
   href,
-  label,
-  ar,
   featured,
 }: {
   href: string;
-  label: string;
-  ar: boolean;
   featured?: boolean;
 }) {
   return (
     <a
       href={href}
-      className={`mt-auto inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold transition-opacity hover:opacity-80 ${
-        featured ? 'text-highlight' : 'text-accent'
+      tabIndex={-1}
+      aria-hidden
+      className={`absolute top-4 end-4 z-[2] w-10 h-10 rounded-full border-2 flex items-center justify-center
+        motion-safe:transition-[background-color,border-color,transform]
+        motion-safe:duration-[350ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)]
+        hover:bg-highlight hover:border-highlight hover:rotate-[-45deg] rtl:hover:rotate-[45deg] ${
+        featured
+          ? 'border-white/30 text-white'
+          : 'border-line text-foreground'
       }`}
     >
-      {ar && <span aria-hidden>←</span>}
-      {label}
-      {!ar && <span aria-hidden>→</span>}
+      <span className="rtl:rotate-180 inline-block" aria-hidden>→</span>
     </a>
   );
 }
@@ -146,18 +148,29 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
               return (
                 <article
                   key={card.id}
-                  className="flex flex-col gap-4 rounded-card p-6 relative text-white bg-foreground dark:bg-sunk dark:ring-2 dark:ring-inset dark:ring-highlight"
+                  className="card-shadow featured-service relative group flex flex-col gap-4 rounded-card p-6 text-white bg-foreground dark:bg-sunk dark:ring-2 dark:ring-inset dark:ring-highlight"
                 >
-                  <div className="flex items-start justify-between gap-2">
+                  <CardArrowButton href={quoteHref} featured />
+                  <div className="flex flex-col gap-1.5 pe-12">
                     <h3 className="text-h3 font-bold text-white">{title}</h3>
-                    <span className="shrink-0 rounded-pill px-2.5 py-0.5 bg-highlight text-foreground text-small font-medium">
+                    <span className="self-start rounded-pill px-2.5 py-0.5 bg-highlight text-foreground text-small font-medium">
                       {t.allInOne}
                     </span>
                   </div>
                   <p className="text-body flex-1" style={{ color: 'var(--muted-dark, #A9C2C4)' }}>
                     {desc}
                   </p>
-                  <QuoteLink href={quoteHref} label={t.quote} ar={ar} featured />
+                  {/* Stretched quote link covers entire card */}
+                  <a
+                    href={quoteHref}
+                    className="mt-auto inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold text-highlight relative z-[1]
+                      after:absolute after:inset-[-24px] after:z-[-1] after:content-['']
+                      focus-visible:outline-none"
+                  >
+                    {ar && <span aria-hidden>←</span>}
+                    {t.quote}
+                    {!ar && <span aria-hidden>→</span>}
+                  </a>
                 </article>
               );
             }
@@ -165,20 +178,31 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
             return (
               <article
                 key={card.id}
-                className={`flex flex-col gap-4 rounded-card p-6 bg-surface border-2 transition-colors ${
+                className={`card-shadow relative group flex flex-col gap-4 rounded-card p-6 bg-surface border-2 transition-shadow ${
                   isOffer ? 'border-coral' : 'border-border'
                 }`}
               >
+                <CardArrowButton href={quoteHref} />
                 {isOffer && offerDate && (
                   <span className="self-start rounded-pill px-2.5 py-0.5 bg-background border border-coral text-foreground text-small font-medium">
                     {t.offerUntil(offerDate)}
                   </span>
                 )}
-                <h3 className="text-h3 font-bold text-foreground">{title}</h3>
+                <h3 className="text-h3 font-bold text-foreground pe-12">{title}</h3>
                 <p className={`text-body text-foreground-muted flex-1 ${ar ? 'leading-[1.8]' : 'leading-[1.65]'}`}>
                   {desc}
                 </p>
-                <QuoteLink href={quoteHref} label={t.quote} ar={ar} />
+                {/* Stretched quote link covers entire card */}
+                <a
+                  href={quoteHref}
+                  className="mt-auto inline-flex items-center gap-1.5 text-[0.9375rem] font-semibold text-accent relative z-[1]
+                    after:absolute after:inset-[-24px] after:z-[-1] after:content-['']
+                    focus-visible:outline-none"
+                >
+                  {ar && <span aria-hidden>←</span>}
+                  {t.quote}
+                  {!ar && <span aria-hidden>→</span>}
+                </a>
               </article>
             );
           })}
