@@ -10,6 +10,7 @@ export interface CaseStudy {
   status: string;
   thumbAlt: string;
   heroAlt: string;
+  heroDark?: string;
 }
 
 export interface CaseStudyFrontmatter {

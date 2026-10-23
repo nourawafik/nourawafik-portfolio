@@ -10,19 +10,48 @@ interface ProjectImageProps {
   variant: 'thumb' | 'hero';
   alt: string;
   priority?: boolean;
+  srcDark?: string;
 }
 
-export function ProjectImage({ slug, variant, alt, priority = false }: ProjectImageProps) {
+export function ProjectImage({ slug, variant, alt, priority = false, srcDark }: ProjectImageProps) {
   const { width, height, sizes } = VARIANT_CONFIG[variant];
+  const lightSrc = `/work/${slug}-${variant}.png`;
+
+  if (!srcDark) {
+    return (
+      <Image
+        src={lightSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes={sizes}
+        priority={priority}
+        className="w-full h-auto block"
+      />
+    );
+  }
+
   return (
-    <Image
-      src={`/work/${slug}-${variant}.png`}
-      alt={alt}
-      width={width}
-      height={height}
-      sizes={sizes}
-      priority={priority}
-      className="w-full h-auto block"
-    />
+    <>
+      <Image
+        src={lightSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes={sizes}
+        priority={priority}
+        className="w-full h-auto block dark:hidden"
+      />
+      <Image
+        src={srcDark}
+        alt=""
+        aria-hidden
+        width={width}
+        height={height}
+        sizes={sizes}
+        priority={priority}
+        className="w-full h-auto hidden dark:block"
+      />
+    </>
   );
 }

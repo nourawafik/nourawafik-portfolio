@@ -1,0 +1,162 @@
+---
+title: "Duet"
+tagline: "Two-sided AI hiring platform with an assistant for each side"
+role: "Product Designer (in-house)"
+timeline: "2025 — present"
+platform: "Web + Mobile"
+status: "Core flows complete, in development"
+order: 3
+slug: "duet"
+description: "Two-sided AI hiring platform where recruiters and candidates each work with their own AI assistant. Owned UX, AI interaction patterns, and design system from mid-fidelity through production-ready specs."
+---
+
+Designing the UX, AI interaction patterns, and design system for a dual-sided hiring platform — 2 AI assistants (Tempo for recruiters · Lyric for candidates), covering the full hiring workflow from screening to offer across web and mobile.
+
+<NdaNote />
+
+<Section title="The opportunity">
+
+Most AI hiring tools treat candidates as data points to score. Duet took a different position: candidates deserve their own AI assistant too. The product features two AIs — Tempo for recruiters, Lyric for candidates — each designed to support a different side of the hiring conversation.
+
+I worked alongside the business team, who led product planning and initial wireframes. I owned the full UX, UI, AI interaction patterns, and design system from mid-fidelity through production-ready specs.
+
+The hardest problem: designing AI decisions that recruiters trust enough to act on, but not so much they stop questioning. The challenge wasn't building an AI scoring system — it was building one that surfaces its reasoning in a way recruiters can defend in front of hiring managers and legal teams.
+
+</Section>
+
+<Section title="Context">
+
+Duet is a remote-first hiring platform building tools for two audiences.
+
+Recruiters and hiring teams (in-company HR or agencies) who manage requisitions, screen candidates, and make hiring decisions. And candidates who apply for roles and need help navigating applications, preparing for interviews, and tracking progress.
+
+Most hiring platforms optimize for one side — usually the recruiter. Duet was built on a different premise: hiring is a two-sided market, and both sides benefit from AI assistance, but they need fundamentally different help.
+
+This led to the product's defining feature: two distinct AI assistants, each with their own personality, scope, and trust model.
+
+<Quote>
+Tempo is the recruiter's AI co-pilot — helping with candidate review, screening summaries, role-fit analysis, and interview preparation. Lyric is the candidate's AI assistant — helping with application strategy, role discovery, profile optimization, and interview readiness.
+</Quote>
+
+</Section>
+
+<Section title="The hero challenge: designing AI decisions recruiters can defend">
+
+When the team first scoped the recruiter experience, the default framing was: "How do we make recruiters trust the AI?" — meaning, how do we get them to use it instead of ignoring it.
+
+But spending time with the business team and reviewing recruiter workflows surfaced a different question: trust wasn't the bottleneck. Defensibility was.
+
+A recruiter using AI to screen candidates doesn't just need to believe the AI is right. They need to be able to explain — to a hiring manager, to a legal team, sometimes to a rejected candidate — why this candidate moved forward and that one didn't.
+
+If Tempo says "this candidate is an 87% match" and the recruiter can't articulate what the 87% means, the recruiter is exposed. They will quietly stop using the feature even if they trust it personally.
+
+So the design problem wasn't trust. It was reasoning visibility — designing AI output that gives recruiters language they can use, not just confidence they can feel.
+
+<Decision number="01" title="No standalone scores">
+
+Tempo never shows a candidate score in isolation. Every score is paired with the top 3 reasons the score was generated — surfaced in the same view, not behind a tooltip or a "see details" link. If the reasons don't fit the screen, the score is hidden too. This forced consistency: a recruiter can never see a number without the rationale next to it.
+
+</Decision>
+
+<Video
+  src="/work/duet/tempo-reasons.mp4"
+  poster="/work/duet/tempo-reasons-poster.png"
+  srcDark="/work/duet/tempo-reasons-dark.mp4"
+  posterDark="/work/duet/tempo-reasons-dark-poster.png"
+  caption="The score never arrives alone: the reasons come with it"
+/>
+
+<Decision number="02" title="Reasoning in recruiter language, not model language">
+
+Early drafts surfaced reasoning in the AI's terms — "semantic match strength: 0.87". That's accurate but unusable. Tempo's reasoning is rewritten in plain recruiter language: "5 of 7 required skills match", "7 years in the same domain", "previously held this exact title at a similar-stage company". Recruiters can copy this language directly into hiring manager updates.
+
+</Decision>
+
+<Decision number="03" title="Disagreement is a first-class action">
+
+Most AI hiring tools let users override decisions but treat overrides as edge cases. In Tempo, recruiters explicitly mark agreement or disagreement on each AI suggestion. This serves three purposes: it improves the AI over time, it gives recruiters a clear audit trail, and — most importantly — it normalizes the idea that disagreeing with the AI is part of the workflow, not a failure of it.
+
+</Decision>
+
+<ImageGrid columns={2}>
+  <ImageWithCaption src="/work/duet/tempo-review.png" srcDark="/work/duet/tempo-review-dark.png" alt="Tempo recruiter view showing candidate score and reasons together" caption="Score and reasons in one view, in recruiter language" />
+  <ImageWithCaption src="/work/duet/tempo-disagree.png" srcDark="/work/duet/tempo-disagree-dark.png" alt="Disagreement flow where recruiter marks an AI suggestion as wrong" caption="Disagreeing takes ten seconds and lands in the audit trail" />
+</ImageGrid>
+
+</Section>
+
+<Section title="Designing Lyric for candidates">
+
+Tempo and Lyric solve different problems. A recruiter opens Tempo 20 times a day, manages a pipeline, and needs density. A candidate opens Lyric occasionally, during emotionally loaded moments — applying, waiting, being rejected — and needs clarity and reassurance.
+
+Same product, two completely different design philosophies.
+
+<Decision number="01" title="Lyric never volunteers bad news">
+
+If a candidate's application has been rejected, Lyric doesn't lead with "you've been rejected from X". The recruiter's decision is delivered through formal notifications. Lyric's role afterward is forward-looking: "Here are 4 similar roles that match your profile better."
+
+</Decision>
+
+<Decision number="02" title="Profile optimization is collaborative, not prescriptive">
+
+Lyric doesn't say "your CV is weak". It says "for the roles you're applying to, recruiters typically look for X — would you like to add it?" The candidate retains authorship. Lyric assists; it doesn't critique.
+
+</Decision>
+
+<Decision number="03" title="Interview prep is contextual to the specific role">
+
+Generic interview prep is unhelpful. Lyric generates prep material based on the actual job description, the company, and questions similar candidates have been asked. This shifts Lyric from "AI chatbot" to "research assistant who knows your situation".
+
+</Decision>
+
+<PhoneGrid>
+  <PhoneImage src="/work/duet/lyric-roles.png" srcDark="/work/duet/lyric-roles-dark.png" alt="Lyric showing similar roles after a rejection" caption="After a no, Lyric looks forward" />
+  <PhoneImage src="/work/duet/lyric-profile.png" srcDark="/work/duet/lyric-profile-dark.png" alt="Lyric profile optimization with collaborative suggestions" caption="Suggestions, not critique" />
+  <PhoneImage src="/work/duet/lyric-prep.png" srcDark="/work/duet/lyric-prep-dark.png" alt="Lyric interview prep built from the specific role" caption="Prep built from this role, not a template" />
+</PhoneGrid>
+
+</Section>
+
+<Section title="Design system: one system, two voices">
+
+Tempo and Lyric needed to feel like different products to different users — but ship from one design system maintained by one designer.
+
+I solved it with a shared system that has two skins. The foundation layer holds the same components, same tokens, and same accessibility standards across both AIs. Buttons, inputs, modals, tables — identical building blocks.
+
+<ImageWithCaption src="/work/duet/two-voices.png" srcDark="/work/duet/two-voices-dark.png" alt="Design system showing the same components rendered in two color treatments — one for each AI assistant" caption="Same components, two voices" />
+
+The voice layer is split. Each AI has its own color treatment (Tempo: focused, neutral, recruiter-appropriate; Lyric: warmer, more conversational, candidate-appropriate), typography hierarchy (Tempo: dense, scannable; Lyric: more breathing room, fewer items per screen), motion language (Tempo: instant, transactional; Lyric: slightly slower, more deliberate), and conversational tone in AI-generated copy.
+
+This let me ship two distinct experiences without maintaining two systems. When a new component is needed, I add it once and define both its Tempo and Lyric treatments.
+
+</Section>
+
+<Section title="What I learned">
+
+<Decision number="01" title="AI output is design output">
+
+The hardest design decisions in this project weren't about screens — they were about what the AI actually says. Rewriting reasoning into recruiter language, deciding when Lyric stays silent, choosing what gets surfaced and what gets buried — all of these are design decisions, even though they look like content decisions. AI products collapse the line between UX and copy in ways traditional products don't.
+
+</Decision>
+
+<Decision number="02" title="Two-sided AI products force you to design for tension">
+
+Tempo and Lyric serve users who are sometimes in conflict — the recruiter rejecting the candidate is a real situation. Designing for both sides honestly meant accepting that the two AIs would sometimes give advice that worked against each other. That tension isn't a bug to design out; it's the realistic shape of hiring.
+
+</Decision>
+
+<Decision number="03" title="Working from business-drafted wireframes is faster than it looks">
+
+The wireframes I received from the business team weren't final designs — they were thinking made visible. They saved me weeks of alignment conversations. The job wasn't to redo their work; it was to translate their product logic into a system that could ship and scale. This is most of what production design actually is.
+
+</Decision>
+
+</Section>
+
+<Section title="Status">
+
+Core flows for both Tempo and Lyric are complete and currently in development. Initial pilot with selected recruiters is planned for 2026.
+
+Specifics about the company, AI architecture, and detailed flows are confidential. Available to discuss in interviews.
+
+</Section>

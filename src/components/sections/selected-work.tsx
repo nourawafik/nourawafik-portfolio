@@ -49,13 +49,13 @@ const workCards: WorkCard[] = [
     timeline: caseStudies[1].timeline,
   },
   {
-    slug: 'got-ai',
-    titleEn: 'Got-AI',
-    titleAr: 'Got-AI',
+    slug: 'duet',
+    titleEn: 'Duet',
+    titleAr: 'Duet',
     summaryEn:
       'A hiring platform with two AI assistants, one for companies and one for candidates, where every AI decision is explained.',
     summaryAr:
-      'منصة توظيف بمساعدين أذكياء، واحد للشركات وواحد للمتقدمين، وقرارات الذكاء الاصطناعي فيها واضحة ومفهومة.',
+      'منصة توظيف بمساعدين أذكياء، واحد للشركات وواحد للمرشحين، وكل قرار من قرارات الذكاء الاصطناعي فيها مفسّر.',
     thumbAlt: caseStudies[2].thumbAlt,
     role: caseStudies[2].role,
     roleAr: 'مصممة منتجات',

@@ -66,7 +66,9 @@ export default async function CaseStudyPage({
 
   const stats = readingTime(source);
   const nextProject = await getNextProject(slug);
-  const heroAlt = caseStudies.find(s => s.slug === slug)?.heroAlt ?? frontmatter.title;
+  const studyMeta = caseStudies.find(s => s.slug === slug);
+  const heroAlt = studyMeta?.heroAlt ?? frontmatter.title;
+  const heroDark = studyMeta?.heroDark;
 
   const creativeWorkJsonLd = {
     '@context': 'https://schema.org',
@@ -110,7 +112,7 @@ export default async function CaseStudyPage({
 
       {/* ── Hero image ── */}
       <Container className="mb-16 md:mb-24">
-        <ProjectImage slug={slug} variant="hero" alt={heroAlt} priority={true} />
+        <ProjectImage slug={slug} variant="hero" alt={heroAlt} priority={true} srcDark={heroDark} />
       </Container>
 
       {/* ── MDX content ── */}
