@@ -74,6 +74,7 @@ export function NavAr() {
   const close = () => setOpen(false);
 
   return (
+    <>
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <a
         href="#main-content"
@@ -152,17 +153,18 @@ export function NavAr() {
           </NextLink>
         </nav>
       </Container>
+    </header>
 
-      {/* Full-screen mobile menu */}
-      {open && (
-        <div
-          ref={menuRef}
-          id="nav-ar-mobile-menu"
-          role="dialog"
-          aria-modal="true"
-          aria-label="قائمة التنقل"
-          className="md:hidden fixed inset-0 z-[100] flex flex-col bg-background overflow-y-auto"
-        >
+    {/* Full-screen mobile menu — outside header to avoid backdrop-filter containing block */}
+    {open && (
+      <div
+        ref={menuRef}
+        id="nav-ar-mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="قائمة التنقل"
+        className="md:hidden fixed inset-0 z-[100] flex flex-col bg-background overflow-y-auto"
+      >
           {/* Menu header row */}
           <div className="flex items-center justify-between h-14 px-4 border-b border-border shrink-0">
             <button
@@ -272,6 +274,6 @@ export function NavAr() {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
