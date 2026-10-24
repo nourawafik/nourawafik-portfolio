@@ -20,18 +20,18 @@ interface WorkCard {
 
 const workCards: WorkCard[] = [
   {
-    slug: 'dayratna',
-    titleEn: 'Supporting Circle',
-    titleAr: 'دايرتنا',
+    slug: 'ulfa',
+    titleEn: 'Ulfa',
+    titleAr: 'ألفة',
     summaryEn:
-      'An Arabic mental-health platform for Saudi Arabia and Egypt, with a design system built from scratch: two languages, two platforms, light and dark.',
+      'A bilingual mobile app that brings people together with licensed mental health facilitators, in small circles and structured sessions.',
     summaryAr:
-      'منصة عربية للدعم النفسي في السعودية ومصر، بنظام تصميم من الصفر بلغتين وعلى منصتين وبوضعين.',
+      'تطبيق موبايل بالعربي والإنجليزي، بيجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.',
     thumbAlt: caseStudies[0].thumbAlt,
     role: caseStudies[0].role,
-    roleAr: 'مصممة رئيسية',
+    roleAr: 'تصميم المنتج وإدارته',
     platform: caseStudies[0].platform,
-    platformAr: 'ويب + موبايل',
+    platformAr: 'تطبيق موبايل · عربي وإنجليزي',
     timeline: caseStudies[0].timeline,
   },
   {

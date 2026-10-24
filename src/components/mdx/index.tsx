@@ -9,6 +9,8 @@ import { Video } from './video';
 import { NdaNote } from './nda-note';
 import { PhoneImage } from './phone-image';
 import { PhoneGrid } from './phone-grid';
+import { UlfaThemeGrid } from './ulfa-theme-grid';
+import { UlfaColorTable } from './ulfa-color-table';
 
 // Prose element overrides constrain to 680px reading width.
 // Custom block components (ImageGrid, Section) manage their own width.
@@ -58,4 +60,6 @@ export const mdxComponents: MDXComponents = {
   NdaNote,
   PhoneImage,
   PhoneGrid,
+  UlfaThemeGrid,
+  UlfaColorTable,
 };

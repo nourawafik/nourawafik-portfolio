@@ -64,7 +64,7 @@ Prices: `[PRICE]` — pending Noura's confirmation. Never estimate or invent pri
 
 ## Evidence on Hand
 
-- Three case studies, in this order: Da'eratna (`src/content/case-studies/dayratna.mdx`), KemeClinic (`kemeclinic.mdx`) and Duet (`duet.mdx`). Images are in `public/work/`.
+- Three case studies, in this order: Ulfa (`src/content/case-studies/ulfa/` hub + four sub-studies), KemeClinic (`kemeclinic.mdx`) and Duet (`duet.mdx`). Images are in `public/work/`.
 - **No testimonials exist.** Never invent quotes, recommendations, client logos or endorsements.
 - **Metrics:** state them exactly as verified, or leave them out. Never estimate, round up or add to them.
 - **NDA and anonymization:** some work is under NDA. A product screen can only be published after its identity has been changed: full recolour, a neutral name and logo, and replaced data, with the screen labelled "Anonymized".

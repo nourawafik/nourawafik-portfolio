@@ -559,7 +559,7 @@
       "kind": "card",
       "refersTo": "card",
       "description": "Mirrored card: Alexandria heading, Almarai body and labels, 0 tracking, 185% line-height.",
-      "html": "<a class=\"ds-card-ar\" dir=\"rtl\" lang=\"ar\" href=\"#\"><h3 class=\"ds-card-ar-title\">دايرتنا</h3><p class=\"ds-card-ar-body\">منصة ثنائية اللغة للصحة النفسية</p><span class=\"ds-card-ar-label\">مصممة رئيسية</span></a>",
+      "html": "<a class=\"ds-card-ar\" dir=\"rtl\" lang=\"ar\" href=\"#\"><h3 class=\"ds-card-ar-title\">ألفة</h3><p class=\"ds-card-ar-body\">تطبيق موبايل بلغتين للدعم النفسي</p><span class=\"ds-card-ar-label\">تصميم المنتج وإدارته</span></a>",
       "css": ".ds-card-ar { display: flex; flex-direction: column; gap: 12px; background: #FFFEFB; border: 1px solid #E0DDD4; border-radius: 14px; padding: 24px; color: #13140F; text-decoration: none; max-width: 360px; } .ds-card-ar:focus-visible { outline: 3px solid #1B5E3F; outline-offset: 2px; } .ds-card-ar-title { margin: 0; font-family: Alexandria, system-ui, sans-serif; font-size: 19px; letter-spacing: 0; line-height: 1.5; } .ds-card-ar-body { margin: 0; font-family: Almarai, system-ui, sans-serif; font-size: 16px; line-height: 1.85; color: #636258; letter-spacing: 0; } .ds-card-ar-label { font-family: Almarai, system-ui, sans-serif; font-size: 12.5px; color: #636258; letter-spacing: 0; }"
     }
   ],
@@ -644,7 +644,7 @@
       "Don't put soft grey drop shadows under cards.",
       "Don't set Arabic text in a monospace font.",
       "Don't apply negative letter-spacing to Arabic.",
-      "Don't chain metadata with middle dots (\"Lead designer · Web + mobile · 2026\"). Bilingual name pairs such as \"دايرتنا · Da'eratna\" are names, not metadata, and keep their dot.",
+      "Don't chain metadata with middle dots (\"Lead designer · Web + mobile · 2026\"). Bilingual name pairs such as \"ألفة · Ulfa\" are names, not metadata, and keep their dot.",
       "Don't use decorative illustration. Graphics must come from the design system itself.",
       "Don't use semantic colours in site chrome.",
       "Don't add a third text colour, a second accent, or soft semantic backgrounds.",

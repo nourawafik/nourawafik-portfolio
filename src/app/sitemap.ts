@@ -6,6 +6,8 @@ import { getStudySlugs } from '@/lib/mdx';
 const BASE_URL = 'https://nourawafik.com';
 const CONTENT_DIR = path.join(process.cwd(), 'src/content/case-studies');
 
+const ULFA_STUDIES = ['participant-app', 'live-session', 'facilitator-studio', 'design-system'];
+
 async function getMtime(slug: string): Promise<Date> {
   try {
     const s = await stat(path.join(CONTENT_DIR, `${slug}.mdx`));
@@ -27,6 +29,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
+  const ulfaStudies = ULFA_STUDIES.map((study) => ({
+    url: `${BASE_URL}/work/ulfa/${study}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -40,6 +49,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    {
+      url: `${BASE_URL}/work/ulfa`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    ...ulfaStudies,
     ...caseStudies,
   ];
 }

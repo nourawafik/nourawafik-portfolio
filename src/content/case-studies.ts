@@ -2,15 +2,16 @@ import type { CaseStudy } from "@/types";
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "dayratna",
-    title: "دايرتنا · Da’eratna",
-    tagline: "Bilingual mental wellness platform for Saudi Arabia and Egypt",
-    role: "Lead designer",
-    timeline: "2026",
-    platform: "Web + mobile",
-    status: "Live",
-    thumbAlt: "Da’eratna platform — circle detail screen in Arabic showing categories and theme picker",
-    heroAlt: "Da’eratna mental wellness platform — full circle detail view in Arabic",
+    slug: "ulfa",
+    title: "Ulfa",
+    tagline: "Bilingual mobile app for small-group mental health sessions",
+    role: "Product design and product management",
+    timeline: "",
+    platform: "Mobile app · Arabic and English",
+    status: "",
+    thumbAlt: "Ulfa app — Explore screen showing session circles in Arabic",
+    heroAlt: "Ulfa bilingual mental health app — participant and facilitator screens",
+    heroDark: "/work/ulfa/ulfa-hero-dark.png",
   },
   {
     slug: "kemeclinic",

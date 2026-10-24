@@ -9,6 +9,16 @@ const nextConfig: NextConfig = {
         destination: "https://nourawafik.com/:path*",
         permanent: true,
       },
+      {
+        source: "/work/dayratna",
+        destination: "/work/ulfa",
+        permanent: true,
+      },
+      {
+        source: "/work/got-ai",
+        destination: "/work/duet",
+        permanent: true,
+      },
     ];
   },
 };

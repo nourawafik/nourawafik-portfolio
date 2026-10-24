@@ -81,11 +81,11 @@ Two columns on desktop (text on the start side, art on the end side), stacked on
 - Eyebrow (15px, `on-accent-soft`): Selected work / أعمال مختارة
 - H2: **Real work for real lives** / **أعمال حقيقية، لحياة حقيقية**
 - End-side link: "All work" / "كل الأعمال" with a direction-aware arrow.
-- Three project cards (card component), in this order: Supporting Circle (AR name: دايرتنا), KemeClinic, Got-AI. Image area 240px tall on top (use each case study's existing cover image), then tags, title, one-line summary, "Read the case study" / "اقرأ دراسة الحالة" + arrow.
+- Three project cards (card component), in this order: Ulfa (AR name: ألفة), KemeClinic, Duet. Image area 240px tall on top (use each case study's existing cover image), then tags, title, one-line summary, "Read the case study" / "اقرأ دراسة الحالة" + arrow.
 - Summaries used in the design (check each against its MDX case study and keep the case study's facts if they differ; do not add numbers that are not in the case study):
-  - Supporting Circle: An Arabic mental-health platform for Saudi Arabia and Egypt, with a design system built from scratch: two languages, two platforms, light and dark. / منصة عربية للدعم النفسي في السعودية ومصر، بنظام تصميم من الصفر بلغتين وعلى منصتين وبوضعين.
+  - Ulfa: A bilingual mobile app that brings people together with licensed mental health facilitators, in small circles and structured sessions. / تطبيق موبايل بالعربي والإنجليزي، بيجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.
   - KemeClinic: A telehealth platform for US therapy clinics, with four portals for four kinds of users. / منصة علاج نفسي عن بعد لعيادات أمريكية، بأربع بوابات لأربع أنواع مستخدمين.
-  - Got-AI: A hiring platform with two AI assistants, one for companies and one for candidates, where every AI decision is explained. / منصة توظيف بمساعدين أذكياء، واحد للشركات وواحد للمتقدمين، وقرارات الذكاء الاصطناعي فيها واضحة ومفهومة.
+  - Duet: A hiring platform with two AI assistants, one for companies and one for candidates, where every AI decision is explained. / منصة توظيف بمساعدين أذكياء، واحد للشركات وواحد للمتقدمين، وقرارات الذكاء الاصطناعي فيها واضحة ومفهومة.
 - Grid: 3 columns desktop, 1 on mobile.
 
 ## 5. Services (`#services`)
