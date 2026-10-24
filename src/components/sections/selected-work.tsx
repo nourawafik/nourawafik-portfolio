@@ -11,6 +11,7 @@ interface WorkCard {
   summaryEn: string;
   summaryAr: string;
   thumbAlt: string;
+  thumbDark?: string;
   role: string;
   roleAr: string;
   platform: string;
@@ -28,6 +29,7 @@ const workCards: WorkCard[] = [
     summaryAr:
       'تطبيق موبايل بالعربي والإنجليزي، بيجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.',
     thumbAlt: caseStudies[0].thumbAlt,
+    thumbDark: '/work/ulfa-thumb-dark.png',
     role: caseStudies[0].role,
     roleAr: 'تصميم المنتج وإدارته',
     platform: caseStudies[0].platform,
@@ -57,6 +59,7 @@ const workCards: WorkCard[] = [
     summaryAr:
       'منصة توظيف بمساعدين أذكياء، واحد للشركات وواحد للمرشحين، وكل قرار من قرارات الذكاء الاصطناعي فيها مفسّر.',
     thumbAlt: caseStudies[2].thumbAlt,
+    thumbDark: '/work/duet-thumb-dark.png',
     role: caseStudies[2].role,
     roleAr: 'مصممة منتجات',
     platform: caseStudies[2].platform,
@@ -135,6 +138,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
                       variant="thumb"
                       alt={card.thumbAlt}
                       priority={i === 0}
+                      srcDark={card.thumbDark}
                     />
                   </div>
                 </div>
