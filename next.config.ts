@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         destination: "/work/duet",
         permanent: true,
       },
+      {
+        source: "/work/kemeclinic",
+        destination: "/work/praxa",
+        permanent: true,
+      },
     ];
   },
 };

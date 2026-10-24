@@ -37,17 +37,19 @@ const workCards: WorkCard[] = [
     timeline: caseStudies[0].timeline,
   },
   {
-    slug: 'kemeclinic',
-    titleEn: 'KemeClinic',
-    titleAr: 'KemeClinic',
+    slug: 'praxa',
+    titleEn: 'Praxa',
+    titleAr: 'Praxa',
     summaryEn:
-      'A telehealth platform for US therapy clinics, with four portals for four kinds of users.',
-    summaryAr: 'منصة علاج نفسي عن بعد لعيادات أمريكية، بأربع بوابات لأربع أنواع مستخدمين.',
+      'A clinic platform for four roles — admin, provider, patient and staff — with AI the provider reviews and approves before it reaches the chart.',
+    summaryAr:
+      'منصة عيادات لأربع أدوار — أدمن، ومعالج، ومريض، وموظفين — وذكاء اصطناعي المعالج بيراجعه ويوافق عليه قبل ما يدخل الملف.',
     thumbAlt: caseStudies[1].thumbAlt,
+    thumbDark: '/work/praxa-thumb-dark.png',
     role: caseStudies[1].role,
     roleAr: 'مصممة منفردة',
     platform: caseStudies[1].platform,
-    platformAr: '200+ مستخدم نشط',
+    platformAr: 'ويب',
     timeline: caseStudies[1].timeline,
   },
   {
