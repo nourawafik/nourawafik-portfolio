@@ -77,12 +77,9 @@ export default async function UlfaStudyPage({
       {/* ── Header ── */}
       <Container className="pt-8 pb-12">
         <div className="max-w-[760px]">
-          <h1 className="text-[2.5rem] font-medium leading-[1.1] tracking-[-0.02em] text-foreground md:text-[3.5rem] mb-4">
+          <h1 className="text-[2.5rem] font-medium leading-[1.1] tracking-[-0.02em] text-foreground md:text-[3.5rem]">
             {frontmatter.title}
           </h1>
-          <p className="text-[1.125rem] leading-[1.65] text-foreground-muted">
-            {frontmatter.description}
-          </p>
         </div>
       </Container>
 
