@@ -8,8 +8,9 @@ import { ProjectImage } from '@/components/ui/project-image';
 import { ArrowIcon } from '@/components/ui/arrow-icon';
 import { MetadataGrid } from '@/components/mdx/metadata-grid';
 import { mdxComponents } from '@/components/mdx';
-import { getStudySlugs, getFrontmatter, getSource, getNextProject } from '@/lib/mdx';
+import { getStudySlugs, getFrontmatter, getSource } from '@/lib/mdx';
 import { caseStudies } from '@/content/case-studies';
+import { NextProjectCard } from '@/components/ui/next-project-card';
 import type { CaseStudyFrontmatter } from '@/types';
 
 export async function generateStaticParams() {
@@ -66,7 +67,6 @@ export default async function CaseStudyPage({
   });
 
   const stats = readingTime(source);
-  const nextProject = await getNextProject(slug);
   const studyMeta = caseStudies.find(s => s.slug === slug);
   const heroAlt = studyMeta?.heroAlt ?? frontmatter.title;
   const heroDark = studyMeta?.heroDark;
@@ -124,24 +124,9 @@ export default async function CaseStudyPage({
       </Container>
 
       {/* ── Next project ── */}
-      {nextProject && (
-        <div className="border-t border-border">
-          <Container>
-            <Link
-              href={`/work/${nextProject.slug}`}
-              className="group block py-12 hover:opacity-80 transition-opacity duration-150 md:py-16"
-              aria-label={`Next project: ${nextProject.title}`}
-            >
-              <p className="text-[0.8125rem] text-foreground-muted mb-3">
-                Next project
-              </p>
-              <p className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground inline-flex items-center gap-2">
-                {nextProject.title} <ArrowIcon size={18} />
-              </p>
-            </Link>
-          </Container>
-        </div>
-      )}
+      <Container className="mb-16 md:mb-24">
+        <NextProjectCard currentSlug={slug} />
+      </Container>
     </article>
   );
 }

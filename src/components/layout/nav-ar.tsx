@@ -9,7 +9,7 @@ import { Container } from './container';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const navLinks = [
-  { href: '/ar#work', label: 'أعمالي' },
+  { href: '/ar/work', label: 'أعمالي' },
   { href: '/ar#services', label: 'الخدمات' },
   { href: '/ar#about', label: 'عني' },
   { href: '/ar#contact', label: 'تواصل' },

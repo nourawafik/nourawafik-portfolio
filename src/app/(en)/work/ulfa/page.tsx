@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from '@/components/layout/container';
-import { caseStudies } from '@/content/case-studies';
+import { NextProjectCard } from '@/components/ui/next-project-card';
+import { ArrowIcon } from '@/components/ui/arrow-icon';
 
 export const metadata: Metadata = {
   title: 'Ulfa — Noura Wafik',
@@ -43,6 +44,7 @@ const STUDIES = [
     n: '01',
     slug: 'participant-app',
     thumb: '/work/ulfa/ulfa-thumb.png',
+    thumbDark: '/work/ulfa/ulfa-thumb-dark.png',
     titleEn: 'Participant app',
     lineEn: 'From exploring to joining to My sessions.',
   },
@@ -50,6 +52,7 @@ const STUDIES = [
     n: '02',
     slug: 'live-session',
     thumb: '/work/ulfa/ulfa-thumb-live.png',
+    thumbDark: '/work/ulfa/ulfa-thumb-live-dark.png',
     titleEn: 'Live session',
     lineEn: 'From the waiting room to after the session.',
   },
@@ -57,6 +60,7 @@ const STUDIES = [
     n: '03',
     slug: 'facilitator-studio',
     thumb: '/work/ulfa/ulfa-thumb-studio.png',
+    thumbDark: '/work/ulfa/ulfa-thumb-studio-dark.png',
     titleEn: 'Facilitator studio',
     lineEn: 'Calendar, workshop, wallet and payouts.',
   },
@@ -64,12 +68,11 @@ const STUDIES = [
     n: '04',
     slug: 'design-system',
     thumb: '/work/ulfa/ulfa-thumb-ds.png',
+    thumbDark: '/work/ulfa/ulfa-thumb-ds-dark.png',
     titleEn: 'Design system',
     lineEn: '4 colors in light and dark.',
   },
 ];
-
-const duet = caseStudies.find((s) => s.slug === 'duet')!;
 
 export default function UlfaHubPage() {
   return (
@@ -79,7 +82,7 @@ export default function UlfaHubPage() {
         <nav aria-label="Breadcrumb">
           <ol className="flex items-center gap-1.5 text-[0.8125rem] text-foreground-muted list-none">
             <li>
-              <Link href="/#work" className="hover:text-foreground transition-colors duration-150">
+              <Link href="/work" className="hover:text-foreground transition-colors duration-150">
                 Work
               </Link>
             </li>
@@ -182,7 +185,7 @@ export default function UlfaHubPage() {
               key={n}
               className="rounded-xl border border-border bg-surface p-6 flex flex-col gap-3"
             >
-              <span className="font-mono text-[0.75rem] text-foreground-muted">{n}</span>
+              <span className="text-[0.75rem] text-foreground-muted">{n}</span>
               <p className="text-[0.9375rem] font-medium text-foreground leading-[1.4]">{titleEn}</p>
               <p className="text-[0.875rem] leading-[1.6] text-foreground-muted">{textEn}</p>
             </div>
@@ -211,7 +214,7 @@ export default function UlfaHubPage() {
           role="list"
           aria-label="Case studies"
         >
-          {STUDIES.map(({ n, slug, thumb, titleEn, lineEn }) => (
+          {STUDIES.map(({ n, slug, thumb, thumbDark, titleEn, lineEn }) => (
             <article
               key={slug}
               role="listitem"
@@ -224,14 +227,21 @@ export default function UlfaHubPage() {
                     src={thumb}
                     alt={`${titleEn} — Ulfa`}
                     fill
-                    className="object-cover"
+                    className="object-cover dark:hidden"
+                    sizes="(max-width: 768px) 84vw, 600px"
+                  />
+                  <Image
+                    src={thumbDark}
+                    alt={`${titleEn} — Ulfa`}
+                    fill
+                    className="object-cover hidden dark:block"
                     sizes="(max-width: 768px) 84vw, 600px"
                   />
                 </div>
               </div>
               {/* Content */}
               <div className="flex flex-col gap-3 p-6 flex-1">
-                <span className="font-mono text-[0.75rem] text-foreground-muted">{n}</span>
+                <span className="text-[0.75rem] text-foreground-muted">{n}</span>
                 <Link
                   href={`/work/ulfa/${slug}`}
                   className="focus-visible:outline-none after:absolute after:inset-0 after:z-[1] after:content-['']"
@@ -246,9 +256,10 @@ export default function UlfaHubPage() {
                   aria-hidden
                 >
                   Read the case study
-                  <span className="motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-[5px]">
-                    →
-                  </span>
+                  <ArrowIcon
+                    size={14}
+                    className="motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-[5px]"
+                  />
                 </div>
               </div>
             </article>
@@ -258,34 +269,7 @@ export default function UlfaHubPage() {
 
       {/* ── Next project card ── */}
       <Container className="mb-16 md:mb-24">
-        <Link
-          href="/work/duet"
-          className="group relative flex items-center justify-between rounded-2xl bg-[#0E2A2D] dark:bg-[#0A2023] dark:border dark:border-[#2B4A4E] px-8 py-8 md:px-10 overflow-hidden hover:opacity-90 transition-opacity duration-200"
-          aria-label="Next project: Duet"
-        >
-          <div className="flex flex-col gap-1.5">
-            <p className="font-mono text-[0.75rem] text-white/50">Next project</p>
-            <p className="text-[1.375rem] font-semibold text-white leading-[1.3]">{duet.title}</p>
-            <p className="text-[0.875rem] text-white/60 leading-[1.55]">{duet.tagline}</p>
-          </div>
-          <div className="shrink-0 ms-6 w-14 h-14 rounded-full bg-[#F5C518] flex items-center justify-center motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-1">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              aria-hidden
-            >
-              <path
-                d="M4 10h12M11 5l5 5-5 5"
-                stroke="#0E2A2D"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </Link>
+        <NextProjectCard currentSlug="ulfa" />
       </Container>
     </article>
   );

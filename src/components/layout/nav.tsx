@@ -9,7 +9,7 @@ import { Container } from './container';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const navLinks = [
-  { href: '/#work', label: 'Work' },
+  { href: '/work', label: 'Work' },
   { href: '/#services', label: 'Services' },
   { href: '/#about', label: 'About' },
   { href: '/#contact', label: 'Contact' },

@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Container } from '@/components/layout/container';
 import { mdxComponents } from '@/components/mdx';
+import { ArrowIcon } from '@/components/ui/arrow-icon';
+import { NextProjectCard } from '@/components/ui/next-project-card';
 import {
   getUlfaStudySlugs,
   getUlfaStudySource,
@@ -94,29 +96,30 @@ export default async function UlfaStudyPage({
           <div className="flex items-center justify-between py-10 md:py-12">
             <Link
               href="/work/ulfa"
-              className="text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
+              className="inline-flex items-center gap-1.5 text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
             >
-              ← Back to Ulfa
+              <ArrowIcon size={14} className="[transform:scaleX(-1)]" />
+              Back to Ulfa
             </Link>
             {frontmatter.next && (
               <Link
                 href={`/work/ulfa/${frontmatter.next}`}
-                className="text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
+                className="inline-flex items-center gap-1.5 text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
               >
-                {frontmatter.nextTitle} →
-              </Link>
-            )}
-            {!frontmatter.next && (
-              <Link
-                href="/work/duet"
-                className="text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
-              >
-                Next project: Duet →
+                {frontmatter.nextTitle}
+                <ArrowIcon size={14} />
               </Link>
             )}
           </div>
         </Container>
       </div>
+
+      {/* ── Next project (last study only) ── */}
+      {!frontmatter.next && (
+        <Container className="mb-16 md:mb-24">
+          <NextProjectCard currentSlug="ulfa" />
+        </Container>
+      )}
     </article>
   );
 }

@@ -4,10 +4,9 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/hero';
 import { ServicesMarquee } from '@/components/sections/services-marquee';
 import { SelectedWork } from '@/components/sections/selected-work';
-import { ServicesSection } from '@/components/sections/services-section';
+import { WhatIDo } from '@/components/sections/what-i-do';
 import { AboutSection } from '@/components/sections/about-section';
 import { ContactSection } from '@/components/sections/contact-section';
-import { getActiveOffer } from '@/content/offers';
 
 export const metadata: Metadata = {
   alternates: {
@@ -20,14 +19,12 @@ export const metadata: Metadata = {
 };
 
 export default function ArPage() {
-  const activeOffer = getActiveOffer();
-
   return (
     <>
       <Hero locale="ar" />
       <ServicesMarquee locale="ar" />
       <SelectedWork locale="ar" />
-      <ServicesSection locale="ar" activeOffer={activeOffer} />
+      <WhatIDo locale="ar" />
       <AboutSection locale="ar" />
       <ContactSection locale="ar" />
     </>

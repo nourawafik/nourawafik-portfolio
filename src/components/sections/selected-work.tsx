@@ -113,7 +113,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
             </h2>
           </div>
           <NextLink
-            href={ar ? '/ar#work' : '/#work'}
+            href={ar ? '/ar/work' : '/work'}
             className="hidden md:inline-flex items-center gap-1 text-small text-accent hover:underline underline-offset-4 shrink-0"
           >
             {t.allWork}
