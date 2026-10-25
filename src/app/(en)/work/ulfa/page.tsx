@@ -6,14 +6,20 @@ import { NextProjectCard } from '@/components/ui/next-project-card';
 import { ArrowIcon } from '@/components/ui/arrow-icon';
 
 export const metadata: Metadata = {
-  title: 'Ulfa — Noura Wafik',
+  title: 'Ulfa: bilingual mental health app UX, case study, Noura Wafik',
   description:
-    'A bilingual Arabic and English mobile app that brings people together with licensed mental health facilitators, in small circles and structured sessions.',
-  alternates: { canonical: 'https://nourawafik.com/work/ulfa' },
+    'Arabic and English mobile app design for small-group mental health sessions: participant app, live video sessions, facilitator studio and a themeable design system.',
+  alternates: {
+    canonical: 'https://nourawafik.com/work/ulfa',
+    languages: {
+      en: 'https://nourawafik.com/work/ulfa',
+      ar: 'https://nourawafik.com/ar/work/ulfa',
+    },
+  },
   openGraph: {
-    title: 'Ulfa — Noura Wafik',
+    title: 'Ulfa: bilingual mental health app UX, case study, Noura Wafik',
     description:
-      'A bilingual Arabic and English mobile app that brings people together with licensed mental health facilitators, in small circles and structured sessions.',
+      'Arabic and English mobile app design for small-group mental health sessions: participant app, live video sessions, facilitator studio and a themeable design system.',
     type: 'article',
     authors: ['Noura Wafik'],
     url: 'https://nourawafik.com/work/ulfa',

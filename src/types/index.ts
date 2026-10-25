@@ -15,6 +15,7 @@ export interface CaseStudy {
 
 export interface CaseStudyFrontmatter {
   title: string;
+  seoTitle?: string;
   tagline: string;
   role: string;
   timeline: string;

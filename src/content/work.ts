@@ -10,6 +10,7 @@ export interface WorkItem {
   types:    WorkType[];
   industry: Industry;
   features: Feature[];
+  keywords?: string[];
   parent?: { slug: string; title: { en: string; ar: string } };
   studiesCount?: number;
   thumb:     string;
@@ -52,6 +53,7 @@ export const work: WorkItem[] = [
     types:     ['mobile'],
     industry:  'health',
     features:  [],
+    keywords:  ['mobile app', 'mental health', 'bilingual', 'arabic', 'rtl', 'تطبيق', 'صحة نفسية'],
     studiesCount: 4,
     thumb:     '/work/ulfa/ulfa-thumb.png',
     thumbDark: '/work/ulfa/ulfa-thumb-dark.png',
@@ -69,6 +71,7 @@ export const work: WorkItem[] = [
     types:     ['web'],
     industry:  'health',
     features:  ['ai', 'sched', 'dash'],
+    keywords:  ['calendar', 'scheduling', 'appointments', 'dashboard', 'reports', 'ai', 'voice', 'clinic', 'saas', 'healthcare', 'تقويم', 'مواعيد', 'داشبورد', 'تقارير', 'ذكاء', 'صوت', 'عيادة'],
     thumb:     '/work/praxa/praxa-thumb.png',
     thumbDark: '/work/praxa/praxa-thumb-dark.png',
     order:     2,
@@ -85,6 +88,7 @@ export const work: WorkItem[] = [
     types:     ['web', 'mobile'],
     industry:  'hr',
     features:  ['ai', 'ds'],
+    keywords:  ['ai', 'hiring', 'recruiter', 'candidate', 'design system', 'توظيف', 'ذكاء', 'مساعد'],
     thumb:     '/work/duet/duet-thumb.png',
     thumbDark: '/work/duet/duet-thumb-dark.png',
     order:     3,
@@ -101,6 +105,7 @@ export const work: WorkItem[] = [
     types:     ['mobile'],
     industry:  'health',
     features:  ['video'],
+    keywords:  ['video call', 'zoom', 'meeting', 'live session', 'مكالمة فيديو', 'زوم', 'اجتماع', 'جلسة'],
     parent:    { slug: 'ulfa', title: { en: 'Ulfa', ar: 'ألفة' } },
     thumb:     '/work/ulfa/ulfa-thumb-live.png',
     thumbDark: '/work/ulfa/ulfa-thumb-live-dark.png',
@@ -117,6 +122,7 @@ export const work: WorkItem[] = [
     types:     ['mobile'],
     industry:  'health',
     features:  ['sched', 'pay', 'dash'],
+    keywords:  ['calendar', 'scheduling', 'wallet', 'payments', 'payouts', 'dashboard', 'تقويم', 'جدولة', 'محفظة', 'مدفوعات', 'تحويل'],
     parent:    { slug: 'ulfa', title: { en: 'Ulfa', ar: 'ألفة' } },
     thumb:     '/work/ulfa/ulfa-thumb-studio.png',
     thumbDark: '/work/ulfa/ulfa-thumb-studio-dark.png',
@@ -133,6 +139,7 @@ export const work: WorkItem[] = [
     types:     ['mobile'],
     industry:  'health',
     features:  ['ds'],
+    keywords:  ['design system', 'tokens', 'themes', 'dark mode', 'نظام تصميم', 'ثيمات', 'توكنز'],
     parent:    { slug: 'ulfa', title: { en: 'Ulfa', ar: 'ألفة' } },
     thumb:     '/work/ulfa/ulfa-thumb-ds.png',
     thumbDark: '/work/ulfa/ulfa-thumb-ds-dark.png',

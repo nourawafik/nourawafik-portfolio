@@ -26,14 +26,19 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const fm = await getFrontmatter(slug);
+    const pageTitle = fm.seoTitle ?? fm.title;
     return {
-      title: fm.title,
+      title: pageTitle,
       description: fm.description,
       alternates: {
         canonical: `https://nourawafik.com/work/${slug}`,
+        languages: {
+          en: `https://nourawafik.com/work/${slug}`,
+          ar: `https://nourawafik.com/ar/work/${slug}`,
+        },
       },
       openGraph: {
-        title: fm.title,
+        title: pageTitle,
         description: fm.description,
         type: 'article',
         authors: ['Noura Wafik'],
@@ -41,7 +46,7 @@ export async function generateMetadata({
       },
       twitter: {
         card: 'summary_large_image',
-        title: fm.title,
+        title: pageTitle,
         description: fm.description,
       },
     };

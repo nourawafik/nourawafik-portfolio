@@ -26,12 +26,19 @@ export async function generateMetadata({
   const { study } = await params;
   try {
     const fm = await getUlfaStudyFrontmatter(study);
+    const pageTitle = fm.seoTitle ?? `${fm.title} — Ulfa`;
     return {
-      title: `${fm.title} — Ulfa`,
+      title: pageTitle,
       description: fm.description,
-      alternates: { canonical: `https://nourawafik.com/work/ulfa/${study}` },
+      alternates: {
+        canonical: `https://nourawafik.com/work/ulfa/${study}`,
+        languages: {
+          en: `https://nourawafik.com/work/ulfa/${study}`,
+          ar: `https://nourawafik.com/ar/work/ulfa/${study}`,
+        },
+      },
       openGraph: {
-        title: `${fm.title} — Ulfa`,
+        title: pageTitle,
         description: fm.description,
         type: 'article',
         authors: ['Noura Wafik'],

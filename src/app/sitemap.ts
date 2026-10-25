@@ -36,6 +36,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  const arCaseStudies = ['praxa', 'duet'].map((slug) => ({
+    url: `${BASE_URL}/ar/work/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }));
+
+  const arUlfaStudies = ULFA_STUDIES.map((study) => ({
+    url: `${BASE_URL}/ar/work/ulfa/${study}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.65,
+  }));
+
   return [
     {
       url: BASE_URL,
@@ -67,7 +81,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${BASE_URL}/ar/work/ulfa`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
     ...ulfaStudies,
+    ...arUlfaStudies,
     ...caseStudies,
+    ...arCaseStudies,
   ];
 }
