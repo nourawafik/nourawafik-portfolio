@@ -2,6 +2,7 @@ import NextLink from 'next/link';
 import { ProjectImage } from '@/components/ui/project-image';
 import { Container } from '@/components/layout/container';
 import { CardRail } from '@/components/ui/card-rail';
+import { ArrowIcon } from '@/components/ui/arrow-icon';
 import { caseStudies } from '@/content/case-studies';
 
 interface WorkCard {
@@ -116,7 +117,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
             className="hidden md:inline-flex items-center gap-1 text-small text-accent hover:underline underline-offset-4 shrink-0"
           >
             {t.allWork}
-            <span className="rtl:rotate-180" aria-hidden>→</span>
+            <ArrowIcon size={14} />
           </NextLink>
         </div>
 
@@ -153,7 +154,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
                       ar ? card.roleAr : card.role,
                       ar ? card.platformAr : card.platform,
                       card.timeline,
-                    ].map((tag) => (
+                    ].filter(Boolean).map((tag) => (
                       <li
                         key={tag}
                         className="px-2.5 py-0.5 rounded-tag bg-accent-soft text-on-accent-soft text-small"
@@ -181,12 +182,10 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
                   {/* Read link — decorative; the stretched link above is the real click target */}
                   <div className="inline-flex items-center gap-1.5 text-small text-accent mt-auto" aria-hidden>
                     {t.read}
-                    <span
-                      className="rtl:rotate-180 motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-[5px] rtl:motion-safe:group-hover:-translate-x-[5px]"
-                      aria-hidden
-                    >
-                      →
-                    </span>
+                    <ArrowIcon
+                      size={14}
+                      className="motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-[5px] rtl:motion-safe:group-hover:-translate-x-[5px]"
+                    />
                   </div>
                 </div>
               </article>

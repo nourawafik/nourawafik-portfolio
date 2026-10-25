@@ -93,8 +93,9 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
 
           {/* Art card */}
           <div
-            className="relative w-full md:w-[480px] md:shrink-0 max-md:h-[380px] md:h-[480px] max-md:rounded-[32px] md:rounded-[40px] bg-accent overflow-hidden"
+            className="relative w-full md:w-[480px] md:shrink-0 max-md:h-[380px] md:h-[480px] max-md:rounded-[32px] md:rounded-[40px] overflow-hidden"
             style={{
+              backgroundColor: 'var(--teal-fixed)',
               backgroundImage: 'url(/patterns/noon-arcs.svg)',
               backgroundSize: '80px 60px',
               backgroundRepeat: 'repeat',
@@ -115,8 +116,8 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
 
             {/* Sticker: Hi! — top start corner */}
             <div
-              className="absolute top-6 start-6 px-3 py-1.5 bg-white text-foreground text-small font-medium rounded-pill border-[3px] border-foreground motion-safe:animate-float"
-              style={{ '--sticker-rotate': '-3deg', animationDelay: '0s' } as React.CSSProperties}
+              className="absolute top-6 start-6 px-3 py-1.5 bg-white text-small font-medium rounded-pill border-[3px] motion-safe:animate-float"
+              style={{ '--sticker-rotate': '-3deg', animationDelay: '0s', color: 'var(--ink-fixed)', borderColor: 'var(--ink-fixed)' } as React.CSSProperties}
               aria-hidden
             >
               {t.stickers.hi}
@@ -124,8 +125,8 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
 
             {/* Sticker: Open for new projects — bottom end corner */}
             <div
-              className="absolute bottom-6 end-6 px-3 py-1.5 bg-highlight text-foreground text-small font-medium rounded-pill border-[3px] border-foreground motion-safe:animate-float flex items-center gap-1.5"
-              style={{ '--sticker-rotate': '2deg', animationDelay: '0.8s' } as React.CSSProperties}
+              className="absolute bottom-6 end-6 px-3 py-1.5 bg-highlight text-small font-medium rounded-pill border-[3px] motion-safe:animate-float flex items-center gap-1.5"
+              style={{ '--sticker-rotate': '2deg', animationDelay: '0.8s', color: 'var(--ink-fixed)', borderColor: 'var(--ink-fixed)' } as React.CSSProperties}
               aria-hidden
             >
               <span className="w-2 h-2 rounded-full bg-success shrink-0" />
@@ -134,8 +135,8 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
 
             {/* Sticker: English + عربي — start side, middle */}
             <div
-              className="absolute top-1/2 start-4 -translate-y-1/2 px-3 py-1.5 bg-coral text-foreground text-small font-medium rounded-pill border-[3px] border-foreground motion-safe:animate-float"
-              style={{ '--sticker-rotate': '-6deg', animationDelay: '1.6s' } as React.CSSProperties}
+              className="absolute top-1/2 start-4 -translate-y-1/2 px-3 py-1.5 bg-coral text-small font-medium rounded-pill border-[3px] motion-safe:animate-float"
+              style={{ '--sticker-rotate': '-6deg', animationDelay: '1.6s', color: 'var(--ink-fixed)', borderColor: 'var(--ink-fixed)' } as React.CSSProperties}
               aria-hidden
             >
               {t.stickers.bilingual}

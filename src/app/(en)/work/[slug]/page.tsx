@@ -5,6 +5,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import readingTime from 'reading-time';
 import { Container } from '@/components/layout/container';
 import { ProjectImage } from '@/components/ui/project-image';
+import { ArrowIcon } from '@/components/ui/arrow-icon';
 import { MetadataGrid } from '@/components/mdx/metadata-grid';
 import { mdxComponents } from '@/components/mdx';
 import { getStudySlugs, getFrontmatter, getSource, getNextProject } from '@/lib/mdx';
@@ -97,7 +98,7 @@ export default async function CaseStudyPage({
           <p className="text-[1.125rem] leading-[1.65] text-foreground-muted mb-2">
             {frontmatter.tagline}
           </p>
-          <p className="font-mono text-[0.8125rem] text-foreground-muted mb-10">
+          <p className="text-[0.8125rem] text-foreground-muted mb-10">
             {stats.text}
           </p>
           <MetadataGrid
@@ -112,7 +113,9 @@ export default async function CaseStudyPage({
 
       {/* ── Hero image ── */}
       <Container className="mb-16 md:mb-24">
-        <ProjectImage slug={slug} variant="hero" alt={heroAlt} priority={true} srcDark={heroDark} />
+        <div className="rounded-[16px] md:rounded-[24px] overflow-hidden">
+          <ProjectImage slug={slug} variant="hero" alt={heroAlt} priority={true} srcDark={heroDark} />
+        </div>
       </Container>
 
       {/* ── MDX content ── */}
@@ -129,11 +132,11 @@ export default async function CaseStudyPage({
               className="group block py-12 hover:opacity-80 transition-opacity duration-150 md:py-16"
               aria-label={`Next project: ${nextProject.title}`}
             >
-              <p className="font-mono text-[0.8125rem] text-foreground-muted mb-3">
+              <p className="text-[0.8125rem] text-foreground-muted mb-3">
                 Next project
               </p>
-              <p className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground">
-                {nextProject.title} <span aria-hidden="true">→</span>
+              <p className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground inline-flex items-center gap-2">
+                {nextProject.title} <ArrowIcon size={18} />
               </p>
             </Link>
           </Container>

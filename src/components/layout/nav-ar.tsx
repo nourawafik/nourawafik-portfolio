@@ -134,7 +134,7 @@ export function NavAr() {
             <ThemeToggle locale="ar" />
             <a
               href="mailto:hello@nourawafik.com?subject=طلب%20عرض%20سعر"
-              className="inline-flex items-center justify-center rounded-pill px-4 py-2 text-[0.875rem] font-medium text-foreground transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
+              className="inline-flex items-center justify-center rounded-pill px-4 py-2 text-[0.875rem] font-medium text-on-highlight transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
               style={{ backgroundColor: 'var(--highlight)' }}
             >
               اطلب عرض سعر
@@ -259,7 +259,7 @@ export function NavAr() {
             <p className="text-[0.9375rem] font-medium text-foreground-muted">جاهزة تبدأ؟</p>
             <a
               href="mailto:hello@nourawafik.com?subject=طلب%20عرض%20سعر"
-              className="w-full flex items-center justify-center rounded-pill text-[1rem] font-semibold text-foreground transition-opacity hover:opacity-85 active:opacity-70"
+              className="w-full flex items-center justify-center rounded-pill text-[1rem] font-semibold text-on-highlight transition-opacity hover:opacity-85 active:opacity-70"
               style={{ height: '56px', backgroundColor: 'var(--highlight)' }}
             >
               اطلب عرض سعر

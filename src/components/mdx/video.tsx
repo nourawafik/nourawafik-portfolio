@@ -42,7 +42,7 @@ export function Video({ src, poster, srcDark, posterDark, caption }: VideoProps)
 
   return (
     <figure className="my-8" aria-label={caption ?? undefined}>
-      <div className="relative rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.12)]">
+      <div className="relative rounded-[16px] overflow-hidden border border-border" style={{ boxShadow: 'var(--card-shadow-rest)' }}>
         <video
           ref={lightRef}
           src={src}

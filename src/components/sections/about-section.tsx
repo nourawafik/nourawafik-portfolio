@@ -74,7 +74,8 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
             </div>
             {/* Logo mark circle overlapping bottom-end corner */}
             <div
-              className="absolute bottom-0 end-0 translate-x-2 translate-y-2 w-24 h-24 rounded-full bg-accent flex items-center justify-center ring-[6px] ring-surface dark:ring-sunk"
+              className="absolute bottom-0 end-0 translate-x-2 translate-y-2 w-24 h-24 rounded-full flex items-center justify-center ring-[6px] ring-surface dark:ring-sunk"
+              style={{ backgroundColor: 'var(--teal-fixed)' }}
             >
               <Image
                 src="/logo/mark-on-dark.svg"

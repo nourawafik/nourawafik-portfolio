@@ -134,7 +134,7 @@ export function Nav() {
             <ThemeToggle />
             <a
               href="mailto:hello@nourawafik.com?subject=Quote%20request"
-              className="inline-flex items-center justify-center rounded-pill px-4 py-2 text-[0.875rem] font-medium text-foreground transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
+              className="inline-flex items-center justify-center rounded-pill px-4 py-2 text-[0.875rem] font-medium text-on-highlight transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
               style={{ backgroundColor: 'var(--highlight)' }}
             >
               Get a quote
@@ -259,7 +259,7 @@ export function Nav() {
             <p className="text-[0.9375rem] font-medium text-foreground-muted">Ready to start?</p>
             <a
               href="mailto:hello@nourawafik.com?subject=Quote%20request"
-              className="w-full flex items-center justify-center rounded-pill text-[1rem] font-semibold text-foreground transition-opacity hover:opacity-85 active:opacity-70"
+              className="w-full flex items-center justify-center rounded-pill text-[1rem] font-semibold text-on-highlight transition-opacity hover:opacity-85 active:opacity-70"
               style={{ height: '56px', backgroundColor: 'var(--highlight)' }}
             >
               Get a quote

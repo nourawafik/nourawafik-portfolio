@@ -34,6 +34,8 @@
   --error-bg: #FDECEA;
   --info: #2364AA;
   --info-bg: #E5EFFA;
+  --ink-fixed: #0E2A2D;
+  --teal-fixed: #0E7C7B;
 }
 
 .dark {
@@ -95,6 +97,8 @@
   --color-error-bg: var(--error-bg);
   --color-info: var(--info);
   --color-info-bg: var(--info-bg);
+  --color-ink-fixed: var(--ink-fixed);
+  --color-teal-fixed: var(--teal-fixed);
 
   /* Radii */
   --radius-tag: 8px;

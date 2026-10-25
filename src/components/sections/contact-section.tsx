@@ -32,17 +32,17 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
       <div className="mx-auto w-full px-4 md:px-12 max-w-[1200px]">
         <div
           className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12 rounded-[28px] md:rounded-[40px] p-7 md:px-14 md:py-16"
-          style={{ backgroundColor: 'var(--highlight)', color: '#0E2A2D' }}
+          style={{ backgroundColor: 'var(--highlight)', color: 'var(--ink-fixed)' }}
         >
           {/* Text + actions */}
           <div className="flex flex-col gap-5 flex-1">
             <h2
               id="contact-heading"
-              className={`text-h2 font-extrabold text-foreground ${ar ? 'leading-[1.4]' : 'leading-[1.2]'}`}
+              className={`text-h2 font-extrabold ${ar ? 'leading-[1.4]' : 'leading-[1.2]'}`}
             >
               {t.h2}
             </h2>
-            <p className={`text-[1.125rem] text-foreground max-w-[440px] ${ar ? 'leading-[1.8]' : 'leading-[1.6]'}`}>
+            <p className={`text-[1.125rem] max-w-[440px] ${ar ? 'leading-[1.8]' : 'leading-[1.6]'}`}>
               {t.body}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
@@ -50,7 +50,7 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
               <a
                 href={t.ctaHref}
                 className="inline-flex items-center justify-center rounded-pill px-5 py-2.5 text-[0.875rem] font-medium text-white transition-opacity hover:opacity-80 active:opacity-70"
-                style={{ backgroundColor: 'var(--fg)' }}
+                style={{ backgroundColor: 'var(--ink-fixed)' }}
               >
                 {t.cta}
               </a>
@@ -58,7 +58,7 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
               <a
                 href="mailto:hello@nourawafik.com"
                 dir="ltr"
-                className="text-body text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity"
+                className="text-body underline underline-offset-4 hover:opacity-70 transition-opacity"
               >
                 {t.email}
               </a>

@@ -30,10 +30,10 @@ export function UlfaColorTable() {
                       style={{ background: t.lightPrimary }}
                       aria-hidden
                     />
-                    <span className="font-mono text-[0.75rem] text-foreground-muted">{t.lightPrimary}</span>
+                    <span className="text-[0.75rem] text-foreground-muted">{t.lightPrimary}</span>
                   </span>
                 </td>
-                <td className="px-4 py-3 font-mono text-[0.75rem] text-foreground-muted">{t.lightRatio}</td>
+                <td className="px-4 py-3 text-[0.75rem] text-foreground-muted">{t.lightRatio}</td>
                 <td className="px-4 py-3">
                   <span className="inline-flex items-center gap-2">
                     <span
@@ -41,10 +41,10 @@ export function UlfaColorTable() {
                       style={{ background: t.darkPrimary }}
                       aria-hidden
                     />
-                    <span className="font-mono text-[0.75rem] text-foreground-muted">{t.darkPrimary}</span>
+                    <span className="text-[0.75rem] text-foreground-muted">{t.darkPrimary}</span>
                   </span>
                 </td>
-                <td className="px-4 py-3 font-mono text-[0.75rem] text-foreground-muted">{t.darkRatio}</td>
+                <td className="px-4 py-3 text-[0.75rem] text-foreground-muted">{t.darkRatio}</td>
               </tr>
             ))}
           </tbody>

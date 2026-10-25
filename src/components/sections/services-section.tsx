@@ -1,5 +1,6 @@
 import type { Offer } from '@/content/offers';
 import { CardRail } from '@/components/ui/card-rail';
+import { ArrowIcon } from '@/components/ui/arrow-icon';
 
 interface ServiceCard {
   id: string;
@@ -98,11 +99,11 @@ function CardArrowButton({
         motion-safe:duration-[350ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)]
         hover:bg-highlight hover:border-highlight hover:rotate-[-45deg] rtl:hover:rotate-[45deg] ${
         featured
-          ? 'border-white/30 text-white'
+          ? 'border-[#2B4A4E] text-white'
           : 'border-line text-foreground'
       }`}
     >
-      <span className="rtl:rotate-180 inline-block" aria-hidden>→</span>
+      <ArrowIcon size={18} />
     </a>
   );
 }
@@ -154,7 +155,7 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
                   <CardArrowButton href={quoteHref} featured />
                   <div className="flex flex-col gap-1.5 pe-12">
                     <h3 className="text-h3 font-bold text-white">{title}</h3>
-                    <span className="self-start rounded-pill px-2.5 py-0.5 bg-highlight text-foreground text-small font-medium">
+                    <span className="self-start rounded-pill px-2.5 py-0.5 bg-highlight text-on-highlight text-small font-medium">
                       {t.allInOne}
                     </span>
                   </div>
@@ -168,9 +169,8 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
                       after:absolute after:inset-[-24px] after:z-[-1] after:content-['']
                       focus-visible:outline-none"
                   >
-                    {ar && <span aria-hidden>←</span>}
                     {t.quote}
-                    {!ar && <span aria-hidden>→</span>}
+                    <ArrowIcon size={16} />
                   </a>
                 </article>
               );
@@ -200,9 +200,8 @@ export function ServicesSection({ locale = 'en', activeOffer }: ServicesSectionP
                     after:absolute after:inset-[-24px] after:z-[-1] after:content-['']
                     focus-visible:outline-none"
                 >
-                  {ar && <span aria-hidden>←</span>}
                   {t.quote}
-                  {!ar && <span aria-hidden>→</span>}
+                  <ArrowIcon size={16} />
                 </a>
               </article>
             );
