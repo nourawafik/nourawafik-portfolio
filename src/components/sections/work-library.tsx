@@ -479,8 +479,8 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
 
       {/* ── Desktop filter panel ── */}
       {filtersOpen && (
-        <Container className="pb-2 hidden md:block" id="filters-panel">
-          <div className="rounded-[20px] border border-line bg-surface p-5 flex items-start gap-8">
+        <Container className="pb-2 hidden md:block">
+          <div id="filters-panel" className="rounded-[20px] border border-line bg-surface p-5 flex items-start gap-8">
             <FilterChips
               group="industry"
               values={industries}
