@@ -60,7 +60,7 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
             {children}
           </main>
           <Footer locale="ar" />
-          <AskNoura locale="ar" />
+          {process.env.NEXT_PUBLIC_ASK_NOURA === 'true' && <AskNoura locale="ar" />}
         </Providers>
       </body>
     </html>

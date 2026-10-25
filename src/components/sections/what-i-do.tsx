@@ -129,9 +129,9 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
           </a>
         </div>
 
-        {/* Cards — 4 col desktop, mobile rail */}
+        {/* Cards — 4 col desktop, vertical list mobile */}
         <ul
-          className="flex gap-5 overflow-x-auto -mx-4 px-4 pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-4 md:gap-5 md:overflow-visible md:mx-0 md:px-0 md:pb-0"
+          className="flex flex-col gap-3 md:grid md:grid-cols-4 md:gap-5"
           role="list"
         >
           {cards.map(card => {
@@ -142,10 +142,10 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
 
             const cardContent = (
               <>
-                {/* Illustration tile */}
+                {/* Illustration tile — desktop: full-width 120px | mobile: 84×84 */}
                 <div
-                  className="w-full rounded-[16px] flex items-center justify-center overflow-hidden"
-                  style={{ backgroundColor: '#E6F4F3', aspectRatio: '1' }}
+                  className="flex items-center justify-center overflow-hidden shrink-0 rounded-[18px] h-[84px] w-[84px] p-1.5 md:w-full md:h-[120px] md:p-3 md:mb-4"
+                  style={{ backgroundColor: '#E6F4F3' }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -157,11 +157,11 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
                 </div>
 
                 {/* Text */}
-                <div className="flex flex-col gap-2 mt-4">
-                  <h3 className={`text-h3 font-bold text-foreground ${ar ? 'leading-[1.4]' : 'leading-[1.2]'}`}>
+                <div className="flex flex-col gap-1.5 md:gap-2">
+                  <h3 className={`font-bold text-foreground text-[1.125rem] leading-[1.2] md:text-h3 ${ar ? 'md:leading-[1.4]' : ''}`}>
                     {title}
                   </h3>
-                  <p className={`text-body text-foreground-muted ${ar ? 'leading-[1.8]' : 'leading-[1.65]'}`}>
+                  <p className={`text-foreground-muted text-[0.875rem] leading-[1.55] md:text-body ${ar ? 'md:leading-[1.8]' : 'md:leading-[1.65]'}`}>
                     {line}
                   </p>
                 </div>
@@ -169,15 +169,16 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
             );
 
             const cardClass = [
-              'card-shadow group flex flex-col rounded-card p-5 bg-surface border border-border',
-              'max-md:shrink-0 max-md:[flex:0_0_80%] max-md:[scroll-snap-align:start]',
-              'motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)]',
+              'card-shadow group bg-surface border border-border',
+              'grid grid-cols-[84px_1fr] gap-4 p-[14px_16px] rounded-[24px]',
+              'md:flex md:flex-col md:p-5 md:rounded-card md:h-full',
+              'motion-safe:transition-transform motion-safe:duration-[250ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)]',
               'motion-safe:hover:-translate-y-1',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
             ].join(' ');
 
             return (
-              <li key={card.titleEn} role="listitem">
+              <li key={card.titleEn} role="listitem" className="md:h-full">
                 {isExternal ? (
                   <a
                     href={card.href}

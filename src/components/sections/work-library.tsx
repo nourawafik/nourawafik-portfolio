@@ -480,7 +480,7 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
       {/* ── Desktop filter panel ── */}
       {filtersOpen && (
         <Container className="pb-2 hidden md:block">
-          <div id="filters-panel" className="rounded-[20px] border border-line bg-surface p-5 flex items-start gap-8">
+          <div id="filters-panel" className="filter-panel-open rounded-[20px] border border-line bg-surface p-5 flex items-start gap-8">
             <FilterChips
               group="industry"
               values={industries}
@@ -548,6 +548,7 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
 
       {/* ── Grid ── */}
       <Container className="pb-20 md:pb-28">
+        <div key={`${activeType}-${activeIndustry}-${activeFeature}-${searchParams.get('q') ?? ''}`} className="grid-fade-in">
         {filtered.length === 0 ? (
           /* No-results card */
           <div
@@ -710,6 +711,7 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
             })}
           </ul>
         )}
+        </div>
       </Container>
 
       {/* ── Mobile bottom sheet ── */}
@@ -717,7 +719,7 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
         <>
           {/* Scrim */}
           <div
-            className="fixed inset-0 bg-black/40 z-40 md:hidden"
+            className="filter-sheet-scrim fixed inset-0 bg-black/40 z-40 md:hidden"
             onClick={() => setFiltersOpen(false)}
             aria-hidden
           />
@@ -728,7 +730,7 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
             role="dialog"
             aria-label={t.filtersBtn}
             aria-modal="true"
-            className="fixed bottom-0 start-0 end-0 z-50 md:hidden bg-background rounded-t-[28px] pt-3 pb-safe-or-6"
+            className="filter-sheet fixed bottom-0 start-0 end-0 z-50 md:hidden bg-background rounded-t-[28px] pt-3 pb-safe-or-6"
           >
             {/* Grab handle */}
             <div className="flex justify-center mb-4">

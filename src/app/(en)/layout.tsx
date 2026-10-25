@@ -93,7 +93,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
             {children}
           </main>
           <Footer />
-          <AskNoura locale="en" />
+          {process.env.NEXT_PUBLIC_ASK_NOURA === 'true' && <AskNoura locale="en" />}
         </Providers>
       </body>
     </html>

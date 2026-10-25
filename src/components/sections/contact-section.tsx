@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { NoonWaveOnYellow } from '@/components/ui/noon-wave-on-yellow';
 
 const COPY = {
   en: {
@@ -125,7 +126,7 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
                     <span
                       role="status"
                       aria-live="polite"
-                      className="absolute bottom-full start-0 mb-2 whitespace-nowrap rounded-lg px-3 py-1.5 text-[0.8125rem] font-medium shadow-md"
+                      className="toast-enter absolute bottom-full start-0 mb-2 whitespace-nowrap rounded-lg px-3 py-1.5 text-[0.8125rem] font-medium shadow-md"
                       style={{ backgroundColor: 'var(--ink-fixed)', color: 'var(--highlight)' }}
                     >
                       {t.toastCopied}
@@ -138,14 +139,9 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
 
           {/* Noon wave illustration */}
           <div className="shrink-0 self-end md:self-auto">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/mascot/noon-wave.svg"
-              alt=""
-              width={140}
-              height={140}
-              aria-hidden
-              className={`drop-shadow-sm${waving ? ' noon-waving' : ''}`}
+            <NoonWaveOnYellow
+              waving={waving}
+              className="w-[150px] md:w-[220px] drop-shadow-sm"
             />
           </div>
         </div>

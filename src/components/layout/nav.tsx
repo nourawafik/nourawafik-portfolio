@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Container } from './container';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { LangLink } from '@/components/ui/lang-link';
 
 const navLinks = [
   { href: '/work', label: 'Work' },
@@ -128,9 +129,7 @@ export function Nav() {
                 </li>
               ))}
             </ul>
-            <NextLink href="/ar" hrefLang="ar" aria-label="النسخة العربية" className={langClass} lang="ar">
-              عربي
-            </NextLink>
+            <LangLink fromLocale="en" hrefLang="ar" aria-label="النسخة العربية" className={langClass} lang="ar" label="عربي" />
             <ThemeToggle />
             <a
               href="mailto:hello@nourawafik.com?subject=Quote%20request"
@@ -142,15 +141,14 @@ export function Nav() {
           </div>
 
           {/* Mobile end: lang switch only */}
-          <NextLink
-            href="/ar"
+          <LangLink
+            fromLocale="en"
             hrefLang="ar"
             aria-label="النسخة العربية"
             className={`md:hidden ${langClass}`}
             lang="ar"
-          >
-            عربي
-          </NextLink>
+            label="عربي"
+          />
         </nav>
       </Container>
     </header>
@@ -206,15 +204,14 @@ export function Nav() {
               <span className="text-small text-foreground-muted w-20 shrink-0">Language</span>
               <div className="flex rounded-control border border-border overflow-hidden text-small font-medium">
                 <span className="px-5 py-2.5 bg-foreground text-background" aria-current="page">EN</span>
-                <NextLink
-                  href="/ar"
+                <LangLink
+                  fromLocale="en"
                   onClick={close}
                   hrefLang="ar"
                   lang="ar"
+                  label="عربي"
                   className="px-5 py-2.5 text-foreground-muted hover:text-foreground transition-colors"
-                >
-                  عربي
-                </NextLink>
+                />
               </div>
             </div>
 

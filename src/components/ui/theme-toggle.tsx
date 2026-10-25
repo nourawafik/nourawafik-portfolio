@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -11,8 +12,11 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ className, locale = 'en' }: ThemeToggleProps) {
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  if (!resolvedTheme) {
+  useEffect(() => { setMounted(true); }, []);
+
+  if (!mounted) {
     return <div className="w-8 h-8" aria-hidden />;
   }
 

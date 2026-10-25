@@ -135,7 +135,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
               >
                 {/* Cover image — zooms on card hover */}
                 <div className="overflow-hidden" style={{ height: '240px' }}>
-                  <div className="w-full h-full motion-safe:transition-transform motion-safe:duration-[600ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)] motion-safe:group-hover:scale-[1.05]">
+                  <div className="w-full h-full motion-safe:transition-transform motion-safe:duration-[450ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)] motion-safe:group-hover:scale-[1.05]">
                     <ProjectImage
                       slug={card.slug}
                       variant="thumb"
@@ -169,7 +169,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
                     href={href}
                     className="focus-visible:outline-none after:absolute after:inset-0 after:z-[1] after:content-['']"
                   >
-                    <h3 className="text-h3 font-bold text-foreground transition-colors duration-[350ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:text-accent">
+                    <h3 className="text-h3 font-bold text-foreground transition-colors duration-[250ms] ease-[cubic-bezier(.2,.8,.2,1)] group-hover:text-accent">
                       {title}
                     </h3>
                   </NextLink>
@@ -184,7 +184,7 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
                     {t.read}
                     <ArrowIcon
                       size={14}
-                      className="motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-[5px] rtl:motion-safe:group-hover:-translate-x-[5px]"
+                      className="motion-safe:transition-transform motion-safe:duration-[250ms] motion-safe:group-hover:translate-x-[5px] rtl:motion-safe:group-hover:-translate-x-[5px]"
                     />
                   </div>
                 </div>
@@ -192,6 +192,15 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
             );
           })}
         </CardRail>
+
+        {/* All work — mobile only */}
+        <NextLink
+          href={ar ? '/ar/work' : '/work'}
+          className="md:hidden mt-6 flex items-center justify-center gap-1.5 w-full h-12 rounded-pill border-2 border-foreground text-foreground text-small font-medium hover:bg-foreground/5 transition-colors duration-150"
+        >
+          {t.allWork}
+          <ArrowIcon size={14} />
+        </NextLink>
       </Container>
     </section>
   );

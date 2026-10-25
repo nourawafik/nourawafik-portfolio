@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Container } from './container';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
+import { LangLink } from '@/components/ui/lang-link';
 
 const navLinks = [
   { href: '/ar/work', label: 'أعمالي' },
@@ -128,9 +129,7 @@ export function NavAr() {
                 </li>
               ))}
             </ul>
-            <NextLink href="/" hrefLang="en" aria-label="English version" className={langClass} lang="en">
-              EN
-            </NextLink>
+            <LangLink fromLocale="ar" hrefLang="en" aria-label="English version" className={langClass} lang="en" label="EN" />
             <ThemeToggle locale="ar" />
             <a
               href="mailto:hello@nourawafik.com?subject=طلب%20عرض%20سعر"
@@ -142,15 +141,14 @@ export function NavAr() {
           </div>
 
           {/* Mobile end: lang switch only */}
-          <NextLink
-            href="/"
+          <LangLink
+            fromLocale="ar"
             hrefLang="en"
             aria-label="English version"
             className={`md:hidden ${langClass}`}
             lang="en"
-          >
-            EN
-          </NextLink>
+            label="EN"
+          />
         </nav>
       </Container>
     </header>
@@ -206,15 +204,14 @@ export function NavAr() {
               <span className="text-small text-foreground-muted w-20 shrink-0">اللغة</span>
               <div className="flex rounded-control border border-border overflow-hidden text-small font-medium">
                 <span className="px-5 py-2.5 bg-foreground text-background" aria-current="page">عربي</span>
-                <NextLink
-                  href="/"
+                <LangLink
+                  fromLocale="ar"
                   onClick={close}
                   hrefLang="en"
                   lang="en"
+                  label="EN"
                   className="px-5 py-2.5 text-foreground-muted hover:text-foreground transition-colors"
-                >
-                  EN
-                </NextLink>
+                />
               </div>
             </div>
 

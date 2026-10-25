@@ -1,5 +1,6 @@
 import NextLink from 'next/link';
 import Image from 'next/image';
+import { LangLink } from '@/components/ui/lang-link';
 
 const currentYear = new Date().getFullYear();
 
@@ -50,7 +51,7 @@ export function Footer({ locale = 'en' }: FooterProps) {
             />
           </NextLink>
 
-          {/* Social links */}
+          {/* Social links + lang switch */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-small" style={{ color: 'var(--muted-dark, #A9C2C4)' }}>
             {links.map(({ label, href, download }) => (
               <a
@@ -63,6 +64,14 @@ export function Footer({ locale = 'en' }: FooterProps) {
                 {label}
               </a>
             ))}
+            <LangLink
+              fromLocale={locale}
+              hrefLang={ar ? 'en' : 'ar'}
+              lang={ar ? 'en' : 'ar'}
+              aria-label={ar ? 'English version' : 'النسخة العربية'}
+              label={ar ? 'EN' : 'عربي'}
+              className="rounded-pill border border-[#A9C2C4]/40 px-2.5 py-1 hover:text-white hover:border-[#A9C2C4] transition-colors duration-150"
+            />
           </div>
         </div>
 
