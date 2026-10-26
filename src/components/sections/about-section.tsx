@@ -1,10 +1,13 @@
 import Image from 'next/image';
+import { yearsExperience } from '@/content/profile';
+
+const n = yearsExperience();
 
 const COPY = {
   en: {
     eyebrow: 'About',
     h2Line1: 'Hi, I\'m Noura',
-    body: 'A brand and product designer based in Cairo. I work end to end, from research and brand identity to developer-ready screens. I also know code and marketing, so the design can be built and reaches the right audience.',
+    body: `A brand and product designer based in Cairo, with ${n}+ years of experience. I work end to end, from research and brand identity to developer-ready screens. I also know code and marketing, so the design can be built and reaches the right audience.`,
     traits: [
       {
         title: 'Truly bilingual',
@@ -23,19 +26,19 @@ const COPY = {
   ar: {
     eyebrow: 'عني',
     h2Line1: 'أهلا، أنا نورا',
-    body: 'مصممة براند ومنتجات رقمية من القاهرة. بشتغل على الشغل من أوله لآخره: من البحث وهوية البراند لحد الواجهات الجاهزة للتطوير، وكمان بفهم في الكود والتسويق، فالتصميم بيطلع قابل للتنفيذ وموجه للجمهور الصحيح.',
+    body: `مصممة هويات بصرية ومنتجات رقمية من القاهرة، بخبرة أكثر من ${n} ${n >= 11 ? 'سنة' : 'سنوات'}. أعمل على المشروع من بدايته لنهايته: من البحث والهوية البصرية حتى الواجهات الجاهزة للتطوير. ولأن لدي خبرة في البرمجة والتسويق، يخرج التصميم قابلا للتنفيذ وموجها للجمهور الصحيح.`,
     traits: [
       {
-        title: 'بلغتين بجد',
-        desc: 'تصميم عربي من الأساس، مش ترجمة لتصميم إنجليزي.',
+        title: 'بلغتين من البداية',
+        desc: 'تصميم عربي من الأساس، وليس ترجمة لتصميم إنجليزي.',
       },
       {
-        title: 'من الفكرة للتنفيذ',
-        desc: 'براند وواجهات وتطوير وتسويق في مكان واحد.',
+        title: 'من الفكرة إلى الإطلاق',
+        desc: 'هوية وواجهات وتطوير وتسويق في مكان واحد.',
       },
       {
         title: 'أنظمة تصميم',
-        desc: 'كل مشروع بيطلع بنظام يكبر معاك.',
+        desc: 'كل مشروع يخرج بنظام يكبر معك.',
       },
     ],
   },
@@ -103,9 +106,9 @@ export function AboutSection({ locale = 'en' }: AboutSectionProps) {
             </p>
 
             {/* Trait cards */}
-            <div className="flex gap-3 overflow-x-auto -mx-4 px-4 pb-3 [scroll-snap-type:x_mandatory] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:mx-0 md:px-0 md:pb-0 mt-2">
+            <div className="flex flex-col gap-3 md:grid md:grid-cols-3 md:gap-4 mt-2">
               {t.traits.map((trait) => (
-                <div key={trait.title} className="card-shadow-trait flex flex-col gap-2 rounded-[20px] bg-background p-5 max-md:shrink-0 max-md:[flex:0_0_68%] max-md:[scroll-snap-align:start]">
+                <div key={trait.title} className="card-shadow-trait flex flex-col gap-2 rounded-[20px] bg-background p-5">
                   <h3 className="text-body font-medium text-foreground">{trait.title}</h3>
                   <p className={`text-small text-foreground-muted ${ar ? 'leading-[1.7]' : 'leading-[1.5]'}`}>
                     {trait.desc}
