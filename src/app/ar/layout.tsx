@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { OfferBar } from '@/components/ui/offer-bar';
 import { AskNoura } from '@/components/ui/ask-noura';
 import { getActiveOffer } from '@/content/offers';
+import { visibleSocial } from '@/content/social';
 import '../globals.css';
 
 const rubik = Rubik({
@@ -15,17 +16,42 @@ const rubik = Rubik({
   display: 'swap',
 });
 
+const personJsonLdAr = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'نورا وفيق',
+  jobTitle: 'مصممة منتجات وهويات بصرية',
+  url: 'https://nourawafik.com/ar',
+  email: 'hello@nourawafik.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'القاهرة',
+    addressCountry: 'EG',
+  },
+  sameAs: visibleSocial.map(s => s.href),
+  knowsLanguage: ['ar', 'en'],
+  knowsAbout: [
+    'تصميم المنتجات',
+    'الهوية البصرية',
+    'تصميم SaaS',
+    'الصحة الرقمية',
+    'تجربة الذكاء الاصطناعي',
+    'أنظمة التصميم',
+    'التصميم ثنائي اللغة',
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://nourawafik.com'),
-  title: 'نورا وفيق — مصممة منتجات | أنظمة تصميم ثنائية اللغة',
+  title: 'نورا وفيق، مصممة منتجات وهويات بصرية بالعربي والإنجليزي',
   description:
-    'مصممة منتجات تشتغل على منصات SaaS وتطبيقات صحية ومنتجات ذكاء اصطناعي — بالعربي والإنجليزي. متاحة للوظائف بدوام كامل.',
+    'هويات بصرية ومواقع ومنتجات رقمية مصممة بالعربي والإنجليزي من البداية. مصممة منتجات وهويات من القاهرة، للشركات في مصر والخليج.',
   authors: [{ name: 'Noura Wafik' }],
   creator: 'Noura Wafik',
   openGraph: {
-    title: 'نورا وفيق — مصممة منتجات | أنظمة تصميم ثنائية اللغة',
+    title: 'نورا وفيق، مصممة منتجات وهويات بصرية بالعربي والإنجليزي',
     description:
-      'أصمم منتجات SaaS وتطبيقات صحية ومنتجات AI بالعربي والإنجليزي. مقري القاهرة، شغلي مع شركة إماراتية على منتجات للسعودية ومصر والولايات المتحدة.',
+      'هويات بصرية ومواقع ومنتجات رقمية مصممة بالعربي والإنجليزي من البداية. مصممة منتجات وهويات من القاهرة، للشركات في مصر والخليج.',
     type: 'website',
     locale: 'ar_EG',
     url: 'https://nourawafik.com/ar',
@@ -52,6 +78,12 @@ export default function ArLayout({ children }: { children: React.ReactNode }) {
       suppressHydrationWarning
       className={rubik.variable}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLdAr).replace(/</g, '\\u003c') }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <Providers>
           {activeOffer && <OfferBar offer={activeOffer} locale="ar" />}

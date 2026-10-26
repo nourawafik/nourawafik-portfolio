@@ -6,6 +6,7 @@ import { Footer } from '@/components/layout/footer';
 import { OfferBar } from '@/components/ui/offer-bar';
 import { AskNoura } from '@/components/ui/ask-noura';
 import { getActiveOffer } from '@/content/offers';
+import { visibleSocial } from '@/content/social';
 import '../globals.css';
 
 const rubik = Rubik({
@@ -19,7 +20,7 @@ const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Noura Wafik',
-  jobTitle: 'Senior Product Designer',
+  jobTitle: 'Product and brand designer',
   url: 'https://nourawafik.com',
   email: 'hello@nourawafik.com',
   address: {
@@ -27,10 +28,11 @@ const personJsonLd = {
     addressLocality: 'Cairo',
     addressCountry: 'EG',
   },
-  sameAs: ['https://linkedin.com/in/nourawafik'],
+  sameAs: visibleSocial.map(s => s.href),
   knowsLanguage: ['en', 'ar'],
   knowsAbout: [
     'Product Design',
+    'Brand Design',
     'SaaS Design',
     'Healthtech',
     'AI UX Design',
@@ -43,17 +45,17 @@ const personJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://nourawafik.com'),
   title: {
-    default: 'Noura Wafik — Senior Product Designer | Bilingual Design Systems',
+    default: 'Noura Wafik — Product and brand designer, Arabic and English',
     template: '%s — Noura Wafik',
   },
   description:
-    'Bilingual product designer based in Cairo, designing data-heavy SaaS, healthtech platforms, and AI tools across the Gulf, Egypt, and the US. Currently open to full-time roles.',
+    'Brand identities, websites and digital products designed in Arabic and English from the start. A product and brand designer in Cairo, for companies in Egypt and the Gulf.',
   authors: [{ name: 'Noura Wafik' }],
   creator: 'Noura Wafik',
   openGraph: {
-    title: 'Noura Wafik — Senior Product Designer | Bilingual Design Systems',
+    title: 'Noura Wafik — Product and brand designer, Arabic and English',
     description:
-      'Designing data-heavy SaaS, healthtech, and AI tools. Bilingual (Arabic/English). Based in Cairo, working with a UAE-based team on products for the Gulf, Egypt, and the US.',
+      'Brand identities, websites and digital products designed in Arabic and English from the start. A product and brand designer in Cairo, for companies in Egypt and the Gulf.',
     type: 'website',
     locale: 'en_US',
     url: 'https://nourawafik.com',

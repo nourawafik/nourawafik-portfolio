@@ -1,28 +1,13 @@
 import NextLink from 'next/link';
 import Image from 'next/image';
 import { LangLink } from '@/components/ui/lang-link';
+import { visibleSocial } from '@/content/social';
 
 const currentYear = new Date().getFullYear();
 
-interface SocialLink {
-  label: string;
-  href: string;
-  download?: boolean;
-}
-
-const socialLinks: Record<'en' | 'ar', SocialLink[]> = {
-  en: [
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/nourawafik' },
-    { label: 'Behance', href: '#' },
-    { label: 'Instagram', href: '#' },
-    { label: 'CV', href: '/resume.pdf', download: true },
-  ],
-  ar: [
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/nourawafik' },
-    { label: 'Behance', href: '#' },
-    { label: 'Instagram', href: '#' },
-    { label: 'السيرة الذاتية', href: '/resume.pdf', download: true },
-  ],
+const cvLink = {
+  en: { label: 'CV',               href: '/resume.pdf' },
+  ar: { label: 'السيرة الذاتية',   href: '/resume.pdf' },
 };
 
 interface FooterProps {
@@ -31,7 +16,7 @@ interface FooterProps {
 
 export function Footer({ locale = 'en' }: FooterProps) {
   const ar = locale === 'ar';
-  const links = socialLinks[locale];
+  const cv = cvLink[locale];
 
   return (
     <footer className="mt-auto bg-[#0E2A2D] dark:bg-sunk dark:border-t dark:border-line">
@@ -51,19 +36,26 @@ export function Footer({ locale = 'en' }: FooterProps) {
             />
           </NextLink>
 
-          {/* Social links + lang switch */}
+          {/* Social links + CV + lang switch */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-small" style={{ color: 'var(--muted-dark, #A9C2C4)' }}>
-            {links.map(({ label, href, download }) => (
+            {visibleSocial.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
-                {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                {...(download ? { download: true } : {})}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline underline-offset-4 hover:text-white transition-colors duration-150"
               >
                 {label}
               </a>
             ))}
+            <a
+              href={cv.href}
+              download
+              className="underline underline-offset-4 hover:text-white transition-colors duration-150"
+            >
+              {cv.label}
+            </a>
             <LangLink
               fromLocale={locale}
               hrefLang={ar ? 'en' : 'ar'}
