@@ -131,13 +131,13 @@ export function Nav() {
             </ul>
             <LangLink fromLocale="en" hrefLang="ar" aria-label="النسخة العربية" className={langClass} lang="ar" label="عربي" />
             <ThemeToggle />
-            <a
-              href="mailto:hello@nourawafik.com?subject=Quote%20request"
+            <NextLink
+              href="/quote"
               className="inline-flex items-center justify-center rounded-pill px-4 py-2 text-[0.875rem] font-medium text-on-highlight transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
               style={{ backgroundColor: 'var(--highlight)' }}
             >
               Get a quote
-            </a>
+            </NextLink>
           </div>
 
           {/* Mobile end: lang switch only */}
@@ -254,13 +254,13 @@ export function Nav() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/mascot/noon-wave.svg" alt="" width={72} height={72} aria-hidden />
             <p className="text-[0.9375rem] font-medium text-foreground-muted">Ready to start?</p>
-            <a
-              href="mailto:hello@nourawafik.com?subject=Quote%20request"
+            <NextLink
+              href="/quote"
               className="w-full flex items-center justify-center rounded-pill text-[1rem] font-semibold text-on-highlight transition-opacity hover:opacity-85 active:opacity-70"
               style={{ height: '56px', backgroundColor: 'var(--highlight)' }}
             >
               Get a quote
-            </a>
+            </NextLink>
             <a
               href="mailto:hello@nourawafik.com"
               dir="ltr"

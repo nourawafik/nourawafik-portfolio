@@ -68,42 +68,42 @@ const COPY = {
   ar: {
     eyebrow: 'أعمالي',
     h1: 'منتجات ومنصات ومواقع، بلغتين',
-    intro: 'مشاريع صممتها من أول فكرة لحد شاشات جاهزة للتنفيذ. اختار النوع أو المجال اللي يهمك.',
+    intro: 'مشاريع صممتها من الفكرة الأولى حتى الشاشات الجاهزة للتنفيذ. اختر النوع أو المجال الذي يعنيك.',
     all: 'الكل',
-    searchPlaceholder: 'دور في الأعمال، مثلا: تقويم',
-    searchLabel: 'دور في الأعمال',
-    filtersBtn: 'فلاتر',
-    clearAll: 'امسح الكل',
-    clearSearch: 'امسح البحث',
-    clearFilters: 'امسح الفلاتر',
+    searchPlaceholder: 'ابحث في الأعمال، مثال: تقويم',
+    searchLabel: 'ابحث في الأعمال',
+    filtersBtn: 'مرشحات',
+    clearAll: 'مسح الكل',
+    clearSearch: 'مسح البحث',
+    clearFilters: 'مسح المرشحات',
     filterIndustry: 'المجال',
     filterFeature: 'الميزة',
     results: (n: number, q?: string) => {
       let count: string;
       if (n === 1) count = 'نتيجة واحدة';
       else if (n === 2) count = 'نتيجتين';
-      else count = `${n} نتايج`;
+      else count = `${n} نتائج`;
       return q ? `${count} لـ "${q}"` : count;
     },
     partOf: (p: string) => `جزء من ${p}`,
-    readStudy: 'اقرا الدراسة',
-    readCase: 'اقرا دراسة الحالة',
+    readStudy: 'اقرأ الدراسة',
+    readCase: 'اقرأ دراسة الحالة',
     studies: (n: number) => `${n} دراسات`,
-    noResultsFor: (q: string) => `ملقتش "${q}" في أعمالي لسه`,
-    noResultsFilters: 'مفيش أعمال بالفلاتر دي لسه',
-    noResultsTry: 'جرب كلمة تانية، أو دور بموضوع من دول:',
-    askLine: 'بتدور على حاجة مش هنا؟ ابعتلي وأقولك أقدر أعملها إزاي.',
+    noResultsFor: (q: string) => `لا يوجد "${q}" في أعمالي بعد`,
+    noResultsFilters: 'لا توجد أعمال بهذه المرشحات بعد',
+    noResultsTry: 'جرب كلمة أخرى، أو تصفح بموضوع من هنا:',
+    askLine: 'هل تبحث عن شيء غير موجود هنا؟ اسألني وسأخبرك كيف يمكنني التعامل معه.',
     askBtn: 'اسألني عنها',
     showResults: (n: number) => {
       if (n === 1) return 'اعرض نتيجة واحدة';
       if (n === 2) return 'اعرض نتيجتين';
-      return `اعرض ${n} نتايج`;
+      return `اعرض ${n} نتائج`;
     },
     suggestionChips: [
       { label: 'تقويم', feature: 'sched' as Feature },
       { label: 'ذكاء اصطناعي', feature: 'ai' as Feature },
       { label: 'مكالمات فيديو', feature: 'video' as Feature },
-      { label: 'داشبورد', feature: 'dash' as Feature },
+      { label: 'لوحات تحكم', feature: 'dash' as Feature },
       { label: 'أنظمة تصميم', feature: 'ds' as Feature },
     ],
   },
@@ -240,13 +240,7 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
   const activeFilterCount = (activeIndustry ? 1 : 0) + (activeFeature ? 1 : 0);
   const hasAnyFilter = !!(searchQuery || activeType || activeIndustry || activeFeature);
 
-  /* Mailto for empty state */
-  const askMailto = (() => {
-    const subject = searchQuery
-      ? encodeURIComponent(ar ? `بدور على: ${searchQuery}` : `Looking for: ${searchQuery}`)
-      : encodeURIComponent(ar ? 'سؤال عن أعمالك' : 'Question about your work');
-    return `mailto:hello@nourawafik.com?subject=${subject}`;
-  })();
+  const askHref = ar ? '/ar/quote' : '/quote';
 
   const chipBase = 'inline-flex items-center gap-1.5 h-10 rounded-pill border px-3.5 text-[0.875rem] font-medium transition-colors duration-150 cursor-pointer shrink-0';
   const chipActive   = 'bg-foreground text-background border-foreground';
@@ -601,12 +595,12 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
                 <p className="text-[0.875rem] text-foreground-muted leading-[1.7]">{t.askLine}</p>
 
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href={askMailto}
+                  <NextLink
+                    href={askHref}
                     className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-pill bg-highlight text-[var(--ink-fixed)] font-medium text-[0.9375rem] hover:opacity-90 transition-opacity w-full sm:w-auto"
                   >
                     {t.askBtn}
-                  </a>
+                  </NextLink>
                   <button
                     onClick={hasAnyFilter ? (searchQuery ? clearSearch : clearOnlyFilters) : clearFilters}
                     className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-pill border-2 border-line text-[0.875rem] font-medium text-foreground hover:border-foreground transition-colors w-full sm:w-auto"

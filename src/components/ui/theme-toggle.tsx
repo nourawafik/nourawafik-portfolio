@@ -23,7 +23,7 @@ export function ThemeToggle({ className, locale = 'en' }: ThemeToggleProps) {
   const isDark = resolvedTheme === 'dark';
   const label = isDark
     ? (locale === 'ar' ? 'الوضع الفاتح' : 'Light mode')
-    : (locale === 'ar' ? 'الوضع الغامق' : 'Dark mode');
+    : (locale === 'ar' ? 'الوضع الداكن' : 'Dark mode');
 
   return (
     <button

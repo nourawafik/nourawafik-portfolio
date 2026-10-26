@@ -131,13 +131,13 @@ export function NavAr() {
             </ul>
             <LangLink fromLocale="ar" hrefLang="en" aria-label="English version" className={langClass} lang="en" label="EN" />
             <ThemeToggle locale="ar" />
-            <a
-              href="mailto:hello@nourawafik.com?subject=طلب%20عرض%20سعر"
+            <NextLink
+              href="/ar/quote"
               className="inline-flex items-center justify-center rounded-pill px-4 py-2 text-[0.875rem] font-medium text-on-highlight transition-opacity hover:opacity-85 active:opacity-70 shrink-0"
               style={{ backgroundColor: 'var(--highlight)' }}
             >
               اطلب عرض سعر
-            </a>
+            </NextLink>
           </div>
 
           {/* Mobile end: lang switch only */}
@@ -240,7 +240,7 @@ export function NavAr() {
                     }`}
                     aria-pressed={resolvedTheme === 'dark'}
                   >
-                    غامق
+                    داكن
                   </button>
                 </div>
               </div>
@@ -253,14 +253,14 @@ export function NavAr() {
           <div className="flex flex-col items-center gap-3 px-4 pt-4 pb-10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/mascot/noon-wave.svg" alt="" width={72} height={72} aria-hidden />
-            <p className="text-[0.9375rem] font-medium text-foreground-muted">جاهزة تبدأ؟</p>
-            <a
-              href="mailto:hello@nourawafik.com?subject=طلب%20عرض%20سعر"
+            <p className="text-[0.9375rem] font-medium text-foreground-muted">جاهز للبدء؟</p>
+            <NextLink
+              href="/ar/quote"
               className="w-full flex items-center justify-center rounded-pill text-[1rem] font-semibold text-on-highlight transition-opacity hover:opacity-85 active:opacity-70"
               style={{ height: '56px', backgroundColor: 'var(--highlight)' }}
             >
               اطلب عرض سعر
-            </a>
+            </NextLink>
             <a
               href="mailto:hello@nourawafik.com"
               dir="ltr"

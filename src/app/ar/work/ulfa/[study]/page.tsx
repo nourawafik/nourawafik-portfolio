@@ -114,14 +114,7 @@ export default async function ArUlfaStudyPage({
       <div className="border-t border-border">
         <Container>
           <div className="flex items-center justify-between py-10 md:py-12">
-            <Link
-              href="/ar/work/ulfa"
-              className="inline-flex items-center gap-1.5 text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
-            >
-              <ArrowIcon size={14} className="[transform:scaleX(-1)]" />
-              رجوع لألفة
-            </Link>
-            {frontmatter.next && nextTitleAr && (
+            {frontmatter.next && nextTitleAr ? (
               <Link
                 href={`/ar/work/ulfa/${frontmatter.next}`}
                 className="inline-flex items-center gap-1.5 text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
@@ -129,7 +122,16 @@ export default async function ArUlfaStudyPage({
                 {nextTitleAr}
                 <ArrowIcon size={14} />
               </Link>
+            ) : (
+              <span />
             )}
+            <Link
+              href="/ar/work/ulfa"
+              className="inline-flex items-center gap-1.5 text-[0.875rem] text-foreground-muted hover:text-foreground transition-colors duration-150"
+            >
+              <ArrowIcon size={14} className="[transform:scaleX(-1)]" />
+              العودة إلى ألفة
+            </Link>
           </div>
         </Container>
       </div>

@@ -7,16 +7,12 @@ const COPY = {
     h2: 'From a first logo to a full product',
     line: 'Everything in Arabic and English from the start. Every project gets a quote that fits what it needs.',
     cta: 'Get a quote',
-    ctaSubject: 'Project inquiry from nourawafik.com',
-    ctaBody: "Hi Noura,\n\nI'd like a quote for:\n- What I need:\n- Company or project:\n- Language: Arabic / English / both\n- When I need it:\n\nThanks,",
   },
   ar: {
-    eyebrow: 'بعمل إيه',
-    h2: 'من أول لوجو لحد منتج كامل',
-    line: 'كل حاجة بالعربي والإنجليزي من الأول. لكل مشروع عرض سعر على حسب احتياجه.',
+    eyebrow: 'ماذا أقدم',
+    h2: 'من الشعار إلى المنتج الكامل',
+    line: 'كل شيء بالعربي والإنجليزي من البداية، ولكل مشروع عرض سعر يناسب احتياجه.',
     cta: 'اطلب عرض سعر',
-    ctaSubject: 'طلب عرض سعر من الموقع',
-    ctaBody: 'أهلا نورا،\n\nعايز عرض سعر لـ:\n- محتاج إيه:\n- الشركة أو المشروع:\n- اللغة: عربي / إنجليزي / الاتنين\n- محتاجه إمتى:\n\nشكرا،',
   },
 } as const;
 
@@ -35,55 +31,52 @@ function buildCards(locale: 'en' | 'ar'): Card[] {
   const digitalCount = work.filter(w => !w.parent && (w.types.includes('mobile') || w.types.includes('web'))).length;
   const dsCount      = countItems(null, null, 'ds');
 
-  const mailSubjectBrand = encodeURIComponent(ar ? 'عن: هوية بصرية'           : 'About: Brand identity');
-  const mailSubjectSite  = encodeURIComponent(ar ? 'عن: مواقع وصفحات هبوط'   : 'About: Websites & landing pages');
-
   return [
     {
       titleEn: 'Brand identity',
       titleAr: 'هوية بصرية',
       lineEn:  'Logo, colours and type in Arabic and English, with a guide for using them.',
-      lineAr:  'لوجو وألوان وخطوط بالعربي والإنجليزي، ودليل لاستخدامهم.',
+      lineAr:  'شعار وألوان وخطوط بالعربي والإنجليزي، مع دليل لاستخدامها.',
       illustration: '/mascot/noon-brand.svg',
       href: brandCount > 0
         ? (ar ? '/ar/work?type=brand' : '/work?type=brand')
-        : `mailto:hello@nourawafik.com?subject=${mailSubjectBrand}`,
-      ariaLabelEn: brandCount > 0 ? 'Brand identity, see the work' : 'Brand identity, email Noura about it',
-      ariaLabelAr: brandCount > 0 ? 'هوية بصرية، شوف الأعمال' : 'هوية بصرية، ابعت لنورا عنها',
+        : (ar ? '/ar/quote?service=brand' : '/quote?service=brand'),
+      ariaLabelEn: brandCount > 0 ? 'Brand identity, see the work' : 'Brand identity, get a quote',
+      ariaLabelAr: brandCount > 0 ? 'هوية بصرية، شاهد الأعمال' : 'هوية بصرية، اطلب عرض سعر',
     },
     {
       titleEn: 'Websites & landing pages',
       titleAr: 'مواقع وصفحات هبوط',
       lineEn:  'Fast bilingual websites that are easy to update.',
-      lineAr:  'مواقع بلغتين، سريعة وسهل تحديثها.',
+      lineAr:  'مواقع بلغتين، سريعة وسهلة التحديث.',
       illustration: '/mascot/noon-site.svg',
       href: siteCount > 0
         ? (ar ? '/ar/work?type=site' : '/work?type=site')
-        : `mailto:hello@nourawafik.com?subject=${mailSubjectSite}`,
-      ariaLabelEn: siteCount > 0 ? 'Websites & landing pages, see the work' : 'Websites & landing pages, email Noura about it',
-      ariaLabelAr: siteCount > 0 ? 'مواقع وصفحات هبوط، شوف الأعمال' : 'مواقع وصفحات هبوط، ابعت لنورا عنها',
+        : (ar ? '/ar/quote?service=site' : '/quote?service=site'),
+      ariaLabelEn: siteCount > 0 ? 'Websites & landing pages, see the work' : 'Websites & landing pages, get a quote',
+      ariaLabelAr: siteCount > 0 ? 'مواقع وصفحات هبوط، شاهد الأعمال' : 'مواقع وصفحات هبوط، اطلب عرض سعر',
     },
     {
       titleEn: 'Digital products',
       titleAr: 'منتجات رقمية',
       lineEn:  'Web and mobile apps, from the first flow to developer-ready screens.',
-      lineAr:  'تطبيقات ويب وموبايل، من أول فلو لحد شاشات جاهزة للتنفيذ.',
+      lineAr:  'تطبيقات ويب وجوال، من أول تصور لرحلة المستخدم حتى شاشات جاهزة للتنفيذ.',
       illustration: '/mascot/noon-product.svg',
-      href: digitalCount > 0 ? (ar ? '/ar/work' : '/work') : `mailto:hello@nourawafik.com`,
+      href: digitalCount > 0 ? (ar ? '/ar/work' : '/work') : (ar ? '/ar/quote' : '/quote'),
       ariaLabelEn: 'Digital products, see the work',
-      ariaLabelAr: 'منتجات رقمية، شوف الأعمال',
+      ariaLabelAr: 'منتجات رقمية، شاهد الأعمال',
     },
     {
       titleEn: 'Design systems',
       titleAr: 'أنظمة تصميم',
       lineEn:  'Components and tokens that keep a product consistent as it grows.',
-      lineAr:  'مكونات وتوكنز بتخلي المنتج متسق وهو بيكبر.',
+      lineAr:  'مكونات وتوكنز تحافظ على اتساق المنتج وهو يكبر.',
       illustration: '/mascot/noon-ds.svg',
       href: dsCount > 0
         ? (ar ? '/ar/work?feature=ds' : '/work?feature=ds')
-        : `mailto:hello@nourawafik.com`,
-      ariaLabelEn: dsCount > 0 ? 'Design systems, see the work' : 'Design systems, email Noura about it',
-      ariaLabelAr: dsCount > 0 ? 'أنظمة تصميم، شوف الأعمال' : 'أنظمة تصميم، ابعت لنورا عنها',
+        : (ar ? '/ar/quote' : '/quote'),
+      ariaLabelEn: dsCount > 0 ? 'Design systems, see the work' : 'Design systems, get a quote',
+      ariaLabelAr: dsCount > 0 ? 'أنظمة تصميم، شاهد الأعمال' : 'أنظمة تصميم، اطلب عرض سعر',
     },
   ];
 }
@@ -97,7 +90,7 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
   const ar = locale === 'ar';
   const cards = buildCards(locale);
 
-  const quoteHref = `mailto:hello@nourawafik.com?subject=${encodeURIComponent(t.ctaSubject)}&body=${encodeURIComponent(t.ctaBody)}`;
+  const quoteHref = ar ? '/ar/quote' : '/quote';
 
   return (
     <section
@@ -120,13 +113,13 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
               {t.line}
             </p>
           </div>
-          <a
+          <NextLink
             href={quoteHref}
             className="self-start md:self-end inline-flex items-center justify-center rounded-pill px-5 py-3 text-[0.9375rem] font-semibold text-on-highlight transition-opacity hover:opacity-85 active:opacity-70 shrink-0 md:ms-8"
             style={{ backgroundColor: 'var(--highlight)' }}
           >
             {t.cta}
-          </a>
+          </NextLink>
         </div>
 
         {/* Cards — 4 col desktop, vertical list mobile */}
@@ -138,7 +131,7 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
             const title    = ar ? card.titleAr    : card.titleEn;
             const line     = ar ? card.lineAr     : card.lineEn;
             const ariaLabel = ar ? card.ariaLabelAr : card.ariaLabelEn;
-            const isExternal = card.href.startsWith('mailto');
+            const isExternal = false;
 
             const cardContent = (
               <>

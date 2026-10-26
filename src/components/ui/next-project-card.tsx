@@ -14,7 +14,7 @@ export function NextProjectCard({ currentSlug, locale = 'en' }: NextProjectCardP
 
   const title   = ar ? next.title.ar   : next.title.en;
   const summary = ar ? next.summary.ar : next.summary.en;
-  const label   = ar ? 'المشروع اللي بعده' : 'Next project';
+  const label   = ar ? 'المشروع التالي' : 'Next project';
   const href    = ar ? `/ar/work/${next.slug}` : `/work/${next.slug}`;
 
   return (

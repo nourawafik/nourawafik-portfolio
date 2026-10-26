@@ -1,5 +1,5 @@
 const ITEMS_EN = ['Brand identity', 'Bilingual websites', 'Product design', 'Social content'];
-const ITEMS_AR = ['هوية بصرية', 'مواقع بلغتين', 'تصميم منتجات', 'محتوى سوشيال'];
+const ITEMS_AR = ['هوية بصرية', 'مواقع بلغتين', 'تصميم منتجات', 'محتوى السوشيال ميديا'];
 
 function Dot() {
   return (

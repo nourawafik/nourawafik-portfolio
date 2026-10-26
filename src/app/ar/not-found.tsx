@@ -21,13 +21,13 @@ export default function NotFoundAr() {
               الصفحة غير موجودة
             </h1>
             <p className="text-body text-foreground-muted leading-[1.8]">
-              الصفحة اللي بتدوّر عليها مش موجودة أو تم نقلها.
+              الصفحة التي تبحث عنها غير موجودة أو تم نقلها.
             </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
             <Button href="/ar" variant="primary">العودة للرئيسية</Button>
-            <Button href="/ar#work" variant="secondary">تصفح أعمالي</Button>
+            <Button href="/ar/work" variant="secondary">تصفح أعمالي</Button>
           </div>
         </div>
       </Container>

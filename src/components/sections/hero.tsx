@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 const TAGS = {
   en: ['Brand', 'Websites', 'Digital products', 'Content'],
-  ar: ['براند', 'مواقع', 'منتجات رقمية', 'محتوى'],
+  ar: ['هوية بصرية', 'مواقع', 'منتجات رقمية', 'محتوى'],
 } as const;
 
 const COPY = {
@@ -11,8 +11,8 @@ const COPY = {
     h1Line1: 'Bring your idea',
     h1Line2: 'to life',
     sub: 'Brands, websites and digital products in Arabic and English, for startups launching and companies scaling across Egypt and the Gulf.',
-    cta: { label: 'Get a quote', href: 'mailto:hello@nourawafik.com?subject=Quote%20request' },
-    secondary: { label: 'See my work', href: '/#work' },
+    cta: { label: 'Get a quote', href: '/quote' },
+    secondary: { label: 'See my work', href: '/work' },
     noonAlt: 'Noon, the brand mascot, waking up from the logo with a glowing head',
     stickers: {
       hi: 'Hi!',
@@ -21,12 +21,12 @@ const COPY = {
     },
   },
   ar: {
-    h1Line1: 'خلي فكرتك',
-    h1Line2: 'تشوف النور',
-    sub: 'هويات ومواقع ومنتجات رقمية بالعربي والإنجليزي، لشركات ناشئة بتبدأ وشركات بتكبر في مصر والخليج.',
-    cta: { label: 'اطلب عرض سعر', href: 'mailto:hello@nourawafik.com?subject=طلب%20عرض%20سعر' },
-    secondary: { label: 'شوف أعمالي', href: '/ar#work' },
-    noonAlt: 'نون، شخصية البراند، بتصحى من اللوجو وراسها بتنور',
+    h1Line1: 'اجعل فكرتك',
+    h1Line2: 'ترى النور',
+    sub: 'هويات بصرية ومواقع ومنتجات رقمية بالعربي والإنجليزي، للشركات الناشئة التي تبدأ والشركات التي تكبر في مصر والخليج.',
+    cta: { label: 'اطلب عرض سعر', href: '/ar/quote' },
+    secondary: { label: 'شاهد أعمالي', href: '/ar/work' },
+    noonAlt: 'نون، شخصية العلامة، تستيقظ من الشعار ورأسها يضيء',
     stickers: {
       hi: 'أهلا!',
       open: 'متاحة لمشاريع جديدة',
@@ -82,7 +82,7 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
 
             {/* Buttons */}
             <div className="flex flex-wrap gap-3">
-              <Button href={t.cta.href} variant="highlight" external>
+              <Button href={t.cta.href} variant="highlight">
                 {t.cta.label}
               </Button>
               <Button href={t.secondary.href} variant="secondary">
