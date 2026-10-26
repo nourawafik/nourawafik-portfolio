@@ -216,20 +216,28 @@ body {
 
 @media (hover: hover) {
   .card-shadow:hover {
-    transform: translateY(-6px);
     box-shadow: var(--card-shadow-hover);
   }
   .card-shadow.featured-service:hover {
-    transform: translateY(-6px);
     box-shadow: var(--card-shadow-hover), var(--featured-glow);
   }
   .card-shadow-trait:hover {
-    transform: translateY(-4px);
     box-shadow: var(--card-shadow-hover);
   }
   .card-shadow:active,
   .card-shadow-trait:active {
     transform: translateY(-2px) scale(.99);
+  }
+}
+
+/* translateY lift only on desktop where the container has overflow:visible */
+@media (hover: hover) and (min-width: 768px) {
+  .card-shadow:hover,
+  .card-shadow.featured-service:hover {
+    transform: translateY(-6px);
+  }
+  .card-shadow-trait:hover {
+    transform: translateY(-4px);
   }
 }
 

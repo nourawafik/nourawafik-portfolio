@@ -172,8 +172,6 @@ export function WhatIDo({ locale = 'en' }: WhatIDoProps) {
               'card-shadow group bg-surface border border-border',
               'grid grid-cols-[84px_1fr] gap-4 p-[14px_16px] rounded-[24px]',
               'md:flex md:flex-col md:p-5 md:rounded-card md:h-full',
-              'motion-safe:transition-transform motion-safe:duration-[250ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)]',
-              'motion-safe:hover:-translate-y-1',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2',
             ].join(' ');
 
