@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Brand colors and accessibility</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0E7C7B}a:hover{color:#0B6B6A}
+</style>
+</helmet>
+<div style="width: 1440px; height: 2790px; box-sizing: border-box; padding: 64px; background: #F6F4EE; color: #0E2A2D; font-family: 'Rubik', sans-serif; display: flex; flex-direction: column; gap: 36px; overflow: hidden">
+
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+<div dir="ltr" style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: #0E7C7B; font-weight: 700">Colors · WCAG 2.1 AA</div>
+<div style="font-size: 18px; color: #3E5558; max-width: 680px; line-height: 1.5">Every pairing below was measured. Normal text needs 4.5:1, large text (24px+, or 19px+ bold) and UI parts need 3:1. Colour never carries meaning alone: states and messages also get an icon or a word.</div>
+</div>
+<h1 dir="rtl" style="margin: 0; font-size: 60px; font-weight: 800; line-height: 1.2">الألوان</h1>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">1 · الألوان الأساسية</div>
+<div style="display: grid; grid-template-columns: 2fr 2fr 1.5fr 1.5fr 1.5fr; gap: 16px">
+<div style="background: #0E7C7B; color: #FFFFFF; border-radius: 24px; padding: 24px; height: 230px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">تيل</div>
+<div dir="rtl" style="font-size: 15px; line-height: 1.6">اللون الأساسي: العلامة، الزراير، الروابط</div>
+<div dir="ltr" style="display: flex; justify-content: space-between; font-size: 14px"><span>#0E7C7B</span><span>white text 5.0 ✓</span></div>
+</div>
+<div style="background: #0E2A2D; color: #FFFFFF; border-radius: 24px; padding: 24px; height: 230px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">غامق</div>
+<div dir="rtl" style="font-size: 15px; line-height: 1.6">النصوص، الخلفيات الغامقة، حدود نون</div>
+<div dir="ltr" style="display: flex; justify-content: space-between; font-size: 14px"><span>#0E2A2D</span><span>white text 15.1 ✓</span></div>
+</div>
+<div style="background: #FFC845; color: #0E2A2D; border-radius: 24px; padding: 24px; height: 230px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">شمس</div>
+<div dir="rtl" style="font-size: 15px; line-height: 1.6">النقطة والإبراز. نص غامق بس</div>
+<div dir="ltr" style="display: flex; flex-direction: column; font-size: 14px; gap: 2px"><span>#FFC845</span><span>dark text 9.8 ✓ · white ✗</span></div>
+</div>
+<div style="background: #FF6B5B; color: #0E2A2D; border-radius: 24px; padding: 24px; height: 230px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">مرجاني</div>
+<div dir="rtl" style="font-size: 15px; line-height: 1.6">لمسة ثانوية. نص غامق بس</div>
+<div dir="ltr" style="display: flex; flex-direction: column; font-size: 14px; gap: 2px"><span>#FF6B5B</span><span>dark text 5.4 ✓ · white ✗</span></div>
+</div>
+<div style="background: #FFFFFF; color: #0E2A2D; border: 2px solid #D8D4C8; border-radius: 24px; padding: 24px; height: 230px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">ورق</div>
+<div dir="rtl" style="font-size: 15px; line-height: 1.6">خلفية الصفحات والبوستات الفاتحة</div>
+<div dir="ltr" style="display: flex; flex-direction: column; font-size: 14px; gap: 2px"><span>#F6F4EE</span><span>dark text 13.8 ✓</span></div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><div dir="ltr" style="font-size: 14px; color: #3E5558">W = contrast on white · D = contrast on deep #0E2A2D · ★ = brand value</div><div dir="rtl" style="font-size: 26px; font-weight: 800">2 · الدرجات</div></div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: 90px repeat(10, minmax(0, 1fr)); gap: 8px; align-items: stretch">
+<div dir="rtl" style="font-size: 16px; font-weight: 700; align-self: center">تيل</div>
+<div style="background: #E6F4F3; border-radius: 12px; height: 70px"></div><div style="background: #C7E7E5; border-radius: 12px"></div><div style="background: #93D0CC; border-radius: 12px"></div><div style="background: #5BB5AF; border-radius: 12px"></div><div style="background: #2A9893; border-radius: 12px"></div><div style="background: #0E7C7B; border-radius: 12px"></div><div style="background: #0B6B6A; border-radius: 12px"></div><div style="background: #095A59; border-radius: 12px"></div><div style="background: #07484A; border-radius: 12px"></div><div style="background: #0E2A2D; border-radius: 12px"></div>
+<div></div>
+<div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">50 #E6F4F3<br>D 13.4</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">100 #C7E7E5<br>D 11.5</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">200 #93D0CC<br>D 8.7</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">300 #5BB5AF<br>D 6.3</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">400 #2A9893<br>W 3.5</div><div dir="ltr" style="font-size: 11.5px; color: #0E2A2D; line-height: 1.5; font-weight: 700">500 ★ #0E7C7B<br>W 5.0</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">600 #0B6B6A<br>W 6.3</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">700 #095A59<br>W 8.0</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">800 #07484A<br>W 10.3</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">900 #0E2A2D<br>W 15.1</div>
+</div>
+<div style="display: grid; grid-template-columns: 90px repeat(10, minmax(0, 1fr)); gap: 8px; align-items: stretch">
+<div dir="rtl" style="font-size: 16px; font-weight: 700; align-self: center">شمس</div>
+<div style="background: #FFF8E5; border-radius: 12px; height: 70px"></div><div style="background: #FFEDBF; border-radius: 12px"></div><div style="background: #FFE08C; border-radius: 12px"></div><div style="background: #FFD45E; border-radius: 12px"></div><div style="background: #FFC845; border-radius: 12px"></div><div style="background: #F2B01E; border-radius: 12px"></div><div style="background: #C98A00; border-radius: 12px"></div><div style="background: #865C00; border-radius: 12px"></div><div style="background: #6E4C00; border-radius: 12px"></div><div></div>
+<div></div>
+<div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">50 #FFF8E5<br>D 14.3</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">100 #FFEDBF<br>D 13.1</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">200 #FFE08C<br>D 11.7</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">300 #FFD45E<br>D 10.7</div><div dir="ltr" style="font-size: 11.5px; color: #0E2A2D; line-height: 1.5; font-weight: 700">400 ★ #FFC845<br>D 9.8</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">500 #F2B01E<br>D 7.9</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">600 #C98A00<br>D 5.1</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">700 #865C00<br>W 5.9</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">800 #6E4C00<br>W 7.8</div><div></div>
+</div>
+<div style="display: grid; grid-template-columns: 90px repeat(10, minmax(0, 1fr)); gap: 8px; align-items: stretch">
+<div dir="rtl" style="font-size: 16px; font-weight: 700; align-self: center">مرجاني</div>
+<div style="background: #FFF0EE; border-radius: 12px; height: 70px"></div><div style="background: #FFD9D4; border-radius: 12px"></div><div style="background: #FFB3A9; border-radius: 12px"></div><div style="background: #FF8C7F; border-radius: 12px"></div><div style="background: #FF6B5B; border-radius: 12px"></div><div style="background: #E8503F; border-radius: 12px"></div><div style="background: #C43A2B; border-radius: 12px"></div><div style="background: #9C2C20; border-radius: 12px"></div><div style="background: #6E1F16; border-radius: 12px"></div><div></div>
+<div></div>
+<div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">50 #FFF0EE<br>D 13.7</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">100 #FFD9D4<br>D 11.6</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">200 #FFB3A9<br>D 8.8</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">300 #FF8C7F<br>D 6.7</div><div dir="ltr" style="font-size: 11.5px; color: #0E2A2D; line-height: 1.5; font-weight: 700">400 ★ #FF6B5B<br>D 5.4</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">500 #E8503F<br>D 4.1</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">600 #C43A2B<br>W 5.3</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">700 #9C2C20<br>W 7.5</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">800 #6E1F16<br>W 11.2</div><div></div>
+</div>
+<div style="display: grid; grid-template-columns: 90px repeat(10, minmax(0, 1fr)); gap: 8px; align-items: stretch">
+<div dir="rtl" style="font-size: 16px; font-weight: 700; align-self: center">محايد</div>
+<div style="background: #FFFFFF; border: 1px solid #D8D4C8; border-radius: 12px; height: 70px"></div><div style="background: #F6F4EE; border: 1px solid #D8D4C8; border-radius: 12px"></div><div style="background: #ECE9E1; border-radius: 12px"></div><div style="background: #D8D4C8; border-radius: 12px"></div><div style="background: #B9B4A6; border-radius: 12px"></div><div style="background: #8F8A7D; border-radius: 12px"></div><div style="background: #6B675C; border-radius: 12px"></div><div style="background: #3E5558; border-radius: 12px"></div><div style="background: #22383B; border-radius: 12px"></div><div style="background: #0E2A2D; border-radius: 12px"></div>
+<div></div>
+<div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">0 #FFFFFF<br>D 15.1</div><div dir="ltr" style="font-size: 11.5px; color: #0E2A2D; line-height: 1.5; font-weight: 700">50 ★ #F6F4EE<br>D 13.8</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">100 #ECE9E1<br>D 12.5</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">200 #D8D4C8<br>D 10.2</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">300 #B9B4A6<br>D 7.3</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">400 #8F8A7D<br>W 3.4</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">500 #6B675C<br>W 5.7</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">700 #3E5558<br>W 7.9</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558; line-height: 1.5">800 #22383B<br>W 12.4</div><div dir="ltr" style="font-size: 11.5px; color: #0E2A2D; line-height: 1.5; font-weight: 700">900 ★ #0E2A2D<br>W 15.1</div>
+</div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">3 · ألوان النصوص</div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ECE9E1; padding-bottom: 12px"><div dir="ltr" style="font-size: 13px; color: #3E5558">#0E2A2D · 15.1</div><div dir="rtl" style="font-size: 20px; font-weight: 700; color: #0E2A2D">نص أساسي وعناوين</div></div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ECE9E1; padding-bottom: 12px"><div dir="ltr" style="font-size: 13px; color: #3E5558">#3E5558 · 7.9</div><div dir="rtl" style="font-size: 18px; color: #3E5558">نص ثانوي ووصف</div></div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ECE9E1; padding-bottom: 12px"><div dir="ltr" style="font-size: 13px; color: #3E5558">#6B675C · 5.7</div><div dir="rtl" style="font-size: 16px; color: #6B675C">ملاحظات صغيرة ونص المساعدة في الحقول</div></div>
+<div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ECE9E1; padding-bottom: 12px"><div dir="ltr" style="font-size: 13px; color: #3E5558">#0E7C7B · 5.0 · hover #0B6B6A</div><div dir="rtl" style="font-size: 18px; color: #0E7C7B; text-decoration: underline">رابط داخل النص</div></div>
+<div style="display: flex; justify-content: space-between; align-items: center; background: #0E2A2D; border-radius: 14px; padding: 12px 16px"><div dir="ltr" style="font-size: 13px; color: #A9C2C4">white 15.1 · link #5BB5AF 6.3</div><div dir="rtl" style="font-size: 18px; color: #FFFFFF">نص على الغامق، و<span style="color: #5BB5AF; text-decoration: underline">رابط</span></div></div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558; line-height: 1.7">الرمادي #8F8A7D (3.4) للحدود والأيقونات بس، مش للنص. والروابط دايما بخط تحتها، مش باللون لوحده.</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">4 · الأكشن والحالات</div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><button type="button" style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #0E7C7B; border: none; border-radius: 999px; padding: 12px 18px; min-height: 44px">ابدأ</button><div dir="rtl" style="font-size: 13px; color: #3E5558; text-align: center">عادي<br>#0E7C7B · 5.0</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><button type="button" style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #0B6B6A; border: none; border-radius: 999px; padding: 12px 18px; min-height: 44px">ابدأ</button><div dir="rtl" style="font-size: 13px; color: #3E5558; text-align: center">هوفر<br>#0B6B6A · 6.3</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><button type="button" style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #095A59; border: none; border-radius: 999px; padding: 12px 18px; min-height: 44px">ابدأ</button><div dir="rtl" style="font-size: 13px; color: #3E5558; text-align: center">ضغط<br>#095A59 · 8.0</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><button type="button" style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 600; color: #FFFFFF; background: #0E7C7B; border: none; border-radius: 999px; padding: 12px 18px; min-height: 44px; outline: 3px solid #0E2A2D; outline-offset: 3px">ابدأ</button><div dir="rtl" style="font-size: 13px; color: #3E5558; text-align: center">تركيز<br>إطار #0E2A2D</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><button type="button" disabled style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 600; color: #8F8A7D; background: #ECE9E1; border: none; border-radius: 999px; padding: 12px 18px; min-height: 44px">ابدأ</button><div dir="rtl" style="font-size: 13px; color: #3E5558; text-align: center">معطل<br>#ECE9E1</div></div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><button type="button" style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 600; color: #0E7C7B; background: #FFFFFF; border: 2px solid #0E7C7B; border-radius: 999px; padding: 10px 18px; min-height: 44px">زرار ثانوي</button><div dir="rtl" style="font-size: 13px; color: #3E5558">إطار تيل · هوفر خلفية #E6F4F3</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center"><button type="button" style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 700; color: #0E2A2D; background: #FFC845; border: none; border-radius: 999px; padding: 12px 18px; min-height: 44px">اطلب عرض سعر</button><div dir="rtl" style="font-size: 13px; color: #3E5558">إبراز · نص غامق 9.8</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px; align-items: center; background: #0E2A2D; border-radius: 16px; padding: 12px"><button type="button" style="font-family: 'Rubik', sans-serif; font-size: 16px; font-weight: 700; color: #0E2A2D; background: #FFC845; border: none; border-radius: 999px; padding: 10px 18px; min-height: 44px; outline: 3px solid #FFC845; outline-offset: 3px">على الغامق</button><div dir="rtl" style="font-size: 13px; color: #A9C2C4">التركيز بالأصفر 9.8</div></div>
+</div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558; line-height: 1.7">الأصفر للزرار الأهم في الصفحة بس، زي "اطلب عرض سعر". إطار التركيز يفضل ظاهر دايما مع الكيبورد، وكل الزراير ارتفاعها 44 بكسل على الأقل.</div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">5 · الصح والخطأ والتحذير والمعلومات</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+<div style="background: #E4F4EA; border: 2px solid #1A7340; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px; justify-content: flex-end"><div dir="rtl" style="font-size: 18px; font-weight: 700; color: #1A7340">اتبعت بنجاح</div><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#1A7340"></circle><path d="M7 12.5 L10.5 16 L17 9" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+<div dir="rtl" style="font-size: 15px; color: #0E2A2D">هرد عليك خلال يومين.</div>
+<div dir="ltr" style="font-size: 12.5px; color: #3E5558">Success #1A7340 · bg #E4F4EA · 5.2</div>
+</div>
+<div style="background: #FDECEA; border: 2px solid #B42318; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px; justify-content: flex-end"><div dir="rtl" style="font-size: 18px; font-weight: 700; color: #B42318">الإيميل مش صحيح</div><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#B42318"></circle><path d="M8 8 L16 16 M16 8 L8 16" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path></svg></div>
+<div dir="rtl" style="font-size: 15px; color: #0E2A2D">اكتبه بالشكل ده: name@mail.com</div>
+<div dir="ltr" style="font-size: 12.5px; color: #3E5558">Error #B42318 · bg #FDECEA · 5.8</div>
+</div>
+<div style="background: #FFF4D6; border: 2px solid #865C00; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px; justify-content: flex-end"><div dir="rtl" style="font-size: 18px; font-weight: 700; color: #865C00">الأماكن قربت تخلص</div><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L23 21 H1 Z" fill="#865C00"></path><path d="M12 9 V14" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path><circle cx="12" cy="17.5" r="1.4" fill="#FFFFFF"></circle></svg></div>
+<div dir="rtl" style="font-size: 15px; color: #0E2A2D">فاضل مكانين للمشاريع الشهر ده.</div>
+<div dir="ltr" style="font-size: 12.5px; color: #3E5558">Warning #865C00 · bg #FFF4D6 · 5.4</div>
+</div>
+<div style="background: #E5EFFA; border: 2px solid #2364AA; border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px; justify-content: flex-end"><div dir="rtl" style="font-size: 18px; font-weight: 700; color: #2364AA">معلومة</div><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2364AA"></circle><path d="M12 11 V17" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"></path><circle cx="12" cy="7.5" r="1.4" fill="#FFFFFF"></circle></svg></div>
+<div dir="rtl" style="font-size: 15px; color: #0E2A2D">الأسعار بالدولار والجنيه.</div>
+<div dir="ltr" style="font-size: 12.5px; color: #3E5558">Info #2364AA · bg #E5EFFA · 5.2</div>
+</div>
+</div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558; line-height: 1.7">لون الخطأ أحمر أغمق من المرجاني عشان مايتلخبطش مع لون البراند. وكل رسالة ليها أيقونة وكلمة، عشان اللي عندهم عمى ألوان يفرقوا بين الصح والخطأ.</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">6 · السوشيال ميديا حسب نوع المحتوى</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="aspect-ratio: 1; background: #FFC845; border-radius: 20px; padding: 18px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between"><div dir="rtl" style="font-size: 13px; font-weight: 700; color: #0E2A2D">نصيحة</div><div dir="rtl" style="font-size: 22px; font-weight: 800; color: #0E2A2D; line-height: 1.35">3 أخطاء بتبوظ أي موقع عربي</div><div dir="ltr" style="font-size: 12px; font-weight: 700; color: #0E2A2D">@nourawafik</div></div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558">نصايح سريعة · أصفر + غامق</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="aspect-ratio: 1; background: #0E2A2D; border-radius: 20px; padding: 18px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between"><div dir="ltr" style="font-size: 12px; font-weight: 700; color: #FFC845; letter-spacing: 2px">CASE STUDY</div><div dir="rtl" style="font-size: 22px; font-weight: 800; color: #FFFFFF; line-height: 1.35">قبل وبعد: [اسم المشروع]</div><div dir="ltr" style="font-size: 12px; color: #5BB5AF">@nourawafik</div></div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558">دراسات حالة · غامق + أبيض</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="aspect-ratio: 1; background: #F6F4EE; border: 2px solid #D8D4C8; border-radius: 20px; padding: 18px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between"><div dir="rtl" style="font-size: 13px; font-weight: 700; color: #0E7C7B">كواليس</div><div dir="rtl" style="font-size: 22px; font-weight: 800; color: #0E2A2D; line-height: 1.35">إزاي بشتغل مع الذكاء الاصطناعي</div><div dir="ltr" style="font-size: 12px; color: #3E5558">@nourawafik</div></div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558">كواليس الشغل · ورق + تيل</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="aspect-ratio: 1; background: #FF6B5B; border-radius: 20px; padding: 18px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between"><div dir="rtl" style="font-size: 13px; font-weight: 700; color: #0E2A2D">جديد</div><div dir="rtl" style="font-size: 22px; font-weight: 800; color: #0E2A2D; line-height: 1.35">متاحة لمشاريع جديدة</div><div dir="ltr" style="font-size: 12px; font-weight: 700; color: #0E2A2D">@nourawafik</div></div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558">إعلانات وعروض · مرجاني + غامق</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="aspect-ratio: 1; background: #0E7C7B; border-radius: 20px; padding: 18px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between"><div dir="rtl" style="font-size: 13px; font-weight: 700; color: #FFFFFF">فكرة</div><div dir="rtl" style="font-size: 22px; font-weight: 800; color: #FFFFFF; line-height: 1.35">التصميم الكويس بيتكلم لغتين<span style="color: #FFC845">.</span></div><div dir="ltr" style="font-size: 12px; color: #FFFFFF">@nourawafik</div></div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558">اقتباسات وأفكار · تيل + أبيض</div>
+</div>
+</div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558; line-height: 1.7">كل نوع محتوى ليه لون ثابت، فالمتابع يعرف نوع البوست من قبل ما يقرأه. والنص الأبيض بس على الغامق والتيل. الأصفر على التيل (3.3) للنقط والأشكال بس، مش للكلام.</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">7 · ألوان نون</div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; background: #F6F4EE; border-radius: 16px; padding: 12px"><svg width="96" height="92" viewBox="-20 -50 260 250" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#0E7C7B" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><g transform="translate(69 26) scale(1.8) translate(-69 -26)"><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845" stroke="#0E2A2D" stroke-width="2"></path><circle cx="64" cy="25" r="2.3" fill="#0E2A2D"></circle><circle cx="75" cy="25" r="2.3" fill="#0E2A2D"></circle><path d="M63 31 Q69.5 36 76 31" fill="none" stroke="#0E2A2D" stroke-width="1.8" stroke-linecap="round"></path></g></svg><div dir="rtl" style="font-size: 13px; font-weight: 700">الأساسي</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558">body #0E7C7B</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; background: #F6F4EE; border-radius: 16px; padding: 12px"><svg width="96" height="92" viewBox="-20 -50 260 250" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#FF6B5B" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><g transform="translate(69 26) scale(1.8) translate(-69 -26)"><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845" stroke="#0E2A2D" stroke-width="2"></path><path d="M61 25 Q64 21 67 25" fill="none" stroke="#0E2A2D" stroke-width="1.8" stroke-linecap="round"></path><path d="M72 25 Q75 21 78 25" fill="none" stroke="#0E2A2D" stroke-width="1.8" stroke-linecap="round"></path><ellipse cx="69.5" cy="32" rx="4" ry="3" fill="#0E2A2D"></ellipse></g></svg><div dir="rtl" style="font-size: 13px; font-weight: 700">احتفال</div><div dir="ltr" style="font-size: 11.5px; color: #3E5558">body #FF6B5B</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; background: #FFC845; border-radius: 16px; padding: 12px"><svg width="96" height="92" viewBox="-20 -50 260 250" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#0E2A2D" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><g transform="translate(69 26) scale(1.8) translate(-69 -26)"><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFFFFF" stroke="#0E2A2D" stroke-width="2"></path><circle cx="64" cy="25" r="2.3" fill="#0E2A2D"></circle><circle cx="75" cy="25" r="2.3" fill="#0E2A2D"></circle><path d="M63 31 Q69.5 36 76 31" fill="none" stroke="#0E2A2D" stroke-width="1.8" stroke-linecap="round"></path></g></svg><div dir="rtl" style="font-size: 13px; font-weight: 700">على الأصفر</div><div dir="ltr" style="font-size: 11.5px; color: #0E2A2D">body #0E2A2D · head white</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; background: #0E2A2D; border-radius: 16px; padding: 12px"><svg width="96" height="92" viewBox="-20 -50 260 250" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><g transform="translate(69 26) scale(1.8) translate(-69 -26)"><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845" stroke="#0E2A2D" stroke-width="2"></path><circle cx="64" cy="25" r="2.3" fill="#0E2A2D"></circle><circle cx="75" cy="25" r="2.3" fill="#0E2A2D"></circle><path d="M63 31 Q69.5 36 76 31" fill="none" stroke="#0E2A2D" stroke-width="1.8" stroke-linecap="round"></path></g></svg><div dir="rtl" style="font-size: 13px; font-weight: 700; color: #FFFFFF">على الغامق</div><div dir="ltr" style="font-size: 11.5px; color: #A9C2C4">body white</div></div>
+</div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558; line-height: 1.7">الراس صفرا دايما، والملامح والحدود بالغامق. على خلفية صفرا بس الراس تبقى بيضا عشان تفضل باينة. الجسم بيتغير لونه حسب الموقف أو الخلفية.</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 26px; font-weight: 800">8 · ألوان العلامة</div>
+<div style="background: #FFFFFF; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 100%; aspect-ratio: 1; background: #F6F4EE; border-radius: 16px; display: flex; align-items: center; justify-content: center"><svg width="62" height="62" viewBox="10 0 180 180" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#0E7C7B" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845"></path></svg></div><div dir="rtl" style="font-size: 12.5px; text-align: center">الأساسية</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 100%; aspect-ratio: 1; background: #0E2A2D; border-radius: 16px; display: flex; align-items: center; justify-content: center"><svg width="62" height="62" viewBox="10 0 180 180" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845"></path></svg></div><div dir="rtl" style="font-size: 12.5px; text-align: center">على الغامق</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 100%; aspect-ratio: 1; background: #0E7C7B; border-radius: 16px; display: flex; align-items: center; justify-content: center"><svg width="62" height="62" viewBox="10 0 180 180" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845"></path></svg></div><div dir="rtl" style="font-size: 12.5px; text-align: center">على التيل</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 100%; aspect-ratio: 1; background: #FFC845; border-radius: 16px; display: flex; align-items: center; justify-content: center"><svg width="62" height="62" viewBox="10 0 180 180" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#0E2A2D" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFFFFF"></path></svg></div><div dir="rtl" style="font-size: 12.5px; text-align: center">على الأصفر</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><div style="width: 100%; aspect-ratio: 1; background: #FFFFFF; border: 2px solid #D8D4C8; border-radius: 16px; box-sizing: border-box; display: flex; align-items: center; justify-content: center"><svg width="62" height="62" viewBox="10 0 180 180" aria-hidden="true"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#0E2A2D" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#0E2A2D"></path></svg></div><div dir="rtl" style="font-size: 12.5px; text-align: center">لون واحد</div></div>
+</div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558; line-height: 1.7">النقطة صفرا في كل النسخ، ما عدا على الخلفية الصفرا (بيضا) والطباعة بلون واحد. وممنوع العلامة بالأصفر أو المرجاني على الأبيض لأنها مش هتبان.</div>
+</div>
+</div>
+</div>
+
+<div style="background: #0E2A2D; color: #FFFFFF; border-radius: 28px; padding: 28px 36px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
+<div dir="rtl" style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 18px; font-weight: 800; color: #FFC845">نص أبيض</div><div style="font-size: 15px; line-height: 1.7">على الغامق والتيل والتيل 600 وأغمق بس.</div></div>
+<div dir="rtl" style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 18px; font-weight: 800; color: #FFC845">نص غامق</div><div style="font-size: 15px; line-height: 1.7">على الأبيض والورق والأصفر والمرجاني وكل الدرجات الفاتحة.</div></div>
+<div dir="rtl" style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 18px; font-weight: 800; color: #FFC845">الأصفر والمرجاني</div><div style="font-size: 15px; line-height: 1.7">خلفيات ولمسات، مش لون نص على الفاتح أبدا.</div></div>
+<div dir="rtl" style="display: flex; flex-direction: column; gap: 6px"><div style="font-size: 18px; font-weight: 800; color: #FFC845">اللون مش لوحده</div><div style="font-size: 15px; line-height: 1.7">أي معنى (صح، خطأ، رابط) معاه أيقونة أو كلمة أو خط تحت.</div></div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2790}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

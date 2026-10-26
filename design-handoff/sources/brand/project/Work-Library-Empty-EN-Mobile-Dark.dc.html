@@ -1,0 +1,131 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>أعمالي · بحث بدون نتايج · موبايل · English · دارك</title><script src="./support.js"></script></head><body><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#7CC6C0}a:hover{color:#F6F4EE}
+@keyframes h-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes h-float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(var(--r,0deg))}}
+@keyframes h-glow{0%,100%{opacity:.35}50%{opacity:1}}
+.h-marquee{animation:h-marquee 30s linear infinite}
+.h-float{animation:h-float 4s ease-in-out infinite}
+.h-float2{animation:h-float 5s ease-in-out infinite .6s}
+.h-glow{animation:h-glow 2.4s ease-in-out infinite}
+@keyframes an-z{0%{opacity:0;transform:translate(0,0)}30%{opacity:1}100%{opacity:0;transform:translate(14px,-26px)}}
+@keyframes an-wave{0%,100%{transform:rotate(4deg)}50%{transform:rotate(26deg)}}
+.an-z{animation:an-z 2.6s ease-out infinite}.an-z2{animation:an-z 2.6s ease-out .9s infinite}
+.an-wave{transform-origin:174px 152px;transform-box:view-box;animation:an-wave .7s ease-in-out infinite}
+.an-btn .an-awake{display:none}
+.an-btn:hover .an-sleep,.an-btn:focus-visible .an-sleep{display:none}
+.an-btn:hover .an-awake,.an-btn:focus-visible .an-awake{display:block}
+.an-btn:focus-visible{outline:3px solid #0E2A2D;outline-offset:3px}
+@media (prefers-reduced-motion: reduce){.an-z,.an-z2,.an-wave{animation:none}}
+.c-dark{--focus:#FFC845;--acc:#7CC6C0;--line:#2B4A4E;--fg:#F6F4EE}
+.c-card{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s cubic-bezier(.2,.8,.2,1),border-color .35s;box-shadow:0 1px 2px rgba(0,0,0,.25),0 10px 24px -14px rgba(0,0,0,.6);cursor:pointer}
+.c-card:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(0,0,0,.3),0 28px 48px -20px rgba(0,0,0,.75),0 0 0 1px #2B4A4E}
+.c-card:active{transform:translateY(-2px) scale(.99)}
+.c-card:focus-within{outline:3px solid var(--focus,#0E2A2D);outline-offset:3px}
+.c-work .c-mwrap{overflow:hidden}
+.c-work .c-media{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.c-work:hover .c-media{transform:scale(1.05)}
+.c-card h3{transition:color .25s}
+.c-work:hover h3,.c-svc:hover h3{color:var(--acc,#0E7C7B)}
+.c-link svg{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+[dir=rtl] .c-card:hover .c-link svg{transform:translateX(-5px)}
+[dir=ltr] .c-card:hover .c-link svg{transform:translateX(5px)}
+.c-go{position:absolute;top:22px;inset-inline-end:22px;width:40px;height:40px;border-radius:50%;border:2px solid var(--line,#D8D4C8);display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .25s,border-color .25s}
+.c-go svg{stroke:var(--fg,#0E2A2D)}
+.c-feat .c-go{border-color:#2B4A4E}.c-feat .c-go svg{stroke:#FFFFFF}
+[dir=rtl] .c-card:hover .c-go{background:#FFC845;border-color:#FFC845;transform:rotate(45deg)}
+[dir=ltr] .c-card:hover .c-go{background:#FFC845;border-color:#FFC845;transform:rotate(-45deg)}
+.c-card:hover .c-go svg{stroke:#0E2A2D}
+.c-feat:hover{box-shadow:inset 0 0 0 2px #FFC845,0 28px 52px -18px rgba(255,200,69,.35)}
+.c-feat:hover h3{color:#FFFFFF}
+.c-trait{box-shadow:none}.c-trait:hover{transform:translateY(-4px);box-shadow:0 18px 32px -18px rgba(14,42,45,.35)}
+.m-menu,.m-dots{display:none}
+@media (prefers-reduced-motion: reduce){.c-card,.c-card:hover,.c-card:active,.c-work:hover .c-media,.c-card:hover .c-link svg,.c-card:hover .c-go{transform:none!important}}
+@media (max-width: 640px){
+.m-head{padding:14px 16px!important}.m-nav,.m-pill{display:none!important}.m-menu{display:flex!important}
+.m-cta{display:none!important}.m-lang{display:flex!important}
+.m-sec{padding-left:16px!important;padding-right:16px!important}
+.m-hero{padding-top:12px!important;padding-bottom:40px!important;gap:28px!important}
+.m-h1{font-size:40px!important}
+.m-sub{font-size:17px!important}
+.m-art{height:380px!important;flex-basis:100%!important;border-radius:32px!important}
+.m-art svg[role=img]{width:250px;height:240px}
+.m-h2{font-size:30px!important}
+.m-mq{font-size:20px!important}.m-mqb{height:56px!important}
+.m-s96{padding-top:64px!important;padding-bottom:40px!important}
+.h-rail{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px!important;margin-inline:-16px;padding:8px 16px 18px;scrollbar-width:none}
+.h-rail::-webkit-scrollbar{display:none}
+.h-rail>*{flex:0 0 84%;scroll-snap-align:start}
+.h-rail.r-trait>*{flex-basis:68%}
+.m-dots{display:flex;gap:6px;justify-content:center;margin-top:-6px}
+.m-dots span{width:8px;height:8px;border-radius:999px;background:var(--line,#D8D4C8)}.m-dots span.on{width:22px;background:var(--acc,#0E7C7B)}
+.m-contact{padding:28px!important;border-radius:28px!important}.m-contact h2{font-size:30px!important}.m-contact>svg{width:150px;height:144px}
+.m-photo{flex-basis:100%!important}
+.m-launch>div[aria-hidden]{display:none}
+.m-launch{top:744px!important}
+.m-offer{font-size:14px!important;padding:6px 16px!important;justify-content:flex-start!important}
+.c-card:hover{transform:none}
+}
+@media (prefers-reduced-motion: reduce){.h-marquee,.h-float,.h-float2,.h-glow{animation:none}}
+</style>
+</helmet>
+<div dir="ltr" class="c-dark" style="width: 100%; min-height: 100%; background: #0E2A2D; color: #F6F4EE; font-family: 'Rubik', sans-serif; position: relative">
+<header class="m-head" style="max-width: 1280px; margin: 0 auto; padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+<div style="display: flex; align-items: center; gap: 12px">
+<button class="m-menu" type="button" aria-label="Menu" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid #2B4A4E; background: #17393D; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6F4EE" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H20 M4 12 H20 M4 17 H20"></path></svg></button>
+<a href="#" aria-label="Noura Wafik, home" style="display: flex">
+<svg width="170" height="26" viewBox="0 20 1310 200" aria-hidden="true"><g transform="translate(0 40)"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845"></path></g><g transform="translate(250 0)"><g fill="none" stroke="#F6F4EE" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M0 100 V200 M0 140 A35 40 0 0 1 70 140 V200"></path><ellipse cx="151" cy="150" rx="44" ry="50"></ellipse><path d="M232 100 V160 A35 40 0 0 0 302 160 M302 100 V200"></path><path d="M345 100 V200 M345 150 C345 118 363 100 391 102"></path><ellipse cx="466" cy="150" rx="44" ry="50"></ellipse><path d="M510 100 V200"></path><path d="M580 100 L608 200 L636 124 L664 200 L692 100"></path><ellipse cx="762" cy="150" rx="44" ry="50"></ellipse><path d="M806 100 V200"></path><path d="M858 200 V76 C858 46 874 34 902 38 M840 104 H882"></path><path d="M926 100 V200"></path><path d="M969 46 V200 M1027 104 L971 156 L1031 200"></path></g><circle cx="926" cy="60" r="11" fill="#0E2A2D"></circle></g></svg>
+</a>
+</div>
+<nav class="m-nav" aria-label="Main" style="display: flex; gap: 28px; flex-wrap: wrap; font-size: 16px; font-weight: 500">
+<a href="#work" style="color: #F6F4EE; text-decoration: none">Work</a>
+<a href="#services" style="color: #F6F4EE; text-decoration: none">Services</a>
+<a href="#about" style="color: #F6F4EE; text-decoration: none">About</a>
+<a href="#contact" style="color: #F6F4EE; text-decoration: none">Contact</a>
+</nav>
+<div style="display: flex; align-items: center; gap: 12px">
+<a class="m-pill m-lang" href="#" lang="ar" style="font-size: 15px; font-weight: 600; color: #F6F4EE; text-decoration: none; border: 2px solid #2B4A4E; border-radius: 999px; padding: 8px 14px; min-height: 44px; box-sizing: border-box; display: flex; align-items: center">عربي</a>
+<button class="m-pill" type="button" aria-label="Light mode" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid #2B4A4E; background: #17393D; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC845" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2 V4 M12 20 V22 M2 12 H4 M20 12 H22 M4.9 4.9 L6.3 6.3 M17.7 17.7 L19.1 19.1 M4.9 19.1 L6.3 17.7 M17.7 6.3 L19.1 4.9"></path></svg></button>
+<a class="m-cta" href="mailto:hello@nourawafik.com" style="font-size: 16px; font-weight: 700; color: #0E2A2D; background: #FFC845; border-radius: 999px; padding: 10px 20px; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; text-decoration: none">Get a quote</a>
+</div>
+</header>
+<main style="max-width:1280px;margin:0 auto;padding:16px 16px 64px;display:flex;flex-direction:column;gap:24px"><section style="display:flex;flex-direction:column;gap:14px"><div style="font-size:15px;font-weight:500;color:#7CC6C0">Work</div><h1 style="margin:0;font-size:40px;font-weight:800;line-height:1.15">Products, platforms and websites, in two languages</h1><p style="margin:0;font-size:17px;line-height:1.7;color:#A9C2C4;max-width:760px">Projects I designed from the first idea to developer-ready screens. Search for what you need, or pick a type of work.</p></section><section aria-label="Filter work" style="display:flex;flex-direction:column;gap:14px"><label style="display:flex;align-items:center;gap:10px;height:44px;padding:0 14px;border-radius:999px;border:2px solid #F6F4EE;background:#17393D;color:#8FAAAD;width:100%;box-sizing:border-box;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16 L20 20"/></svg><span style="flex:1;font-size:15px;color:#F6F4EE">logo</span><span style="display:flex;color:#A9C2C4"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg></span></label><div role="group" style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding:2px 16px"><button type="button" aria-expanded="false" style="flex-shrink:0;height:40px;padding:0 14px;border-radius:999px;border:2px solid #2B4A4E;background:transparent;color:#F6F4EE;font:500 15px Rubik,sans-serif;display:inline-flex;align-items:center;gap:8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7 H14 M18 7 H20 M4 17 H6 M10 17 H20"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>Filters</button><button type="button" aria-pressed="true" style="flex-shrink:0;height:40px;padding:0 14px;border-radius:999px;border:2px solid;background:#F6F4EE;color:#0E2A2D;border-color:#F6F4EE;font:500 15px Rubik,sans-serif;display:inline-flex;align-items:center;gap:7px;white-space:nowrap">All</button><button type="button" aria-pressed="false" style="flex-shrink:0;height:40px;padding:0 14px;border-radius:999px;border:2px solid;background:transparent;color:#F6F4EE;border-color:#2B4A4E;font:500 15px Rubik,sans-serif;display:inline-flex;align-items:center;gap:7px;white-space:nowrap">Mobile apps</button><button type="button" aria-pressed="false" style="flex-shrink:0;height:40px;padding:0 14px;border-radius:999px;border:2px solid;background:transparent;color:#F6F4EE;border-color:#2B4A4E;font:500 15px Rubik,sans-serif;display:inline-flex;align-items:center;gap:7px;white-space:nowrap">Web platforms</button></div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span aria-live="polite" style="font-size:15px;color:#A9C2C4">No results for “logo”</span></div></section><section role="status" style="display:flex;flex-direction:column;align-items:flex-start;gap:24px;padding:24px 20px;border-radius:24px;background:#17393D;border:1px solid #2B4A4E"><div style="width:150px;aspect-ratio:280/255;flex-shrink:0;background:#E6F4F3;border-radius:24px;padding:14px;box-sizing:content-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-25 -55 280 255" width="100%" height="100%" role="img" aria-label="Noon confused" xmlns:c2pa="http://c2pa.org/manifest"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152" fill="none" stroke="#0E7C7B" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><g><path d="M174 152 C172 122 173 94 174 60" fill="none" stroke="#0E7C7B" stroke-width="17" stroke-linecap="round" transform="rotate(-6 174 152)"/></g><g transform="translate(69 26) scale(1.8) translate(-69 -26)"><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845" stroke="#0E2A2D" stroke-width="2"/><circle cx="64" cy="25" r="2.3" fill="#0E2A2D"/><circle cx="75" cy="25" r="2.3" fill="#0E2A2D"/><path d="M73 20.5 L78 19" stroke="#0E2A2D" stroke-width="1.6" stroke-linecap="round"/><path d="M63 32 Q66 30 69.5 32 Q73 34 76 32" fill="none" stroke="#0E2A2D" stroke-width="1.8" stroke-linecap="round"/></g><text x="118" y="-4" font-family="Rubik, sans-serif" font-size="62" font-weight="800" fill="#FF6B5B">?</text></svg></div><div style="display:flex;flex-direction:column;gap:14px;flex:1"><h2 style="margin:0;font-size:24px;font-weight:800;line-height:1.3">Nothing for “logo” in my work yet</h2><p style="margin:0;font-size:16px;color:#A9C2C4">Try another word, or pick one of these:</p><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#" style="height:36px;padding:0 14px;border-radius:999px;border:2px solid #2B4A4E;color:#F6F4EE;font-size:14px;font-weight:500;display:inline-flex;align-items:center;text-decoration:none">Calendars</a><a href="#" style="height:36px;padding:0 14px;border-radius:999px;border:2px solid #2B4A4E;color:#F6F4EE;font-size:14px;font-weight:500;display:inline-flex;align-items:center;text-decoration:none">AI assistants</a><a href="#" style="height:36px;padding:0 14px;border-radius:999px;border:2px solid #2B4A4E;color:#F6F4EE;font-size:14px;font-weight:500;display:inline-flex;align-items:center;text-decoration:none">Video calls</a><a href="#" style="height:36px;padding:0 14px;border-radius:999px;border:2px solid #2B4A4E;color:#F6F4EE;font-size:14px;font-weight:500;display:inline-flex;align-items:center;text-decoration:none">Dashboards</a><a href="#" style="height:36px;padding:0 14px;border-radius:999px;border:2px solid #2B4A4E;color:#F6F4EE;font-size:14px;font-weight:500;display:inline-flex;align-items:center;text-decoration:none">Design systems</a></div><p style="margin:8px 0 0;font-size:16px;color:#A9C2C4">Looking for something that isn't here? Ask me, and I'll tell you how I'd approach it.</p><div style="display:flex;gap:10px;flex-wrap:wrap;flex-direction:column"><a href="#" style="height:48px;padding:0 22px;border-radius:999px;background:#FFC845;color:#0E2A2D;font-weight:700;font-size:16px;display:inline-flex;align-items:center;justify-content:center;text-decoration:none">Ask me about it</a><button type="button" style="height:48px;padding:0 22px;border-radius:999px;border:2px solid #F6F4EE;background:transparent;color:#F6F4EE;font:600 16px Rubik,sans-serif">Clear search</button></div></div></section></main>
+<section class="m-sec m-s96" id="contact" aria-labelledby="contact-title" style="max-width: 1280px; margin: 0 auto; padding: 96px 32px">
+<div class="m-contact" style="background: #FFC845; color: #0E2A2D; border-radius: 40px; padding: 56px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; position: relative; overflow: hidden">
+<div style="display: flex; flex-direction: column; gap: 16px; flex: 1 1 420px; min-width: 0">
+<h2 id="contact-title" style="margin: 0; font-size: 44px; font-weight: 800; line-height: 1.15">Got an idea? Let’s talk.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6">Send me a few lines about your project and I’ll reply myself.</p>
+<div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center">
+<a href="mailto:hello@nourawafik.com?subject=Quote%20request" style="font-size: 17px; font-weight: 700; color: #FFFFFF; background: #0E2A2D; border-radius: 999px; padding: 14px 28px; min-height: 48px; box-sizing: border-box; display: flex; align-items: center; text-decoration: none">Get a quote</a>
+<a href="mailto:hello@nourawafik.com" style="font-size: 17px; font-weight: 600; color: #0E2A2D">hello@nourawafik.com</a>
+</div>
+</div>
+<svg width="220" height="212" viewBox="-20 -50 260 250" role="img" aria-label="Noon waving">
+<path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152" fill="none" stroke="#0E2A2D" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path>
+<g><animateTransform attributeName="transform" type="rotate" values="4 174 152;26 174 152;4 174 152" dur="1.4s" repeatCount="indefinite"></animateTransform><path d="M174 152 C172 122 173 94 174 60" fill="none" stroke="#0E2A2D" stroke-width="17" stroke-linecap="round"></path></g>
+<g transform="translate(69 26) scale(1.8) translate(-69 -26)"><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFFFFF" stroke="#0E2A2D" stroke-width="2"></path><circle cx="64" cy="25" r="2.3" fill="#0E2A2D"></circle><circle cx="75" cy="25" r="2.3" fill="#0E2A2D"></circle><path d="M63 31 Q69.5 36 76 31" fill="none" stroke="#0E2A2D" stroke-width="1.8" stroke-linecap="round"></path></g>
+</svg>
+</div>
+</section>
+<footer style="background: #0A2023; color: #FFFFFF; border-top: 1px solid #2B4A4E">
+<div style="max-width: 1280px; margin: 0 auto; padding: 48px 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between">
+<svg width="160" height="24" viewBox="0 20 1310 200" aria-hidden="true"><g transform="translate(0 40)"><path d="M26 64 C20 112 30 158 70 160 C104 162 114 120 112 64 C128 92 150 124 174 152 C172 122 173 94 174 60" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"></path><path d="M64 12 C77 6 89 19 83 32 C77 44 57 42 55 30 C54 21 57 15 64 12 Z" fill="#FFC845"></path></g><g transform="translate(250 0)"><g fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"><path d="M0 100 V200 M0 140 A35 40 0 0 1 70 140 V200"></path><ellipse cx="151" cy="150" rx="44" ry="50"></ellipse><path d="M232 100 V160 A35 40 0 0 0 302 160 M302 100 V200"></path><path d="M345 100 V200 M345 150 C345 118 363 100 391 102"></path><ellipse cx="466" cy="150" rx="44" ry="50"></ellipse><path d="M510 100 V200"></path><path d="M580 100 L608 200 L636 124 L664 200 L692 100"></path><ellipse cx="762" cy="150" rx="44" ry="50"></ellipse><path d="M806 100 V200"></path><path d="M858 200 V76 C858 46 874 34 902 38 M840 104 H882"></path><path d="M926 100 V200"></path><path d="M969 46 V200 M1027 104 L971 156 L1031 200"></path></g><circle cx="926" cy="60" r="11" fill="#FFFFFF"></circle></g></svg>
+<nav aria-label="Links" style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 15px">
+<a href="https://linkedin.com/in/nourawafik" style="color: #FFFFFF">LinkedIn</a>
+<a href="https://behance.net/nourawafik" style="color: #FFFFFF">Behance</a>
+<a href="https://instagram.com/nourawafik" style="color: #FFFFFF">Instagram</a>
+<a href="#" style="color: #FFFFFF">CV</a>
+</nav>
+<div style="font-size: 14px; color: #A9C2C4">© 2026 Noura Wafik</div>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2090}}'>
+class Component extends DCLogic { renderVals() { return {}; } }
+</script></body></html>

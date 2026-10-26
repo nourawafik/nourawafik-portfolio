@@ -1,0 +1,6 @@
+def sbar(h=46,pad=28,ink='var(--ink)'):
+    sig=''.join(f'<rect x="{i*4.5}" y="{10-(i+1)*2.5}" width="3" height="{(i+1)*2.5+1}" rx="1" fill="{ink}"/>' for i in range(4))
+    wifi=f'<path d="M1 4.2 A10 10 0 0 1 15 4.2" fill="none" stroke="{ink}" stroke-width="1.9" stroke-linecap="round"/><path d="M3.6 7 A6.2 6.2 0 0 1 12.4 7" fill="none" stroke="{ink}" stroke-width="1.9" stroke-linecap="round"/><circle cx="8" cy="10" r="1.6" fill="{ink}"/>'
+    bat=f'<rect x="0.6" y="0.6" width="23" height="11.8" rx="3.4" fill="none" stroke="{ink}" stroke-opacity=".4" stroke-width="1.2"/><rect x="2.4" y="2.4" width="18.4" height="8.2" rx="2" fill="{ink}"/><path d="M25.2 4.4 V8.6 A2.1 2.1 0 0 0 25.2 4.4 Z" fill="{ink}" fill-opacity=".45"/>'
+    return (f'<div dir="ltr" style="height:{h}px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 {pad}px 0 {pad+6}px;font-size:16px;font-weight:600;font-family:Inter;letter-spacing:-.01em;color:{ink}"><span>9:41</span>'
+            f'<span style="display:flex;gap:6px;align-items:center"><svg width="17" height="11" viewBox="0 0 17 11">{sig}</svg><svg width="16" height="12" viewBox="0 0 16 12">{wifi}</svg><svg width="27" height="13" viewBox="0 0 27 13">{bat}</svg></span></div>')

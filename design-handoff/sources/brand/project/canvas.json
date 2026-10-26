@@ -1,0 +1,460 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Blend.dc.html": {
+      "h": 1640,
+      "title": "F · المزيج",
+      "w": 1440,
+      "x": 3040,
+      "y": 1320
+    },
+    "Bold-Type.dc.html": {
+      "h": 1200,
+      "title": "B · حروف جريئة",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Brand-Board.dc.html": {
+      "h": 1990,
+      "title": "البورد الكاملة",
+      "w": 1920,
+      "x": 16720,
+      "y": 1320
+    },
+    "Colors.dc.html": {
+      "h": 2790,
+      "title": "الألوان",
+      "w": 1440,
+      "x": 12160,
+      "y": 1320
+    },
+    "Home-AR.dc.html": {
+      "h": 3436,
+      "title": "الصفحة الرئيسية · عربي",
+      "w": 1440,
+      "x": 18720,
+      "y": 1320
+    },
+    "Home-EN.dc.html": {
+      "h": 3415,
+      "title": "الصفحة الرئيسية · English",
+      "w": 1440,
+      "x": 20240,
+      "y": 1320
+    },
+    "Logo-Test.dc.html": {
+      "h": 1780,
+      "title": "العلامة مرسومة · اختبار الأحجام والخطوط",
+      "w": 1440,
+      "x": 9120,
+      "y": 1320
+    },
+    "Main.dc.html": {
+      "h": 1200,
+      "title": "A · تيل نابض",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Mascot.dc.html": {
+      "h": 1420,
+      "title": "F · نون في مواقف",
+      "w": 1440,
+      "x": 4560,
+      "y": 1320
+    },
+    "Merge.dc.html": {
+      "h": 1660,
+      "title": "الدمج · اللوجو بيصحى",
+      "w": 1440,
+      "x": 7600,
+      "y": 1320
+    },
+    "Mirror.dc.html": {
+      "h": 1200,
+      "title": "E · المراية",
+      "w": 1440,
+      "x": 1520,
+      "y": 1320
+    },
+    "Monogram.dc.html": {
+      "h": 1400,
+      "title": "H · ن + N بخط اليد",
+      "w": 1440,
+      "x": 6080,
+      "y": 1320
+    },
+    "Playful.dc.html": {
+      "h": 1200,
+      "title": "C · عالم مرح",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Shapes.dc.html": {
+      "h": 1930,
+      "title": "الأشكال والعناصر",
+      "w": 1440,
+      "x": 15200,
+      "y": 1320
+    },
+    "Signature-Dot.dc.html": {
+      "h": 1200,
+      "title": "D · النقطة",
+      "w": 1440,
+      "x": 0,
+      "y": 1320
+    },
+    "Type.dc.html": {
+      "h": 2300,
+      "title": "الخطوط · Rubik",
+      "w": 1440,
+      "x": 13680,
+      "y": 1320
+    },
+    "Wordmark.dc.html": {
+      "h": 1250,
+      "title": "اللوجو مع الاسم · v3",
+      "w": 1440,
+      "x": 10640,
+      "y": 1320
+    },
+    "Noon-Poses.dc.html": {
+      "h": 1860,
+      "title": "نون في مواقف · الشكل النهائي",
+      "w": 1440,
+      "x": 21760,
+      "y": 1320
+    },
+    "Home-AR-Dark.dc.html": {
+      "h": 3439,
+      "title": "الصفحة الرئيسية · عربي · دارك",
+      "w": 1440,
+      "x": 18720,
+      "y": 5100
+    },
+    "Home-EN-Dark.dc.html": {
+      "h": 3418,
+      "title": "الصفحة الرئيسية · English · دارك",
+      "w": 1440,
+      "x": 20240,
+      "y": 5100
+    },
+    "Home-AR-Mobile.dc.html": {
+      "h": 4030,
+      "title": "موبايل · عربي",
+      "w": 390,
+      "x": 23280,
+      "y": 1320
+    },
+    "Home-EN-Mobile.dc.html": {
+      "h": 4084,
+      "title": "موبايل · English",
+      "w": 390,
+      "x": 23750,
+      "y": 1320
+    },
+    "Home-AR-Mobile-Dark.dc.html": {
+      "h": 4033,
+      "title": "موبايل · عربي · دارك",
+      "w": 390,
+      "x": 24220,
+      "y": 1320
+    },
+    "Home-EN-Mobile-Dark.dc.html": {
+      "h": 4087,
+      "title": "موبايل · English · دارك",
+      "w": 390,
+      "x": 24690,
+      "y": 1320
+    },
+    "Home-AR-Menu.dc.html": {
+      "h": 844,
+      "title": "موبايل · القائمة مفتوحة · عربي",
+      "w": 390,
+      "x": 25160,
+      "y": 1320
+    },
+    "Home-EN-Menu.dc.html": {
+      "h": 844,
+      "title": "موبايل · القائمة مفتوحة · English",
+      "w": 390,
+      "x": 25630,
+      "y": 1320
+    },
+    "Work-Duet.dc.html": {
+      "h": 4557,
+      "title": "أعمال · Duet (كان Got-AI)",
+      "w": 1440,
+      "x": 26180,
+      "y": 1320
+    },
+    "Work-Ulfa.dc.html": {
+      "h": 4118,
+      "title": "أعمال · ألفة · تطبيق المشارك",
+      "w": 1440,
+      "x": 27700,
+      "y": 1320
+    },
+    "Work-Ulfa-Live.dc.html": {
+      "h": 2762,
+      "title": "أعمال · ألفة · الجلسة اللايف",
+      "w": 1440,
+      "x": 29220,
+      "y": 1320
+    },
+    "Work-Ulfa-Studio.dc.html": {
+      "h": 2796,
+      "title": "أعمال · ألفة · استوديو الميسر",
+      "w": 1440,
+      "x": 30740,
+      "y": 1320
+    },
+    "Work-Ulfa-DS.dc.html": {
+      "h": 2655,
+      "title": "أعمال · ألفة · نظام التصميم",
+      "w": 1440,
+      "x": 32260,
+      "y": 1320
+    },
+    "Work-Ulfa-Hub-AR.dc.html": {
+      "h": 3605,
+      "title": "أعمال · ألفة · الصفحة الرئيسية للمشروع · عربي",
+      "w": 1440,
+      "x": 33780,
+      "y": 1320
+    },
+    "Work-Ulfa-Hub-EN.dc.html": {
+      "h": 3627,
+      "title": "أعمال · ألفة · الصفحة الرئيسية للمشروع · English",
+      "w": 1440,
+      "x": 35300,
+      "y": 1320
+    },
+    "Work-Praxa.dc.html": {
+      "h": 4276,
+      "title": "أعمال · Praxa (كان KemeClinic)",
+      "w": 1440,
+      "x": 36820,
+      "y": 1320
+    },
+    "Work-Library-EN.dc.html": {
+      "h": 1803,
+      "title": "أعمالي · المكتبة · English",
+      "w": 1440,
+      "x": 38340,
+      "y": 1320
+    },
+    "Work-Library-AR.dc.html": {
+      "h": 1949,
+      "title": "أعمالي · المكتبة · عربي · الفلاتر مفتوحة",
+      "w": 1440,
+      "x": 39860,
+      "y": 1320
+    },
+    "Work-Library-EN-Dark.dc.html": {
+      "h": 1806,
+      "title": "أعمالي · المكتبة · English · دارك · بحث",
+      "w": 1440,
+      "x": 41380,
+      "y": 1320
+    },
+    "Work-Library-AR-Dark.dc.html": {
+      "h": 1754,
+      "title": "أعمالي · المكتبة · عربي · دارك · فلتر مكالمات فيديو",
+      "w": 1440,
+      "x": 42900,
+      "y": 1320
+    },
+    "Work-Library-EN-Mobile.dc.html": {
+      "h": 2963,
+      "title": "أعمالي · موبايل · English",
+      "w": 390,
+      "x": 44420,
+      "y": 1320
+    },
+    "Work-Library-AR-Mobile-Dark.dc.html": {
+      "h": 844,
+      "title": "أعمالي · موبايل · عربي · دارك · الفلاتر مفتوحة",
+      "w": 390,
+      "x": 44890,
+      "y": 1320
+    },
+    "Home-WhatIDo-EN.dc.html": {
+      "h": 798,
+      "title": "الرئيسية · بعمل إيه · English",
+      "w": 1440,
+      "x": 38340,
+      "y": 6520
+    },
+    "Home-WhatIDo-AR.dc.html": {
+      "h": 690,
+      "title": "الرئيسية · بعمل إيه · عربي",
+      "w": 1440,
+      "x": 39860,
+      "y": 6520
+    },
+    "Home-WhatIDo-AR-Dark.dc.html": {
+      "h": 692,
+      "title": "الرئيسية · بعمل إيه · عربي · دارك",
+      "w": 1440,
+      "x": 41380,
+      "y": 6520
+    },
+    "Home-WhatIDo-EN-Mobile.dc.html": {
+      "h": 919,
+      "title": "الرئيسية · بعمل إيه · موبايل",
+      "w": 390,
+      "x": 42900,
+      "y": 6520
+    },
+    "Home-WhatIDo-AR-Mobile-Dark.dc.html": {
+      "h": 888,
+      "title": "الرئيسية · بعمل إيه · موبايل · دارك",
+      "w": 390,
+      "x": 43370,
+      "y": 6520
+    },
+    "Work-Library-Empty-AR.dc.html": {
+      "h": 1514,
+      "title": "أعمالي · بحث بدون نتايج · عربي",
+      "w": 1440,
+      "x": 45360,
+      "y": 1320
+    },
+    "Work-Library-Empty-EN-Mobile-Dark.dc.html": {
+      "h": 2090,
+      "title": "أعمالي · بحث بدون نتايج · موبايل · English · دارك",
+      "w": 390,
+      "x": 46880,
+      "y": 1320
+    },
+    "Quote-EN.dc.html": {
+      "h": 1520,
+      "title": "اطلب عرض سعر · English",
+      "w": 1440,
+      "x": 38340,
+      "y": 7900
+    },
+    "Quote-AR.dc.html": {
+      "h": 1535,
+      "title": "اطلب عرض سعر · عربي",
+      "w": 1440,
+      "x": 39860,
+      "y": 7900
+    },
+    "Quote-AR-Dark-Error.dc.html": {
+      "h": 1560,
+      "title": "اطلب عرض سعر · عربي · دارك · خطأ في الإيميل",
+      "w": 1440,
+      "x": 41380,
+      "y": 7900
+    },
+    "Quote-EN-Mobile.dc.html": {
+      "h": 2284,
+      "title": "اطلب عرض سعر · موبايل · English",
+      "w": 390,
+      "x": 42900,
+      "y": 7900
+    },
+    "Quote-AR-Mobile-Dark.dc.html": {
+      "h": 2171,
+      "title": "اطلب عرض سعر · موبايل · عربي · دارك",
+      "w": 390,
+      "x": 43370,
+      "y": 7900
+    },
+    "Quote-Success-AR.dc.html": {
+      "h": 992,
+      "title": "اطلب عرض سعر · تم الإرسال · عربي",
+      "w": 1440,
+      "x": 43840,
+      "y": 7900
+    },
+    "Quote-Success-EN-Mobile-Dark.dc.html": {
+      "h": 969,
+      "title": "اطلب عرض سعر · تم الإرسال · موبايل · English · دارك",
+      "w": 390,
+      "x": 45360,
+      "y": 7900
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-21T00:40:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "title": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "اتجاهات براند نورا وفيق",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Bold-Type.dc.html",
+    "Playful.dc.html",
+    "Signature-Dot.dc.html",
+    "Mirror.dc.html",
+    "Blend.dc.html",
+    "Mascot.dc.html",
+    "Monogram.dc.html",
+    "Merge.dc.html",
+    "Logo-Test.dc.html",
+    "Wordmark.dc.html",
+    "Colors.dc.html",
+    "Type.dc.html",
+    "Shapes.dc.html",
+    "Brand-Board.dc.html",
+    "Home-AR.dc.html",
+    "Home-EN.dc.html",
+    "Noon-Poses.dc.html",
+    "Home-AR-Dark.dc.html",
+    "Home-EN-Dark.dc.html",
+    "Home-AR-Mobile.dc.html",
+    "Home-EN-Mobile.dc.html",
+    "Home-AR-Mobile-Dark.dc.html",
+    "Home-EN-Mobile-Dark.dc.html",
+    "Home-AR-Menu.dc.html",
+    "Home-EN-Menu.dc.html",
+    "Work-Duet.dc.html",
+    "Work-Ulfa.dc.html",
+    "Work-Ulfa-Live.dc.html",
+    "Work-Ulfa-Studio.dc.html",
+    "Work-Ulfa-DS.dc.html",
+    "Work-Ulfa-Hub-AR.dc.html",
+    "Work-Ulfa-Hub-EN.dc.html",
+    "Work-Praxa.dc.html",
+    "Work-Library-EN.dc.html",
+    "Work-Library-AR.dc.html",
+    "Work-Library-EN-Dark.dc.html",
+    "Work-Library-AR-Dark.dc.html",
+    "Work-Library-EN-Mobile.dc.html",
+    "Work-Library-AR-Mobile-Dark.dc.html",
+    "Home-WhatIDo-EN.dc.html",
+    "Home-WhatIDo-AR.dc.html",
+    "Home-WhatIDo-AR-Dark.dc.html",
+    "Home-WhatIDo-EN-Mobile.dc.html",
+    "Home-WhatIDo-AR-Mobile-Dark.dc.html",
+    "Work-Library-Empty-AR.dc.html",
+    "Work-Library-Empty-EN-Mobile-Dark.dc.html",
+    "Quote-EN.dc.html",
+    "Quote-AR.dc.html",
+    "Quote-AR-Dark-Error.dc.html",
+    "Quote-EN-Mobile.dc.html",
+    "Quote-AR-Mobile-Dark.dc.html",
+    "Quote-Success-AR.dc.html",
+    "Quote-Success-EN-Mobile-Dark.dc.html"
+  ],
+  "pages": [],
+  "title": "Noura Wafik Brand Directions"
+}
