@@ -20,7 +20,10 @@ export function ServicesMarquee({ locale = 'en' }: ServicesMarqueeProps) {
       aria-hidden="true"
       className="overflow-hidden h-[56px] md:h-[72px] bg-[#0E2A2D] dark:bg-sunk dark:border-y dark:border-line"
     >
-      <div dir="ltr" className="flex items-center h-full motion-safe:animate-marquee motion-reduce:flex-nowrap whitespace-nowrap w-max">
+      <div
+        dir={locale === 'ar' ? 'rtl' : 'ltr'}
+        className={`flex items-center h-full motion-reduce:flex-nowrap whitespace-nowrap w-max ${locale === 'ar' ? 'motion-safe:animate-marquee-rtl' : 'motion-safe:animate-marquee'}`}
+      >
         {doubled.map((item, i) => (
           <span key={i} className="inline-flex items-center text-white font-extrabold text-[1.25rem] md:text-[1.75rem] shrink-0">
             {item}
