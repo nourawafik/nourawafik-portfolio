@@ -1,3 +1,5 @@
+Before any change, read `docs/HANDBOOK.md`. Update it in the same commit when a rule, fact or setup step changes.
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
