@@ -192,12 +192,12 @@ export default function ArDuetPage() {
         <div className="grid md:grid-cols-2 gap-4">
           {[
             { src: '/work/duet/tempo-review.png', srcDark: '/work/duet/tempo-review-dark.png', alt: 'Tempo: الدرجة والأسباب في شاشة واحدة', caption: 'الدرجة والأسباب في شاشة واحدة، بلغة المسؤول' },
-            { src: '/work/duet/tempo-disagree.png', srcDark: '/work/duet/tempo-disagree-dark.png', alt: 'Tempo: الاعتراض على اقتراح الذكاء الاصطناعي', caption: 'الاعتراض بياخد عشر ثواني ويتسجل في الأرشيف' },
+            { src: '/work/duet/tempo-disagree.png', srcDark: '/work/duet/tempo-disagree-dark.png', alt: 'Tempo: الاعتراض على اقتراح الذكاء الاصطناعي', caption: 'الاعتراض بأسبابه يتسجل في الأرشيف' },
           ].map(({ src, srcDark, alt, caption }) => (
             <figure key={src} className="m-0">
-              <div className="relative w-full overflow-hidden rounded-[14px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)]" style={{ aspectRatio: '3/2' }}>
-                <Image src={src} alt={alt} fill className="object-cover dark:hidden" sizes="(max-width: 768px) 100vw, 600px" />
-                <Image src={srcDark} alt={alt} fill className="object-cover hidden dark:block" sizes="(max-width: 768px) 100vw, 600px" />
+              <div className="overflow-hidden rounded-[14px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+                <Image src={src} alt={alt} width={1600} height={1000} style={{ width: '100%', height: 'auto' }} className="block dark:hidden" sizes="(max-width: 768px) 100vw, 600px" />
+                <Image src={srcDark} alt={alt} width={1600} height={1000} style={{ width: '100%', height: 'auto' }} className="hidden dark:block" sizes="(max-width: 768px) 100vw, 600px" />
               </div>
               <figcaption className="mt-2 text-[0.8125rem] text-foreground-muted text-center">{caption}</figcaption>
             </figure>
@@ -292,9 +292,9 @@ export default function ArDuetPage() {
           </p>
         </div>
         <figure className="m-0">
-          <div className="relative w-full overflow-hidden rounded-[14px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)]" style={{ aspectRatio: '3/2' }}>
-            <Image src="/work/duet/two-voices.png" alt="نظام التصميم: نفس المكونات بمعالجتين للون" fill className="object-cover dark:hidden" sizes="(max-width: 768px) 100vw, 900px" />
-            <Image src="/work/duet/two-voices-dark.png" alt="نظام التصميم: نفس المكونات بمعالجتين للون" fill className="object-cover hidden dark:block" sizes="(max-width: 768px) 100vw, 900px" />
+          <div className="overflow-hidden rounded-[14px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
+            <Image src="/work/duet/two-voices.png" alt="نظام التصميم: نفس المكونات بمعالجتين للون" width={2050} height={1000} style={{ width: '100%', height: 'auto' }} className="block dark:hidden" sizes="(max-width: 768px) 100vw, 900px" />
+            <Image src="/work/duet/two-voices-dark.png" alt="نظام التصميم: نفس المكونات بمعالجتين للون" width={2050} height={1000} style={{ width: '100%', height: 'auto' }} className="hidden dark:block" sizes="(max-width: 768px) 100vw, 900px" />
           </div>
           <figcaption className="mt-2 text-[0.8125rem] text-foreground-muted text-center">نفس المكونات، صوتين</figcaption>
         </figure>

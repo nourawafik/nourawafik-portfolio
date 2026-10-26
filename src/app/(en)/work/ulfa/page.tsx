@@ -227,7 +227,7 @@ export default function UlfaHubPage() {
               className="card-shadow relative group flex flex-col rounded-card bg-surface border border-border overflow-hidden max-md:shrink-0 max-md:[flex:0_0_84%] max-md:[scroll-snap-align:start]"
             >
               {/* Thumb */}
-              <div className="overflow-hidden" style={{ height: '240px' }}>
+              <div className="overflow-hidden" style={{ aspectRatio: '4/3' }}>
                 <div className="w-full h-full relative motion-safe:transition-transform motion-safe:duration-[600ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)] motion-safe:group-hover:scale-[1.05]">
                   <Image
                     src={thumb}
