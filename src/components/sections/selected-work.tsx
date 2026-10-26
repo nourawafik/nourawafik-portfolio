@@ -1,75 +1,11 @@
+import Image from 'next/image';
 import NextLink from 'next/link';
-import { ProjectImage } from '@/components/ui/project-image';
 import { Container } from '@/components/layout/container';
 import { CardRail } from '@/components/ui/card-rail';
 import { ArrowIcon } from '@/components/ui/arrow-icon';
-import { caseStudies } from '@/content/case-studies';
+import { work, LABELS } from '@/content/work';
 
-interface WorkCard {
-  slug: string;
-  titleEn: string;
-  titleAr: string;
-  summaryEn: string;
-  summaryAr: string;
-  thumbAlt: string;
-  thumbDark?: string;
-  role: string;
-  roleAr: string;
-  platform: string;
-  platformAr: string;
-  timeline: string;
-}
-
-const workCards: WorkCard[] = [
-  {
-    slug: 'ulfa',
-    titleEn: 'Ulfa',
-    titleAr: 'ألفة',
-    summaryEn:
-      'A bilingual mobile app that brings people together with licensed mental health facilitators, in small circles and structured sessions.',
-    summaryAr:
-      'تطبيق موبايل بالعربي والإنجليزي، بيجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.',
-    thumbAlt: caseStudies[0].thumbAlt,
-    thumbDark: '/work/ulfa-thumb-dark.png',
-    role: caseStudies[0].role,
-    roleAr: 'تصميم المنتج وإدارته',
-    platform: caseStudies[0].platform,
-    platformAr: 'تطبيق موبايل · عربي وإنجليزي',
-    timeline: caseStudies[0].timeline,
-  },
-  {
-    slug: 'praxa',
-    titleEn: 'Praxa',
-    titleAr: 'Praxa',
-    summaryEn:
-      'A clinic platform for four roles — admin, provider, patient and staff — with AI the provider reviews and approves before it reaches the chart.',
-    summaryAr:
-      'منصة عيادات لأربع أدوار — أدمن، ومعالج، ومريض، وموظفين — وذكاء اصطناعي المعالج بيراجعه ويوافق عليه قبل ما يدخل الملف.',
-    thumbAlt: caseStudies[1].thumbAlt,
-    thumbDark: '/work/praxa-thumb-dark.png',
-    role: caseStudies[1].role,
-    roleAr: 'مصممة منفردة',
-    platform: caseStudies[1].platform,
-    platformAr: 'ويب',
-    timeline: caseStudies[1].timeline,
-  },
-  {
-    slug: 'duet',
-    titleEn: 'Duet',
-    titleAr: 'Duet',
-    summaryEn:
-      'A hiring platform with two AI assistants, one for companies and one for candidates, where every AI decision is explained.',
-    summaryAr:
-      'منصة توظيف بمساعدين أذكياء، واحد للشركات وواحد للمرشحين، وكل قرار من قرارات الذكاء الاصطناعي فيها مفسّر.',
-    thumbAlt: caseStudies[2].thumbAlt,
-    thumbDark: '/work/duet-thumb-dark.png',
-    role: caseStudies[2].role,
-    roleAr: 'مصممة منتجات',
-    platform: caseStudies[2].platform,
-    platformAr: 'ويب + موبايل',
-    timeline: caseStudies[2].timeline,
-  },
-];
+const featuredWork = work.filter(w => w.featured && !w.parent);
 
 const COPY = {
   en: {
@@ -122,46 +58,58 @@ export function SelectedWork({ locale = 'en' }: SelectedWorkProps) {
         </div>
 
         {/* Cards rail — horizontal scroll on mobile, 3-col grid on desktop */}
-        <CardRail ariaLabel={t.eyebrow} mdClass="md:grid-cols-3 md:gap-6" count={workCards.length} showDots>
-          {workCards.map((card, i) => {
-            const href = ar ? `/ar/work/${card.slug}` : `/work/${card.slug}`;
-            const title = ar ? card.titleAr : card.titleEn;
-            const summary = ar ? card.summaryAr : card.summaryEn;
+        <CardRail ariaLabel={t.eyebrow} mdClass="md:grid-cols-3 md:gap-6" count={featuredWork.length} showDots>
+          {featuredWork.map((item, i) => {
+            const href    = ar ? `/ar/work/${item.slug}` : `/work/${item.slug}`;
+            const title   = ar ? item.title.ar   : item.title.en;
+            const summary = ar ? item.summary.ar : item.summary.en;
+            const typeTags    = item.types.map(tp => ar ? LABELS.type[tp].ar : LABELS.type[tp].en);
+            const industryTag = ar ? LABELS.industry[item.industry].ar : LABELS.industry[item.industry].en;
 
             return (
               <article
-                key={card.slug}
+                key={item.slug}
                 className="card-shadow relative group flex flex-col rounded-card bg-surface border border-border overflow-hidden max-md:shrink-0 max-md:[flex:0_0_84%] max-md:[scroll-snap-align:start]"
               >
                 {/* Cover image — zooms on card hover */}
                 <div className="overflow-hidden" style={{ height: '240px' }}>
                   <div className="w-full h-full motion-safe:transition-transform motion-safe:duration-[450ms] motion-safe:ease-[cubic-bezier(.2,.8,.2,1)] motion-safe:group-hover:scale-[1.05]">
-                    <ProjectImage
-                      slug={card.slug}
-                      variant="thumb"
-                      alt={card.thumbAlt}
+                    <Image
+                      src={item.thumb}
+                      alt={item.thumbAlt}
+                      width={1600}
+                      height={1200}
+                      sizes="(max-width: 768px) 100vw, 600px"
                       priority={i === 0}
-                      srcDark={card.thumbDark}
+                      className={`w-full h-full object-cover block${item.thumbDark ? ' dark:hidden' : ''}`}
                     />
+                    {item.thumbDark && (
+                      <Image
+                        src={item.thumbDark}
+                        alt=""
+                        aria-hidden
+                        width={1600}
+                        height={1200}
+                        sizes="(max-width: 768px) 100vw, 600px"
+                        priority={i === 0}
+                        className="w-full h-full object-cover hidden dark:block"
+                      />
+                    )}
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="flex flex-col gap-4 p-6 flex-1">
-                  {/* Tags */}
+                  {/* Tags — type + industry only, no timeline */}
                   <ul className="flex flex-wrap gap-2 list-none" role="list">
-                    {[
-                      ar ? card.roleAr : card.role,
-                      ar ? card.platformAr : card.platform,
-                      card.timeline,
-                    ].filter(Boolean).map((tag) => (
-                      <li
-                        key={tag}
-                        className="px-2.5 py-0.5 rounded-tag bg-accent-soft text-on-accent-soft text-small"
-                      >
+                    {typeTags.map(tag => (
+                      <li key={tag} className="px-2.5 py-0.5 rounded-tag bg-accent-soft text-on-accent-soft text-small">
                         {tag}
                       </li>
                     ))}
+                    <li className="px-2.5 py-0.5 rounded-tag border border-border text-foreground-muted text-small">
+                      {industryTag}
+                    </li>
                   </ul>
 
                   {/* Title — stretched link covers entire card via ::after */}

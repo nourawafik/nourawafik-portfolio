@@ -30,7 +30,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Duet",
     tagline: "Two-sided AI hiring platform with an assistant for each side",
     role: "Product designer",
-    timeline: "2025–present",
+    timeline: "",
     platform: "Web + mobile",
     status: "In development",
     thumbAlt: "Duet — recruiter view showing candidate score with reasons",

@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import NextLink from 'next/link';
 import { NoonWaveOnYellow } from '@/components/ui/noon-wave-on-yellow';
 
 const COPY = {
@@ -7,19 +8,15 @@ const COPY = {
     h2: 'Got an idea? Let\'s talk.',
     body: 'Send me a few lines about your project and I\'ll reply myself.',
     cta: 'Get a quote',
-    ctaSubject: 'Project inquiry from nourawafik.com',
-    ctaBody: "Hi Noura,\n\nI'd like a quote for:\n- What I need:\n- Company or project:\n- Language: Arabic / English / both\n- When I need it:\n\nThanks,",
     copyEmail: 'Copy email',
     toastCopied: 'Email copied',
   },
   ar: {
-    h2: 'عندك فكرة؟ يلا نتكلم.',
-    body: 'ابعتلي سطرين عن مشروعك، وهرد عليك بنفسي.',
+    h2: 'هل لديك فكرة؟ لنتحدث.',
+    body: 'أرسل لي سطرين عن مشروعك وسأرد عليك بنفسي.',
     cta: 'اطلب عرض سعر',
-    ctaSubject: 'طلب عرض سعر من الموقع',
-    ctaBody: 'أهلا نورا،\n\nعايز عرض سعر لـ:\n- محتاج إيه:\n- الشركة أو المشروع:\n- اللغة: عربي / إنجليزي / الاتنين\n- محتاجه إمتى:\n\nشكرا،',
-    copyEmail: 'انسخ الإيميل',
-    toastCopied: 'اتنسخ الإيميل',
+    copyEmail: 'نسخ الإيميل',
+    toastCopied: 'تم نسخ الإيميل',
   },
 } as const;
 
@@ -67,7 +64,7 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
     }
   }, []);
 
-  const quoteHref = `mailto:${EMAIL}?subject=${encodeURIComponent(t.ctaSubject)}&body=${encodeURIComponent(t.ctaBody)}`;
+  const quoteHref = ar ? '/ar/quote' : '/quote';
 
   return (
     <section
@@ -82,7 +79,7 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
           style={{ backgroundColor: 'var(--highlight)', color: 'var(--ink-fixed)' }}
         >
           {/* Text + actions */}
-          <div className="flex flex-col gap-5 flex-1">
+          <div className="flex flex-col gap-5 flex-1 order-2 md:order-1">
             <h2
               id="contact-heading"
               className={`text-h2 font-extrabold ${ar ? 'leading-[1.4]' : 'leading-[1.2]'}`}
@@ -94,14 +91,14 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
-              {/* Get a quote — mailto with template */}
-              <a
+              {/* Get a quote */}
+              <NextLink
                 href={quoteHref}
                 className="inline-flex items-center justify-center rounded-pill px-5 py-2.5 text-[0.875rem] font-medium text-white transition-opacity hover:opacity-80 active:opacity-70"
                 style={{ backgroundColor: 'var(--ink-fixed)' }}
               >
                 {t.cta}
-              </a>
+              </NextLink>
 
               {/* Email + copy button */}
               <div className="flex items-center gap-2">
@@ -137,11 +134,11 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
             </div>
           </div>
 
-          {/* Noon wave illustration */}
-          <div className="shrink-0 self-end md:self-auto">
+          {/* Noon wave illustration — above heading on mobile, end-side on desktop */}
+          <div className="shrink-0 self-start md:self-auto order-1 md:order-2">
             <NoonWaveOnYellow
               waving={waving}
-              className="w-[150px] md:w-[220px] drop-shadow-sm"
+              className="w-[120px] md:w-[220px] drop-shadow-sm"
             />
           </div>
         </div>

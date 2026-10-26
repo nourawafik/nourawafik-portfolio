@@ -89,6 +89,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...ulfaStudies,
     ...arUlfaStudies,
+    {
+      url: `${BASE_URL}/quote`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/ar/quote`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    },
     ...caseStudies,
     ...arCaseStudies,
   ];
