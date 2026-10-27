@@ -1,16 +1,15 @@
 import NextLink from 'next/link';
-import { work, countItems } from '@/content/work';
 
 const COPY = {
   en: {
     eyebrow: 'What I do',
-    h2: 'From a first logo to a full product',
+    h2: 'From digital product to brand identity',
     line: 'Everything in Arabic and English from the start. Every project gets a quote that fits what it needs.',
     cta: 'Get a quote',
   },
   ar: {
     eyebrow: 'ماذا أقدم',
-    h2: 'من الشعار إلى المنتج الكامل',
+    h2: 'من المنتج الرقمي إلى الهوية البصرية',
     line: 'كل شيء بالعربي والإنجليزي من البداية، ولكل مشروع عرض سعر يناسب احتياجه.',
     cta: 'اطلب عرض سعر',
   },
@@ -26,43 +25,15 @@ interface Card {
 
 function buildCards(locale: 'en' | 'ar'): Card[] {
   const ar = locale === 'ar';
-  const brandCount   = countItems('brand',  null, null);
-  const siteCount    = countItems('site',   null, null);
-  const digitalCount = work.filter(w => !w.parent && (w.types.includes('mobile') || w.types.includes('web'))).length;
-  const dsCount      = countItems(null, null, 'ds');
 
   return [
-    {
-      titleEn: 'Brand identity',
-      titleAr: 'هوية بصرية',
-      lineEn:  'Logo, colours and type in Arabic and English, with a guide for using them.',
-      lineAr:  'شعار وألوان وخطوط بالعربي والإنجليزي، مع دليل لاستخدامها.',
-      illustration: '/mascot/noon-brand.svg',
-      href: brandCount > 0
-        ? (ar ? '/ar/work?type=brand' : '/work?type=brand')
-        : (ar ? '/ar/quote?service=brand' : '/quote?service=brand'),
-      ariaLabelEn: brandCount > 0 ? 'Brand identity, see the work' : 'Brand identity, get a quote',
-      ariaLabelAr: brandCount > 0 ? 'هوية بصرية، شاهد الأعمال' : 'هوية بصرية، اطلب عرض سعر',
-    },
-    {
-      titleEn: 'Websites & landing pages',
-      titleAr: 'مواقع وصفحات هبوط',
-      lineEn:  'Fast bilingual websites that are easy to update.',
-      lineAr:  'مواقع بلغتين، سريعة وسهلة التحديث.',
-      illustration: '/mascot/noon-site.svg',
-      href: siteCount > 0
-        ? (ar ? '/ar/work?type=site' : '/work?type=site')
-        : (ar ? '/ar/quote?service=site' : '/quote?service=site'),
-      ariaLabelEn: siteCount > 0 ? 'Websites & landing pages, see the work' : 'Websites & landing pages, get a quote',
-      ariaLabelAr: siteCount > 0 ? 'مواقع وصفحات هبوط، شاهد الأعمال' : 'مواقع وصفحات هبوط، اطلب عرض سعر',
-    },
     {
       titleEn: 'Digital products',
       titleAr: 'منتجات رقمية',
       lineEn:  'Web and mobile apps, from the first flow to developer-ready screens.',
       lineAr:  'تطبيقات ويب وجوال، من أول تصور لرحلة المستخدم حتى شاشات جاهزة للتنفيذ.',
       illustration: '/mascot/noon-product.svg',
-      href: digitalCount > 0 ? (ar ? '/ar/work' : '/work') : (ar ? '/ar/quote' : '/quote'),
+      href: ar ? '/ar/work' : '/work',
       ariaLabelEn: 'Digital products, see the work',
       ariaLabelAr: 'منتجات رقمية، شاهد الأعمال',
     },
@@ -70,13 +41,31 @@ function buildCards(locale: 'en' | 'ar'): Card[] {
       titleEn: 'Design systems',
       titleAr: 'أنظمة تصميم',
       lineEn:  'Components and tokens that keep a product consistent as it grows.',
-      lineAr:  'مكونات وتوكنز تحافظ على اتساق المنتج وهو يكبر.',
+      lineAr:  'مكونات وقواعد ثابتة تحافظ على شكل المنتج، وقابلة للتوسع.',
       illustration: '/mascot/noon-ds.svg',
-      href: dsCount > 0
-        ? (ar ? '/ar/work?feature=ds' : '/work?feature=ds')
-        : (ar ? '/ar/quote' : '/quote'),
-      ariaLabelEn: dsCount > 0 ? 'Design systems, see the work' : 'Design systems, get a quote',
-      ariaLabelAr: dsCount > 0 ? 'أنظمة تصميم، شاهد الأعمال' : 'أنظمة تصميم، اطلب عرض سعر',
+      href: ar ? '/ar/work?feature=ds' : '/work?feature=ds',
+      ariaLabelEn: 'Design systems, see the work',
+      ariaLabelAr: 'أنظمة تصميم، شاهد الأعمال',
+    },
+    {
+      titleEn: 'Websites & landing pages',
+      titleAr: 'مواقع وصفحات هبوط',
+      lineEn:  'Fast bilingual websites that are easy to update.',
+      lineAr:  'مواقع بلغتين، سريعة وسهلة التحديث.',
+      illustration: '/mascot/noon-site.svg',
+      href: ar ? '/ar/work?type=site' : '/work?type=site',
+      ariaLabelEn: 'Websites & landing pages, see the work',
+      ariaLabelAr: 'مواقع وصفحات هبوط، شاهد الأعمال',
+    },
+    {
+      titleEn: 'Brand identity',
+      titleAr: 'هوية بصرية',
+      lineEn:  'Logo, colours and type in Arabic and English, with a guide for using them.',
+      lineAr:  'شعار وألوان وخطوط بالعربي والإنجليزي، مع دليل لاستخدامها.',
+      illustration: '/mascot/noon-brand.svg',
+      href: ar ? '/ar/work?type=brand' : '/work?type=brand',
+      ariaLabelEn: 'Brand identity, see the work',
+      ariaLabelAr: 'هوية بصرية، شاهد الأعمال',
     },
   ];
 }

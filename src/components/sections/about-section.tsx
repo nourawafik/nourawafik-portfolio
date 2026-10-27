@@ -10,35 +10,35 @@ const COPY = {
     body: `A brand and product designer based in Cairo, with ${n}+ years of experience. I work end to end, from research and brand identity to developer-ready screens. I also know code and marketing, so the design can be built and reaches the right audience.`,
     traits: [
       {
-        title: 'Truly bilingual',
-        desc: 'Arabic designed from the start, not translated from English.',
+        title: 'Arabic and English',
+        desc: 'Arabic designed from the start, not a translation of an English interface.',
       },
       {
-        title: 'Idea to launch',
-        desc: 'Brand, UI, build and marketing in one place.',
+        title: '50+ clinics',
+        desc: 'use Praxa, a platform I helped design, in the US',
       },
       {
-        title: 'Design systems',
-        desc: 'Every project ships with a system that grows with you.',
+        title: `${n}+ years`,
+        desc: 'designing digital products and brand identities for markets in Egypt, the Gulf and the US',
       },
     ],
   },
   ar: {
     eyebrow: 'عني',
     h2Line1: 'أهلا، أنا نورا',
-    body: `مصممة هويات بصرية ومنتجات رقمية من القاهرة، بخبرة أكثر من ${n} ${n >= 11 ? 'سنة' : 'سنوات'}. أعمل على المشروع من بدايته لنهايته: من البحث والهوية البصرية حتى الواجهات الجاهزة للتطوير. ولأن لدي خبرة في البرمجة والتسويق، يخرج التصميم قابلا للتنفيذ وموجها للجمهور الصحيح.`,
+    body: `مصممة منتجات رقمية وهويات بصرية من القاهرة، بخبرة أكثر من ${n} ${n >= 11 ? 'سنة' : 'سنوات'}. أجمع بين التفكير التصميمي والخبرة التقنية وفهم التسويق لتطوير هويات بصرية وتجارب رقمية متكاملة، من البحث وتحديد الاحتياجات إلى تصميم واجهات جاهزة للتطوير. أحرص على أن يكون كل تصميم قابلا للتنفيذ، ومتسقا مع أهداف المشروع، ومصمما ليلائم جمهوره.`,
     traits: [
       {
-        title: 'بلغتين من البداية',
-        desc: 'تصميم عربي من الأساس، وليس ترجمة لتصميم إنجليزي.',
+        title: 'التصميم باللغة العربية والإنجليزية',
+        desc: 'تصميم عربي من الأساس، وليس مجرد ترجمة لواجهة إنجليزية.',
       },
       {
-        title: 'من الفكرة إلى الإطلاق',
-        desc: 'هوية وواجهات وتطوير وتسويق في مكان واحد.',
+        title: 'أكثر من 50 عيادة',
+        desc: 'تستخدم منصة Praxa التي ساهمت في تصميمها، في الولايات المتحدة.',
       },
       {
-        title: 'أنظمة تصميم',
-        desc: 'كل مشروع يخرج بنظام يكبر معك.',
+        title: 'أكثر من 6 سنوات',
+        desc: 'في تصميم المنتجات الرقمية والهويات البصرية، عبر أسواق مصر والخليج والولايات المتحدة.',
       },
     ],
   },

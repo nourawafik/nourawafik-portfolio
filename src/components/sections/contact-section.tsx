@@ -1,22 +1,19 @@
 'use client';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import NextLink from 'next/link';
 import { NoonWaveOnYellow } from '@/components/ui/noon-wave-on-yellow';
+import { CopyEmailButton } from '@/components/ui/copy-email-button';
 
 const COPY = {
   en: {
     h2: 'Got an idea? Let\'s talk.',
     body: 'Send me a few lines about your project and I\'ll reply myself.',
     cta: 'Get a quote',
-    copyEmail: 'Copy email',
-    toastCopied: 'Email copied',
   },
   ar: {
     h2: 'هل لديك فكرة؟ لنتحدث.',
     body: 'أرسل لي سطرين عن مشروعك وسأرد عليك بنفسي.',
     cta: 'اطلب عرض سعر',
-    copyEmail: 'نسخ الإيميل',
-    toastCopied: 'تم نسخ الإيميل',
   },
 } as const;
 
@@ -30,10 +27,8 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
   const t  = COPY[locale];
   const ar = locale === 'ar';
 
-  const [toastVisible, setToastVisible] = useState(false);
-  const [waving, setWaving]             = useState(false);
+  const [waving, setWaving] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /* IntersectionObserver → wave once per page view */
   useEffect(() => {
@@ -50,18 +45,6 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
-
-  /* Copy email to clipboard */
-  const copyEmail = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-      if (toastTimer.current) clearTimeout(toastTimer.current);
-      setToastVisible(true);
-      toastTimer.current = setTimeout(() => setToastVisible(false), 2000);
-    } catch {
-      window.location.href = `mailto:${EMAIL}`;
-    }
   }, []);
 
   const quoteHref = ar ? '/ar/quote' : '/quote';
@@ -105,31 +88,11 @@ export function ContactSection({ locale = 'en' }: ContactSectionProps) {
                 <span dir="ltr" className="text-body select-all">
                   {EMAIL}
                 </span>
-                <div className="relative">
-                  <button
-                    onClick={copyEmail}
-                    aria-label={t.copyEmail}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-pill border border-current/30 text-[0.8125rem] font-medium hover:border-current/60 transition-colors"
-                  >
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden>
-                      <rect x="4.5" y="4.5" width="7" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
-                      <path d="M3 8.5H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5a1 1 0 0 1 1 1v1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                    </svg>
-                    {t.copyEmail}
-                  </button>
-
-                  {/* Toast */}
-                  {toastVisible && (
-                    <span
-                      role="status"
-                      aria-live="polite"
-                      className="toast-enter absolute bottom-full start-0 mb-2 whitespace-nowrap rounded-lg px-3 py-1.5 text-[0.8125rem] font-medium shadow-md"
-                      style={{ backgroundColor: 'var(--ink-fixed)', color: 'var(--highlight)' }}
-                    >
-                      {t.toastCopied}
-                    </span>
-                  )}
-                </div>
+                <CopyEmailButton
+                  email={EMAIL}
+                  locale={locale}
+                  className="border-current/30 hover:border-current/60"
+                />
               </div>
             </div>
           </div>

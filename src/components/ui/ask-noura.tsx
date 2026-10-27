@@ -29,11 +29,11 @@ const COPY = {
     panelSubtitle: 'مساعد ذكاء اصطناعي · قد يخطئ',
     close: 'إغلاق',
     inputLabel: 'رسالتك',
-    inputPlaceholder: 'اسألني أي حاجة…',
+    inputPlaceholder: 'اسألني أي شيء…',
     send: 'إرسال',
-    typing: 'نون بتفكر',
-    welcome: 'أهلا! أنا نون — المساعد الذكاء الاصطناعي لنورا. اسأل عن خدماتها أو أعمالها أو أي حاجة تانية.',
-    chips: ['شوف أعمالها', 'اطلب عرض سعر', 'بتعمل إيه؟'],
+    typing: 'نون تفكر',
+    welcome: 'أهلا! أنا نون — المساعدة الذكية لنورا. اسأل عن خدماتها أو أعمالها أو أي شيء آخر.',
+    chips: ['شاهد أعمالها', 'اطلب عرض سعر', 'ماذا تصمم؟'],
   },
 } as const;
 
@@ -78,7 +78,7 @@ export function AskNoura({ locale = 'en' }: AskNouraProps) {
           id: `reply-${++msgCounter.current}`,
           role: 'assistant',
           text: ar
-            ? 'شكراً على سؤالك! الـ AI backend لسه بيتجهز. تواصل مع نورا على hello@nourawafik.com.'
+            ? 'شكراً على سؤالك! المساعد الذكي غير متصل بعد. تواصل مع نورا على hello@nourawafik.com.'
             : "Thanks for your message! The AI backend is not yet connected. Reach Noura directly at hello@nourawafik.com.",
         },
       ]);

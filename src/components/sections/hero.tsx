@@ -23,7 +23,7 @@ const COPY = {
   ar: {
     h1Line1: 'اجعل فكرتك',
     h1Line2: 'ترى النور',
-    sub: 'هويات بصرية ومواقع ومنتجات رقمية بالعربي والإنجليزي، للشركات الناشئة التي تبدأ والشركات التي تكبر في مصر والخليج.',
+    sub: 'منتجات رقمية ومواقع وهويات بصرية بالعربي والإنجليزي، للشركات الناشئة والشركات التي تتوسع في مصر والخليج.',
     cta: { label: 'اطلب عرض سعر', href: '/ar/quote' },
     secondary: { label: 'شاهد أعمالي', href: '/ar/work' },
     noonAlt: 'نون، شخصية العلامة، تستيقظ من الشعار ورأسها يضيء',
@@ -50,18 +50,6 @@ export function Hero({ locale = 'en' }: { locale?: keyof typeof COPY }) {
         <div className="flex flex-col gap-12 md:flex-row md:items-center md:gap-16">
           {/* Text column */}
           <div className="flex flex-col gap-6 md:flex-1 md:max-w-[560px]">
-            {/* Tags */}
-            <ul className="flex flex-wrap gap-2 list-none" role="list">
-              {tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="px-3 py-1 rounded-tag bg-accent-soft text-on-accent-soft text-small font-medium"
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
-
             {/* H1 */}
             <h1
               id="hero-heading"

@@ -49,10 +49,10 @@ export function OfferBar({ offer, locale = 'en' }: OfferBarProps) {
       </span>
       <p className="text-center">
         {text}{' '}
-        {ar ? `لحد ${endsAt}` : `until ${endsAt}`}
+        {ar ? `حتى ${endsAt}` : `until ${endsAt}`}
         {'. '}
         <a href="#services" className="font-bold underline underline-offset-2">
-          {ar ? 'اعرف أكتر' : 'Learn more'}
+          {ar ? 'اعرف أكثر' : 'Learn more'}
         </a>
       </p>
       <button

@@ -7,7 +7,7 @@ import { NextProjectCard } from '@/components/ui/next-project-card';
 export const metadata: Metadata = {
   title: 'Duet: دراسة حالة، نورا وفيق',
   description:
-    'منصة توظيف بالذكاء الاصطناعي لطرفين: Tempo للمسؤول عن التوظيف بتفسيرات يقدر يدافع عنها، وLyric للمتقدم بمساعدة في اللحظات الصعبة.',
+    'منصة توظيف تقدم مساعد ذكاء اصطناعي لكل طرف: Tempo لمسؤول التوظيف بقرارات يستطيع الدفاع عنها، وLyric للمتقدم بمساعدة في اللحظات الصعبة.',
   alternates: {
     canonical: 'https://nourawafik.com/ar/work/duet',
     languages: {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Duet: دراسة حالة، نورا وفيق',
     description:
-      'منصة توظيف كل طرف فيها ليه مساعد ذكاء اصطناعي خاص بيه: Tempo للمسؤول وLyric للمتقدم، على الويب والموبايل.',
+      'منصة توظيف تقدم مساعد ذكاء اصطناعي مخصصا لكل طرف: Tempo لمسؤول التوظيف، وLyric للمتقدم، على الويب والجوال.',
     type: 'article',
     authors: ['Noura Wafik'],
     url: 'https://nourawafik.com/ar/work/duet',
@@ -51,18 +51,17 @@ export default function ArDuetPage() {
             Duet
           </h1>
           <p className="text-[1.125rem] leading-[1.8] text-foreground-muted">
-            منصة توظيف كل طرف فيها ليه مساعد ذكاء اصطناعي خاص بيه: Tempo للمسؤول عن التوظيف، وLyric للمتقدم. اشتغلت على المنتج ضمن فريق التصميم، على الويب والموبايل، في أنماط التعامل مع الذكاء الاصطناعي ونظام التصميم.
+            منصة توظيف تقدم مساعد ذكاء اصطناعي مخصصا لكل طرف: Tempo لمسؤول التوظيف، وLyric للمتقدم. ساهمت ضمن فريق التصميم في تطوير التجربة على الويب والجوال، وتصميم تفاعلات الذكاء الاصطناعي ونظام التصميم.
           </p>
         </div>
       </Container>
 
       {/* ── Meta row ── */}
       <Container className="pb-12 md:pb-16">
-        <dl className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <dl className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {[
-            { label: 'دوري', value: 'مصممة منتج، فريق التصميم' },
-            { label: 'المنصة', value: 'ويب + موبايل' },
-            { label: 'الحالة', value: 'شغال' },
+            { label: 'دوري', value: 'مصممة منتج ضمن فريق التصميم' },
+            { label: 'المنصة', value: 'ويب وجوال · مستخدمة حاليا' },
           ].map(({ label, value }) => (
             <div key={label} className="border-t-2 border-foreground pt-3">
               <dt className="text-[0.8125rem] text-foreground-muted mb-1">{label}</dt>
@@ -104,7 +103,7 @@ export default function ArDuetPage() {
             <rect x="2" y="6" width="10" height="7" rx="1.5" />
             <path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
           </svg>
-          <span>الأسماء والتفاصيل وبيانات الشركة متغيرة، وكل الشاشات هنا اتعاد رسمها لدراسة الحالة دي. الشغل الأصلي تحت NDA.</span>
+          <span>تم تغيير الأسماء وبيانات الشركة، وأعيد رسم الشاشات لدراسة الحالة هذه. العمل الأصلي محمي باتفاقية سرية.</span>
         </aside>
       </Container>
 
@@ -115,7 +114,7 @@ export default function ArDuetPage() {
             المشكلة
           </h2>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            أغلب أدوات التوظيف بالذكاء الاصطناعي بتدي المتقدم درجة وخلاص. المسؤول عن التوظيف بياخد رقم مش عارف يشرحه لمديره، والمتقدم مش بيوصله أي رد. Duet بيدي كل طرف مساعد مصمم لشغله هو، والصعب إن الطرفين مش دايما عايزين نفس الحاجة.
+            أغلب أدوات التوظيف بالذكاء الاصطناعي تعطي المتقدم درجة وتكتفي بذلك. يحصل مسؤول التوظيف على رقم لا يستطيع شرحه لمديره، ولا يصل المتقدم أي رد. يعطي Duet كل طرف مساعدا مصمما لعمله، والصعوبة أن الطرفين لا يريدان الشيء نفسه دائما.
           </p>
         </div>
       </Container>
@@ -123,7 +122,7 @@ export default function ArDuetPage() {
       {/* ── Tempo section ── */}
       <Container className="mb-4 md:mb-6">
         <h2 className="text-[1.75rem] font-medium leading-[1.3] tracking-[-0.02em] text-foreground md:text-[2rem]">
-          Tempo للمسؤول عن التوظيف: قرارات يقدر يدافع عنها
+          Tempo لمسؤول التوظيف: قرارات يستطيع الدفاع عنها
         </h2>
       </Container>
 
@@ -131,9 +130,9 @@ export default function ArDuetPage() {
       <Container className="mb-8">
         <div className="border-s-2 border-accent ps-6">
           <p className="text-[0.75rem] text-foreground-muted mb-1">01</p>
-          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">مفيش درجة بدون أسباب</h3>
+          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">لا درجة بدون أسباب</h3>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            Tempo مش بيعرض درجة لوحدها أبدا. أهم الأسباب جنبها في نفس الشاشة، مش مستخبية، فالمسؤول دايما يقدر يقول ليه.
+            لا يعرض Tempo الدرجة وحدها أبدا. أهم الأسباب بجانبها في الشاشة نفسها، فيستطيع المسؤول دائما أن يشرح السبب.
           </p>
         </div>
       </Container>
@@ -148,7 +147,7 @@ export default function ArDuetPage() {
             loop
             playsInline
             preload="metadata"
-            aria-label="الدرجة مش بتوصل لوحدها: الأسباب جياها"
+            aria-label="الدرجة لا تظهر وحدها، الأسباب تأتي معها"
             className="w-full rounded-[14px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:hidden"
           />
           <video
@@ -159,10 +158,10 @@ export default function ArDuetPage() {
             loop
             playsInline
             preload="metadata"
-            aria-label="الدرجة مش بتوصل لوحدها: الأسباب جياها"
+            aria-label="الدرجة لا تظهر وحدها، الأسباب تأتي معها"
             className="w-full rounded-[14px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.25)] hidden dark:block"
           />
-          <figcaption className="mt-2 text-[0.8125rem] text-foreground-muted text-center">الدرجة مش بتوصل لوحدها: الأسباب جياها</figcaption>
+          <figcaption className="mt-2 text-[0.8125rem] text-foreground-muted text-center">الدرجة لا تظهر وحدها، الأسباب تأتي معها</figcaption>
         </figure>
       </Container>
 
@@ -170,9 +169,9 @@ export default function ArDuetPage() {
       <Container className="mb-8">
         <div className="border-s-2 border-accent ps-6">
           <p className="text-[0.75rem] text-foreground-muted mb-1">02</p>
-          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">لغة المسؤول، مش لغة الموديل</h3>
+          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">لغة مسؤول التوظيف، لا لغة النظام</h3>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            الأسباب مكتوبة بلغة المسؤول عن التوظيف: &quot;5 من 7 مهارات مطلوبة&quot;، &quot;7 سنين في المدفوعات&quot;. ويقدر ينسخها على طول في تحديث لمديره.
+            الأسباب مكتوبة كما يتحدث مسؤولو التوظيف: &quot;5 من 7 مهارات مطلوبة&quot;، &quot;7 سنوات في مجال المدفوعات&quot;. ويستطيع نسخها مباشرة في تحديث لمديره.
           </p>
         </div>
       </Container>
@@ -181,9 +180,9 @@ export default function ArDuetPage() {
       <Container className="mb-8">
         <div className="border-s-2 border-accent ps-6">
           <p className="text-[0.75rem] text-foreground-muted mb-1">03</p>
-          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">الاعتراض جزء من الشغل</h3>
+          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">الاعتراض جزء من العمل</h3>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            المسؤول يقدر يوافق أو يعترض على أي اقتراح، ومعاه السبب، في ثواني. كل قرار بيتسجل، والاعتراض بيتعامل كجزء طبيعي من الشغل، مش غلطة.
+            يستطيع المسؤول أن يوافق أو يعترض على أي اقتراح مع ذكر السبب، وكل قرار يسجل. الاعتراض جزء طبيعي من العمل، وليس خطأ.
           </p>
         </div>
       </Container>
@@ -191,8 +190,8 @@ export default function ArDuetPage() {
       <Container className="mb-16 md:mb-24">
         <div className="grid md:grid-cols-2 gap-4">
           {[
-            { src: '/work/duet/tempo-review.png', srcDark: '/work/duet/tempo-review-dark.png', alt: 'Tempo: الدرجة والأسباب في شاشة واحدة', caption: 'الدرجة والأسباب في شاشة واحدة، بلغة المسؤول' },
-            { src: '/work/duet/tempo-disagree.png', srcDark: '/work/duet/tempo-disagree-dark.png', alt: 'Tempo: الاعتراض على اقتراح الذكاء الاصطناعي', caption: 'الاعتراض بأسبابه يتسجل في الأرشيف' },
+            { src: '/work/duet/tempo-review.png', srcDark: '/work/duet/tempo-review-dark.png', alt: 'Tempo: الدرجة والأسباب في شاشة واحدة', caption: 'الدرجة والأسباب في شاشة واحدة' },
+            { src: '/work/duet/tempo-disagree.png', srcDark: '/work/duet/tempo-disagree-dark.png', alt: 'Tempo: الاعتراض على اقتراح الذكاء الاصطناعي', caption: 'الاعتراض وسببه يحفظ في السجل' },
           ].map(({ src, srcDark, alt, caption }) => (
             <figure key={src} className="m-0">
               <div className="overflow-hidden rounded-[14px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_12px_rgba(0,0,0,0.25)]">
@@ -214,7 +213,7 @@ export default function ArDuetPage() {
 
       <Container className="mb-8">
         <p className="text-[1rem] leading-[1.8] text-foreground-muted max-w-[720px]">
-          المسؤول عن التوظيف بيستخدم Tempo طول اليوم ومحتاج معلومات كتير في مساحة صغيرة. المتقدم بيفتح Lyric في لحظات متوترة (وهو بيقدم، أو مستني، أو اترفض)، فـ Lyric محتاج يكون واضح وهادي.
+          يستخدم مسؤول التوظيف Tempo طول اليوم ويحتاج معلومات كثيرة في مساحة صغيرة. أما المتقدم فيفتح Lyric في لحظات متوترة: عند التقديم، أو الانتظار، أو بعد الرفض. لذلك يحتاج Lyric أن يكون واضحا وهادئا.
         </p>
       </Container>
 
@@ -222,9 +221,9 @@ export default function ArDuetPage() {
       <Container className="mb-8">
         <div className="border-s-2 border-accent ps-6">
           <p className="text-[0.75rem] text-foreground-muted mb-1">01</p>
-          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">بعد الرفض، نبص للأمام</h3>
+          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">بعد الرفض، ننظر للأمام</h3>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            الرفض بيوصل كإشعار رسمي. دور Lyric بعدها إنه يوري وظايف أنسب، مش إنه يعيد الخبر الوحش.
+            يصل الرفض كإشعار رسمي. ودور Lyric بعده أن يعرض وظائف أنسب، لا أن يكرر الخبر السيئ.
           </p>
         </div>
       </Container>
@@ -233,9 +232,9 @@ export default function ArDuetPage() {
       <Container className="mb-8">
         <div className="border-s-2 border-accent ps-6">
           <p className="text-[0.75rem] text-foreground-muted mb-1">02</p>
-          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">اقتراحات، مش انتقاد</h3>
+          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">اقتراحات، لا انتقاد</h3>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            Lyric مش بيقول &quot;السي في بتاعك ضعيف&quot;. بيقول أصحاب الوظايف دي بيدوروا على إيه، ويسأل المتقدم لو عايز يضيفه. والمتقدم هو اللي بيقرر.
+            لا يقول Lyric &quot;سيرتك الذاتية ضعيفة&quot;، بل يوضح ما يبحث عنه أصحاب هذه الوظائف، ويسأل المتقدم إن كان يريد إضافته. والقرار للمتقدم.
           </p>
         </div>
       </Container>
@@ -244,9 +243,9 @@ export default function ArDuetPage() {
       <Container className="mb-8">
         <div className="border-s-2 border-accent ps-6">
           <p className="text-[0.75rem] text-foreground-muted mb-1">03</p>
-          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">تحضير للوظيفة دي، مش تمبليت</h3>
+          <h3 className="text-[1.125rem] font-semibold text-foreground mb-3">تحضير لهذه الوظيفة، لا قالب جاهز</h3>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            التحضير للمقابلة متعمل من الوظيفة والشركة نفسها، فبيبان كأنه مساعدة من حد فاهم الموقف.
+            التحضير للمقابلة مبني على الوظيفة والشركة نفسها، فيبدو كمساعدة من شخص يفهم الموقف.
           </p>
         </div>
       </Container>
@@ -260,9 +259,9 @@ export default function ArDuetPage() {
           ].join(' ')}
         >
           {[
-            { src: '/work/duet/lyric-roles.png', srcDark: '/work/duet/lyric-roles-dark.png', alt: 'Lyric: وظايف مشابهة بعد الرفض', caption: 'بعد الرفض، Lyric بيبص للأمام' },
-            { src: '/work/duet/lyric-profile.png', srcDark: '/work/duet/lyric-profile-dark.png', alt: 'Lyric: اقتراحات لتحسين البروفايل', caption: 'اقتراحات، مش انتقاد' },
-            { src: '/work/duet/lyric-prep.png', srcDark: '/work/duet/lyric-prep-dark.png', alt: 'Lyric: تحضير مقابلة مخصص للوظيفة', caption: 'تحضير مبني من الوظيفة دي، مش تمبليت' },
+            { src: '/work/duet/lyric-roles.png', srcDark: '/work/duet/lyric-roles-dark.png', alt: 'Lyric: وظائف أنسب بعد الرفض', caption: 'وظائف أنسب بعد الرفض' },
+            { src: '/work/duet/lyric-profile.png', srcDark: '/work/duet/lyric-profile-dark.png', alt: 'Lyric: اقتراحات لتحسين الملف', caption: 'اقتراحات لتحسين الملف' },
+            { src: '/work/duet/lyric-prep.png', srcDark: '/work/duet/lyric-prep-dark.png', alt: 'Lyric: تحضير مقابلة مبني على الوظيفة', caption: 'تحضير للمقابلة مبني على الوظيفة' },
           ].map(({ src, srcDark, alt, caption }) => (
             <figure
               key={src}
@@ -288,7 +287,7 @@ export default function ArDuetPage() {
             نظام تصميم واحد بصوتين
           </h2>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted max-w-[720px]">
-            Tempo وLyric كان لازم كل واحد فيهم يحسسه مستخدمه إنه مختلف، بس يطلعوا من نظام تصميم واحد. الأساس مشترك: نفس المكونات والتوكنز وقواعد الإتاحة. وفوقه كل مساعد ليه صوته: اللون، وكثافة المعلومات، والحركة، وطريقة كتابة الذكاء الاصطناعي. وأي مكون جديد بيتضاف مرة واحدة، بشكل لـ Tempo وشكل لـ Lyric.
+            كان لازما أن يشعر مستخدم كل مساعد بأنه مختلف، مع أن الاثنين مبنيان على نظام تصميم واحد. الأساس مشترك: المكونات وقواعد الإتاحة نفسها. ولكل مساعد صوته الخاص: اللون، وكثافة المعلومات، والحركة، وأسلوب الكتابة.
           </p>
         </div>
         <figure className="m-0">
@@ -296,21 +295,21 @@ export default function ArDuetPage() {
             <Image src="/work/duet/two-voices.png" alt="نظام التصميم: نفس المكونات بمعالجتين للون" width={2050} height={1000} style={{ width: '100%', height: 'auto' }} className="block dark:hidden" sizes="(max-width: 768px) 100vw, 900px" />
             <Image src="/work/duet/two-voices-dark.png" alt="نظام التصميم: نفس المكونات بمعالجتين للون" width={2050} height={1000} style={{ width: '100%', height: 'auto' }} className="hidden dark:block" sizes="(max-width: 768px) 100vw, 900px" />
           </div>
-          <figcaption className="mt-2 text-[0.8125rem] text-foreground-muted text-center">نفس المكونات، صوتين</figcaption>
+          <figcaption className="mt-2 text-[0.8125rem] text-foreground-muted text-center">المكونات نفسها، بصوتين</figcaption>
         </figure>
       </Container>
 
       {/* ── What I learned ── */}
       <Container className="mb-4 md:mb-6">
         <h2 className="text-[1.75rem] font-medium leading-[1.3] tracking-[-0.02em] text-foreground md:text-[2rem]">
-          اللي اتعلمته
+          ما تعلمته
         </h2>
       </Container>
 
       {[
-        { n: '01', title: 'ناتج الذكاء الاصطناعي هو ناتج التصميم', text: 'أصعب القرارات مكانتش شاشات، كانت الذكاء الاصطناعي هيقول إيه، وإمتى يسكت، وإيه اللي يظهر الأول.' },
-        { n: '02', title: 'طرفين يعني تصميم للتوتر', text: 'المسؤول والمتقدم ساعات بيبقوا على طرفين عكس بعض في نفس القرار. التصميم بأمانة للاتنين معناه إنك تقبل التوتر ده، مش إنك تخبيه.' },
-        { n: '03', title: 'وايرفريمات البيزنس بداية كويسة', text: 'بدأنا من وايرفريمز عملها فريق البيزنس. مكانتش تصميم، كانت تفكير في المنتج على ورق، ووفرت أسابيع من الاتفاق. والشغل كان تحويل المنطق ده لنظام يتنفذ.' },
+        { n: '01', title: 'كلام الذكاء الاصطناعي جزء من التصميم', text: 'أصعب القرارات لم تكن الشاشات، بل ماذا يقول الذكاء الاصطناعي، ومتى يصمت، وماذا يظهر أولا.' },
+        { n: '02', title: 'طرفان مختلفان في منتج واحد', text: 'أحيانا يريد مسؤول التوظيف والمتقدم عكس بعضهما. التصميم الصادق مع الطرفين يعترف بهذا الاختلاف ولا يخفيه.' },
+        { n: '03', title: 'مخططات فريق الأعمال بداية جيدة', text: 'بدأنا من مخططات أولية أعدها فريق الأعمال. لم تكن تصميما، بل تفكيرا في المنتج على الورق، ووفرت أسابيع من النقاش. وكان عملنا تحويلها إلى نظام قابل للتنفيذ.' },
       ].map(({ n, title, text }) => (
         <Container key={n} className="mb-8">
           <div className="border-s-2 border-accent ps-6">
@@ -320,18 +319,6 @@ export default function ArDuetPage() {
           </div>
         </Container>
       ))}
-
-      {/* ── Status ── */}
-      <Container className="mb-16 md:mb-24">
-        <div className="grid md:grid-cols-[240px_1fr] gap-8 md:gap-16 items-start">
-          <h2 className="text-[1.75rem] font-medium leading-[1.3] tracking-[-0.02em] text-foreground md:text-[2rem]">
-            الحالة
-          </h2>
-          <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            شغال على الويب والموبايل. تفاصيل الشركة وطريقة بناء الذكاء الاصطناعي سرية، وأقدر أشرح الشغل في مقابلة.
-          </p>
-        </div>
-      </Container>
 
       {/* ── Next project card ── */}
       <Container className="mb-16 md:mb-24">

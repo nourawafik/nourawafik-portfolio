@@ -4,6 +4,8 @@ import { useState, useEffect, useRef, useCallback, useId } from 'react';
 import { useSearchParams } from 'next/navigation';
 import NextLink from 'next/link';
 import Image from 'next/image';
+import Script from 'next/script';
+import { CopyEmailButton } from '@/components/ui/copy-email-button';
 
 /* ─── Copy ──────────────────────────────────────────────────── */
 const COPY = {
@@ -70,6 +72,7 @@ const COPY = {
       nameEmpty: 'Enter your name',
       emailInvalid: 'Enter an email like name@company.com',
       noService: 'Choose at least one',
+      phoneInvalid: 'Enter a phone number with digits only, e.g. +20 10 0000 0000',
     },
 
     errorBanner: 'Your request couldn\'t be sent. Please email me at hello@nourawafik.com.',
@@ -145,6 +148,7 @@ const COPY = {
       nameEmpty: 'اكتب اسمك',
       emailInvalid: 'اكتب إيميل صحيح، مثل name@company.com',
       noService: 'اختر خدمة واحدة على الأقل',
+      phoneInvalid: 'اكتب رقما صحيحا بالأرقام فقط، مثل +20 10 0000 0000',
     },
 
     errorBanner: 'تعذر إرسال الطلب. راسلني مباشرة على hello@nourawafik.com.',
@@ -214,11 +218,11 @@ export function QuoteForm({ locale }: QuoteFormProps) {
   const [honeypot, setHoneypot] = useState('');
 
   /* ── UI state ── */
-  const [touched,     setTouched]     = useState<Record<string, boolean>>({});
-  const [submitting,  setSubmitting]  = useState(false);
-  const [submitted,   setSubmitted]   = useState(false);
-  const [sendError,   setSendError]   = useState(false);
-  const [emailCopied, setEmailCopied] = useState(false);
+  const [touched,        setTouched]        = useState<Record<string, boolean>>({});
+  const [submitting,     setSubmitting]     = useState(false);
+  const [submitted,      setSubmitted]      = useState(false);
+  const [sendError,      setSendError]      = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
 
   /* ── URL pre-fill ── */
   useEffect(() => {
@@ -230,12 +234,24 @@ export function QuoteForm({ locale }: QuoteFormProps) {
     if (nts) setNotes(nts);
   }, [searchParams, t.serviceOptions]);
 
+  /* ── Phone sanitizer / validator ── */
+  const sanitizePhone = (raw: string) => raw.replace(/[^\d+\s]/g, '');
+  const phoneDigits = (raw: string) => raw.replace(/[\s+]/g, '').replace(/\D/g, '');
+  const phoneError = (() => {
+    if (!phone.trim()) return '';
+    const cleaned = phone.trim();
+    if (!/^[+\d][\d\s]*$/.test(cleaned)) return t.errors.phoneInvalid;
+    const digits = phoneDigits(cleaned);
+    if (digits.length < 7 || digits.length > 15) return t.errors.phoneInvalid;
+    return '';
+  })();
+
   /* ── Validation ── */
   const nameError  = name.trim() === '' ? t.errors.nameEmpty : '';
   const emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) ? t.errors.emailInvalid : '';
   const svcError   = services.length === 0 ? t.errors.noService : '';
 
-  const isValid = !nameError && !emailError && !svcError;
+  const isValid = !nameError && !emailError && !svcError && !phoneError;
 
   /* ── Service toggle ── */
   const toggleService = (val: string) => {
@@ -248,16 +264,6 @@ export function QuoteForm({ locale }: QuoteFormProps) {
   /* ── Blur handler ── */
   const blur = (field: string) => setTouched(t => ({ ...t, [field]: true }));
 
-  /* ── Copy email ── */
-  const copyEmail = useCallback(async () => {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-      setEmailCopied(true);
-      setTimeout(() => setEmailCopied(false), 2000);
-    } catch {
-      /* ignore */
-    }
-  }, []);
 
   /* ── Submit ── */
   const handleSubmit = async (e: React.FormEvent) => {
@@ -282,7 +288,7 @@ export function QuoteForm({ locale }: QuoteFormProps) {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, services, company, language, start, budget, notes, locale }),
+        body: JSON.stringify({ name, email, phone, services, company, language, start, budget, notes, locale, turnstileToken }),
       });
       if (!res.ok) throw new Error('send failed');
       setSubmitted(true);
@@ -297,6 +303,16 @@ export function QuoteForm({ locale }: QuoteFormProps) {
   useEffect(() => {
     if (submitted) successRef.current?.focus();
   }, [submitted]);
+
+  /* Capture Turnstile token */
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const token = (e as CustomEvent<string>).detail;
+      setTurnstileToken(token);
+    };
+    document.addEventListener('turnstile:success', handler);
+    return () => document.removeEventListener('turnstile:success', handler);
+  }, []);
 
   /* ── Error color CSS var ── */
   const errorColor = 'var(--color-error, #C23B3B)';
@@ -351,86 +367,71 @@ export function QuoteForm({ locale }: QuoteFormProps) {
   }
 
   /* ─── Info column (shared between desktop start + mobile bottom) ── */
-  function StepsBlock() {
-    return (
-      <div className="flex flex-col gap-6">
-        {/* Noon tile */}
-        <div
-          className="flex items-center justify-center rounded-[24px] h-[160px]"
-          style={{ backgroundColor: '#E6F4F3' }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/mascot/noon-point.svg" alt="" width={100} height={100} aria-hidden />
-        </div>
-
-        {/* Steps */}
-        <div className="flex flex-col gap-4">
-          <p className="text-[0.875rem] font-semibold text-foreground-muted uppercase tracking-[0.06em]">
-            {t.stepsTitle}
-          </p>
-          <ol className="flex flex-col gap-3 list-none">
-            {t.steps.map((step, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span
-                  className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[0.75rem] font-bold text-[var(--ink-fixed)]"
-                  style={{ backgroundColor: 'var(--highlight)' }}
-                >
-                  {i + 1}
-                </span>
-                <span className={`text-[0.9375rem] text-foreground-muted ${ar ? 'leading-[1.7]' : 'leading-[1.55]'}`}>
-                  {step}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
-
-        {/* Email line */}
-        <div className="flex items-center gap-3 flex-wrap">
-          <span className="text-[0.875rem] text-foreground-muted">{t.emailLine}</span>
-          <a
-            href={`mailto:${EMAIL}`}
-            dir="ltr"
-            className="text-[0.875rem] text-foreground underline underline-offset-4 hover:text-accent transition-colors"
-          >
-            {EMAIL}
-          </a>
-          <button
-            type="button"
-            onClick={copyEmail}
-            className="text-[0.8125rem] font-medium text-foreground-muted hover:text-foreground transition-colors border border-border rounded-pill px-3 py-1"
-          >
-            {emailCopied ? t.emailCopied : t.copyEmail}
-          </button>
-        </div>
+  const stepsBlock = (
+    <div className="flex flex-col gap-6">
+      {/* Noon tile */}
+      <div
+        className="flex items-center justify-center rounded-[24px] h-[160px]"
+        style={{ backgroundColor: '#E6F4F3' }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/mascot/noon-point.svg" alt="" width={100} height={100} aria-hidden />
       </div>
-    );
-  }
+
+      {/* Steps */}
+      <div className="flex flex-col gap-4">
+        <p className="text-[0.875rem] font-semibold text-foreground-muted uppercase tracking-[0.06em]">
+          {t.stepsTitle}
+        </p>
+        <ol className="flex flex-col gap-3 list-none">
+          {t.steps.map((step, i) => (
+            <li key={i} className="flex items-start gap-3">
+              <span
+                className="shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-[0.75rem] font-bold text-[var(--ink-fixed)]"
+                style={{ backgroundColor: 'var(--highlight)' }}
+              >
+                {i + 1}
+              </span>
+              <span className={`text-[0.9375rem] text-foreground-muted ${ar ? 'leading-[1.7]' : 'leading-[1.55]'}`}>
+                {step}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+      {/* Email line */}
+      <div className="flex items-center gap-3 flex-wrap">
+        <span className="text-[0.875rem] text-foreground-muted">{t.emailLine}</span>
+        <a
+          href={`mailto:${EMAIL}`}
+          dir="ltr"
+          className="text-[0.875rem] text-foreground underline underline-offset-4 hover:text-accent transition-colors"
+        >
+          {EMAIL}
+        </a>
+        <CopyEmailButton email={EMAIL} locale={locale} />
+      </div>
+    </div>
+  );
 
   /* ─── Form card ──────────────────────────────────────────────── */
-  function FormCard() {
-    return (
-      <div className="rounded-[28px] border border-line p-[22px] md:p-9">
-        {/* Send error banner */}
-        {sendError && (
-          <div
-            role="alert"
-            className="flex items-start gap-3 mb-6 p-4 rounded-[14px] text-[0.875rem]"
-            style={{ backgroundColor: `${errorColor}18`, color: errorColor, border: `1px solid ${errorColor}40` }}
-          >
-            <ErrorIcon />
-            <div className="flex-1">
-              {t.errorBanner}
-              <button
-                type="button"
-                onClick={copyEmail}
-                className="ms-2 font-medium underline underline-offset-3 hover:opacity-80 transition-opacity"
-              >
-                {t.copyEmail}
-              </button>
-            </div>
+  const formCard = (
+    <div className="rounded-[28px] border border-line p-[22px] md:p-9">
+      {/* Send error banner */}
+      {sendError && (
+        <div
+          role="alert"
+          className="flex items-start gap-3 mb-6 p-4 rounded-[14px] text-[0.875rem]"
+          style={{ backgroundColor: `${errorColor}18`, color: errorColor, border: `1px solid ${errorColor}40` }}
+        >
+          <ErrorIcon />
+          <div className="flex-1 flex flex-wrap items-center gap-2">
+            {t.errorBanner}
+            <CopyEmailButton email={EMAIL} locale={locale} className="ms-1" />
           </div>
-        )}
+        </div>
+      )}
 
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
           {/* Honeypot */}
@@ -500,12 +501,25 @@ export function QuoteForm({ locale }: QuoteFormProps) {
               id={phoneId}
               type="tel"
               autoComplete="tel"
+              inputMode="tel"
               dir="ltr"
               placeholder={t.labels.phonePlaceholder}
               value={phone}
-              onChange={e => setPhone(e.target.value)}
+              onChange={e => setPhone(sanitizePhone(e.target.value))}
+              onPaste={e => {
+                e.preventDefault();
+                setPhone(sanitizePhone(e.clipboardData.getData('text')));
+              }}
+              onBlur={() => blur('phone')}
+              aria-invalid={!!(touched.phone && phoneError)}
+              aria-describedby={touched.phone && phoneError ? `${phoneId}-err` : undefined}
               className={`${inputClass} ${ar ? 'text-end' : ''} ${phone ? inputFilledClass : ''}`}
             />
+            {touched.phone && phoneError && (
+              <p id={`${phoneId}-err`} role="alert" className={errorClass} style={{ color: errorColor }}>
+                <ErrorIcon />{phoneError}
+              </p>
+            )}
           </div>
 
           {/* Services */}
@@ -654,13 +668,35 @@ export function QuoteForm({ locale }: QuoteFormProps) {
               id={notesId}
               placeholder={t.labels.notesPlaceholder}
               value={notes}
+              maxLength={2000}
               onChange={e => setNotes(e.target.value)}
               className={`${textareaClass} ${notes ? 'border-ink' : ''}`}
             />
+            {notes.length > 1500 && (
+              <p className="text-[0.8125rem] text-foreground-muted text-end" aria-live="polite">
+                {notes.length} / 2000
+              </p>
+            )}
           </div>
 
-          {/* Turnstile placeholder — B2: add widget here */}
-          {/* <div id="turnstile-widget" className="mt-2" /> */}
+          {/* Turnstile */}
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            strategy="afterInteractive"
+            async
+            defer
+          />
+          <Script id="turnstile-cb" strategy="afterInteractive">{`
+            window.onTurnstileSuccess = function(token) {
+              document.dispatchEvent(new CustomEvent('turnstile:success', { detail: token }));
+            };
+          `}</Script>
+          <div
+            className="cf-turnstile"
+            data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+            data-language={locale}
+            data-callback="onTurnstileSuccess"
+          />
 
           {/* Submit */}
           <div className="flex flex-col gap-3 mt-2">
@@ -687,9 +723,8 @@ export function QuoteForm({ locale }: QuoteFormProps) {
             </p>
           </div>
         </form>
-      </div>
-    );
-  }
+    </div>
+  );
 
   /* ─── Page layout ─────────────────────────────────────────────── */
   return (
@@ -713,17 +748,17 @@ export function QuoteForm({ locale }: QuoteFormProps) {
         <div className="hidden md:grid gap-12" style={{ gridTemplateColumns: '5fr 7fr' }}>
           {/* Info column — sticky */}
           <div className="self-start sticky" style={{ top: '120px' }}>
-            <StepsBlock />
+            {stepsBlock}
           </div>
 
           {/* Form card */}
-          <FormCard />
+          {formCard}
         </div>
 
         {/* Mobile: form first, then steps */}
         <div className="md:hidden flex flex-col gap-10">
-          <FormCard />
-          <StepsBlock />
+          {formCard}
+          {stepsBlock}
         </div>
       </div>
     </div>

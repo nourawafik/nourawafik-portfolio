@@ -8,7 +8,7 @@ import { ArrowIcon } from '@/components/ui/arrow-icon';
 export const metadata: Metadata = {
   title: 'ألفة: دراسة حالة، نورا وفيق',
   description:
-    'تصميم تطبيق موبايل بالعربي والإنجليزي لجلسات الصحة النفسية في مجموعات صغيرة: تطبيق المشارك، والجلسات اللايف، واستوديو الميسر، ونظام تصميم.',
+    'تصميم تطبيق جوال بالعربي والإنجليزي لجلسات الصحة النفسية في مجموعات صغيرة: تطبيق المشارك، والجلسات المباشرة، واستوديو الميسر، ونظام التصميم.',
   alternates: {
     canonical: 'https://nourawafik.com/ar/work/ulfa',
     languages: {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ألفة: دراسة حالة، نورا وفيق',
     description:
-      'تصميم تطبيق موبايل بالعربي والإنجليزي لجلسات الصحة النفسية في مجموعات صغيرة.',
+      'تصميم تطبيق جوال بالعربي والإنجليزي لجلسات الصحة النفسية في مجموعات صغيرة.',
     type: 'article',
     authors: ['Noura Wafik'],
     url: 'https://nourawafik.com/ar/work/ulfa',
@@ -30,18 +30,18 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   {
     n: '1',
-    title: 'هادي ومقروء',
-    text: 'ألوان هادية، وتباين فوق AA في الفاتح والغامق.',
+    title: 'هادئ وسهل القراءة',
+    text: 'ألوان هادئة، وتباين يتجاوز معيار AA في الوضعين الفاتح والداكن.',
   },
   {
     n: '2',
-    title: 'بلغتين من الأول',
-    text: 'كل شاشة متصممة بالعربي والإنجليزي، مش مترجمة بعدين.',
+    title: 'بلغتين من البداية',
+    text: 'كل شاشة مصممة بالعربي والإنجليزي، وليست مترجمة لاحقا.',
   },
   {
     n: '3',
     title: 'الموافقة قبل الدخول',
-    text: 'القواعد والخصوصية بتتقري قبل الجلسة، مش جواها.',
+    text: 'تقرأ القواعد وسياسة الخصوصية قبل الجلسة، لا أثناءها.',
   },
 ];
 
@@ -52,15 +52,15 @@ const STUDIES = [
     thumb: '/work/ulfa/ulfa-thumb.png',
     thumbDark: '/work/ulfa/ulfa-thumb-dark.png',
     title: 'تطبيق المشارك',
-    line: 'من الاستكشاف للانضمام لحد جلساتي.',
+    line: 'من الاستكشاف والانضمام حتى صفحة جلساتي.',
   },
   {
     n: '02',
     slug: 'live-session',
     thumb: '/work/ulfa/ulfa-thumb-live.png',
     thumbDark: '/work/ulfa/ulfa-thumb-live-dark.png',
-    title: 'الجلسة اللايف',
-    line: 'من غرفة الانتظار لحد بعد الجلسة.',
+    title: 'الجلسة المباشرة',
+    line: 'من غرفة الانتظار حتى ما بعد الجلسة.',
   },
   {
     n: '03',
@@ -68,7 +68,7 @@ const STUDIES = [
     thumb: '/work/ulfa/ulfa-thumb-studio.png',
     thumbDark: '/work/ulfa/ulfa-thumb-studio-dark.png',
     title: 'استوديو الميسر',
-    line: 'التقويم، والورشة، والمحفظة، والتحويل.',
+    line: 'التقويم، وإدارة الجلسات، والمحفظة، وتحويل الأرباح.',
   },
   {
     n: '04',
@@ -76,7 +76,7 @@ const STUDIES = [
     thumb: '/work/ulfa/ulfa-thumb-ds.png',
     thumbDark: '/work/ulfa/ulfa-thumb-ds-dark.png',
     title: 'نظام التصميم',
-    line: '4 ألوان في الفاتح والغامق.',
+    line: '4 ألوان في الوضعين الفاتح والداكن.',
   },
 ];
 
@@ -105,17 +105,18 @@ export default function ArUlfaHubPage() {
             ألفة
           </h1>
           <p className="text-[1.125rem] leading-[1.8] text-foreground-muted">
-            تطبيق موبايل بالعربي والإنجليزي، بيجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.
+            تطبيق جوال بالعربي والإنجليزي، يجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.
           </p>
         </div>
       </Container>
 
       {/* ── Meta row ── */}
       <Container className="pb-12 md:pb-16">
-        <dl className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <dl className="grid grid-cols-1 gap-6 sm:grid-cols-4">
           {[
-            { label: 'دوري', value: 'تصميم المنتج وإدارته' },
-            { label: 'المنصة', value: 'تطبيق موبايل · عربي وإنجليزي' },
+            { label: 'دوري', value: 'تصميم المنتج' },
+            { label: 'المنصة', value: 'تطبيق جوال' },
+            { label: 'اللغات', value: 'عربي وإنجليزي' },
             { label: 'النطاق', value: 'رحلة المشارك ورحلة الميسر' },
           ].map(({ label, value }) => (
             <div key={label} className="border-t-2 border-foreground pt-3">
@@ -158,7 +159,7 @@ export default function ArUlfaHubPage() {
             <rect x="2" y="6" width="10" height="7" rx="1.5" />
             <path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
           </svg>
-          <span>الاسم والتفاصيل متغيرة، وكل الشاشات هنا اتعاد رسمها لدراسة الحالة دي.</span>
+          <span>تم تغيير الاسم والتفاصيل، وأعيد رسم الشاشات لدراسة الحالة هذه.</span>
         </aside>
       </Container>
 
@@ -169,7 +170,7 @@ export default function ArUlfaHubPage() {
             التحدي
           </h2>
           <p className="text-[1rem] leading-[1.8] text-foreground-muted">
-            منتج واحد ليه جمهورين: مشارك محتاج يحس بالأمان من أول شاشة، وميسر محتاج يدير مواعيده وفلوسه من غير ما يتعب. وكل ده بلغتين، وفي موضوع حساس زي الصحة النفسية.
+            منتج واحد لجمهورين: مشارك يحتاج أن يشعر بالأمان من أول شاشة، وميسر يحتاج أن يدير مواعيده وجلساته وأرباحه بسهولة. وكل ذلك بلغتين، في موضوع حساس مثل الصحة النفسية.
           </p>
         </div>
       </Container>
@@ -194,7 +195,7 @@ export default function ArUlfaHubPage() {
             أربع دراسات
           </h2>
           <p className="text-[0.9375rem] text-foreground-muted">
-            كل دراسة بتركز على جزء من المنصة.
+            كل دراسة تركز على جزء من التطبيق.
           </p>
         </div>
 
@@ -243,7 +244,7 @@ export default function ArUlfaHubPage() {
                 </Link>
                 <p className="text-[0.875rem] leading-[1.7] text-foreground-muted flex-1">{line}</p>
                 <div className="inline-flex items-center gap-1.5 text-small text-accent mt-auto" aria-hidden>
-                  اقرا الدراسة
+                  اقرأ الدراسة
                   <ArrowIcon
                     size={14}
                     className="[transform:scaleX(-1)] motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:-translate-x-[5px]"

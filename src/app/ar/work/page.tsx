@@ -4,9 +4,9 @@ import { WorkLibrary } from '@/components/sections/work-library';
 import { ContactSection } from '@/components/sections/contact-section';
 
 export const metadata: Metadata = {
-  title: 'أعمال نورا وفيق، مصممة منتجات وهويات',
+  title: 'أعمال نورا وفيق، مصممة منتجات وهويات بصرية',
   description:
-    'تطبيقات موبايل ومنصات ويب وأنظمة تصميم بالعربي والإنجليزي، في الصحة والتوظيف وغيرهم.',
+    'تطبيقات جوال ومنصات ويب وأنظمة تصميم بالعربي والإنجليزي، في مجالات الصحة والتوظيف وغيرها.',
   alternates: {
     canonical: 'https://nourawafik.com/ar/work',
     languages: {

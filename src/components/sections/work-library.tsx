@@ -56,6 +56,9 @@ const COPY = {
     noResultsTry: 'Try another word, or pick one of these:',
     askLine: "Looking for something that isn't here? Ask me, and I'll tell you how I'd approach it.",
     askBtn: 'Ask me about it',
+    noWorkYet: 'No work here yet',
+    newProjectsOnWay: 'New projects are on the way. In the meantime, tell me what you need.',
+    tellMeBtn: 'Get a quote',
     showResults: (n: number) => n === 1 ? 'Show 1 result' : `Show ${n} results`,
     suggestionChips: [
       { label: 'Calendars', feature: 'sched' as Feature },
@@ -68,11 +71,11 @@ const COPY = {
   ar: {
     eyebrow: 'أعمالي',
     h1: 'منتجات ومنصات ومواقع، بلغتين',
-    intro: 'مشاريع صممتها من الفكرة الأولى حتى الشاشات الجاهزة للتنفيذ. اختر النوع أو المجال الذي يعنيك.',
+    intro: 'مشاريع صممتها من الفكرة الأولى حتى الشاشات الجاهزة للتنفيذ. ابحث عما تحتاجه، أو اختر نوع العمل.',
     all: 'الكل',
     searchPlaceholder: 'ابحث في الأعمال، مثال: تقويم',
     searchLabel: 'ابحث في الأعمال',
-    filtersBtn: 'مرشحات',
+    filtersBtn: 'تصفية',
     clearAll: 'مسح الكل',
     clearSearch: 'مسح البحث',
     clearFilters: 'مسح المرشحات',
@@ -94,6 +97,9 @@ const COPY = {
     noResultsTry: 'جرب كلمة أخرى، أو تصفح بموضوع من هنا:',
     askLine: 'هل تبحث عن شيء غير موجود هنا؟ اسألني وسأخبرك كيف يمكنني التعامل معه.',
     askBtn: 'اسألني عنها',
+    noWorkYet: 'لا توجد أعمال هنا حتى الآن',
+    newProjectsOnWay: 'مشاريع جديدة في الطريق. حتى ذلك الحين، أخبرني بما تحتاجه.',
+    tellMeBtn: 'اطلب عرض سعر',
     showResults: (n: number) => {
       if (n === 1) return 'اعرض نتيجة واحدة';
       if (n === 2) return 'اعرض نتيجتين';
@@ -236,7 +242,9 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
   const industries: Industry[] = ['health', 'hr'];
   const features:   Feature[]  = ['ai', 'video', 'sched', 'pay', 'dash', 'ds'];
 
-  const visibleTypes = types.filter(v => countItems(v, activeIndustry, activeFeature) > 0);
+  const visibleTypes = types.filter(
+    v => countItems(v, activeIndustry, activeFeature) > 0 || v === activeType
+  );
   const activeFilterCount = (activeIndustry ? 1 : 0) + (activeFeature ? 1 : 0);
   const hasAnyFilter = !!(searchQuery || activeType || activeIndustry || activeFeature);
 
@@ -566,41 +574,65 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
 
               {/* Content */}
               <div className="flex flex-col gap-4 p-6 md:p-8 md:justify-center">
-                {searchQuery && (
-                  <p className="text-[0.8125rem] text-foreground-muted">
-                    {ar ? `مفيش نتايج لـ "${searchQuery}"` : `No results for "${searchQuery}"`}
-                  </p>
-                )}
-                <h2 className="text-[1.25rem] font-semibold text-foreground leading-[1.3]">
-                  {searchQuery ? t.noResultsFor(searchQuery) : t.noResultsFilters}
-                </h2>
-                <p className="text-[0.9375rem] text-foreground-muted">{t.noResultsTry}</p>
+                {!searchQuery && (activeType === 'brand' || activeType === 'site') ? (
+                  /* Brand / site type empty state */
+                  <>
+                    <h2 className="text-[1.25rem] font-semibold text-foreground leading-[1.3]">
+                      {t.noWorkYet}
+                    </h2>
+                    <p className="text-[0.9375rem] text-foreground-muted">{t.newProjectsOnWay}</p>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <NextLink
+                        href={ar ? `/ar/quote?service=${activeType}` : `/quote?service=${activeType}`}
+                        className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-pill bg-highlight text-[var(--ink-fixed)] font-medium text-[0.9375rem] hover:opacity-90 transition-opacity w-full sm:w-auto"
+                      >
+                        {t.tellMeBtn}
+                      </NextLink>
+                      <button
+                        onClick={clearOnlyFilters}
+                        className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-pill border-2 border-line text-[0.875rem] font-medium text-foreground hover:border-foreground transition-colors w-full sm:w-auto"
+                      >
+                        {t.clearFilters}
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {searchQuery && (
+                      <p className="text-[0.8125rem] text-foreground-muted">
+                        {ar ? `لا نتائج لـ "${searchQuery}"` : `No results for "${searchQuery}"`}
+                      </p>
+                    )}
+                    <h2 className="text-[1.25rem] font-semibold text-foreground leading-[1.3]">
+                      {searchQuery ? t.noResultsFor(searchQuery) : t.noResultsFilters}
+                    </h2>
+                    <p className="text-[0.9375rem] text-foreground-muted">{t.noResultsTry}</p>
 
-                {/* Suggestion chips */}
-                <div className="flex flex-wrap gap-2">
-                  {t.suggestionChips.map(({ label, feature }) => (
-                    <button
-                      key={feature}
-                      onClick={() => {
-                        setInputValue('');
-                        setFilter('feature', feature);
-                      }}
-                      className={`${chipBase} border-line hover:border-foreground`}
-                    >
-                      {label}
-                    </button>
-                  ))}
-                </div>
+                    {/* Suggestion chips */}
+                    <div className="flex flex-wrap gap-2">
+                      {t.suggestionChips.map(({ label, feature }) => (
+                        <button
+                          key={feature}
+                          onClick={() => {
+                            setInputValue('');
+                            setFilter('feature', feature);
+                          }}
+                          className={`${chipBase} border-line hover:border-foreground`}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </div>
 
-                <p className="text-[0.875rem] text-foreground-muted leading-[1.7]">{t.askLine}</p>
+                    <p className="text-[0.875rem] text-foreground-muted leading-[1.7]">{t.askLine}</p>
 
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <NextLink
-                    href={askHref}
-                    className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-pill bg-highlight text-[var(--ink-fixed)] font-medium text-[0.9375rem] hover:opacity-90 transition-opacity w-full sm:w-auto"
-                  >
-                    {t.askBtn}
-                  </NextLink>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <NextLink
+                        href={askHref}
+                        className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-pill bg-highlight text-[var(--ink-fixed)] font-medium text-[0.9375rem] hover:opacity-90 transition-opacity w-full sm:w-auto"
+                      >
+                        {t.askBtn}
+                      </NextLink>
                   <button
                     onClick={hasAnyFilter ? (searchQuery ? clearSearch : clearOnlyFilters) : clearFilters}
                     className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-pill border-2 border-line text-[0.875rem] font-medium text-foreground hover:border-foreground transition-colors w-full sm:w-auto"
@@ -608,6 +640,8 @@ export function WorkLibrary({ locale = 'en' }: WorkLibraryProps) {
                     {searchQuery ? t.clearSearch : t.clearFilters}
                   </button>
                 </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
