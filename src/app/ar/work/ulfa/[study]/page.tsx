@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { Container } from '@/components/layout/container';
 import { mdxComponents } from '@/components/mdx';
+import { PhoneGrid } from '@/components/mdx/phone-grid';
+import { PhoneImage } from '@/components/mdx/phone-image';
 import { ArrowIcon } from '@/components/ui/arrow-icon';
 import { NextProjectCard } from '@/components/ui/next-project-card';
 import {
@@ -13,6 +15,16 @@ import {
   getUlfaStudyArIntro,
   type UlfaStudyFrontmatter,
 } from '@/lib/ulfa';
+
+type PhoneGridProps = React.ComponentPropsWithoutRef<typeof PhoneGrid> & { captionAr?: string };
+type PhoneImageProps = React.ComponentPropsWithoutRef<typeof PhoneImage> & { altAr?: string };
+
+const arMdxComponents = {
+  ...mdxComponents,
+  p: () => null,
+  PhoneGrid: (props: PhoneGridProps) => <PhoneGrid {...props} caption={props.captionAr ?? props.caption} />,
+  PhoneImage: (props: PhoneImageProps) => <PhoneImage {...props} alt={props.altAr ?? props.alt} />,
+} as typeof mdxComponents;
 
 export async function generateStaticParams() {
   const slugs = await getUlfaStudySlugs();
@@ -29,9 +41,11 @@ export async function generateMetadata({
     const fm = await getUlfaStudyFrontmatter(study);
     const titleAr = fm.titleAr ?? fm.title;
     const pageTitle = `${titleAr} — ألفة: دراسة حالة، نورا وفيق`;
+    const arIntroMeta = await getUlfaStudyArIntro(study);
+    const description = arIntroMeta ? arIntroMeta.slice(0, 160) : fm.description;
     return {
       title: pageTitle,
-      description: fm.description,
+      description,
       alternates: {
         canonical: `https://nourawafik.com/ar/work/ulfa/${study}`,
         languages: {
@@ -41,7 +55,7 @@ export async function generateMetadata({
       },
       openGraph: {
         title: pageTitle,
-        description: fm.description,
+        description,
         type: 'article',
         authors: ['Noura Wafik'],
         url: `https://nourawafik.com/ar/work/ulfa/${study}`,
@@ -66,7 +80,7 @@ export default async function ArUlfaStudyPage({
     compileMDX<UlfaStudyFrontmatter>({
       source,
       options: { parseFrontmatter: true },
-      components: mdxComponents,
+      components: arMdxComponents,
     }),
     getUlfaStudyArIntro(study),
   ]);

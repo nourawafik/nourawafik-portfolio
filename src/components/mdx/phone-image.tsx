@@ -5,6 +5,7 @@ interface PhoneImageProps {
   src?: string;
   srcDark?: string;
   alt: string;
+  altAr?: string;
   caption?: string;
 }
 

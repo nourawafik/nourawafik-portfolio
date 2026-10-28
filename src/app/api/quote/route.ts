@@ -51,12 +51,21 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'invalid' }, { status: 422 });
   }
 
-  // Turnstile verification (skip if no secret configured — allows preview without secret)
   const ctx = await getCloudflareContext();
   const env = ctx.env as Record<string, unknown>;
   const secret = env['TURNSTILE_SECRET_KEY'] as string | undefined;
 
-  if (secret && data.turnstileToken) {
+  // Bypass Turnstile only on workers.dev preview; fail closed everywhere else.
+  const host = req.headers.get('host') ?? '';
+  const isPreview = host.endsWith('.workers.dev');
+
+  if (!isPreview) {
+    if (!secret) {
+      return NextResponse.json({ error: 'misconfigured' }, { status: 500 });
+    }
+    if (!data.turnstileToken) {
+      return NextResponse.json({ error: 'turnstile_required' }, { status: 403 });
+    }
     const verifyRes = await fetch(
       'https://challenges.cloudflare.com/turnstile/v0/siteverify',
       {
