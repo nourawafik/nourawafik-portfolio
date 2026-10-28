@@ -46,7 +46,7 @@ export const work: WorkItem[] = [
     slug: 'ulfa',
     title:   { en: 'Ulfa',  ar: 'ألفة' },
     summary: {
-      en: 'A bilingual mobile app that brings people together with licensed mental health facilitators, in small circles and structured sessions.',
+      en: 'A bilingual mobile app that brings people together with mental health facilitators, in small circles and structured sessions.',
       ar: 'تطبيق جوال بالعربي والإنجليزي، يجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.',
     },
     thumbAlt:  'Ulfa app — Explore screen showing session circles in Arabic',
@@ -82,7 +82,7 @@ export const work: WorkItem[] = [
     title:   { en: 'Duet', ar: 'Duet' },
     summary: {
       en: 'A two-sided hiring platform with an AI assistant for recruiters and another for candidates.',
-      ar: 'منصة توظيف فيها مساعد ذكاء اصطناعي للشركات وآخر للمتقدمين، وكل قرار يتخذه الذكاء الاصطناعي فيها مشروح بأسبابه.',
+      ar: 'منصة توظيف بطرفين، فيها مساعد ذكاء اصطناعي لمسؤول التوظيف وآخر للمتقدم.',
     },
     thumbAlt:  'Duet — recruiter view showing candidate score with reasons',
     types:     ['web', 'mobile'],

@@ -68,11 +68,11 @@ const COPY = {
   },
   ar: {
     eyebrow: 'الخدمات',
-    h2: 'من أول هوية لحد منتج كامل',
+    h2: 'من أول هوية حتى منتج كامل',
     allInOne: 'كل حاجة في باقة',
     quote: 'اطلب عرض سعر',
     quoteSubjectPrefix: 'طلب عرض سعر: ',
-    offerUntil: (date: string) => `عرض لحد ${date}`,
+    offerUntil: (date: string) => `عرض حتى ${date}`,
   },
 } as const;
 

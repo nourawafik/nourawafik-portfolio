@@ -78,7 +78,7 @@ export function AskNoura({ locale = 'en' }: AskNouraProps) {
           id: `reply-${++msgCounter.current}`,
           role: 'assistant',
           text: ar
-            ? 'شكراً على سؤالك! المساعد الذكي غير متصل بعد. تواصل مع نورا على hello@nourawafik.com.'
+            ? 'شكرا على سؤالك! المساعد الذكي غير متصل بعد. تواصل مع نورا على hello@nourawafik.com.'
             : "Thanks for your message! The AI backend is not yet connected. Reach Noura directly at hello@nourawafik.com.",
         },
       ]);

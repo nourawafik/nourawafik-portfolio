@@ -7,7 +7,7 @@ const COPY = {
   en: {
     eyebrow: 'About',
     h2Line1: 'Hi, I\'m Noura',
-    body: `A brand and product designer based in Cairo, with ${n}+ years of experience. I work end to end, from research and brand identity to developer-ready screens. I also know code and marketing, so the design can be built and reaches the right audience.`,
+    body: `A product and brand designer based in Cairo, with ${n}+ years of experience. I work end to end, from research and brand identity to developer-ready screens. I also know code and marketing, so the design can be built and reaches the right audience.`,
     traits: [
       {
         title: 'Arabic and English',

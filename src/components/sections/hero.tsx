@@ -10,7 +10,7 @@ const COPY = {
   en: {
     h1Line1: 'Bring your idea',
     h1Line2: 'to life',
-    sub: 'Brands, websites and digital products in Arabic and English, for startups launching and companies scaling across Egypt and the Gulf.',
+    sub: 'Digital products, websites and brand identities in Arabic and English, for startups and companies scaling across Egypt and the Gulf.',
     cta: { label: 'Get a quote', href: '/quote' },
     secondary: { label: 'See my work', href: '/work' },
     noonAlt: 'Noon, the brand mascot, waking up from the logo with a glowing head',

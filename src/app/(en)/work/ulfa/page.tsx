@@ -105,8 +105,8 @@ export default function UlfaHubPage() {
             Ulfa
           </h1>
           <p className="text-[1.125rem] leading-[1.65] text-foreground-muted">
-            A bilingual Arabic and English mobile app that brings people together with licensed
-            mental health facilitators, in small circles and structured sessions.
+            A bilingual Arabic and English mobile app that brings people together with mental
+            health facilitators, in small circles and structured sessions.
           </p>
         </div>
       </Container>
@@ -115,7 +115,7 @@ export default function UlfaHubPage() {
       <Container className="pb-12 md:pb-16">
         <dl className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {[
-            { label: 'My role', value: 'Product design and product management' },
+            { label: 'My role', value: 'Product design' },
             { label: 'Platform', value: 'Mobile app · Arabic and English' },
             { label: 'Scope', value: 'Participant and facilitator journeys' },
           ].map(({ label, value }) => (
@@ -261,7 +261,7 @@ export default function UlfaHubPage() {
                   className="inline-flex items-center gap-1.5 text-small text-accent mt-auto"
                   aria-hidden
                 >
-                  Read the case study
+                  Read the study
                   <ArrowIcon
                     size={14}
                     className="motion-safe:transition-transform motion-safe:duration-[350ms] motion-safe:group-hover:translate-x-[5px]"

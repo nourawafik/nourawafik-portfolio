@@ -10,9 +10,9 @@ const featuredWork = work.filter(w => w.featured && !w.parent);
 const COPY = {
   en: {
     eyebrow: 'Selected work',
-    h2: 'Real work for real lives',
+    h2: 'Real projects for real clients',
     allWork: 'All work',
-    read: 'Read the case study',
+    read: 'Read the study',
   },
   ar: {
     eyebrow: 'أعمال مختارة',
