@@ -10,13 +10,13 @@
 		"binding": "ASSETS"
 	},
 	"routes": [
-		{ "pattern": "nourawafik.com/*", "custom_domain": true },
-		{ "pattern": "www.nourawafik.com/*", "custom_domain": true }
+		{ "pattern": "nourawafik.com", "custom_domain": true },
+		{ "pattern": "www.nourawafik.com", "custom_domain": true }
 	],
 	"send_email": [
 		{
 			"name": "QUOTE_EMAIL",
-			"destination_address": "hello@nourawafik.com"
+			"destination_address": "noura.wafik.nada@gmail.com"
 		}
 	]
 }
