@@ -10,29 +10,29 @@ interface ImageWithCaptionProps {
 }
 
 export function ImageWithCaption({ src, srcDark, alt, caption }: ImageWithCaptionProps) {
-  // Sized for full-width single images (~1100px on desktop).
-  // Grid images load slightly larger than their column width — acceptable for a portfolio.
   const sizes = '(min-width: 1024px) 1100px, 100vw';
 
   return (
-    <figure className="flex flex-col gap-0">
+    <figure className="my-8">
       {src ? (
-        <div className="relative aspect-video w-full overflow-hidden">
-          {/* Light image — default, hidden in dark mode only when a dark variant exists */}
+        <div className="card-shadow overflow-hidden rounded-[16px] border border-border">
           <Image
             src={src}
             alt={alt}
-            fill
-            className={`object-cover${srcDark ? ' dark:hidden' : ''}`}
+            width={2880}
+            height={1620}
+            style={{ width: '100%', height: 'auto' }}
+            className={`block${srcDark ? ' dark:hidden' : ''}`}
             sizes={sizes}
           />
-          {/* Dark image — only rendered when srcDark is provided, hidden in light mode */}
           {srcDark && (
             <Image
               src={srcDark}
               alt={alt}
-              fill
-              className="object-cover hidden dark:block"
+              width={2880}
+              height={1620}
+              style={{ width: '100%', height: 'auto' }}
+              className="hidden dark:block"
               sizes={sizes}
             />
           )}

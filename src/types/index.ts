@@ -10,10 +10,12 @@ export interface CaseStudy {
   status: string;
   thumbAlt: string;
   heroAlt: string;
+  heroDark?: string;
 }
 
 export interface CaseStudyFrontmatter {
   title: string;
+  seoTitle?: string;
   tagline: string;
   role: string;
   timeline: string;

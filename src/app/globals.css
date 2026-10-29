@@ -3,114 +3,158 @@
 /* ─── Dark mode: use .dark class (next-themes) instead of OS media query ── */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ─── Color tokens (DESIGN.md) ───────────────────────────────────────────── */
-/* Every pair is verified against WCAG 2.2 in both modes — recompute the
-   contrast table in DESIGN.md before changing any value. */
+/* ─── Color tokens (brand) ───────────────────────────────────────────────── */
+/* All pairs verified WCAG 2.1 AA. See design-handoff/tokens/tokens.json.
+   Recompute contrast before changing any value. */
 :root {
-  --bg: #f4f2ee;
-  --surface: #fffefb;
-  --sunk: #eae7e0;
-  --fg: #13140f;
-  --muted: #636258;
-  /* line: decorative dividers only (1.21:1). line-strong: interactive edges (≥3:1). */
-  --line: #e0ddd4;
-  --line-strong: #857e6f;
-  --accent: #1b5e3f;
-  --accent-press: #144a31;
-  --accent-soft: #e3efe8;
-  --on-accent: #ffffff;
-  /* Semantic: product screens and form messages only, never site chrome */
-  --success: #1b5e3f;
-  --warning: #8a5a00;
-  --error: #9b2226;
-  --info: #2f4f7a;
+  --bg: #F6F4EE;
+  --surface: #FFFFFF;
+  --sunk: #ECE9E1;
+  --fg: #0E2A2D;
+  --muted: #3E5558;
+  --subtle: #6B675C;
+  --line: #D8D4C8;
+  --line-strong: #8F8A7D;
+  --accent: #0E7C7B;
+  --accent-hover: #0B6B6A;
+  --accent-press: #095A59;
+  --accent-soft: #E6F4F3;
+  --on-accent: #FFFFFF;
+  --on-accent-soft: #0B6B6A;
+  --highlight: #FFC845;
+  --on-highlight: #0E2A2D;
+  --coral: #FF6B5B;
+  --on-coral: #0E2A2D;
+  --focus: #0E2A2D;
+  --success: #1A7340;
+  --success-bg: #E4F4EA;
+  --warning: #865C00;
+  --warning-bg: #FFF4D6;
+  --error: #B42318;
+  --error-bg: #FDECEA;
+  --info: #2364AA;
+  --info-bg: #E5EFFA;
+  --ink-fixed: #0E2A2D;
+  --teal-fixed: #0E7C7B;
 }
 
 .dark {
-  --bg: #121310;
-  --surface: #1a1b17;
-  --sunk: #0c0d0a;
-  --fg: #e9eae2;
-  --muted: #8d8d82;
-  --line: #262720;
-  --line-strong: #787b6f;
-  --accent: #8fd6ae;
-  --accent-press: #a8e0c0;
-  --accent-soft: #10261c;
-  --on-accent: #04150d;
-  --success: #8fd6ae;
-  --warning: #e8b65a;
-  --error: #f08a8d;
-  --info: #9db8e8;
+  --bg: #0E2A2D;
+  --surface: #17393D;
+  --sunk: #0A2023;
+  --fg: #F6F4EE;
+  --muted: #A9C2C4;
+  --subtle: #8FAAAD;
+  --line: #2B4A4E;
+  --line-strong: #6F8F92;
+  --accent: #5BB5AF;
+  --accent-hover: #7CC6C0;
+  --accent-press: #93D0CC;
+  --accent-soft: #123F42;
+  --on-accent: #0E2A2D;
+  --on-accent-soft: #7CC6C0;
+  --highlight: #FFC845;
+  --on-highlight: #0E2A2D;
+  --coral: #FF6B5B;
+  --on-coral: #0E2A2D;
+  --focus: #FFC845;
+  --success: #6FD39A;
+  --success-bg: #123A2A;
+  --warning: #FFC845;
+  --warning-bg: #3A3112;
+  --error: #FF8C7F;
+  --error-bg: #3F1E1B;
+  --info: #8DB8F0;
+  --info-bg: #16304F;
 }
 
 /* ─── Tailwind v4 theme mapping ──────────────────────────────────────────── */
 @theme inline {
-  /* Colors */
+  /* Colors — semantic names used by components */
   --color-background: var(--bg);
   --color-surface: var(--surface);
   --color-sunk: var(--sunk);
   --color-foreground: var(--fg);
   --color-foreground-muted: var(--muted);
+  --color-foreground-subtle: var(--subtle);
   --color-border: var(--line);
   --color-border-strong: var(--line-strong);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-accent-press: var(--accent-press);
   --color-accent-soft: var(--accent-soft);
   --color-on-accent: var(--on-accent);
+  --color-on-accent-soft: var(--on-accent-soft);
+  --color-highlight: var(--highlight);
+  --color-on-highlight: var(--on-highlight);
+  --color-coral: var(--coral);
+  --color-on-coral: var(--on-coral);
   --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
   --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
   --color-error: var(--error);
+  --color-error-bg: var(--error-bg);
   --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+  --color-ink-fixed: var(--ink-fixed);
+  --color-teal-fixed: var(--teal-fixed);
 
-  /* Radii — controls, cards/panels, chips. No other values exist. */
-  --radius-control: 10px;
-  --radius-card: 14px;
-  --radius-pill: 999px;
+  /* Radii */
+  --radius-tag: 8px;
+  --radius-control: 16px;
+  --radius-card: 24px;
+  --radius-section: 32px;
+  --radius-pill: 9999px;
 
-  /* Fonts — family variables injected by next/font in each layout.tsx;
-     the per-language stacks are set on html[lang] below */
-  --font-sans: var(--font-body);
-  --font-display: var(--font-heading);
-  --font-mono: var(--font-jetbrains);
+  /* Fonts — injected by next/font in layout.tsx */
+  --font-sans: var(--font-rubik), system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
 
-  /* Type scale */
-  --text-display: 3.5rem;
-  --text-h1: 2.5rem;
-  --text-h2: 1.75rem;
-  --text-h3: 1.25rem;
+  /* Type scale — desktop sizes; mobile vars set below via media query */
+  --text-display: var(--size-display);
+  --text-h1: var(--size-h1);
+  --text-h2: var(--size-h2);
+  --text-h3: var(--size-h3);
   --text-body-lg: 1.125rem;
   --text-body: 1rem;
   --text-small: 0.875rem;
-  --text-mono: 0.8125rem;
 }
 
-/* ─── Type families per language ─────────────────────────────────────────── */
-/* Latin: Space Grotesk headings, Figtree body. Arabic: Alexandria headings,
-   Almarai body. Each script falls back to its partner for embedded words. */
-html[lang='en'] {
-  --font-heading: var(--font-space-grotesk), var(--font-alexandria), system-ui, sans-serif;
-  --font-body: var(--font-figtree), var(--font-almarai), system-ui, sans-serif;
+/* ─── Type scale responsive vars ─────────────────────────────────────────── */
+:root {
+  /* Mobile sizes */
+  --size-display: 2.25rem;  /* 36px */
+  --size-h1: 2rem;          /* 32px */
+  --size-h2: 1.875rem;      /* 30px */
+  --size-h3: 1.25rem;       /* 20px */
+  /* Line heights EN */
+  --lh-display: 1.1;
+  --lh-h1: 1.15;
+  --lh-h2: 1.2;
+  --lh-h3: 1.3;
 }
 
-html[lang='ar'] {
-  --font-heading: var(--font-alexandria), system-ui, sans-serif;
-  --font-body: var(--font-almarai), system-ui, sans-serif;
-}
-
-/* ─── Base styles ────────────────────────────────────────────────────────── */
-/* In the base layer so utilities (font-mono, font-sans) can still override it */
-@layer base {
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: var(--font-heading);
+@media (min-width: 48rem) {
+  :root {
+    --size-display: 3.5rem;  /* 56px */
+    --size-h1: 2.75rem;      /* 44px */
+    --size-h2: 2rem;         /* 32px */
+    --size-h3: 1.5rem;       /* 24px */
   }
 }
 
+/* Arabic: same px sizes, wider line heights */
+html[lang='ar'] {
+  --lh-display: 1.3;
+  --lh-h1: 1.35;
+  --lh-h2: 1.4;
+  --lh-h3: 1.5;
+}
+
+/* ─── Base styles ────────────────────────────────────────────────────────── */
 html {
-  font-family: var(--font-body);
+  font-family: var(--font-rubik), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -118,16 +162,13 @@ html {
 body {
   background-color: var(--bg);
   color: var(--fg);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-/* ─── Focus ring — 2px bg gap, then 3px accent ring, on every element ────── */
-/* The gap means the ring only ever touches the page background, so it never
-   has to contrast with the element it surrounds (incl. the green button). */
+/* ─── Focus ring — 3px, 3px offset, colour switches in dark mode ─────────── */
 :focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 2px var(--bg);
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
 }
 
 /* ─── Selection ──────────────────────────────────────────────────────────── */
@@ -147,3 +188,210 @@ body {
   background: var(--line-strong);
   border-radius: 3px;
 }
+
+/* ─── Motion tokens ──────────────────────────────────────────────────────── */
+:root {
+  --ease-out: cubic-bezier(.2,.8,.2,1);
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 450ms;
+}
+
+/* ─── Card shadows ───────────────────────────────────────────────────────── */
+:root {
+  --card-shadow-rest:  0 1px 2px rgba(14,42,45,.06), 0 10px 24px -14px rgba(14,42,45,.22);
+  --card-shadow-hover: 0 2px 4px rgba(14,42,45,.06), 0 28px 48px -20px rgba(14,42,45,.38);
+  --featured-glow:     0 28px 52px -18px rgba(255,200,69,.45);
+}
+.dark {
+  --card-shadow-rest:  0 1px 2px rgba(0,0,0,.25), 0 10px 24px -14px rgba(0,0,0,.6);
+  --card-shadow-hover: 0 2px 4px rgba(0,0,0,.25), 0 28px 48px -20px rgba(0,0,0,.6), 0 0 0 1px #2B4A4E;
+}
+
+.card-shadow,
+.card-shadow-trait {
+  box-shadow: var(--card-shadow-rest);
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+}
+
+@media (hover: hover) {
+  .card-shadow:hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+  .card-shadow.featured-service:hover {
+    box-shadow: var(--card-shadow-hover), var(--featured-glow);
+  }
+  .card-shadow-trait:hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+  .card-shadow:active,
+  .card-shadow-trait:active {
+    transform: translateY(-2px) scale(.99);
+  }
+}
+
+/* translateY lift only on desktop where the container has overflow:visible */
+@media (hover: hover) and (min-width: 768px) {
+  .card-shadow:hover,
+  .card-shadow.featured-service:hover {
+    transform: translateY(-6px);
+  }
+  .card-shadow-trait:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.card-shadow:focus-within,
+.card-shadow-trait:focus-within {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-shadow,
+  .card-shadow-trait {
+    transition: box-shadow var(--dur-base);
+  }
+  .card-shadow:hover,
+  .card-shadow.featured-service:hover,
+  .card-shadow-trait:hover,
+  .card-shadow:active,
+  .card-shadow-trait:active {
+    transform: none;
+  }
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--sticker-rotate, 0deg)); }
+  50% { transform: translateY(-8px) rotate(var(--sticker-rotate, 0deg)); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rtl {
+  from { transform: translateX(0); }
+  to   { transform: translateX(50%); }
+}
+
+@keyframes noon-wave {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(8deg); }
+  75%  { transform: rotate(-8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.noon-waving {
+  transform-origin: bottom center;
+  animation: noon-wave 1.2s ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .noon-waving { animation: none; }
+}
+
+/* ─── Page enter ─────────────────────────────────────────────────────────── */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page-enter {
+  animation: page-enter var(--dur-slow) var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter { animation: none; }
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal[data-delay="1"] { transition-delay: 60ms; }
+.reveal[data-delay="2"] { transition-delay: 120ms; }
+.reveal[data-delay="3"] { transition-delay: 180ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ─── Filter sheet (mobile) slide-up ────────────────────────────────────── */
+@keyframes sheet-enter {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes sheet-scrim-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.filter-sheet {
+  animation: sheet-enter var(--dur-slow) var(--ease-out) both;
+}
+.filter-sheet-scrim {
+  animation: sheet-scrim-enter var(--dur-base) var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-sheet, .filter-sheet-scrim { animation: none; }
+}
+
+/* ─── Filter panel (desktop) open ───────────────────────────────────────── */
+@keyframes panel-enter {
+  from { opacity: 0; max-height: 0; }
+  to   { opacity: 1; max-height: 400px; }
+}
+
+.filter-panel-open {
+  animation: panel-enter var(--dur-base) var(--ease-out) both;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-panel-open { animation: none; max-height: none; overflow: visible; }
+}
+
+/* ─── Toast ──────────────────────────────────────────────────────────────── */
+@keyframes toast-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.toast-enter {
+  animation: toast-enter var(--dur-base) var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast-enter { animation: none; }
+}
+
+/* ─── Work grid fade on filter change ───────────────────────────────────── */
+@keyframes grid-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.grid-fade-in {
+  animation: grid-fade-in var(--dur-base) var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-fade-in { animation: none; }
+}
+
+@theme inline {
+  --animate-float: float 3.5s ease-in-out infinite;
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-marquee-rtl: marquee-rtl 35s linear infinite;
+}
+

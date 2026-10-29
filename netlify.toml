@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://www.nourawafik.com/*"
+  to   = "https://nourawafik.com/:splat"
+  status = 301
+  force  = true

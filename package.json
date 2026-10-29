@@ -5,16 +5,16 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cf": "opennextjs-cloudflare build && node scripts/patch-cf-email.mjs",
+    "preview:cf": "opennextjs-cloudflare preview",
     "start": "next start",
-    "lint": "eslint",
-    "deploy": "npx vercel --prod --force"
+    "lint": "eslint src/"
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.14.0",
+    "mimetext": "^3.0.28",
     "next": "16.2.5",
     "next-intl": "^4.11.0",
     "next-mdx-remote": "^6.0.0",
@@ -25,6 +25,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "^1.19.8",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -32,6 +33,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.5",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.152.0"
   }
 }

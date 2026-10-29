@@ -1,3 +1,15 @@
 {
-  "buildPath": "code"
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "rubik",
+        "createdAt": "2026-10-21T22:24:09.293Z",
+        "reason": "Brand font per design-handoff/DESIGN.md; repo-root DESIGN.md updated in Step 9"
+      }
+    ]
+  }
 }

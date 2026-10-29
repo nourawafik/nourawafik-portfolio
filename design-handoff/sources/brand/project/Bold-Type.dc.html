@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Direction B – Bold Type</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&amp;family=Readex+Pro:wght@400;600&amp;family=Syne:wght@600;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#3B33FF}a:hover{color:#2A23C9}
+@keyframes b-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes b-tilt{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes b-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.b-marquee{animation:b-marquee 22s linear infinite}
+.b-tilt{animation:b-tilt 4s ease-in-out infinite}
+.b-blink{animation:b-blink 1.6s steps(2) infinite}
+@media (prefers-reduced-motion: reduce){.b-marquee,.b-tilt,.b-blink{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1200px; box-sizing: border-box; background: #F3F1FF; color: #14121F; font-family: 'Readex Pro', sans-serif; display: flex; flex-direction: column; position: relative; overflow: hidden">
+<div style="padding: 64px 64px 0; display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+<div dir="ltr" style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Syne', sans-serif; font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: #3B33FF; font-weight: 800">Direction B · Bold type</div>
+<div style="font-size: 18px; color: #4A4660; max-width: 540px; line-height: 1.5">A fresh palette where the letters themselves are the hero: geometric Kufi Arabic beside a wide, loud Latin display.</div>
+</div>
+<h1 dir="rtl" style="margin: 0; font-family: 'Reem Kufi', sans-serif; font-size: 72px; font-weight: 700; line-height: 1.1">حروف جريئة</h1>
+</div>
+<div style="padding: 32px 64px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
+<div style="background: #14121F; border-radius: 8px; padding: 48px; display: flex; flex-direction: column; gap: 4px; position: relative; overflow: hidden">
+<div dir="rtl" style="font-family: 'Reem Kufi', sans-serif; font-size: 120px; font-weight: 700; color: #C6F24E; line-height: 1">نورا</div>
+<div style="display: flex; align-items: baseline; gap: 16px; justify-content: space-between">
+<div dir="ltr" style="font-family: 'Syne', sans-serif; font-size: 56px; font-weight: 800; color: #FFFFFF; letter-spacing: -1px">WAFIK</div>
+<div dir="rtl" style="font-family: 'Reem Kufi', sans-serif; font-size: 48px; font-weight: 700; color: #FFFFFF">وفيق</div>
+</div>
+<div class="b-tilt" style="position: absolute; top: 36px; left: 40px; background: #FF4FA3; color: #14121F; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; padding: 10px 16px; border-radius: 999px">AR / EN</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 20px; font-weight: 600">الألوان</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 100px; border-radius: 8px; background: #3B33FF"></div><div dir="ltr" style="font-size: 13px; color: #4A4660">Electric · #3B33FF</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 100px; border-radius: 8px; background: #C6F24E"></div><div dir="ltr" style="font-size: 13px; color: #4A4660">Lime · #C6F24E</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 100px; border-radius: 8px; background: #FF4FA3"></div><div dir="ltr" style="font-size: 13px; color: #4A4660">Pink · #FF4FA3</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 100px; border-radius: 8px; background: #14121F"></div><div dir="ltr" style="font-size: 13px; color: #4A4660">Ink · #14121F</div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><div style="height: 100px; border-radius: 8px; background: #F3F1FF; border: 2px solid #D5D0F2"></div><div dir="ltr" style="font-size: 13px; color: #4A4660">Mist · #F3F1FF</div></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 20px; font-weight: 600">الخطوط</div>
+<div style="background: #FFFFFF; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div dir="rtl" style="font-family: 'Reem Kufi', sans-serif; font-size: 44px; font-weight: 700; line-height: 1.2">التصميم موقف</div>
+<div dir="ltr" style="font-family: 'Syne', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -1px">DESIGN IS A STANCE</div>
+<div dir="ltr" style="font-size: 14px; color: #4A4660">Display: Reem Kufi + Syne · Body: Readex Pro (Arabic &amp; Latin)</div>
+</div>
+</div>
+</div>
+</div>
+<div style="margin-top: 40px; background: #3B33FF; height: 72px; overflow: hidden; display: flex; align-items: center">
+<div class="b-marquee" dir="ltr" style="display: flex; gap: 48px; white-space: nowrap; font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; color: #FFFFFF; padding-left: 48px">
+<span>BRAND</span><span style="color: #C6F24E">✦</span><span style="font-family: 'Reem Kufi', sans-serif">براند</span><span style="color: #C6F24E">✦</span><span>PRODUCT</span><span style="color: #C6F24E">✦</span><span style="font-family: 'Reem Kufi', sans-serif">منتجات</span><span style="color: #C6F24E">✦</span><span>MARKETING</span><span style="color: #C6F24E">✦</span><span style="font-family: 'Reem Kufi', sans-serif">تسويق</span><span style="color: #C6F24E">✦</span>
+<span>BRAND</span><span style="color: #C6F24E">✦</span><span style="font-family: 'Reem Kufi', sans-serif">براند</span><span style="color: #C6F24E">✦</span><span>PRODUCT</span><span style="color: #C6F24E">✦</span><span style="font-family: 'Reem Kufi', sans-serif">منتجات</span><span style="color: #C6F24E">✦</span><span>MARKETING</span><span style="color: #C6F24E">✦</span><span style="font-family: 'Reem Kufi', sans-serif">تسويق</span><span style="color: #C6F24E">✦</span>
+</div>
+</div>
+<div style="padding: 40px 64px 64px; display: flex; gap: 32px; flex-grow: 1">
+<div style="display: flex; flex-direction: column; gap: 12px; flex-grow: 1">
+<div style="font-size: 20px; font-weight: 600">غلاف لينكدإن</div>
+<div style="height: 200px; border-radius: 8px; background: #C6F24E; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; gap: 24px">
+<div dir="ltr" style="font-family: 'Syne', sans-serif; font-size: 44px; font-weight: 800; color: #14121F; letter-spacing: -1px; line-height: 1">TWO<br>LANGUAGES.<br><span style="color: #3B33FF">ONE BRAND.</span></div>
+<div dir="rtl" style="font-family: 'Reem Kufi', sans-serif; font-size: 36px; font-weight: 700; color: #14121F; text-align: right; line-height: 1.3">براند ومنتجات وتسويق<br>بالعربي والإنجليزي<span class="b-blink" style="color: #FF4FA3">_</span></div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 20px; font-weight: 600">بوست سوشيال</div>
+<div style="width: 300px; height: 300px; border-radius: 8px; background: #14121F; box-sizing: border-box; padding: 28px; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="ltr" style="font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 800; color: #C6F24E; letter-spacing: 2px">DESIGN TIP 01</div>
+<div dir="rtl" style="font-family: 'Reem Kufi', sans-serif; font-size: 36px; font-weight: 700; color: #FFFFFF; line-height: 1.3">3 أخطاء بتبوظ أي موقع عربي</div>
+<div dir="ltr" style="font-size: 14px; color: #FF4FA3; font-weight: 600">@nourawafik</div>
+</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

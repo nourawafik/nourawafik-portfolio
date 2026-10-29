@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Direction G – Handwritten</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800&amp;family=Space+Grotesk:wght@400;500;700&amp;family=Aref+Ruqaa:wght@400;700&amp;family=Caveat:wght@600;700&amp;family=Marhey:wght@500;700&amp;family=Permanent+Marker&amp;family=Mr+Dafoe&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0E7C7B}a:hover{color:#0A5B5A}
+@keyframes g-rtl{0%{clip-path:inset(0 0 0 100%)}55%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes g-ltr{0%{clip-path:inset(0 100% 0 0)}55%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes g-draw{0%{stroke-dashoffset:400}55%,100%{stroke-dashoffset:0}}
+@keyframes g-pop{0%,45%{transform:scale(0)}60%{transform:scale(1.25)}70%,100%{transform:scale(1)}}
+.g-rtl{animation:g-rtl 4.5s ease-out infinite}
+.g-ltr{animation:g-ltr 4.5s ease-out infinite}
+.g-draw{stroke-dasharray:400;animation:g-draw 4.5s ease-out infinite}
+.g-pop{transform-origin:center;transform-box:fill-box;animation:g-pop 4.5s ease-out infinite}
+@media (prefers-reduced-motion: reduce){.g-rtl,.g-ltr,.g-draw,.g-pop{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1340px; box-sizing: border-box; padding: 64px; background: #F6F4EE; color: #0E2A2D; font-family: 'Alexandria', sans-serif; display: flex; flex-direction: column; gap: 32px; overflow: hidden">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+<div dir="ltr" style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; letter-spacing: 3px; text-transform: uppercase; color: #0E7C7B; font-weight: 700">Direction G · By hand</div>
+<div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; color: #3E5558; max-width: 600px; line-height: 1.5">Four handwritten takes on the name and the letter ن, in the blend palette. Each one writes itself in the direction its script is written.</div>
+</div>
+<h1 dir="rtl" style="margin: 0; font-family: 'Aref Ruqaa', serif; font-size: 80px; font-weight: 700; line-height: 1.1">بخط اليد</h1>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+<div style="background: #FFFFFF; border-radius: 32px; padding: 36px 44px; height: 400px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: center"><div dir="ltr" style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #3E5558">Aref Ruqaa + Caveat</div><div dir="rtl" style="font-size: 18px; font-weight: 600">1 · رقعة</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 0">
+<div class="g-rtl" dir="rtl" style="display: flex; align-items: baseline; gap: 10px"><span style="font-family: 'Aref Ruqaa', serif; font-size: 150px; font-weight: 700; line-height: 1.1">نورا</span><span class="g-pop" style="display: inline-block; width: 26px; height: 26px; border-radius: 50%; background: #FFC845; border: 3px solid #0E2A2D"></span></div>
+<div class="g-ltr" dir="ltr" style="font-family: 'Caveat', cursive; font-size: 48px; font-weight: 700; color: #0E7C7B; margin-top: -10px">noura wafik</div>
+</div>
+<div dir="rtl" style="font-size: 15px; color: #3E5558; line-height: 1.7">الرقعة هو خط الكتابة اليومي في مصر، فبيدي إحساس إنه مكتوب بإيدك فعلا.</div>
+</div>
+<div style="background: #0E7C7B; border-radius: 32px; padding: 36px 44px; height: 400px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; color: #FFFFFF">
+<div style="display: flex; justify-content: space-between; align-items: center"><div dir="ltr" style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #CFEDEA">Custom brush letter</div><div dir="rtl" style="font-size: 18px; font-weight: 600">2 · ضربة فرشاة</div></div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 40px">
+<div dir="ltr" style="font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; line-height: 1.2">noura<br>wafik</div>
+<svg class="g-rtl" width="220" height="200" viewBox="0 0 200 180" role="img" aria-label="Hand-painted Arabic letter noon with a yellow dot">
+<path d="M26 66 C18 162 182 166 176 62 C170 126 40 132 26 66 Z" fill="#FFFFFF"></path>
+<path d="M176 62 C178 54 184 50 188 52 C184 56 180 60 176 62 Z" fill="#FFFFFF"></path>
+<path class="g-pop" d="M96 22 C110 14 122 26 116 40 C110 52 90 50 87 38 C85 30 89 25 96 22 Z" fill="#FFC845" stroke="#0E2A2D" stroke-width="3"></path>
+</svg>
+</div>
+<div dir="rtl" style="font-size: 15px; color: #CFEDEA; line-height: 1.7">حرف النون مرسوم كضربة فرشاة واحدة، رفيع من الطرفين وتقيل من تحت، والنقطة مش دايرة كاملة.</div>
+</div>
+<div style="background: #FFC845; border-radius: 32px; padding: 36px 44px; height: 400px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between">
+<div style="display: flex; justify-content: space-between; align-items: center"><div dir="ltr" style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #3E3410">Marhey + Permanent Marker</div><div dir="rtl" style="font-size: 18px; font-weight: 600">3 · ماركر</div></div>
+<div style="display: flex; align-items: center; justify-content: center; gap: 36px">
+<div class="g-ltr" dir="ltr" style="font-family: 'Permanent Marker', cursive; font-size: 64px; transform: rotate(-4deg)">Noura</div>
+<div class="g-rtl" dir="rtl" style="font-family: 'Marhey', sans-serif; font-size: 104px; font-weight: 700; transform: rotate(3deg); line-height: 1.2">نورا</div>
+</div>
+<div dir="rtl" style="font-size: 15px; color: #3E3410; line-height: 1.7">أكتر واحد مرح وحيوي، كأنه مكتوب بماركر على ستيكر، وماشي جدا مع الشخصية.</div>
+</div>
+<div style="background: #0E2A2D; border-radius: 32px; padding: 36px 44px; height: 400px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; color: #FFFFFF">
+<div style="display: flex; justify-content: space-between; align-items: center"><div dir="ltr" style="font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: #A9C2C4">Mr Dafoe + Aref Ruqaa</div><div dir="rtl" style="font-size: 18px; font-weight: 600">4 · توقيع</div></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+<div class="g-ltr" dir="ltr" style="font-family: 'Mr Dafoe', cursive; font-size: 104px; color: #FFFFFF; line-height: 1.1">Noura Wafik</div>
+<svg width="420" height="30" viewBox="0 0 420 30" aria-hidden="true"><path class="g-draw" d="M10 18 C120 4 260 30 410 10" fill="none" stroke="#FFC845" stroke-width="5" stroke-linecap="round"></path></svg>
+<div class="g-rtl" dir="rtl" style="font-family: 'Aref Ruqaa', serif; font-size: 44px; font-weight: 700; color: #FFC845">نورا وفيق</div>
+</div>
+<div dir="rtl" style="font-size: 15px; color: #A9C2C4; line-height: 1.7">شكل التوقيع الشخصي، مناسب كإمضاء على البوستات وفي آخر الموقع.</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; flex-grow: 1">
+<div style="background: #FFFFFF; border-radius: 32px; padding: 28px 32px; display: flex; flex-direction: column; gap: 16px">
+<div dir="rtl" style="font-size: 16px; font-weight: 600; color: #3E5558">الفرشاة في كل الأحجام</div>
+<div style="display: flex; align-items: flex-end; gap: 24px">
+<div style="width: 112px; height: 112px; border-radius: 50%; background: #0E7C7B; display: flex; align-items: center; justify-content: center"><svg width="76" height="68" viewBox="0 0 200 180" aria-hidden="true"><path d="M26 66 C18 162 182 166 176 62 C170 126 40 132 26 66 Z" fill="#FFFFFF"></path><path d="M96 22 C110 14 122 26 116 40 C110 52 90 50 87 38 C85 30 89 25 96 22 Z" fill="#FFC845"></path></svg></div>
+<div style="width: 64px; height: 64px; border-radius: 18px; background: #FFC845; display: flex; align-items: center; justify-content: center"><svg width="46" height="42" viewBox="0 0 200 180" aria-hidden="true"><path d="M26 66 C18 162 182 166 176 62 C170 126 40 132 26 66 Z" fill="#0E2A2D"></path><path d="M96 22 C110 14 122 26 116 40 C110 52 90 50 87 38 C85 30 89 25 96 22 Z" fill="#FF6B5B"></path></svg></div>
+<div style="width: 32px; height: 32px; border-radius: 9px; background: #0E2A2D; display: flex; align-items: center; justify-content: center"><svg width="24" height="22" viewBox="0 0 200 180" aria-hidden="true"><path d="M24 64 C14 170 186 172 178 60 C170 120 42 124 24 64 Z" fill="#FFFFFF"></path><path d="M94 16 C112 6 126 24 118 42 C110 58 86 54 84 38 C82 28 86 20 94 16 Z" fill="#FFC845"></path></svg></div>
+</div>
+</div>
+<div style="background: #FF6B5B; border-radius: 32px; padding: 28px 32px; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="rtl" style="font-size: 16px; font-weight: 600">الفرشاة + الشخصية</div>
+<div style="display: flex; justify-content: center">
+<svg width="150" height="135" viewBox="0 0 200 180" role="img" aria-label="Mascot with a hand-painted noon body">
+<path d="M26 66 C18 162 182 166 176 62 C170 126 40 132 26 66 Z" fill="#0E2A2D"></path>
+<path class="g-pop" d="M96 18 C116 8 132 28 122 48 C112 64 82 60 80 42 C78 30 84 22 96 18 Z" fill="#FFC845" stroke="#0E2A2D" stroke-width="4"></path>
+<circle cx="95" cy="36" r="4" fill="#0E2A2D"></circle>
+<circle cx="110" cy="35" r="4" fill="#0E2A2D"></circle>
+<path d="M93 46 Q102 53 112 45" fill="none" stroke="#0E2A2D" stroke-width="3.5" stroke-linecap="round"></path>
+</svg>
+</div>
+<div dir="rtl" style="font-size: 14px; line-height: 1.6">نفس الشخصية بجسم مرسوم بالفرشاة بدل الخط المنتظم.</div>
+</div>
+<div style="background: #FFFFFF; border-radius: 32px; padding: 28px 32px; display: flex; flex-direction: column; justify-content: space-between">
+<div dir="rtl" style="font-size: 16px; font-weight: 600; color: #3E5558">بخطك إنتي</div>
+<div dir="rtl" style="font-family: 'Aref Ruqaa', serif; font-size: 40px; font-weight: 700; color: #0E7C7B">[اسمك بإيدك هنا]</div>
+<div dir="rtl" style="font-size: 14px; color: #3E5558; line-height: 1.6">اكتبي اسمك أو حرف النون على ورقة بقلم عريض، صوريه، وأنا أحوله لفيكتور نظيف بنفس ألوان البراند.</div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1340}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

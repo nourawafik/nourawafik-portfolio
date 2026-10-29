@@ -1,98 +1,118 @@
 ---
-name: Noura Wafik — Portfolio
-description: Bilingual product-design portfolio; the design system is the visual language.
+name: Noura Wafik — Brand & Portfolio
+description: Bilingual brand and product-design practice; the design system is the visual language.
 colors:
-  bg: "#F4F2EE"
-  surface: "#FFFEFB"
-  sunk: "#EAE7E0"
-  fg: "#13140F"
-  muted: "#636258"
-  line: "#E0DDD4"
-  line-strong: "#857E6F"
-  accent: "#1B5E3F"
-  accent-press: "#144A31"
-  accent-soft: "#E3EFE8"
+  bg: "#F6F4EE"
+  surface: "#FFFFFF"
+  sunk: "#ECE9E1"
+  fg: "#0E2A2D"
+  muted: "#3E5558"
+  subtle: "#6B675C"
+  line: "#D8D4C8"
+  line-strong: "#8F8A7D"
+  accent: "#0E7C7B"
+  accent-hover: "#0B6B6A"
+  accent-press: "#095A59"
+  accent-soft: "#E6F4F3"
+  on-accent-soft: "#0B6B6A"
   on-accent: "#FFFFFF"
-  success: "#1B5E3F"
-  warning: "#8A5A00"
-  error: "#9B2226"
-  info: "#2F4F7A"
-  bg-dark: "#121310"
-  surface-dark: "#1A1B17"
-  sunk-dark: "#0C0D0A"
-  fg-dark: "#E9EAE2"
-  muted-dark: "#8D8D82"
-  line-dark: "#262720"
-  line-strong-dark: "#787B6F"
-  accent-dark: "#8FD6AE"
-  accent-press-dark: "#A8E0C0"
-  accent-soft-dark: "#10261C"
-  on-accent-dark: "#04150D"
-  success-dark: "#8FD6AE"
-  warning-dark: "#E8B65A"
-  error-dark: "#F08A8D"
-  info-dark: "#9DB8E8"
+  highlight: "#FFC845"
+  on-highlight: "#0E2A2D"
+  coral: "#FF6B5B"
+  focus: "#0E2A2D"
+  success: "#1A7340"
+  warning: "#865C00"
+  error: "#B42318"
+  info: "#2364AA"
+  bg-dark: "#0E2A2D"
+  surface-dark: "#17393D"
+  sunk-dark: "#0A2023"
+  fg-dark: "#F6F4EE"
+  muted-dark: "#A9C2C4"
+  subtle-dark: "#8FAAAD"
+  line-dark: "#2B4A4E"
+  line-strong-dark: "#6F8F92"
+  accent-dark: "#5BB5AF"
+  accent-hover-dark: "#7CC6C0"
+  accent-press-dark: "#93D0CC"
+  accent-soft-dark: "#123F42"
+  on-accent-soft-dark: "#7CC6C0"
+  on-accent-dark: "#0E2A2D"
+  highlight-dark: "#FFC845"
+  focus-dark: "#FFC845"
 typography:
   display:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "48px"
-    letterSpacing: "-0.03em"
-  headline:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "34px"
-    letterSpacing: "-0.025em"
-  title:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "56px"
+    fontWeight: 800
+    lineHeight: 1.1
+    letterSpacing: "0"
+  display-mobile:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "36px"
+    fontWeight: 800
+    lineHeight: 1.3
+    letterSpacing: "0"
+  h1:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "44px"
+    fontWeight: 700
+    lineHeight: 1.15
+    letterSpacing: "0"
+  h1-mobile:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "32px"
+    fontWeight: 700
+    lineHeight: 1.35
+    letterSpacing: "0"
+  h2:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "32px"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "0"
+  h2-mobile:
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: "26px"
-    letterSpacing: "-0.02em"
-  subtitle:
-    fontFamily: "Space Grotesk, system-ui, sans-serif"
-    fontSize: "19px"
-    letterSpacing: "-0.01em"
+    fontWeight: 700
+    lineHeight: 1.4
+    letterSpacing: "0"
+  h3:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "24px"
+    fontWeight: 500
+    lineHeight: 1.3
+    letterSpacing: "0"
+  h3-mobile:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "20px"
+    fontWeight: 500
+    lineHeight: 1.5
+    letterSpacing: "0"
+  body-lg:
+    fontFamily: "Rubik, system-ui, sans-serif"
+    fontSize: "18px"
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: "0"
   body:
-    fontFamily: "Figtree, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: "16px"
-    lineHeight: 1.65
+    fontWeight: 400
+    lineHeight: 1.6
     letterSpacing: "0"
   small:
-    fontFamily: "Figtree, system-ui, sans-serif"
+    fontFamily: "Rubik, system-ui, sans-serif"
     fontSize: "14px"
-    lineHeight: 1.65
-    letterSpacing: "0"
-  label-mono:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
-    fontSize: "12.5px"
-    letterSpacing: "0"
-  display-ar:
-    fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "48px"
-    letterSpacing: "0"
-  headline-ar:
-    fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "34px"
-    letterSpacing: "0"
-  title-ar:
-    fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "26px"
-    letterSpacing: "0"
-  subtitle-ar:
-    fontFamily: "Alexandria, system-ui, sans-serif"
-    fontSize: "19px"
-    letterSpacing: "0"
-  body-ar:
-    fontFamily: "Almarai, system-ui, sans-serif"
-    fontSize: "16px"
-    lineHeight: 1.85
-    letterSpacing: "0"
-  label-ar:
-    fontFamily: "Almarai, system-ui, sans-serif"
-    fontSize: "12.5px"
-    lineHeight: 1.85
+    fontWeight: 400
+    lineHeight: 1.5
     letterSpacing: "0"
 rounded:
-  control: "10px"
-  card: "14px"
-  pill: "999px"
+  tag: "8px"
+  control: "16px"
+  card: "24px"
+  section: "32px"
+  pill: "9999px"
 spacing:
   "1": "4px"
   "2": "8px"
@@ -100,177 +120,142 @@ spacing:
   "4": "16px"
   "6": "24px"
   "8": "32px"
-  "10": "40px"
   "12": "48px"
   "16": "64px"
+  "24": "96px"
 components:
   button-primary:
     backgroundColor: "{colors.accent}"
     textColor: "{colors.on-accent}"
-    rounded: "{rounded.control}"
-  button-primary-press:
-    backgroundColor: "{colors.accent-press}"
+    rounded: "{rounded.pill}"
+  button-primary-hover:
+    backgroundColor: "{colors.accent-hover}"
     textColor: "{colors.on-accent}"
-    rounded: "{rounded.control}"
+    rounded: "{rounded.pill}"
+  button-highlight:
+    backgroundColor: "{colors.highlight}"
+    textColor: "{colors.fg}"
+    rounded: "{rounded.pill}"
   button-secondary:
     backgroundColor: "{colors.surface}"
-    textColor: "{colors.fg}"
-    rounded: "{rounded.control}"
+    textColor: "{colors.accent}"
+    borderColor: "{colors.accent}"
+    borderWidth: "2px"
+    rounded: "{rounded.pill}"
+  tag:
+    backgroundColor: "{colors.accent-soft}"
+    textColor: "{colors.on-accent-soft}"
+    rounded: "{rounded.tag}"
   card:
     backgroundColor: "{colors.surface}"
     rounded: "{rounded.card}"
-  panel-sunk:
-    backgroundColor: "{colors.sunk}"
-    rounded: "{rounded.card}"
-  chip:
-    backgroundColor: "{colors.accent-soft}"
-    textColor: "{colors.accent}"
-    rounded: "{rounded.pill}"
   input:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.fg}"
+    borderColor: "{colors.line-strong}"
+    borderWidth: "2px"
     rounded: "{rounded.control}"
+design-system-font: "Rubik"
 ---
 
-<!-- DECIDED SYSTEM, NOT YET IMPLEMENTED (2026-10-07). Noura confirmed these tokens before the code adopted them. The code still uses the earlier neutral system (Inter, IBM Plex Sans Arabic, Tailwind grays, square corners). Treat this file as the target; re-run /impeccable document once the migration lands. -->
-
-# Design System: Noura Wafik — Portfolio
+# Design System: Noura Wafik — Brand & Portfolio
 
 ## Overview
 
-**Creative North Star: "Bilingual Systems Studio"**
+**Creative Direction: "Round Stroke"**
 
-A calm stone-and-pine foundation where Arabic and Latin typography carry equal weight. The site doesn't decorate itself: tokens, mirrored layouts and component states are the graphics, because the system is the work being shown. Depth comes from panels sunk into the page, never from shadows. One pine accent marks the few things that matter on a page and nothing else.
+Built from the logo's own parts: one rounded stroke, the curve of the Arabic noon, and the yellow dot. Round ends and soft corners everywhere. The teal speaks with authority; the yellow marks the one action that matters on a page. Both scripts — Arabic and Latin — are set in the same typeface, Rubik, which was designed for both. There are no secondary font families.
 
-The density is that of a well-made product spec: generous reading measure, quiet chrome, and precise small-scale detail in metadata and numbers. Both scripts are designed natively. Arabic has its own typefaces, line-height and zero tracking, not Latin settings mirrored.
+Every text pairing below meets WCAG 2.1 AA (normal text 4.5:1, large text and UI parts 3:1). Exact values are in `tokens/tokens.json` and `tokens/tokens.css`.
 
-**Key Characteristics:**
-- Warm stone neutrals with a single pine (light) / celadon (dark) accent.
-- Two type families per script: Space Grotesk + Figtree for Latin, Alexandria + Almarai for Arabic. JetBrains Mono only for numbers, code and Latin labels.
-- Depth from sunk panels and tonal steps, never shadows.
-- Soft-cornered controls and cards; pills only for chips.
-- Graphics come from the design system itself, never from illustration.
+## Logo
 
-## Colors
+- **Mark:** the Arabic noon and the Latin N share one stroke; the yellow dot sits above the noon. Stroke weight: 17 units on a 180-unit mark.
+- **Lockups:** the names are drawn with the same stroke weight and round ends as the mark. One language per lockup — never combine AR and EN.
+- **Colourways:** teal mark + dark name on light; white mark + white name on dark or teal; dark mark + white dot on yellow; one-colour dark or white for print.
+- **Minimum sizes:** horizontal 130px, stacked 100px. Smaller: mark alone; under 32px: `mark-small-32.svg`. Favicon: `favicon.svg`.
+- **Don't:** retype the name in a font, add a face to the logo, recolour the dot, use the mark in yellow or coral on white, combine AR and EN lockups.
 
-Warm, low-chroma stone with one pine-green voice; every pairing is verified against WCAG 2.2 in both modes.
+## Colour
 
-### Primary
-- **Pine** (light) / **Celadon** (dark): the single accent. Primary buttons, the active state, and the rare inline emphasis. As text it reaches 6.91:1 on bg in light mode and 11.01:1 in dark.
-- **Pine Press** / **Celadon Press**: hover and pressed states of the accent.
-- **Pine Wash** / **Deep Pine Wash** (`accent-soft`): the only tinted background in the system, for chips and accent-adjacent fills. Accent on it is 6.54:1 / 9.42:1.
-- **On-Accent**: text and icons on accent fills (white in light mode, near-black pine in dark).
+| Role | Light | Dark | Use |
+|---|---|---|---|
+| bg | #F6F4EE | #0E2A2D | Page background |
+| surface | #FFFFFF | #17393D | Cards, panels |
+| sunk | #ECE9E1 | #0A2023 | Wells, disabled fills |
+| fg | #0E2A2D | #F6F4EE | Body text, headings |
+| muted | #3E5558 | #A9C2C4 | Secondary text |
+| subtle | #6B675C | #8FAAAD | Helper text, captions |
+| line | #D8D4C8 | #2B4A4E | Decorative dividers only |
+| line-strong | #8F8A7D | #6F8F92 | Input borders, icons (UI, ≥3:1) |
+| accent | #0E7C7B | #5BB5AF | Links, primary buttons, the mark |
+| accent-hover / press | #0B6B6A / #095A59 | #7CC6C0 / #93D0CC | Button and link states |
+| accent-soft | #E6F4F3 | #123F42 | Tag and selection fills |
+| on-accent-soft | #0B6B6A | #7CC6C0 | Text on accent-soft |
+| on-accent | #FFFFFF | #0E2A2D | Text on accent fills |
+| highlight | #FFC845 | #FFC845 | The single most important CTA, the dot, accents |
+| coral | #FF6B5B | #FF6B5B | Secondary accent, announcement posts |
+| focus | #0E2A2D | #FFC845 | 3px focus outline, 3px offset |
 
-### Neutral
-- **Stone** (`bg`): the page.
-- **Paper** (`surface`): raised content such as cards, inputs and secondary buttons.
-- **Quarry** (`sunk`): panels pressed into the page. This is the system's only way of showing depth.
-- **Ink** (`fg`): primary text, 16.55:1 / 15.39:1 on bg.
-- **Graphite** (`muted`): secondary text, 5.49:1 / 5.56:1 on bg.
-- **Hairline** (`line`): decorative section dividers only (1.21:1). Never a UI boundary.
-- **Edge** (`line-strong`): input borders, secondary button borders and any interactive edge. 3.60:1 / 4.32:1 on bg, so it passes the 3:1 UI requirement.
-
-### Semantic
-Success (same value as the accent), warning, error and info. Each passes as text on bg in both modes. There are no soft-background versions.
-
-### Named Rules
-**The One Accent Rule.** There is one accent colour, and it appears at most three times per page.
-
-**The Two Inks Rule.** Text uses `fg` or `muted` and nothing else. There is no third "subtle" level.
-
-**The Two Lines Rule.** `line` is decoration and `line-strong` is affordance. Anything a user can interact with gets `line-strong`.
-
-**The Semantic Quarantine Rule.** Semantic colours never appear in site chrome. They live only inside product screens and form messages.
-
-**The Recompute Rule.** Any colour change must recompute the full contrast table, light and dark, before it ships.
+**Rules:**
+- White text only on dark, teal 500 and darker.
+- Dark text on white, paper, yellow, coral and all light tints.
+- Colour never carries meaning alone: links are underlined, messages have an icon.
+- Never text on light highlight (#FFC845) or coral (#FF6B5B) in body size.
 
 ## Typography
 
-**Latin display/headings:** Space Grotesk
-**Latin body:** Figtree
-**Arabic display/headings:** Alexandria
-**Arabic body, labels, metadata:** Almarai
-**Numbers, code, Latin-only labels:** JetBrains Mono
+One family for both scripts: **Rubik** (Google Fonts), weights 400, 500, 700, 800.
 
-**Character:** Space Grotesk's engineered geometry over Figtree's friendly, readable text; Alexandria and Almarai give Arabic the same relationship, so the two scripts read as equals rather than a primary and its translation.
+| Step | Desktop / mobile | Weight | Line height EN / AR |
+|---|---|---|---|
+| Display | 56 / 36 | 800 | 1.1 / 1.3 |
+| H1 | 44 / 32 | 700 | 1.15 / 1.35 |
+| H2 | 32 / 26 | 700 | 1.2 / 1.4 |
+| H3 | 24 / 20 | 500 | 1.3 / 1.5 |
+| Body L | 18 | 400 | 1.6 / 1.8 |
+| Body | 16 | 400 | 1.6 / 1.8 |
+| Small | 14 | 400 | 1.5 / 1.7 |
 
-### Hierarchy
-Sizes are shared across both scripts. Heading line-height runs from 105% (display) to 150% (h3), depending on level. Latin body text is 165% and all Arabic text is 185%.
+**Rules:**
+- Minimum 16px for any reading text; 14px only for labels and dates.
+- No letter-spacing or faux italic on Arabic.
+- Uppercase tracking only for short English labels.
+- Line length 60–75 characters.
+- Arabic body never goes below 16px.
 
-- **Display** (48px; Latin −3% tracking): the hero statement.
-- **Headline / h1** (34px; Latin −2.5%): page titles.
-- **Title / h2** (26px; Latin −2%): section headings.
-- **Subtitle / h3** (19px; Latin −1%): card titles and decision headings.
-- **Body** (16px, 0 tracking): running text.
-- **Small** (14px): secondary text and captions.
-- **Micro** (12.5px): labels and metadata. Latin labels may use JetBrains Mono; Arabic labels always use Almarai.
+## Shape and Space
 
-### Named Rules
-**The Zero Tracking Rule.** Arabic letter-spacing is always 0. Negative tracking breaks the letter joins.
-
-**The No Mono Arabic Rule.** Never set Arabic in JetBrains Mono. It has no Arabic glyphs, and the bidi algorithm scrambles the word order. Arabic labels use Almarai.
-
-**The Equal Scripts Rule.** Arabic gets its own families, line-height and tracking. It is never Latin styling mirrored.
-
-## Layout
-
-The spacing scale is 4, 8, 12, 16, 24, 32, 40, 48 and 64px. Every gap, padding and margin comes from it. English and Arabic pages are structurally identical: the Arabic layout is the English layout mirrored for RTL, with the same sections, the same order and the same components.
-
-## Elevation & Depth
-
-The system is flat at rest, with no shadows anywhere. Depth only goes down: content that needs grouping or emphasis sits in a **sunk panel** (`sunk`) pressed into the stone page, while cards sit on `surface`, one tonal step up. Separation comes from tone and borders, never from blur or shadow.
-
-### Named Rules
-**The Sunk, Never Lifted Rule.** No drop shadows under cards or anything else. If something needs depth, sink it.
-
-## Shapes
-
-There are three radii. **Controls** (buttons, inputs) use gently softened corners (10px), **cards and panels** slightly rounder ones (14px), and **chips** are full pills (999px). Nothing else is rounded, and no other radius values exist.
+- **Radius:** tags 8px, inputs 16px, cards 24px, page sections 32px, buttons and chips fully round (pill).
+- **Spacing scale (px):** 4, 8, 12, 16, 24, 32, 48, 64, 96.
+- **Touch targets:** at least 44px.
+- **Icons:** 24px grid, 2px stroke, round caps and joins, `currentColor`. Directional icons mirror on `/ar`.
 
 ## Components
 
-### Buttons
-- **Shape:** control radius (10px).
-- **Primary:** accent fill with on-accent text. The press state moves to accent-press (on-accent on press is 10.23:1 / 12.60:1).
-- **Secondary:** surface fill, `fg` text, `line-strong` border.
-- **Focus:** see Focus Ring; the same treatment applies to every variant.
+- **Primary button:** teal bg, white text, hover/press states, disabled sunk + muted text. Shape: pill.
+- **Highlight button:** yellow bg, dark text. One per view, for "Get a quote". Shape: pill.
+- **Secondary button:** white bg, 2px teal border, teal text; hover: accent-soft bg + on-accent-soft text. Shape: pill.
+- **Link:** teal, underlined.
+- **Tag:** accent-soft bg, on-accent-soft text, radius 8px or full.
+- **Card / project card:** surface bg, radius 24px, image on top, tags, title, one-line summary, "Read the case study" link.
+- **Alert:** semantic bg + 2px semantic border + icon + bold title + body.
+- **Input:** 2px line-strong border, radius 16px, 44px min height, visible label.
 
-### Chips
-- **Style:** pill radius, accent-soft fill, accent text. Chips are the pill shape's only use.
+## Focus Ring
 
-### Cards / Containers
-- **Card:** surface background, card radius (14px), no shadow.
-- **Sunk panel:** sunk background, card radius, no shadow. Use it to group or emphasise content.
-- **Border:** `line` only where purely decorative; `line-strong` if the card is itself interactive.
+3px solid focus colour, 3px offset. Same rule for every focusable element.
+- Light mode: `#0E2A2D` (dark) for contrast on paper bg.
+- Dark mode: `#FFC845` (yellow) for contrast on dark bg.
 
-### Inputs / Fields
-- **Style:** surface fill, `line-strong` border, control radius.
-- **Error:** error colour on the message text only, never as a chrome fill.
+## Noon (mascot)
 
-### Focus Ring
-A 2px gap in `bg`, then a 3px `accent` ring outside it, never a spread shadow. One rule for every focusable element, primary and ghost buttons alike. The gap means the ring only ever touches the page background (accent on bg is 6.91:1 / 11.01:1), so it never has to contrast with the element it surrounds.
+- Noon's body is the logo itself; the dot becomes her head, the N's last stroke her arm.
+- Head always yellow with dark features and outline. Body teal by default.
+- Moments: wave (welcome), explain (tips, case studies), celebrate (launches), idea (head glows), think (loading, 404, Ask Noura typing), wink (quick tricks).
+- Noon appears in content, stickers, the 404 page, and Ask Noura. Never in the profile photo slot, CV or formal proposals.
+- Always respect `prefers-reduced-motion`.
 
-### Signature: system-derived graphics
-Diagrams, tokens, mirrored LTR/RTL layouts and component-state sheets serve as the site's imagery. Any visual that isn't a product screen must be built from the design system's own parts.
+## Accessibility
 
-## Do's and Don'ts
-
-### Do:
-- **Do** keep the accent to three appearances or fewer per page.
-- **Do** use `line-strong` on every interactive edge and `line` only for decorative dividers.
-- **Do** give depth by sinking content into a `sunk` panel.
-- **Do** set Arabic in Alexandria (headings) and Almarai (body, labels, metadata), at 185% line-height and 0 tracking.
-- **Do** recompute the full light/dark contrast table after any colour change.
-- **Do** keep English and Arabic pages structurally identical.
-
-### Don't:
-- **Don't** look like a template portfolio: no hero gradients, glassmorphism, or mockups floating on blobs.
-- **Don't** over-animate: no scroll-jacking, parallax, or motion that slows a skimming reader.
-- **Don't** put soft grey drop shadows under cards.
-- **Don't** set Arabic text in a monospace font.
-- **Don't** apply negative letter-spacing to Arabic.
-- **Don't** chain metadata with middle dots ("Lead designer · Web + mobile · 2026"). Bilingual name pairs such as "دايرتنا · Da'eratna" are names, not metadata, and keep their dot.
-- **Don't** use decorative illustration. Graphics must come from the design system itself.
-- **Don't** use semantic colours in site chrome.
-- **Don't** add a third text colour, a second accent, or soft semantic backgrounds.
-- **Don't** use Inter or IBM Plex Sans Arabic. Both have been removed from the system.
+WCAG 2.1 AA is the floor. Full RTL support for Arabic, designed natively not mirrored. Icon-only buttons need `aria-label`. Colour never carries meaning alone.

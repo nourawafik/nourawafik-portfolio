@@ -5,10 +5,12 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import readingTime from 'reading-time';
 import { Container } from '@/components/layout/container';
 import { ProjectImage } from '@/components/ui/project-image';
+import { ArrowIcon } from '@/components/ui/arrow-icon';
 import { MetadataGrid } from '@/components/mdx/metadata-grid';
 import { mdxComponents } from '@/components/mdx';
-import { getStudySlugs, getFrontmatter, getSource, getNextProject } from '@/lib/mdx';
+import { getStudySlugs, getFrontmatter, getSource } from '@/lib/mdx';
 import { caseStudies } from '@/content/case-studies';
+import { NextProjectCard } from '@/components/ui/next-project-card';
 import type { CaseStudyFrontmatter } from '@/types';
 
 export async function generateStaticParams() {
@@ -24,14 +26,19 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const fm = await getFrontmatter(slug);
+    const pageTitle = fm.seoTitle ?? fm.title;
     return {
-      title: fm.title,
+      title: pageTitle,
       description: fm.description,
       alternates: {
         canonical: `https://nourawafik.com/work/${slug}`,
+        languages: {
+          en: `https://nourawafik.com/work/${slug}`,
+          ar: `https://nourawafik.com/ar/work/${slug}`,
+        },
       },
       openGraph: {
-        title: fm.title,
+        title: pageTitle,
         description: fm.description,
         type: 'article',
         authors: ['Noura Wafik'],
@@ -39,7 +46,7 @@ export async function generateMetadata({
       },
       twitter: {
         card: 'summary_large_image',
-        title: fm.title,
+        title: pageTitle,
         description: fm.description,
       },
     };
@@ -65,8 +72,9 @@ export default async function CaseStudyPage({
   });
 
   const stats = readingTime(source);
-  const nextProject = await getNextProject(slug);
-  const heroAlt = caseStudies.find(s => s.slug === slug)?.heroAlt ?? frontmatter.title;
+  const studyMeta = caseStudies.find(s => s.slug === slug);
+  const heroAlt = studyMeta?.heroAlt ?? frontmatter.title;
+  const heroDark = studyMeta?.heroDark;
 
   const creativeWorkJsonLd = {
     '@context': 'https://schema.org',
@@ -95,7 +103,7 @@ export default async function CaseStudyPage({
           <p className="text-[1.125rem] leading-[1.65] text-foreground-muted mb-2">
             {frontmatter.tagline}
           </p>
-          <p className="font-mono text-[0.8125rem] text-foreground-muted mb-10">
+          <p className="text-[0.8125rem] text-foreground-muted mb-10">
             {stats.text}
           </p>
           <MetadataGrid
@@ -110,7 +118,9 @@ export default async function CaseStudyPage({
 
       {/* ── Hero image ── */}
       <Container className="mb-16 md:mb-24">
-        <ProjectImage slug={slug} variant="hero" alt={heroAlt} priority={true} />
+        <div className="rounded-[16px] md:rounded-[24px] overflow-hidden">
+          <ProjectImage slug={slug} variant="hero" alt={heroAlt} priority={true} srcDark={heroDark} />
+        </div>
       </Container>
 
       {/* ── MDX content ── */}
@@ -119,24 +129,9 @@ export default async function CaseStudyPage({
       </Container>
 
       {/* ── Next project ── */}
-      {nextProject && (
-        <div className="border-t border-border">
-          <Container>
-            <Link
-              href={`/work/${nextProject.slug}`}
-              className="group block py-12 hover:opacity-80 transition-opacity duration-150 md:py-16"
-              aria-label={`Next project: ${nextProject.title}`}
-            >
-              <p className="font-mono text-[0.8125rem] text-foreground-muted mb-3">
-                Next project
-              </p>
-              <p className="text-[1.25rem] font-medium leading-[1.3] tracking-[-0.01em] text-foreground">
-                {nextProject.title} <span aria-hidden="true">→</span>
-              </p>
-            </Link>
-          </Container>
-        </div>
-      )}
+      <Container className="mb-16 md:mb-24">
+        <NextProjectCard currentSlug={slug} />
+      </Container>
     </article>
   );
 }

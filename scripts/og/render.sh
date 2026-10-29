@@ -23,4 +23,3 @@ render() { # <source.html> <output.png>
 }
 
 render ar.html ../../src/app/ar/opengraph-image.png
-render dayratna.html ../../src/content/og/dayratna.png

@@ -42,3 +42,13 @@ next-env.d.ts
 
 # claude code personal settings
 .claude/settings.local.json
+
+# impeccable live session data
+.impeccable/live/
+
+# personal photos — stay local only, repo is public
+design-handoff/photos/
+
+# cloudflare worker build output
+.open-next/
+.wrangler/

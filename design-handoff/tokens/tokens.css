@@ -1,0 +1,101 @@
+/* Noura Wafik brand tokens. Generated from the brand canvas (Colors board).
+   Names match the existing globals.css so the swap is mechanical.
+   Every text pair is WCAG 2.1 AA (see tokens.json "contrast-notes"). */
+:root {
+  --bg: #F6F4EE;
+  --surface: #FFFFFF;
+  --sunk: #ECE9E1;
+  --fg: #0E2A2D;
+  --muted: #3E5558;
+  --subtle: #6B675C;
+  --line: #D8D4C8;
+  --line-strong: #8F8A7D;
+  --accent: #0E7C7B;
+  --accent-hover: #0B6B6A;
+  --accent-press: #095A59;
+  --accent-soft: #E6F4F3;
+  --on-accent: #FFFFFF;
+  --on-accent-soft: #0B6B6A;
+  --highlight: #FFC845;
+  --on-highlight: #0E2A2D;
+  --coral: #FF6B5B;
+  --on-coral: #0E2A2D;
+  --focus: #0E2A2D;
+  --success: #1A7340;
+  --success-bg: #E4F4EA;
+  --warning: #865C00;
+  --warning-bg: #FFF4D6;
+  --error: #B42318;
+  --error-bg: #FDECEA;
+  --info: #2364AA;
+  --info-bg: #E5EFFA;
+  --radius-tag: 8px;
+  --radius-input: 16px;
+  --radius-card: 24px;
+  --radius-section: 32px;
+  --radius-pill: 9999px;
+}
+
+.dark {
+  --bg: #0E2A2D;
+  --surface: #17393D;
+  --sunk: #0A2023;
+  --fg: #F6F4EE;
+  --muted: #A9C2C4;
+  --subtle: #8FAAAD;
+  --line: #2B4A4E;
+  --line-strong: #6F8F92;
+  --accent: #5BB5AF;
+  --accent-hover: #7CC6C0;
+  --accent-press: #93D0CC;
+  --accent-soft: #123F42;
+  --on-accent: #0E2A2D;
+  --on-accent-soft: #7CC6C0;
+  --highlight: #FFC845;
+  --on-highlight: #0E2A2D;
+  --coral: #FF6B5B;
+  --on-coral: #0E2A2D;
+  --focus: #FFC845;
+  --success: #6FD39A;
+  --success-bg: #123A2A;
+  --warning: #FFC845;
+  --warning-bg: #3A3112;
+  --error: #FF8C7F;
+  --error-bg: #3F1E1B;
+  --info: #8DB8F0;
+  --info-bg: #16304F;
+}
+
+/* Tailwind v4 mapping (merge into the existing @theme inline block) */
+@theme inline {
+  --font-sans: var(--font-rubik), system-ui, sans-serif;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-sunk: var(--sunk);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-press: var(--accent-press);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-on-accent-soft: var(--on-accent-soft);
+  --color-highlight: var(--highlight);
+  --color-on-highlight: var(--on-highlight);
+  --color-coral: var(--coral);
+  --color-on-coral: var(--on-coral);
+  --color-focus: var(--focus);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-error: var(--error);
+  --color-error-bg: var(--error-bg);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+  --radius-card: var(--radius-card);
+  --radius-section: var(--radius-section);
+}

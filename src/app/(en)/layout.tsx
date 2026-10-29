@@ -1,44 +1,18 @@
 import type { Metadata } from 'next';
-import { Alexandria, Almarai, Figtree, JetBrains_Mono, Space_Grotesk } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Rubik } from 'next/font/google';
 import { Providers } from '@/components/providers';
 import { Nav } from '@/components/layout/nav';
 import { Footer } from '@/components/layout/footer';
+import { OfferBar } from '@/components/ui/offer-bar';
+import { AskNoura } from '@/components/ui/ask-noura';
+import { getActiveOffer } from '@/content/offers';
+import { visibleSocial } from '@/content/social';
 import '../globals.css';
 
-const figtree = Figtree({
-  variable: '--font-figtree',
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: '--font-space-grotesk',
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-// Arabic fallbacks for Arabic words inside English pages (e.g. "دايرتنا · Da'eratna").
-// Not preloaded: the browser only fetches them when Arabic glyphs actually render.
-const alexandria = Alexandria({
-  variable: '--font-alexandria',
-  subsets: ['arabic'],
-  display: 'swap',
-  preload: false,
-});
-
-const almarai = Almarai({
-  variable: '--font-almarai',
-  subsets: ['arabic'],
-  weight: ['400', '700'],
-  display: 'swap',
-  preload: false,
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-jetbrains',
-  subsets: ['latin'],
+const rubik = Rubik({
+  variable: '--font-rubik',
+  subsets: ['latin', 'arabic'],
+  weight: ['400', '500', '700', '800'],
   display: 'swap',
 });
 
@@ -46,7 +20,7 @@ const personJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Noura Wafik',
-  jobTitle: 'Product Designer',
+  jobTitle: 'Product and brand designer',
   url: 'https://nourawafik.com',
   email: 'hello@nourawafik.com',
   address: {
@@ -54,10 +28,11 @@ const personJsonLd = {
     addressLocality: 'Cairo',
     addressCountry: 'EG',
   },
-  sameAs: ['https://linkedin.com/in/nourawafik'],
+  sameAs: visibleSocial.map(s => s.href),
   knowsLanguage: ['en', 'ar'],
   knowsAbout: [
     'Product Design',
+    'Brand Design',
     'SaaS Design',
     'Healthtech',
     'AI UX Design',
@@ -70,21 +45,27 @@ const personJsonLd = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://nourawafik.com'),
   title: {
-    default: 'Noura Wafik — Product Designer',
+    default: 'Noura Wafik — Product and brand designer, Arabic and English',
     template: '%s — Noura Wafik',
   },
   description:
-    'Bilingual product designer based in Cairo, designing data-heavy SaaS, healthtech platforms, and AI tools across the Gulf, Egypt, and the US. Currently open to full-time roles.',
+    'Brand identities, websites and digital products designed in Arabic and English from the start. A product and brand designer in Cairo, for companies in Egypt and the Gulf.',
   authors: [{ name: 'Noura Wafik' }],
   creator: 'Noura Wafik',
   openGraph: {
-    title: 'Noura Wafik — Product Designer',
+    title: 'Noura Wafik — Product and brand designer, Arabic and English',
     description:
-      'Designing data-heavy SaaS, healthtech, and AI tools. Bilingual (Arabic/English). Based in Cairo, working with a UAE-based team on products for the Gulf, Egypt, and the US.',
+      'Brand identities, websites and digital products designed in Arabic and English from the start. A product and brand designer in Cairo, for companies in Egypt and the Gulf.',
     type: 'website',
     locale: 'en_US',
     url: 'https://nourawafik.com',
     siteName: 'Noura Wafik',
+    images: [{
+      url: 'https://nourawafik.com/opengraph-image.png',
+      width: 1200,
+      height: 630,
+      alt: 'Noura Wafik — Bring your idea to life. Digital products and brand identities, designed in Arabic and English.',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -98,11 +79,13 @@ export const metadata: Metadata = {
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {
+  const activeOffer = getActiveOffer();
+
   return (
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${figtree.variable} ${spaceGrotesk.variable} ${alexandria.variable} ${almarai.variable} ${jetbrainsMono.variable}`}
+      className={rubik.variable}
     >
       <head>
         <script
@@ -112,14 +95,14 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground">
         <Providers>
+          {activeOffer && <OfferBar offer={activeOffer} locale="en" />}
           <Nav />
           <main id="main-content" className="flex-1">
             {children}
           </main>
           <Footer />
+          {process.env.NEXT_PUBLIC_ASK_NOURA === 'true' && <AskNoura locale="en" />}
         </Providers>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

@@ -1,0 +1,27 @@
+---
+title: "Design system"
+titleAr: "نظام التصميم"
+seoTitle: "Ulfa design system: themes, dark mode and RTL tokens"
+slug: "design-system"
+parent: "ulfa"
+order: 4
+next: null
+nextTitle: null
+nextTitleAr: null
+description: "Four colour themes in light and dark from one set of tokens, with WCAG AA contrast, for an Arabic and English app."
+---
+
+People choose one of four colors, light or dark, and their language. Every screen takes its colors from the same tokens, so any choice applies across the whole app without redesigning a screen. That makes 8 contexts from one design.
+
+{/* AR: يختار المستخدم لونا من أربعة، والوضع الفاتح أو الداكن، واللغة. كل الشاشات تأخذ ألوانها من متغيرات التصميم نفسها (Tokens)، فينطبق أي اختيار على التطبيق كله دون إعادة تصميم أي شاشة. أي 8 حالات من تصميم واحد. */}
+
+<UlfaThemeGrid />
+
+<PhoneGrid caption="Appearance: color, mode and language, with a live preview" captionAr="المظهر: اللون والوضع واللغة، مع معاينة مباشرة">
+  <PhoneImage src="/work/ulfa/ds-appearance-en.png" alt="Appearance settings in English light" altAr="المظهر: اللون والوضع واللغة، مع معاينة مباشرة" />
+  <PhoneImage src="/work/ulfa/ds-appearance-en-dark.png" alt="Appearance settings in English dark" altAr="المظهر: اللون والوضع واللغة، مع معاينة مباشرة" />
+  <PhoneImage src="/work/ulfa/ds-appearance-ar.png" alt="Appearance settings in Arabic light" altAr="المظهر: اللون والوضع واللغة، مع معاينة مباشرة" />
+  <PhoneImage src="/work/ulfa/ds-appearance-ar-dark.png" alt="Appearance settings in Arabic dark" altAr="المظهر: اللون والوضع واللغة، مع معاينة مباشرة" />
+</PhoneGrid>
+
+<UlfaColorTable />

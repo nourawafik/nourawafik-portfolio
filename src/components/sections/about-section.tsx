@@ -1,57 +1,124 @@
-'use client';
-import { track } from '@vercel/analytics';
-import { Container } from '@/components/layout/container';
-import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import { yearsExperience } from '@/content/profile';
 
-export function AboutSection() {
+const n = yearsExperience();
+
+const COPY = {
+  en: {
+    eyebrow: 'About',
+    h2Line1: 'Hi, I\'m Noura',
+    body: `A product and brand designer based in Cairo, with ${n}+ years of experience. I work end to end, from research and brand identity to developer-ready screens. I also know code and marketing, so the design can be built and reaches the right audience.`,
+    traits: [
+      {
+        title: 'Arabic and English',
+        desc: 'Arabic designed from the start, not a translation of an English interface.',
+      },
+      {
+        title: '50+ clinics',
+        desc: 'use Praxa, a platform I helped design, in the US',
+      },
+      {
+        title: `${n}+ years`,
+        desc: 'designing digital products and brand identities for markets in Egypt, the Gulf and the US',
+      },
+    ],
+  },
+  ar: {
+    eyebrow: 'عني',
+    h2Line1: 'أهلا، أنا نورا',
+    body: `مصممة منتجات رقمية وهويات بصرية من القاهرة، بخبرة أكثر من ${n} ${n >= 11 ? 'سنة' : 'سنوات'}. أجمع بين التفكير التصميمي والخبرة التقنية وفهم التسويق لتطوير هويات بصرية وتجارب رقمية متكاملة، من البحث وتحديد الاحتياجات إلى تصميم واجهات جاهزة للتطوير. أحرص على أن يكون كل تصميم قابلا للتنفيذ، ومتسقا مع أهداف المشروع، ومصمما ليلائم جمهوره.`,
+    traits: [
+      {
+        title: 'التصميم باللغة العربية والإنجليزية',
+        desc: 'تصميم عربي من الأساس، وليس مجرد ترجمة لواجهة إنجليزية.',
+      },
+      {
+        title: 'أكثر من 50 عيادة',
+        desc: 'تستخدم منصة Praxa التي ساهمت في تصميمها، في الولايات المتحدة.',
+      },
+      {
+        title: 'أكثر من 6 سنوات',
+        desc: 'في تصميم المنتجات الرقمية والهويات البصرية، عبر أسواق مصر والخليج والولايات المتحدة.',
+      },
+    ],
+  },
+} as const;
+
+interface AboutSectionProps {
+  locale?: 'en' | 'ar';
+}
+
+export function AboutSection({ locale = 'en' }: AboutSectionProps) {
+  const t = COPY[locale];
+  const ar = locale === 'ar';
+
   return (
-    <section id="about" aria-labelledby="about-heading" className="py-20 md:py-32 border-t border-border">
-      <Container>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-24">
-          <h2
-            id="about-heading"
-            className="text-[0.8125rem] font-mono text-foreground-muted shrink-0 md:w-32 md:pt-1"
-          >
-            About
-          </h2>
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="py-20 md:py-32 bg-surface dark:bg-sunk"
+    >
+      <div className="mx-auto w-full px-4 md:px-12 max-w-[1200px]">
+        <div className="flex flex-col gap-12 md:flex-row md:gap-16 md:items-start">
+          {/* Photo slot */}
+          <div className="relative shrink-0 w-full max-w-[320px] mx-auto md:mx-0 md:w-[320px]">
+            <div
+              className="rounded-[40px] overflow-hidden"
+              style={{ aspectRatio: '1 / 1' }}
+            >
+              <Image
+                src="/images/noura-about.webp"
+                alt={ar ? 'صورة نورا وفيق' : 'Photo of Noura Wafik'}
+                width={320}
+                height={320}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+            {/* Logo mark circle overlapping bottom-end corner */}
+            <div
+              className="absolute bottom-0 end-0 translate-x-2 translate-y-2 w-24 h-24 rounded-full flex items-center justify-center ring-[6px] ring-surface dark:ring-sunk"
+              style={{ backgroundColor: 'var(--teal-fixed)' }}
+            >
+              <Image
+                src="/logo/mark-on-dark.svg"
+                alt=""
+                width={48}
+                height={48}
+                className="w-10 h-10 object-contain"
+                aria-hidden
+              />
+            </div>
+          </div>
 
-          <div className="flex flex-col gap-6 max-w-[560px]">
-            <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              I&apos;m Noura — a product designer based in Cairo. I have 6+ years of design
-              experience, with recent years dedicated to product design across brand, visual, and
-              digital product work. I work end-to-end: research, information architecture, interaction
-              design, and design systems.
+          {/* Text */}
+          <div className="flex flex-col gap-6 flex-1">
+            <p className="text-[0.9375rem] font-medium text-on-accent-soft">{t.eyebrow}</p>
+            <h2
+              id="about-heading"
+              className={`text-h2 font-bold text-foreground ${ar ? 'leading-[1.4]' : 'leading-[1.2]'}`}
+            >
+              {t.h2Line1}
+              <span className="text-highlight" aria-hidden>.</span>
+            </h2>
+            <p className={`text-[1.125rem] text-foreground-muted max-w-[560px] ${ar ? 'leading-[1.8]' : 'leading-[1.6]'}`}>
+              {t.body}
             </p>
 
-            <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              I&apos;m bilingual (Arabic and English) and I design products for healthtech, AI tools,
-              and wellness platforms across the Gulf, Egypt, and the US. Recent work includes leading
-              design across multi-platform bilingual products, mentoring junior designers on
-              system-led workflows, and building AI-readable design systems using design.md and
-              Storybook for engineering handoff.
-            </p>
-
-            <p className="text-[1rem] leading-[1.65] text-foreground-muted">
-              Currently open to full-time remote roles · Open to relocation (UAE).
-            </p>
-
-            <div className="flex flex-wrap gap-3">
-              <Button href="/resume.pdf" variant="primary" size="sm" download onClick={() => track('resume_download')}>
-                Download resume
-              </Button>
-              <Button
-                href="https://linkedin.com/in/nourawafik"
-                variant="ghost"
-                size="sm"
-                external
-                onClick={() => track('linkedin_click')}
-              >
-                LinkedIn
-              </Button>
+            {/* Trait cards */}
+            <div className="flex flex-col gap-3 md:grid md:grid-cols-3 md:gap-4 mt-2">
+              {t.traits.map((trait) => (
+                <div key={trait.title} className="card-shadow-trait flex flex-col gap-2 rounded-[20px] bg-background p-5">
+                  <h3 className="text-body font-medium text-foreground">{trait.title}</h3>
+                  <p className={`text-small text-foreground-muted ${ar ? 'leading-[1.7]' : 'leading-[1.5]'}`}>
+                    {trait.desc}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

@@ -1,0 +1,118 @@
+---
+title: "Duet"
+seoTitle: "Duet: AI hiring platform UX case study"
+tagline: "Two-sided AI hiring platform with an assistant for each side"
+role: "Product designer, design team"
+timeline: ""
+platform: "Web and mobile"
+status: ""
+order: 3
+slug: "duet"
+description: "Explainable AI for recruiters and a supportive AI assistant for candidates, on web and mobile, with one design system and two voices."
+---
+
+A hiring platform where both sides get their own AI assistant: Tempo for recruiters and Lyric for candidates. I worked on the product as part of the design team, across web and mobile, on the AI interaction patterns and the design system.
+
+<NdaNote />
+
+<Section title="The problem">
+
+Most AI hiring tools score candidates and stop there. Recruiters get a number they can't explain to a hiring manager, and candidates get silence. Duet gives each side an assistant built for its own job, and the hard part is that the two sides don't always want the same thing.
+
+</Section>
+
+<Section title="Tempo, for recruiters: AI decisions a recruiter can defend">
+
+<Decision number="01" title="No score without its reasons">
+
+Tempo never shows a match score alone. The top reasons sit next to it in the same view, not behind a tooltip, so a recruiter can always say why.
+
+</Decision>
+
+<Video
+  src="/work/duet/tempo-reasons.mp4"
+  poster="/work/duet/tempo-reasons-poster.png"
+  srcDark="/work/duet/tempo-reasons-dark.mp4"
+  posterDark="/work/duet/tempo-reasons-dark-poster.png"
+  caption="The score never arrives alone: the reasons come with it"
+/>
+
+<Decision number="02" title="Recruiter language, not model language">
+
+Reasons are written the way recruiters talk: "5 of 7 required skills match", "7 years in payments". They can paste them straight into an update for the hiring manager.
+
+</Decision>
+
+<Decision number="03" title="Disagreeing is part of the flow">
+
+Recruiters can agree or disagree with every suggestion, with a reason, in a few seconds. Each decision is saved to an audit trail, and disagreeing is treated as normal work, not an error.
+
+</Decision>
+
+<ImageGrid columns={2}>
+  <ImageWithCaption src="/work/duet/tempo-review.png" srcDark="/work/duet/tempo-review-dark.png" alt="Tempo recruiter view showing candidate score and reasons together" caption="Score and reasons in one view, in recruiter language" />
+  <ImageWithCaption src="/work/duet/tempo-disagree.png" srcDark="/work/duet/tempo-disagree-dark.png" alt="Disagreement flow where recruiter marks an AI suggestion as wrong" caption="Disagreeing with a reason, saved to the audit trail" />
+</ImageGrid>
+
+</Section>
+
+<Section title="Lyric, for candidates: help at the hard moments">
+
+Recruiters use Tempo all day and need density. Candidates open Lyric at stressful moments (applying, waiting, hearing no), so Lyric needs clarity and a calmer pace.
+
+<Decision number="01" title="After a no, look forward">
+
+Rejections arrive as formal notifications. Lyric's job afterwards is to point to roles that fit better, not to repeat the bad news.
+
+</Decision>
+
+<Decision number="02" title="Suggestions, not critique">
+
+Lyric never says "your CV is weak". It says what recruiters for these roles look for, and asks if the candidate wants to add it. The candidate stays the author.
+
+</Decision>
+
+<Decision number="03" title="Prep for this role, not a template">
+
+Interview prep is built from the actual job post and company, so it reads like help from someone who knows the situation.
+
+</Decision>
+
+<PhoneGrid>
+  <PhoneImage src="/work/duet/lyric-roles.png" srcDark="/work/duet/lyric-roles-dark.png" alt="Lyric showing similar roles after a rejection" caption="Better-fit roles after a rejection" />
+  <PhoneImage src="/work/duet/lyric-profile.png" srcDark="/work/duet/lyric-profile-dark.png" alt="Lyric profile optimization with collaborative suggestions" caption="Suggestions to improve the profile" />
+  <PhoneImage src="/work/duet/lyric-prep.png" srcDark="/work/duet/lyric-prep-dark.png" alt="Lyric interview prep built from the specific role" caption="Interview prep built from this role" />
+</PhoneGrid>
+
+</Section>
+
+<Section title="One design system, two voices">
+
+Tempo and Lyric had to feel different to their users, but ship from one design system. The base is shared: the same components, tokens and accessibility rules. Each assistant gets its own voice on top: colour, density, motion and tone of the AI's writing. A new component is added once, with a Tempo and a Lyric treatment.
+
+<ImageWithCaption src="/work/duet/two-voices.png" srcDark="/work/duet/two-voices-dark.png" alt="Design system showing the same components rendered in two color treatments — one for each AI assistant" caption="Same components, two voices" />
+
+</Section>
+
+<Section title="What I learned">
+
+<Decision number="01" title="AI output is design output">
+
+The hardest decisions weren't screens. They were what the AI says, when it stays quiet, and what it shows first.
+
+</Decision>
+
+<Decision number="02" title="Two sides means designing for tension">
+
+Recruiters and candidates are sometimes on opposite sides of the same decision. Designing honestly for both means accepting that tension, not hiding it.
+
+</Decision>
+
+<Decision number="03" title="Business wireframes are a head start">
+
+We started from wireframes drafted by the business side. They weren't designs, they were product thinking made visible, and they saved weeks of alignment. The work was turning that logic into a system that could ship.
+
+</Decision>
+
+</Section>
+
