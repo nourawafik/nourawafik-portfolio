@@ -19,7 +19,7 @@ Owner: Noura Wafik (نورا, never نورة) · hello@nourawafik.com
 
 | What | Where |
 |---|---|
-| Code | This repo, `nourawafik-portfolio`, branch `rebrand`. GitHub remote `nourawafik/nourawafik-portfolio` (private). |
+| Code | This repo, `nourawafik-portfolio`, branch `main` (production). GitHub remote `nourawafik/nourawafik-portfolio` (private). |
 | Design canvas (all boards) | Claude artifact "Noura Wafik Brand Directions": https://claude.ai/artifact/FZEvDMRLevyUVP9txWDJ6h |
 | Design handoffs (specs for Claude Code) | `design-handoff/pages/*.md`, with board screenshots in `design-handoff/boards/` |
 | Board and screen generators (source) | `design-handoff/sources/` (see §8) |
@@ -99,21 +99,25 @@ Use only these.
   - Limits: 100k requests/day; above that, requests fail with error 1027, with no charge.
   - Cloudflare Images free tier: 5,000 transformations a month; above that, new transforms fail, with no charge.
 - **Scripts:**
-  - `npm run build:cf`: build the Worker. Keep the compressed size under 3 MiB on the free plan.
+  - `npm run build:cf`: runs `opennextjs-cloudflare build` then `node scripts/patch-cf-email.mjs` (post-build patch required to resolve the `cloudflare:email` virtual module at runtime). Keep the compressed size under 3 MiB on the free plan.
   - `npm run preview:cf`: local preview.
-  - Deploy previews to `*.workers.dev` only, until Noura approves connecting the domain.
+  - Previews go to `*.workers.dev` only.
+- **Auto-deploy:** `main` branch is connected to the `nourawafikstudio` Worker via Cloudflare Workers Builds. Every push to `main` triggers a build and deploy automatically. Build command: `npx opennextjs-cloudflare build && node scripts/patch-cf-email.mjs`. Deploy command: `npx wrangler deploy`.
+- **Vercel:** disconnected as of 2026-10-29. Cloudflare Workers is the only host.
 - **Secrets and variables (names only, values never in the repo):**
-  - `TURNSTILE_SECRET_KEY`: Worker secret.
-  - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`: public.
-  - `NEXT_PUBLIC_ASK_NOURA`: `false` for launch.
+  - `TURNSTILE_SECRET_KEY`: Worker secret. Set with `npx wrangler secret put TURNSTILE_SECRET_KEY` — never in repo, never in chat.
+  - `NEXT_PUBLIC_TURNSTILE_SITE_KEY`: build variable in Workers Builds dashboard.
+  - `NEXT_PUBLIC_ASK_NOURA`: `false`.
 - **Email:**
-  - MX records are `route1/2/3.mx.cloudflare.net` (Cloudflare Email Routing).
-  - The quote form sends with the `QUOTE_EMAIL` binding to the verified destination, from `website@nourawafik.com`, with Reply-To set to the visitor.
-- **Launch checklist** (Noura approves each step):
-  1. Final preview checked on Vodafone wifi and on mobile data, in light and dark, AR and EN.
-  2. Connect `nourawafik.com` to the Worker.
-  3. Check HTTPS, `/ar`, the sitemap and the quote form on the live domain.
-  4. Update the CV, LinkedIn and Behance links afterwards (Noura).
+  - MX records are `route1/2/3.mx.cloudflare.net` (Cloudflare Email Routing). Never touch these.
+  - The quote form sends via the `QUOTE_EMAIL` binding to `noura.wafik.nada@gmail.com`, from `website@nourawafik.com`, Reply-To set to the visitor's email.
+  - Email is built as a hand-crafted RFC 5322 MIME string (base64 body, RFC 2047 encoded subject). `mimetext` is not used.
+- **patch-cf-email.mjs:** `scripts/patch-cf-email.mjs` is a required post-build step. opennextjs-cloudflare's esbuild compiles dynamic `import('cloudflare:email')` to `require()`, which the Workers runtime rejects for virtual modules. The script rewrites the compiled `handler.mjs` to use a static ESM import instead. If the build passes but emails fail at runtime with a module error, check this script first.
+- **Launch checklist** (completed 2026-10-29):
+  1. ✅ Final preview checked on Vodafone wifi and on mobile data, in light and dark, AR and EN.
+  2. ✅ `nourawafik.com` connected to the Worker.
+  3. ✅ HTTPS, `/ar`, sitemap and quote form (EN and AR) verified on live domain.
+  4. Update the CV, LinkedIn and Behance links (Noura).
 
 ## 7. How work flows
 
@@ -133,6 +137,7 @@ Use only these.
 | `work-library.md`, `work-library-2.md` | `/work`, search and filters, "What I do", AR pages, contact |
 | `fix-review-2.md`, `fix-marquee-rtl.md` | Language switch, "What I do" layout, motion, Ask Noura flag, AR marquee |
 | `fix-launch.md`, `fix-launch-2.md` | Simple Arabic, quote form, social links, final review fixes |
+| `fix-postlaunch.md` | Post-launch fixes: Turnstile widget mounting, `cloudflare:email` virtual module patch, RFC 5322 MIME email, honeypot autofill bypass, favicon/OG, light default theme, Vercel disconnect, Workers Builds auto-deploy |
 
 ## 8. Design sources: regenerating boards and screens
 
