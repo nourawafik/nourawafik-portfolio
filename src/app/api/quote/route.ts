@@ -1,4 +1,5 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
+import { createMimeMessage } from 'mimetext/browser';
 import { NextRequest, NextResponse } from 'next/server';
 
 interface QuotePayload {
@@ -79,23 +80,32 @@ export async function POST(req: NextRequest) {
   }
 
   // Send email via Cloudflare send_email binding
-  const sender = env['QUOTE_EMAIL'] as { send: (msg: {
-    from: string;
-    to: string;
-    'reply-to'?: string;
-    subject: string;
-    text: string;
-  }) => Promise<void> } | undefined;
+  const sender = env['QUOTE_EMAIL'] as { send: (msg: unknown) => Promise<void> } | undefined;
 
   if (sender) {
-    const body = buildEmailBody(data);
-    await sender.send({
-      from: 'website@nourawafik.com',
-      to: 'hello@nourawafik.com',
-      'reply-to': data.email,
-      subject: `Quote request from ${data.name}`,
-      text: body,
-    });
+    try {
+      const body = buildEmailBody(data);
+      const from = 'website@nourawafik.com';
+      const to   = 'noura.wafik.nada@gmail.com';
+
+      const mime = createMimeMessage();
+      mime.setSender(from);
+      mime.setRecipient(to);
+      mime.setHeader('Reply-To', data.email);
+      mime.setSubject(`Quote request from ${data.name}`);
+      mime.addMessage({ contentType: 'text/plain; charset=utf-8', data: body });
+
+      // cloudflare:email is a Workers-only virtual module; variable import prevents
+      // esbuild from trying to resolve it at bundle time
+      const cfEmailMod = `cloudflare:email`;
+      const { EmailMessage } = await import(cfEmailMod) as { EmailMessage: new (f: string, t: string, r: string) => unknown };
+      const message = new EmailMessage(from, to, mime.asRaw());
+      await sender.send(message);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error('QUOTE_EMAIL.send failed:', msg);
+      return NextResponse.json({ error: 'email_send_failed' }, { status: 500 });
+    }
   }
 
   return NextResponse.json({ ok: true });

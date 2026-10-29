@@ -1,9 +1,8 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback, useId } from 'react';
+import { useState, useEffect, useRef, useId } from 'react';
 import { useSearchParams } from 'next/navigation';
 import NextLink from 'next/link';
-import Image from 'next/image';
 import Script from 'next/script';
 import { CopyEmailButton } from '@/components/ui/copy-email-button';
 
@@ -194,9 +193,12 @@ export function QuoteForm({ locale }: QuoteFormProps) {
   const ar = locale === 'ar';
   const searchParams = useSearchParams();
 
-  const headingRef   = useRef<HTMLHeadingElement>(null);
-  const successRef   = useRef<HTMLHeadingElement>(null);
-  const firstErrRef  = useRef<HTMLElement | null>(null);
+  const headingRef      = useRef<HTMLHeadingElement>(null);
+  const successRef      = useRef<HTMLHeadingElement>(null);
+  const firstErrRef     = useRef<HTMLElement | null>(null);
+  const turnstileRef    = useRef<HTMLDivElement>(null);
+  const widgetIdRef     = useRef<string | null>(null);
+  const scriptReadyRef  = useRef(false);
 
   const nameId     = useId();
   const emailId    = useId();
@@ -223,6 +225,7 @@ export function QuoteForm({ locale }: QuoteFormProps) {
   const [submitted,      setSubmitted]      = useState(false);
   const [sendError,      setSendError]      = useState(false);
   const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileReady, setTurnstileReady] = useState(false);
 
   /* ── URL pre-fill ── */
   useEffect(() => {
@@ -294,6 +297,13 @@ export function QuoteForm({ locale }: QuoteFormProps) {
       setSubmitted(true);
     } catch {
       setSendError(true);
+      // Reset widget so the visitor can try again
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const ts = (window as any).turnstile;
+      if (ts?.reset && widgetIdRef.current !== null) {
+        ts.reset(widgetIdRef.current);
+        setTurnstileToken('');
+      }
     } finally {
       setSubmitting(false);
     }
@@ -304,14 +314,35 @@ export function QuoteForm({ locale }: QuoteFormProps) {
     if (submitted) successRef.current?.focus();
   }, [submitted]);
 
-  /* Capture Turnstile token */
+  /* Explicit Turnstile rendering */
+  const mountWidget = () => {
+    if (!turnstileRef.current || widgetIdRef.current !== null) return;
+    const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const ts = (window as any).turnstile;
+    if (!ts?.render) return;
+    widgetIdRef.current = ts.render(turnstileRef.current, {
+      sitekey,
+      language: locale,
+      callback: (token: string) => setTurnstileToken(token),
+      'expired-callback': () => setTurnstileToken(''),
+      'error-callback': () => setTurnstileToken(''),
+    });
+    setTurnstileReady(true);
+  };
+
   useEffect(() => {
-    const handler = (e: Event) => {
-      const token = (e as CustomEvent<string>).detail;
-      setTurnstileToken(token);
+    // If the script already loaded before this effect ran, mount immediately
+    if (scriptReadyRef.current) mountWidget();
+    return () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const ts = (window as any).turnstile;
+      if (ts?.remove && widgetIdRef.current !== null) {
+        ts.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
     };
-    document.addEventListener('turnstile:success', handler);
-    return () => document.removeEventListener('turnstile:success', handler);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /* ── Error color CSS var ── */
@@ -679,24 +710,21 @@ export function QuoteForm({ locale }: QuoteFormProps) {
             )}
           </div>
 
-          {/* Turnstile */}
+          {/* Turnstile — explicit rendering */}
           <Script
-            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
             strategy="afterInteractive"
-            async
-            defer
+            onLoad={() => {
+              scriptReadyRef.current = true;
+              mountWidget();
+            }}
           />
-          <Script id="turnstile-cb" strategy="afterInteractive">{`
-            window.onTurnstileSuccess = function(token) {
-              document.dispatchEvent(new CustomEvent('turnstile:success', { detail: token }));
-            };
-          `}</Script>
-          <div
-            className="cf-turnstile"
-            data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
-            data-language={locale}
-            data-callback="onTurnstileSuccess"
-          />
+          <div ref={turnstileRef} />
+          {!turnstileReady && (
+            <p className="text-[0.8125rem] text-foreground-muted" aria-live="polite">
+              {ar ? 'جار التحقق…' : 'Checking you\'re human…'}
+            </p>
+          )}
 
           {/* Submit */}
           <div className="flex flex-col gap-3 mt-2">
