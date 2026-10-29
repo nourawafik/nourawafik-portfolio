@@ -1,5 +1,4 @@
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { createMimeMessage } from 'mimetext/browser';
 import { NextRequest, NextResponse } from 'next/server';
 
 interface QuotePayload {
@@ -15,6 +14,12 @@ interface QuotePayload {
   locale: 'en' | 'ar';
   turnstileToken?: string;
   website?: string; // honeypot
+}
+
+function encodeSubject(subject: string): string {
+  const bytes = new TextEncoder().encode(subject);
+  const b64 = btoa(String.fromCharCode(...bytes));
+  return `=?UTF-8?B?${b64}?=`;
 }
 
 function buildEmailBody(data: QuotePayload): string {
@@ -87,18 +92,25 @@ export async function POST(req: NextRequest) {
       const body = buildEmailBody(data);
       const from = 'website@nourawafik.com';
       const to   = 'noura.wafik.nada@gmail.com';
+      const subject = `Quote request from ${data.name}`;
 
-      const mime = createMimeMessage();
-      mime.setSender(from);
-      mime.setRecipient(to);
-      mime.setSubject(`Quote request from ${data.name}`);
-      mime.addMessage({ contentType: 'text/plain; charset=utf-8', data: body });
+      const encoded = encodeSubject(subject);
+      const raw = [
+        `From: ${from}`,
+        `To: ${to}`,
+        `Subject: ${encoded}`,
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: 7bit',
+        '',
+        body,
+      ].join('\r\n');
 
       // cloudflare:email is a Workers-only virtual module; variable import prevents
       // esbuild from trying to resolve it at bundle time
       const cfEmailMod = `cloudflare:email`;
       const { EmailMessage } = await import(cfEmailMod) as { EmailMessage: new (f: string, t: string, r: string) => unknown };
-      const message = new EmailMessage(from, to, mime.asRaw());
+      const message = new EmailMessage(from, to, raw);
       await sender.send(message);
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
