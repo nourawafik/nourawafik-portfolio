@@ -55,33 +55,27 @@ export async function POST(req: NextRequest) {
   const env = ctx.env as Record<string, unknown>;
   const secret = env['TURNSTILE_SECRET_KEY'] as string | undefined;
 
-  // Bypass Turnstile only on workers.dev preview; fail closed everywhere else.
-  const host = req.headers.get('host') ?? '';
-  const isPreview = host.endsWith('.workers.dev');
-
-  if (!isPreview) {
-    if (!secret) {
-      return NextResponse.json({ error: 'misconfigured' }, { status: 500 });
-    }
-    if (!data.turnstileToken) {
-      return NextResponse.json({ error: 'turnstile_required' }, { status: 403 });
-    }
-    const verifyRes = await fetch(
-      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          secret,
-          response: data.turnstileToken,
-          remoteip: req.headers.get('cf-connecting-ip') ?? '',
-        }),
-      },
-    );
-    const result = await verifyRes.json() as { success: boolean };
-    if (!result.success) {
-      return NextResponse.json({ error: 'turnstile_failed' }, { status: 403 });
-    }
+  if (!secret) {
+    return NextResponse.json({ error: 'misconfigured' }, { status: 500 });
+  }
+  if (!data.turnstileToken) {
+    return NextResponse.json({ error: 'turnstile_required' }, { status: 403 });
+  }
+  const verifyRes = await fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret,
+        response: data.turnstileToken,
+        remoteip: req.headers.get('cf-connecting-ip') ?? '',
+      }),
+    },
+  );
+  const result = await verifyRes.json() as { success: boolean };
+  if (!result.success) {
+    return NextResponse.json({ error: 'turnstile_failed' }, { status: 403 });
   }
 
   // Send email via Cloudflare send_email binding

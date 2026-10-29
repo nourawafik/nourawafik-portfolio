@@ -6,7 +6,7 @@ import { NextProjectCard } from '@/components/ui/next-project-card';
 import { ArrowIcon } from '@/components/ui/arrow-icon';
 
 export const metadata: Metadata = {
-  title: 'Ulfa: bilingual mental health app UX, case study, Noura Wafik',
+  title: 'Ulfa: bilingual mental health app UX case study',
   description:
     'Arabic and English mobile app design for small-group mental health sessions: participant app, live video sessions, facilitator studio and a themeable design system.',
   alternates: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Ulfa: bilingual mental health app UX, case study, Noura Wafik',
+    title: 'Ulfa: bilingual mental health app UX case study',
     description:
       'Arabic and English mobile app design for small-group mental health sessions: participant app, live video sessions, facilitator studio and a themeable design system.',
     type: 'article',
@@ -41,7 +41,7 @@ const PRINCIPLES = [
   {
     n: '3',
     titleEn: 'Consent before you join',
-    textEn: 'Rules and privacy are read before the session, not inside it.',
+    textEn: 'Rules and privacy policy are read before the session, not during it.',
   },
 ];
 
@@ -68,7 +68,7 @@ const STUDIES = [
     thumb: '/work/ulfa/ulfa-thumb-studio.png',
     thumbDark: '/work/ulfa/ulfa-thumb-studio-dark.png',
     titleEn: 'Facilitator studio',
-    lineEn: 'Calendar, workshop, wallet and payouts.',
+    lineEn: 'Calendar, session management, wallet and payouts.',
   },
   {
     n: '04',
@@ -176,9 +176,9 @@ export default function UlfaHubPage() {
             The challenge
           </h2>
           <p className="text-[1rem] leading-[1.75] text-foreground-muted">
-            One product, two audiences: participants who need to feel safe from the first screen,
-            and facilitators who need to run their schedule and earnings without friction. All of it
-            in two languages, on a subject as sensitive as mental health.
+            One product, two audiences: a participant who needs to feel safe from the first screen,
+            and a facilitator who needs to run their schedule, sessions and earnings without friction.
+            All of this in two languages, on a subject as sensitive as mental health.
           </p>
         </div>
       </Container>
@@ -206,7 +206,7 @@ export default function UlfaHubPage() {
             Four studies
           </h2>
           <p className="text-[0.9375rem] text-foreground-muted">
-            Each study focuses on one part of the platform.
+            Each study focuses on one part of the app.
           </p>
         </div>
 
