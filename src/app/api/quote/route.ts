@@ -22,6 +22,10 @@ function encodeSubject(subject: string): string {
   return `=?UTF-8?B?${b64}?=`;
 }
 
+function foldBase64(b64: string): string {
+  return b64.match(/.{1,76}/g)?.join('\r\n') ?? b64;
+}
+
 function buildEmailBody(data: QuotePayload): string {
   const lines = [
     `Name: ${data.name}`,
@@ -90,27 +94,40 @@ export async function POST(req: NextRequest) {
   if (sender) {
     try {
       const body = buildEmailBody(data);
-      const from = 'website@nourawafik.com';
+      const from = '"Noura Wafik website" <website@nourawafik.com>';
+      const fromAddr = 'website@nourawafik.com';
       const to   = 'noura.wafik.nada@gmail.com';
       const subject = `Quote request from ${data.name}`;
 
-      const encoded = encodeSubject(subject);
+      const encodedSubject = encodeSubject(subject);
+      // Body may contain Arabic; base64-encode the UTF-8 bytes and fold at 76 chars
+      const bodyB64 = foldBase64(btoa(unescape(encodeURIComponent(body))));
+      const messageId = `<${crypto.randomUUID()}@nourawafik.com>`;
+      const date = new Date().toUTCString();
+
       const raw = [
+        `Date: ${date}`,
         `From: ${from}`,
         `To: ${to}`,
-        `Subject: ${encoded}`,
+        `Reply-To: <${data.email}>`,
+        `Message-ID: ${messageId}`,
+        `Subject: ${encodedSubject}`,
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
-        'Content-Transfer-Encoding: 7bit',
+        'Content-Transfer-Encoding: base64',
         '',
-        body,
+        bodyB64,
       ].join('\r\n');
 
-      // cloudflare:email is a Workers-only virtual module; variable import prevents
-      // esbuild from trying to resolve it at bundle time
-      const cfEmailMod = `cloudflare:email`;
-      const { EmailMessage } = await import(cfEmailMod) as { EmailMessage: new (f: string, t: string, r: string) => unknown };
-      const message = new EmailMessage(from, to, raw);
+      console.log('QUOTE_EMAIL: step=import');
+      // Dynamic import via variable so esbuild won't fail at build time.
+      // scripts/patch-cf-email.mjs rewrites this to a static ESM import in
+      // the compiled handler.mjs so the Workers runtime can resolve it natively.
+      const cfMod = `cloudflare:email`;
+      const { EmailMessage } = await import(cfMod) as { EmailMessage: new (f: string, t: string, r: string) => unknown };
+      console.log('QUOTE_EMAIL: step=constructor');
+      const message = new EmailMessage(fromAddr, to, raw);
+      console.log('QUOTE_EMAIL: step=send');
       await sender.send(message);
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);

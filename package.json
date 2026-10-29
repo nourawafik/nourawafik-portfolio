@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:cf": "opennextjs-cloudflare build",
+    "build:cf": "opennextjs-cloudflare build && node scripts/patch-cf-email.mjs",
     "preview:cf": "opennextjs-cloudflare preview",
     "start": "next start",
     "lint": "eslint src/"
