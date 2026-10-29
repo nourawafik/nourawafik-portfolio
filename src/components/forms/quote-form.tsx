@@ -282,7 +282,7 @@ export function QuoteForm({ locale }: QuoteFormProps) {
       return;
     }
 
-    if (honeypot) return;
+    // Honeypot check is server-side only; don't silently block on client
 
     setSubmitting(true);
     setSendError(false);
@@ -291,7 +291,7 @@ export function QuoteForm({ locale }: QuoteFormProps) {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, services, company, language, start, budget, notes, locale, turnstileToken }),
+        body: JSON.stringify({ name, email, phone, services, company, language, start, budget, notes, locale, turnstileToken, website: honeypot }),
       });
       if (!res.ok) throw new Error('send failed');
       setSubmitted(true);
@@ -471,16 +471,17 @@ export function QuoteForm({ locale }: QuoteFormProps) {
       )}
 
         <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
-          {/* Honeypot */}
+          {/* Honeypot – unguessable name so autofill ignores it */}
           <input
             type="text"
-            name="website"
+            name="nw_url_field"
+            id="nw_url_field"
             value={honeypot}
             onChange={e => setHoneypot(e.target.value)}
-            autoComplete="off"
-            aria-hidden
+            autoComplete="new-password"
+            aria-hidden="true"
             tabIndex={-1}
-            className="sr-only"
+            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
           />
 
           {/* Name */}
