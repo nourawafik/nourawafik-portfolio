@@ -332,8 +332,14 @@ export function QuoteForm({ locale }: QuoteFormProps) {
   };
 
   useEffect(() => {
-    // If the script already loaded before this effect ran, mount immediately
-    if (scriptReadyRef.current) mountWidget();
+    // Script may already be loaded (Next.js deduplicates <Script> on client nav)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if ((window as any).turnstile?.render) {
+      scriptReadyRef.current = true;
+      mountWidget();
+    } else if (scriptReadyRef.current) {
+      mountWidget();
+    }
     return () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const ts = (window as any).turnstile;

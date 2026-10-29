@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
       const mime = createMimeMessage();
       mime.setSender(from);
       mime.setRecipient(to);
-      mime.setHeader('Reply-To', data.email);
+      mime.setHeader('Reply-To', `<${data.email}>`);
       mime.setSubject(`Quote request from ${data.name}`);
       mime.addMessage({ contentType: 'text/plain; charset=utf-8', data: body });
 
