@@ -31,7 +31,7 @@ const PRINCIPLES = [
   {
     n: '1',
     titleEn: 'Calm and readable',
-    textEn: 'Quiet colors, with contrast above AA in light and dark.',
+    textEn: 'Calm colors, with contrast beyond AA in light and dark modes.',
   },
   {
     n: '2',

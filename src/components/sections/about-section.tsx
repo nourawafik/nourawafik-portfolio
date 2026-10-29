@@ -7,7 +7,7 @@ const COPY = {
   en: {
     eyebrow: 'About',
     h2Line1: 'Hi, I\'m Noura',
-    body: `A product and brand designer based in Cairo, with ${n}+ years of experience. I work end to end, from research and brand identity to developer-ready screens. I also know code and marketing, so the design can be built and reaches the right audience.`,
+    body: `I bring together design thinking, technical knowledge and an understanding of marketing to develop brand identities and digital experiences end to end — from research and defining what's needed to screens that are ready to build. Every design is buildable, grounded in the project's goals and shaped for its audience.`,
     traits: [
       {
         title: 'Arabic and English',
@@ -15,11 +15,11 @@ const COPY = {
       },
       {
         title: '50+ clinics',
-        desc: 'use Praxa, a platform I helped design, in the US',
+        desc: 'Use Praxa, a platform I helped design, in the US.',
       },
       {
         title: `${n}+ years`,
-        desc: 'designing digital products and brand identities for markets in Egypt, the Gulf and the US',
+        desc: 'Designing digital products and brand identities for markets in Egypt, the Gulf and the US.',
       },
     ],
   },

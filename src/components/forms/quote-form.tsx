@@ -481,7 +481,7 @@ export function QuoteForm({ locale }: QuoteFormProps) {
             autoComplete="new-password"
             aria-hidden="true"
             tabIndex={-1}
-            style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+            style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clipPath: 'inset(50%)', whiteSpace: 'nowrap', border: 0 }}
           />
 
           {/* Name */}

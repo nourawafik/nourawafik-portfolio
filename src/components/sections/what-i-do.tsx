@@ -40,7 +40,7 @@ function buildCards(locale: 'en' | 'ar'): Card[] {
     {
       titleEn: 'Design systems',
       titleAr: 'أنظمة تصميم',
-      lineEn:  'Components and tokens that keep a product consistent as it grows.',
+      lineEn:  'Components and clear rules that keep a product consistent as it scales.',
       lineAr:  'مكونات وقواعد ثابتة تحافظ على شكل المنتج، وقابلة للتوسع.',
       illustration: '/mascot/noon-ds.svg',
       href: ar ? '/ar/work?feature=ds' : '/work?feature=ds',

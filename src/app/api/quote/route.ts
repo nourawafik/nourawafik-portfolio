@@ -105,11 +105,13 @@ export async function POST(req: NextRequest) {
       const messageId = `<${crypto.randomUUID()}@nourawafik.com>`;
       const date = new Date().toUTCString();
 
+      const replyToEmail = /^[^\s@<>,"]+@[^\s@<>,"]+\.[^\s@<>,"]+$/.test(data.email.trim()) ? data.email.trim() : null;
+
       const raw = [
         `Date: ${date}`,
         `From: ${from}`,
         `To: ${to}`,
-        `Reply-To: <${data.email}>`,
+        ...(replyToEmail ? [`Reply-To: <${replyToEmail}>`] : []),
         `Message-ID: ${messageId}`,
         `Subject: ${encodedSubject}`,
         'MIME-Version: 1.0',

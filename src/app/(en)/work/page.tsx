@@ -4,7 +4,7 @@ import { WorkLibrary } from '@/components/sections/work-library';
 import { ContactSection } from '@/components/sections/contact-section';
 
 export const metadata: Metadata = {
-  title: 'Work — Noura Wafik, product and brand designer',
+  title: 'Work',
   description:
     'Mobile apps, web platforms and design systems in Arabic and English, for health, HR tech and more.',
   alternates: {

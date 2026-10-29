@@ -46,7 +46,7 @@ export const work: WorkItem[] = [
     slug: 'ulfa',
     title:   { en: 'Ulfa',  ar: 'ألفة' },
     summary: {
-      en: 'A bilingual mobile app that brings people together with mental health facilitators, in small circles and structured sessions.',
+      en: 'An Arabic and English mobile app that brings people together with mental health facilitators, in small circles and structured sessions.',
       ar: 'تطبيق جوال بالعربي والإنجليزي، يجمع الناس مع ميسرين متخصصين في الصحة النفسية، في دوائر صغيرة وجلسات منظمة.',
     },
     thumbAlt:  'Ulfa app — Explore screen showing session circles in Arabic',
@@ -64,7 +64,7 @@ export const work: WorkItem[] = [
     slug: 'praxa',
     title:   { en: 'Praxa', ar: 'Praxa' },
     summary: {
-      en: 'A clinic platform for four roles — admin, provider, patient and staff — with AI the provider reviews and approves before it reaches the chart.',
+      en: 'A clinic platform for four roles (admin, provider, patient and staff), with AI the provider reviews and approves before it reaches the patient\'s record.',
       ar: 'منصة عيادات لأربعة أدوار: الإدارة والمعالج والمريض والموظفون، مع ذكاء اصطناعي يراجعه المعالج ويوافق عليه قبل أن يدخل ملف المريض.',
     },
     thumbAlt:  'Praxa provider dashboard with an AI diagnosis draft',

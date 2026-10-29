@@ -52,3 +52,7 @@ design-handoff/photos/
 # cloudflare worker build output
 .open-next/
 .wrangler/
+
+# review snapshots — delete them locally, do not commit
+.review-snapshot.tgz
+.review-sources.tgz
