@@ -103,6 +103,7 @@ Use only these.
   - `npm run preview:cf`: local preview.
   - Previews go to `*.workers.dev` only.
 - **Auto-deploy:** `main` branch is connected to the `nourawafikstudio` Worker via Cloudflare Workers Builds. Every push to `main` triggers a build and deploy automatically. Build command: `npx opennextjs-cloudflare build && node scripts/patch-cf-email.mjs`. Deploy command: `npx wrangler deploy`.
+- **www → apex redirect:** handled in `src/middleware.ts`, not `next.config.ts`. The `next.config.ts` `has`-host redirect left a literal `:path*` in the `Location` header on the root URL (OpenNext does not substitute the empty catch-all parameter). Middleware checks `req.headers.get('host')` and redirects to the apex URL. Returns **308** (permanent); old-slug redirects (`/work/dayratna` etc.) stay in `next.config.ts` and are unaffected. **Note:** browsers that hit the broken 301 before this fix may have it cached — test in a private window if the root redirect looks wrong.
 - **Vercel:** disconnected as of 2026-10-29. Cloudflare Workers is the only host.
 - **Secrets and variables (names only, values never in the repo):**
   - `TURNSTILE_SECRET_KEY`: Worker secret. Set with `npx wrangler secret put TURNSTILE_SECRET_KEY` — never in repo, never in chat.
