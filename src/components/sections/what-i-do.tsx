@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 const COPY = {
   en: {
     eyebrow: 'What I do',
-    h2: 'From digital product to brand identity',
+    h2: 'From digital products to brand identity',
     line: 'Everything in Arabic and English from the start. Every project gets a quote that fits what it needs.',
     cta: 'Get a quote',
   },

@@ -41,7 +41,7 @@ const PRINCIPLES = [
   {
     n: '3',
     titleEn: 'Consent before you join',
-    textEn: 'Rules and privacy policy are read before the session, not during it.',
+    textEn: 'Rules and privacy are read before the session, not during it.',
   },
 ];
 
