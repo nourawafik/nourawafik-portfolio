@@ -32,6 +32,8 @@ Owner: Noura Wafik (نورا, never نورة) · hello@nourawafik.com
 
 ## 3. Rules that never change
 
+- **Copy source:** all site copy comes from `design-handoff/pages/copy-final.md`, word for word. Never reword or translate it yourself. After any copy change, fetch the live HTML and confirm every new string appears exactly — not just that the old string is gone.
+
 - **Facts:** don't invent copy, prices, client names, testimonials, numbers or years. Every claim must be verified with Noura; leave out anything uncertain.
 - **Project years:** never publish a project year or timeline.
 - **Got-AI:** never mention it. The project is called Duet.
